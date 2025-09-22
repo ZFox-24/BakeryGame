@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2cb3pdiossfq"]
+
+[ext_resource type="Material" uid="uid://4uw24kt55sun" path="res://materials/window.tres" id="1_pkrj7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vscrq"]
+albedo_color = Color(0.39554405, 0.4089954, 0.352437, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pkrj7"]
+material = SubResource("StandardMaterial3D_vscrq")
+size = Vector3(7, 3, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aj1bw"]
+material = ExtResource("1_pkrj7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aj1bw"]
+albedo_color = Color(0.24488223, 0.011184823, 0.11062091, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_aovsh"]
+material = SubResource("StandardMaterial3D_aj1bw")
+
+[node name="BakeryBuilding" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pkrj7")
+
+[node name="door" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 0.8, 3.519197, -0.49013874, 0)
+mesh = SubResource("PlaneMesh_aj1bw")
+
+[node name="window" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.8872318e-08, 1, 0, -0.6605216, -4.371139e-08, 0, 0, 0, 0.42176625, 3.519197, 0.17100897, 1.6283821)
+mesh = SubResource("PlaneMesh_aj1bw")
+
+[node name="window2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.8872318e-08, 1, 0, -0.6605216, -4.371139e-08, 0, 0, 0, 0.42176625, 3.519197, 0.17100897, -1.6773559)
+mesh = SubResource("PlaneMesh_aj1bw")
+
+[node name="window3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.8872318e-08, -1, -3.6871977e-08, -0.6605216, -4.371139e-08, 0, -2.524098e-15, 8.742277e-08, -0.42176622, -3.5267627, 0.17100897, -1.6773559)
+mesh = SubResource("PlaneMesh_aj1bw")
+
+[node name="window4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.8872318e-08, -1, -3.6871977e-08, -0.6605216, -4.371139e-08, 0, -2.524098e-15, 8.742277e-08, -0.42176622, -3.5267622, 0.17100897, 1.6283821)
+mesh = SubResource("PlaneMesh_aj1bw")
+
+[node name="wins1" type="Node3D" parent="."]
+
+[node name="window3" type="MeshInstance3D" parent="wins1"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, 2.635077, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="window4" type="MeshInstance3D" parent="wins1"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, -0.020060062, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="window5" type="MeshInstance3D" parent="wins1"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, -2.4611688, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="wins2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.01589346)
+
+[node name="window3" type="MeshInstance3D" parent="wins2"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, 2.635077, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="window4" type="MeshInstance3D" parent="wins2"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, -0.020060062, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="window5" type="MeshInstance3D" parent="wins2"]
+transform = Transform3D(1.2620491e-15, -4.371139e-08, 0.42176625, -0.6605216, -4.371139e-08, 0, 2.8872316e-08, -0.99999994, -1.8435987e-08, -2.4611688, 0.19166413, -2.5033689)
+mesh = SubResource("PlaneMesh_aj1bw")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.2001436e-07, 0, 6.999998, 0, 1, 0, 5.033342, 0, -3.0597965e-07, 0, 2, 0)
+mesh = SubResource("PrismMesh_aovsh")

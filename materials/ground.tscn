@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b032niy2ngqfh"]
+
+[ext_resource type="PackedScene" uid="uid://d2cb3pdiossfq" path="res://scenes/bakery_building.tscn" id="1_0o4cl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
+albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0o4cl"]
+material = SubResource("StandardMaterial3D_usrg0")
+size = Vector2(25, 25)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7766f"]
+ground_bottom_color = Color(0.17605734, 0.5695841, 0.41137576, 1)
+ground_horizon_color = Color(0.21287933, 0.5656732, 0.58038956, 1)
+
+[sub_resource type="Sky" id="Sky_utnsy"]
+sky_material = SubResource("ProceduralSkyMaterial_7766f")
+
+[sub_resource type="Environment" id="Environment_6ttmh"]
+background_mode = 2
+sky = SubResource("Sky_utnsy")
+ambient_light_source = 3
+reflected_light_source = 2
+fog_enabled = true
+fog_light_color = Color(0.65701157, 0.7621777, 0.88073075, 1)
+fog_light_energy = 0.33
+fog_sun_scatter = 0.41
+fog_density = 0.1047
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0o4cl")
+
+[node name="BakeryBuilding" parent="." instance=ExtResource("1_0o4cl")]
+transform = Transform3D(0.96701485, 0, 0.2547201, 0, 1, 0, -0.2547201, 0, 0.96701485, -5.705533, 1.5, 4.807908)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6ttmh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.13498925, 12.897954, 2.6124315, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.52493626, -0.7448619, 0.41185233, -0.40413767, 0.64398336, 0.64958304, -0.7490759, 0.1745448, -0.63907695, 43.102997, 8.98167, -43.43419)
+light_color = Color(0.97519356, 0.9625539, 0.6581991, 1)
+shadow_enabled = true
