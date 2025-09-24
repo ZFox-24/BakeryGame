@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dagmdnqnlnr73"]
+
+[ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
+size = Vector2(5, 7)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_djn2f"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1)
+mesh = SubResource("PlaneMesh_ya3af")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.524217, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, -1, 0, -2.493281)
+mesh = SubResource("PlaneMesh_djn2f")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.524217, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1, 0, 4.506719)
+mesh = SubResource("PlaneMesh_djn2f")
+
+[node name="wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.5497648e-07, 1, -4.3711385e-08, 0, -4.3711385e-08, -1, -3.545448, -4.371139e-08, 1.9106855e-15, -3.5, 0, 0.90539265)
+mesh = SubResource("PlaneMesh_djn2f")
+
+[node name="wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.5497648e-07, 1, -4.3711385e-08, 0, -4.3711385e-08, -1, -3.545448, -4.371139e-08, 1.9106855e-15, 1.5, 0, 0.90539265)
+mesh = SubResource("PlaneMesh_djn2f")
+
+[node name="ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.7742375e-15, -3.5527137e-15, 2.685147, -1.5497648e-07, 1, 9.539559e-15, -3.545448, -4.371139e-08, 5.1304714e-15, -0.9, 1, 1.0053927)
+mesh = SubResource("PlaneMesh_djn2f")
+
+[node name="Light" parent="." instance=ExtResource("1_djn2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, 2.8722205)
+
+[node name="_Light2" parent="." instance=ExtResource("1_djn2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, -0.92255163)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.13498925, 0.26469707, -0.3600645, 0.85710716)

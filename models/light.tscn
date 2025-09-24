@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv84ssob33i55"]
+
+[ext_resource type="Material" uid="uid://dj3xu5c17uhk3" path="res://materials/windows_glow.tres" id="1_3hyp2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g7sry"]
+material = ExtResource("1_3hyp2")
+
+[node name="Light" type="Node3D"]
+
+[node name="light" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34540874, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g7sry")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light"]
+light_color = Color(0.98896474, 0.9463404, 0.82337034, 1)

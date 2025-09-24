@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=8 format=3 uid="uid://b032niy2ngqfh"]
 
-[ext_resource type="PackedScene" uid="uid://d2cb3pdiossfq" path="res://scenes/bakery_building.tscn" id="1_0o4cl"]
+[ext_resource type="PackedScene" uid="uid://u7iphdn6qtff" path="res://models/buildings/bakery_building.glb" id="1_7766f"]
+[ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="2_utnsy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -20,6 +21,7 @@ sky_material = SubResource("ProceduralSkyMaterial_7766f")
 background_mode = 2
 sky = SubResource("Sky_utnsy")
 ambient_light_source = 3
+ambient_light_color = Color(0.27279034, 0.63891447, 0.6799078, 1)
 reflected_light_source = 2
 fog_enabled = true
 fog_light_color = Color(0.65701157, 0.7621777, 0.88073075, 1)
@@ -30,10 +32,8 @@ fog_density = 0.1047
 [node name="Node3D" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.2925332, 0, 0, 0, 1, 0, 0, 0, 2.214426, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0o4cl")
-
-[node name="BakeryBuilding" parent="." instance=ExtResource("1_0o4cl")]
-transform = Transform3D(0.96701485, 0, 0.2547201, 0, 1, 0, -0.2547201, 0, 0.96701485, -5.705533, 1.5, 4.807908)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6ttmh")
@@ -45,3 +45,11 @@ transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.
 transform = Transform3D(-0.52493626, -0.7448619, 0.41185233, -0.40413767, 0.64398336, 0.64958304, -0.7490759, 0.1745448, -0.63907695, 43.102997, 8.98167, -43.43419)
 light_color = Color(0.97519356, 0.9625539, 0.6581991, 1)
 shadow_enabled = true
+
+[node name="bakery_building" parent="." instance=ExtResource("1_7766f")]
+transform = Transform3D(1.448848, 0, 0.38838035, 0, 1.5, 0, -0.38838035, 0, 1.448848, -5.8955727, 1.49, 6.15524)
+
+[node name="warehouse_building" parent="." instance=ExtResource("2_utnsy")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.8638506, 1.49, 3.0485)
+
+[editable path="bakery_building"]
