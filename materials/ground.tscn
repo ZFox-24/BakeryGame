@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=10 format=3 uid="uid://b032niy2ngqfh"]
 
 [ext_resource type="PackedScene" uid="uid://u7iphdn6qtff" path="res://models/buildings/bakery_building.glb" id="1_7766f"]
 [ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="2_utnsy"]
+[ext_resource type="PackedScene" uid="uid://v63eq6ml5s68" path="res://scenes/street_lamp.tscn" id="3_utnsy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -28,6 +29,14 @@ fog_light_color = Color(0.65701157, 0.7621777, 0.88073075, 1)
 fog_light_energy = 0.33
 fog_sun_scatter = 0.41
 fog_density = 0.1047
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3941
+volumetric_fog_albedo = Color(0.8067946, 0.91215223, 0.99163944, 1)
+volumetric_fog_emission = Color(0.19811699, 0.6613999, 0.8800959, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7766f"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -39,7 +48,7 @@ mesh = SubResource("PlaneMesh_0o4cl")
 environment = SubResource("Environment_6ttmh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.13498925, 12.897954, 2.6124315, 0)
+transform = Transform3D(-0.27095324, 0, 0.96259254, 0, 1, 0, -0.96259254, 0, -0.27095324, 5.97495, 2.6124315, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.52493626, -0.7448619, 0.41185233, -0.40413767, 0.64398336, 0.64958304, -0.7490759, 0.1745448, -0.63907695, 43.102997, 8.98167, -43.43419)
@@ -51,5 +60,12 @@ transform = Transform3D(1.448848, 0, 0.38838035, 0, 1.5, 0, -0.38838035, 0, 1.44
 
 [node name="warehouse_building" parent="." instance=ExtResource("2_utnsy")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.8638506, 1.49, 3.0485)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.847583, -2.3841858e-07, 4.8058558)
+mesh = SubResource("CylinderMesh_7766f")
+
+[node name="street_lamp" parent="." instance=ExtResource("3_utnsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8328805, -3.4143655, 3.0743282)
 
 [editable path="bakery_building"]
