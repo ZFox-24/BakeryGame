@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=24 format=3 uid="uid://b032niy2ngqfh"]
 
+[ext_resource type="PackedScene" uid="uid://c3t5k8bkk5xb3" path="res://models/buildings/warehouse_building.tscn" id="1_6ttmh"]
 [ext_resource type="PackedScene" uid="uid://u7iphdn6qtff" path="res://models/buildings/bakery_building.glb" id="1_7766f"]
-[ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="2_utnsy"]
+[ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="3_utnsy"]
+[ext_resource type="BoxMesh" uid="uid://bkura3tkxegpw" path="res://materials/fence_stick.tres" id="4_6ttmh"]
+[ext_resource type="PackedScene" uid="uid://d2cb3pdiossfq" path="res://scenes/bakery_building.tscn" id="5_4kw0k"]
+[ext_resource type="PackedScene" uid="uid://4xirkwkugr7o" path="res://models/buildings/lamp_post.tscn" id="5_8sspb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -10,7 +14,16 @@ albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
 material = SubResource("StandardMaterial3D_usrg0")
 size = Vector2(25, 25)
 
+[sub_resource type="Gradient" id="Gradient_utnsy"]
+colors = PackedColorArray(0, 0, 0.05490196, 1, 1, 1, 0.9372549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ttmh"]
+gradient = SubResource("Gradient_utnsy")
+fill_from = Vector2(0.25252524, 0.43434343)
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7766f"]
+sky_top_color = Color(0.22792765, 0.45344824, 0.7301987, 1)
+sky_horizon_color = Color(0.5229628, 0.79500985, 0.97342163, 1)
 ground_bottom_color = Color(0.17605734, 0.5695841, 0.41137576, 1)
 ground_horizon_color = Color(0.21287933, 0.5656732, 0.58038956, 1)
 
@@ -23,11 +36,63 @@ sky = SubResource("Sky_utnsy")
 ambient_light_source = 3
 ambient_light_color = Color(0.27279034, 0.63891447, 0.6799078, 1)
 reflected_light_source = 2
+glow_enabled = true
+glow_intensity = 1.64
+glow_bloom = 0.15
 fog_enabled = true
-fog_light_color = Color(0.65701157, 0.7621777, 0.88073075, 1)
-fog_light_energy = 0.33
-fog_sun_scatter = 0.41
-fog_density = 0.1047
+fog_light_color = Color(0.6227759, 0.53238374, 0.44001216, 1)
+fog_light_energy = 0.66
+fog_sun_scatter = 0.96
+fog_sky_affect = 0.326
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_6ttmh")
+
+[sub_resource type="SphereMesh" id="SphereMesh_7766f"]
+material = ExtResource("3_utnsy")
+radius = 6.441
+height = 13.871
+
+[sub_resource type="SphereMesh" id="SphereMesh_utnsy"]
+material = ExtResource("3_utnsy")
+radius = 8.421
+height = 15.851
+
+[sub_resource type="SphereMesh" id="SphereMesh_6ttmh"]
+material = ExtResource("3_utnsy")
+radius = 9.411
+height = 11.891
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kw0k"]
+material = ExtResource("3_utnsy")
+radius = 4.461
+height = 7.931
+
+[sub_resource type="SphereMesh" id="SphereMesh_el2dr"]
+material = ExtResource("3_utnsy")
+radius = 4.461
+height = 7.931
+
+[sub_resource type="SphereMesh" id="SphereMesh_8sspb"]
+material = ExtResource("3_utnsy")
+radius = 7.431
+height = 9.911
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_utnsy"]
+center_offset = Vector3(0, 0.01, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ttmh"]
+albedo_color = Color(0.3721532, 0.39474586, 0.39627662, 1)
+metallic_specular = 0.02
+roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4kw0k"]
+material = SubResource("StandardMaterial3D_6ttmh")
+size = Vector2(5.815, 55.755)
+center_offset = Vector3(0, 0.001, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8sspb"]
+size = Vector2(0.185, 2)
+center_offset = Vector3(0, 0.002, 0)
 
 [node name="Node3D" type="Node3D"]
 
@@ -42,14 +107,404 @@ environment = SubResource("Environment_6ttmh")
 transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.13498925, 12.897954, 2.6124315, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.52493626, -0.7448619, 0.41185233, -0.40413767, 0.64398336, 0.64958304, -0.7490759, 0.1745448, -0.63907695, 43.102997, 8.98167, -43.43419)
-light_color = Color(0.97519356, 0.9625539, 0.6581991, 1)
+transform = Transform3D(-0.9151163, -0.40019453, 0.04905715, 0.39692983, -0.87285525, 0.28384972, -0.070775285, 0.27922776, 0.95761305, 43.102997, 8.98167, -43.43419)
+light_color = Color(0.9803265, 0.7405179, 0.18553057, 1)
+light_bake_mode = 1
 shadow_enabled = true
+
+[node name="warehouse_building" parent="." instance=ExtResource("1_6ttmh")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.864, 1.49, 3.049)
 
 [node name="bakery_building" parent="." instance=ExtResource("1_7766f")]
 transform = Transform3D(1.448848, 0, 0.38838035, 0, 1.5, 0, -0.38838035, 0, 1.448848, -5.8955727, 1.49, 6.15524)
 
-[node name="warehouse_building" parent="." instance=ExtResource("2_utnsy")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.8638506, 1.49, 3.0485)
+[node name="background" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0, 26.717503)
+mesh = SubResource("SphereMesh_7766f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 16.545885)
+mesh = SubResource("SphereMesh_utnsy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 1.8955841)
+mesh = SubResource("SphereMesh_6ttmh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -8.655327)
+mesh = SubResource("SphereMesh_4kw0k")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -25.990705)
+mesh = SubResource("SphereMesh_el2dr")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4390182, -16.190718)
+mesh = SubResource("SphereMesh_8sspb")
+
+[node name="background2" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0, 26.717503)
+mesh = SubResource("SphereMesh_7766f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 16.545885)
+mesh = SubResource("SphereMesh_utnsy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 1.8955841)
+mesh = SubResource("SphereMesh_6ttmh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -8.655327)
+mesh = SubResource("SphereMesh_4kw0k")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -25.990705)
+mesh = SubResource("SphereMesh_el2dr")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4390182, -16.190718)
+mesh = SubResource("SphereMesh_8sspb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.20634, 0, 0, 0, 1, 0, 0, 0, 6.869561, -2.5440464, 0, 2.5501592)
+mesh = SubResource("PlaneMesh_utnsy")
+
+[node name="fence" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 3.8926892, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 3.1703148, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 2.2841194, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 1.3958137, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 0.3874607, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -0.7687515, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -1.8423357, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -3.146634, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -4.428737, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -5.5502, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -6.6882405, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -7.7120724, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -9.182764, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="fence4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7940936, 0, 6.1165814)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(12.475269, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -3.5020852, 0.67932856, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(12.475269, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -3.5020852, 0.2684924, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 2.2841194, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 1.3958137, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 0.3874607, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -0.7687515, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -1.8423357, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -3.146634, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -4.428737, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -5.5502, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -6.6882405, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -7.7120724, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -8.732916, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -9.742953, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="fence2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.291529)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 3.8926892, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 3.1703148, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 2.2841194, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 1.3958137, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 0.3874607, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -0.7687515, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -1.8423357, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -3.146634, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -4.428737, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -5.5502, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -6.6882405, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -7.7120724, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -9.182764, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="fence3" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.121311, 9.536743e-07, 0.1978323)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 3.1703148, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 2.2841194, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 1.3958137, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 0.3874607, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -0.7687515, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -1.8423357, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -3.146634, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -4.428737, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -5.5502, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -6.6882405, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, -7.7120724, 0.46002436, -4.046691)
+mesh = ExtResource("4_6ttmh")
+
+[node name="road" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5764785, 0, 0)
+
+[node name="road" type="MeshInstance3D" parent="road"]
+mesh = SubResource("PlaneMesh_4kw0k")
+skeleton = NodePath("../..")
+
+[node name="marking" type="MeshInstance3D" parent="road"]
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking2" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9469807)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking3" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.667613)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking4" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.831627)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking5" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.778607)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking6" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.49924)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking7" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.82135)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking8" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.76833)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking9" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.488964)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking10" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.700775)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking11" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.7537956)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking12" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.033161)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking13" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.429712)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking14" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.482733)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="marking15" type="MeshInstance3D" parent="road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.762098)
+mesh = SubResource("PlaneMesh_8sspb")
+
+[node name="BakeryBuilding" parent="." instance=ExtResource("5_4kw0k")]
+transform = Transform3D(-0.59918135, 0, -0.114375755, 0, 0.6100001, 0, 0.114375755, 0, -0.59918135, 15.942, 0.5, -17.873)
+
+[node name="BakeryBuilding2" parent="." instance=ExtResource("5_4kw0k")]
+transform = Transform3D(-0.60997266, 0, -0.0057915375, 0, 0.61000013, 0, 0.0057915375, 0, -0.60997266, 15.561761, 0.5, -8.392087)
+
+[node name="BakeryBuilding3" parent="." instance=ExtResource("5_4kw0k")]
+transform = Transform3D(-0.59918135, 0, -0.114375755, 0, 0.6100001, 0, 0.114375755, 0, -0.59918135, 14.336686, 0.5, 1.5851679)
+
+[node name="BakeryBuilding4" parent="." instance=ExtResource("5_4kw0k")]
+transform = Transform3D(-0.609712, 0, 0.018745631, 0, 0.61000013, 0, -0.018745631, 0, -0.609712, 13.823941, 0.5, 13.904153)
+
+[node name="BakeryBuilding5" parent="." instance=ExtResource("5_4kw0k")]
+transform = Transform3D(-0.6099687, 0, -0.0061854273, 0, 0.61000013, 0, 0.0061854273, 0, -0.6099687, 14.812743, 0.5, 23.1571)
+
+[node name="lamp_post" parent="." instance=ExtResource("5_8sspb")]
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291889, 0, 25.97414)
+
+[node name="lamp_post2" parent="." instance=ExtResource("5_8sspb")]
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291891, 0, 11.093778)
+
+[node name="lamp_post3" parent="." instance=ExtResource("5_8sspb")]
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291893, 0, -5.077809)
+
+[node name="lamp_post4" parent="." instance=ExtResource("5_8sspb")]
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291894, 0, -21.048092)
 
 [editable path="bakery_building"]

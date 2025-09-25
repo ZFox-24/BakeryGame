@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://4xirkwkugr7o"]
+
+[ext_resource type="Material" uid="uid://ehnnjjaafg6l" path="res://materials/metal.tres" id="1_tii3r"]
+[ext_resource type="Material" uid="uid://4uw24kt55sun" path="res://materials/window.tres" id="1_tv2r3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tv2r3"]
+material = ExtResource("1_tii3r")
+top_radius = 0.3
+height = 1.0
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_urgg0"]
+material = ExtResource("1_tii3r")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 6.0
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tii3r"]
+material = ExtResource("1_tii3r")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 5.0
+radial_segments = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbkbp"]
+material = ExtResource("1_tii3r")
+size = Vector3(1, 0.315, 0.745)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2yf03"]
+material = ExtResource("1_tv2r3")
+size = Vector2(0.605, 0.9)
+
+[node name="lamp_post" type="Node3D"]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_tv2r3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CylinderMesh_urgg0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.53691685, 0.46554774, 0, -0.84363514, 0.29628974, 0, 0, 0, 1, 1.2474582, 6.6963124, 0)
+mesh = SubResource("CylinderMesh_tii3r")
+
+[node name="lamp" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="lamp"]
+transform = Transform3D(3.7855177e-08, 0.4999999, -0.8660253, 2.185569e-08, -0.8660253, -0.4999999, -1, 1.7763565e-15, -4.371139e-08, 2.8509457, 7.521074, 0)
+mesh = SubResource("PlaneMesh_2yf03")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1.0928541, 1.904097e-08, -0.43560654, 0.43560654, -4.7770182e-08, 1.0928541, -3.2939285e-16, -1.1764706, -5.142518e-08, 2.7465835, 7.4820604, 0)
+visible = false
+light_color = Color(0.9262658, 0.7032017, 0.3118382, 1)
+light_energy = 8.434
+shadow_enabled = true
+shadow_bias = 0.939
+shadow_normal_bias = 5.848
+spot_range = 11.0
+spot_angle = 23.085243
