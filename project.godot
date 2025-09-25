@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Игра - пекарня -Булочка с маком-"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

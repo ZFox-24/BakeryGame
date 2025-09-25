@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3t5k8bkk5xb3"]
+
+[ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="1_yrebx"]
+[ext_resource type="Material" uid="uid://ehnnjjaafg6l" path="res://materials/metal.tres" id="2_rbbxj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oapqq"]
+material = ExtResource("2_rbbxj")
+
+[node name="warehouse_building" instance=ExtResource("1_yrebx")]
+
+[node name="door" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(-1.9665327e-08, -1, 0, 0.44989023, -4.371139e-08, 0, 0, 0, 0.3261086, -1.004426, -0.5473821, -2.202753)
+mesh = SubResource("PlaneMesh_oapqq")
