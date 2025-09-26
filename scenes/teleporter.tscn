@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://2j66oi4o6pfn"]
+
+[ext_resource type="Script" uid="uid://bx3e6b82drv2r" path="res://scenes/teleporter.gd" id="1_vurns"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsywe"]
+size = Vector3(0.68652344, 1, 0.038208008)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vurns"]
+albedo_color = Color(0.41392472, 0.3068514, 0.7167267, 1)
+emission_enabled = true
+emission = Color(0.5333627, 0.19476521, 0.70241576, 1)
+emission_energy_multiplier = 2.23
+
+[sub_resource type="QuadMesh" id="QuadMesh_tsywe"]
+material = SubResource("StandardMaterial3D_vurns")
+size = Vector2(0.685, 1)
+
+[node name="teleporter" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_vurns")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tsywe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("QuadMesh_tsywe")
+skeleton = NodePath("../CollisionShape3D")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

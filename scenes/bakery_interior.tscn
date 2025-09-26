@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=9 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
+[ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="2_bdiu0"]
+[ext_resource type="PackedScene" uid="uid://dfr48hqk2dj03" path="res://interior_models (blender)/table.glb" id="3_w8wwi"]
+[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="4_qb75j"]
+[ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="5_p7p2x"]
+[ext_resource type="PackedScene" uid="uid://b032niy2ngqfh" path="res://materials/ground.tscn" id="6_j37rw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
 size = Vector2(5, 7)
@@ -31,6 +36,7 @@ mesh = SubResource("PlaneMesh_djn2f")
 
 [node name="ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.7742375e-15, -3.5527137e-15, 2.685147, -1.5497648e-07, 1, 9.539559e-15, -3.545448, -4.371139e-08, 5.1304714e-15, -0.9, 1, 1.0053927)
+visible = false
 mesh = SubResource("PlaneMesh_djn2f")
 
 [node name="Light" parent="." instance=ExtResource("1_djn2f")]
@@ -39,5 +45,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, 2.8722
 [node name="_Light2" parent="." instance=ExtResource("1_djn2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, -0.92255163)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.13498925, 0, 0.99084705, 0, 1, 0, -0.99084705, 0, -0.13498925, 0.26469707, -0.3600645, 0.85710716)
+[node name="cash_register" parent="." instance=ExtResource("2_bdiu0")]
+transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -1.9812773, -1.5818539, 2.4802198)
+
+[node name="table" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.6, -1.8523475)
+
+[node name="table2" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.6, -0.19765079)
+
+[node name="table3" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.6, 1.6418542)
+
+[node name="table4" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.6, 3.1311784)
+
+[node name="table5" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, 2.4508574)
+
+[node name="table6" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, 0.80581856)
+
+[node name="table7" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, -1.1076835)
+
+[node name="table8" parent="." instance=ExtResource("3_w8wwi")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, -2.5350738)
+
+[node name="player_spawner" parent="." instance=ExtResource("4_qb75j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2751021, -0.98977405, 3.7958696)
+
+[node name="teleporter_outside" parent="." instance=ExtResource("5_p7p2x")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.6834514, -1.005305, 4.480319)
+location = ExtResource("6_j37rw")
