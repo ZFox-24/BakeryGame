@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=11 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="2_bdiu0"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="4_qb75j"]
 [ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="5_p7p2x"]
 [ext_resource type="PackedScene" uid="uid://b032niy2ngqfh" path="res://materials/ground.tscn" id="6_j37rw"]
+[ext_resource type="PackedScene" uid="uid://bofc0ylktx33o" path="res://interior_models (blender)/show_cabinet_oneside_glass.glb" id="7_ygjh0"]
+[ext_resource type="PackedScene" uid="uid://vm1d7p1wyrnx" path="res://interior_models (blender)/chair.glb" id="8_6vprp"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
 size = Vector2(5, 7)
@@ -78,3 +80,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2751021, -0.98977405, 3.79
 [node name="teleporter_outside" parent="." instance=ExtResource("5_p7p2x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.6834514, -1.005305, 4.480319)
 location = ExtResource("6_j37rw")
+
+[node name="show_cabinet_oneside_glass" parent="." instance=ExtResource("7_ygjh0")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -2.9998543, -1.4, 3.3197758)
+
+[node name="show_cabinet_oneside_glass2" parent="." instance=ExtResource("7_ygjh0")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -2.9998543, -1.4, 5.646225)
+
+[node name="chair" parent="." instance=ExtResource("8_6vprp")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -3.034907, -1.4753383, 1.682721)
