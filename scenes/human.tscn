@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://gysvgvskue8k"]
+
+[ext_resource type="PackedScene" uid="uid://bhp2d1h17nly4" path="res://interior_models (blender)/human.glb" id="1_swaxu"]
+[ext_resource type="Script" uid="uid://f1uy8gioef2s" path="res://scenes/human.gd" id="2_cwf78"]
+
+[sub_resource type="Animation" id="Animation_cwf78"]
+resource_name = "to_counter"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.97, 0, 1, 1, 20.385, 0.97, 0)
+
+[sub_resource type="Animation" id="Animation_4otcn"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_mayv3"]
+resource_name = "to_exit"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 20, 0.97, 0, 1, 1, 0, 0.97, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mayv3"]
+_data = {
+&"RESET": SubResource("Animation_4otcn"),
+&"to_counter": SubResource("Animation_cwf78"),
+&"to_exit": SubResource("Animation_mayv3")
+}
+
+[node name="human" instance=ExtResource("1_swaxu")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0.97, 0)
+script = ExtResource("2_cwf78")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_mayv3")
+}

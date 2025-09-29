@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://j45cfrert3mr"]
+
+[ext_resource type="PackedScene" uid="uid://cs3tc3oeihpcm" path="res://models/buildings/truck.glb" id="1_w5yki"]
+[ext_resource type="Script" uid="uid://bx2t0nbkq446u" path="res://truck.gd" id="2_2lgic"]
+
+[sub_resource type="Animation" id="Animation_w5yki"]
+resource_name = "move_back"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 5, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 90.0]
+}
+
+[sub_resource type="Animation" id="Animation_2lgic"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hldv3"]
+_data = {
+&"RESET": SubResource("Animation_2lgic"),
+&"move_back": SubResource("Animation_w5yki")
+}
+
+[node name="truck" instance=ExtResource("1_w5yki")]
+script = ExtResource("2_2lgic")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hldv3")
+}

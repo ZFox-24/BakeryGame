@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bffmwmgxq6qbm"]
+
+[ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="1_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="2_nd71p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7ddre"]
+
+[node name="test_scene" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.9889245, 0, 0, 0, 1, 0, 0, 0, 4.260037, 0, 0, 0)
+mesh = SubResource("PlaneMesh_7ddre")
+
+[node name="human_spawner" parent="." instance=ExtResource("1_j8ivh")]
+
+[node name="player_spawner" parent="." instance=ExtResource("2_nd71p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1612041, 0, 1.4916613)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.0802255, 0)

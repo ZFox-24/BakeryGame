@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgw7s03ngplpm"]
+
+[ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="1_tew6k"]
+[ext_resource type="PackedScene" uid="uid://cpysm1jkhke8v" path="res://scenes/light_warehouse.tscn" id="2_j1dg5"]
+[ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="3_j2qif"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jqlbt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tew6k"]
+size = Vector2(11, 5)
+center_offset = Vector3(0, 0, -1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1dg5"]
+size = Vector3(11.005859, 0.001, 5.0014954)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, -1, -1, -4.371139e-08, -4.371139e-08, 0, 0.9908077, 0)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall1"]
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, -8.742278e-08, -4.371139e-08, 4.371139e-08, 1.9106855e-15, -1, 8.742278e-08, -1, 1.9106855e-15, 5.5038033, 1, -5.5)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+transform = Transform3D(-1, -8.742278e-08, -8.742278e-08, 8.742278e-08, -1, 0, -8.742278e-08, -7.642742e-15, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.3763297e-08, -1, -3.821371e-15, 4.3763297e-08, 1.9106855e-15, -1, 1.0011876, -4.371139e-08, 4.371139e-08, 11, 1, 0.003)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 4.371139e-08, 4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, 5.490773, 1, 5.5232506)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall4"]
+transform = Transform3D(-1, 8.742278e-08, -8.742278e-08, -8.742278e-08, -1, -7.642742e-15, -8.742278e-08, 0, 1, 0.02, 0, 0)
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(0.99999994, 0, 9.6602164e-08, -1.9106853e-15, 0.99999994, 9.660217e-08, -4.3711385e-08, -4.371139e-08, 2.21, 5.4791145, 0, 3.314601)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 2.1175824e-22, 0, 2.1175824e-22, 1, 0, -1.7763568e-15, -1.7763568e-15, 1.0000001, 0.03, 0, 0)
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.99999994, 8.742277e-08, -9.660216e-08, -8.742277e-08, -0.99999994, -9.6602164e-08, -4.371139e-08, -4.371139e-08, 2.2100003, 5.4791145, 5, 3.314601)
+physics_material_override = SubResource("PhysicsMaterial_jqlbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, 0, 0)
+mesh = SubResource("PlaneMesh_tew6k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ceiling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21, -1.4987335)
+shape = SubResource("BoxShape3D_j1dg5")
+
+[node name="Player" parent="." instance=ExtResource("1_tew6k")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 8.752415, 0.00049976626, -1.2023582)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 9.713684, 4.9192533, 3.0000744)
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 5.713684, 4.9192533, 3.0000744)
+
+[node name="MeshInstance3D6" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 5.713684, 4.9192533, -2.9999256)
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 9.713684, 4.9192533, -2.9999256)
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 1.7136841, 4.9192533, -2.9999256)
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("2_j1dg5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 1.7136841, 4.9192533, 3.0000744)
+
+[node name="teleporter" parent="." instance=ExtResource("3_j2qif")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.012454569, 0.00049994607, 2.2285662)
