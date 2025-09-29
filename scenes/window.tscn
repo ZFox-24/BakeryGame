@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cshex65r5vbjn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnvhp"]
+albedo_color = Color(0.71034795, 0.8635632, 1, 1)
+metallic = 0.96
+metallic_specular = 0.86
+roughness = 0.1
+emission_enabled = true
+emission = Color(0.19313097, 0.53916705, 0.3975658, 1)
+emission_energy_multiplier = 0.82
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iie45"]
+material = SubResource("StandardMaterial3D_pnvhp")
+size = Vector2(1.5, 1)
+
+[node name="window" type="MeshInstance3D"]
+transform = Transform3D(0, -1.0000001, 0, 1.0000001, 0, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_iie45")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.86602527, 2.185569e-08, 0.49999994, 0.49999994, -3.7855166e-08, -0.86602527, 0, 1, -4.3711385e-08, 0.1691346, 0, 0)
+light_color = Color(0.98039216, 0.7411765, 0.18431373, 1)
+shadow_enabled = true
+spot_range = 4.8294983
+spot_angle = 33.215412

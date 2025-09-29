@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2cb3pdiossfq"]
+[gd_scene load_steps=8 format=3 uid="uid://d2cb3pdiossfq"]
 
 [ext_resource type="Material" uid="uid://4uw24kt55sun" path="res://materials/window.tres" id="1_pkrj7"]
 
@@ -18,7 +18,10 @@ albedo_color = Color(0.24488223, 0.011184823, 0.11062091, 1)
 [sub_resource type="PrismMesh" id="PrismMesh_aovsh"]
 material = SubResource("StandardMaterial3D_aj1bw")
 
-[node name="BakeryBuilding" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkrj7"]
+size = Vector3(6.982422, 4.010132, 5.0041504)
+
+[node name="BakeryBuilding" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_pkrj7")
@@ -81,3 +84,7 @@ skeleton = NodePath("../..")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2001436e-07, 0, 6.999998, 0, 1, 0, 5.033342, 0, -3.0597965e-07, 0, 2, 0)
 mesh = SubResource("PrismMesh_aovsh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5100708, 0)
+shape = SubResource("BoxShape3D_pkrj7")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgw7s03ngplpm"]
+[gd_scene load_steps=8 format=3 uid="uid://bgw7s03ngplpm"]
 
 [ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="1_tew6k"]
 [ext_resource type="PackedScene" uid="uid://cpysm1jkhke8v" path="res://scenes/light_warehouse.tscn" id="2_j1dg5"]
 [ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="3_j2qif"]
+[ext_resource type="PackedScene" uid="uid://dagmdnqnlnr73" path="res://scenes/bakery_interior.tscn" id="4_0f2up"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jqlbt"]
 
@@ -86,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1054274e-15, 1.6940659e-21
 shape = SubResource("BoxShape3D_j1dg5")
 
 [node name="Player" parent="." instance=ExtResource("1_tew6k")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 8.752415, 0.00049976626, -1.2023582)
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 10.307023, 0.00049976626, 0.78278255)
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("2_j1dg5")]
 transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 9.713684, 4.9192533, 3.0000744)
@@ -106,5 +107,9 @@ transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 1.7136841, 4.919
 [node name="MeshInstance3D4" parent="." instance=ExtResource("2_j1dg5")]
 transform = Transform3D(0.6, 0, 0, 0, 0.19999999, 0, 0, 0, 2.4, 1.7136841, 4.9192533, 3.0000744)
 
-[node name="teleporter" parent="." instance=ExtResource("3_j2qif")]
+[node name="to_outside" parent="." instance=ExtResource("3_j2qif")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.012454569, 0.00049994607, 2.2285662)
+
+[node name="teleporter" parent="." instance=ExtResource("3_j2qif")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.967426, 0, 0.72913134)
+location = ExtResource("4_0f2up")

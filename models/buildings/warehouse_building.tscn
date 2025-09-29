@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3t5k8bkk5xb3"]
+[gd_scene load_steps=3 format=3 uid="uid://c3t5k8bkk5xb3"]
 
 [ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="1_yrebx"]
-[ext_resource type="Material" uid="uid://ehnnjjaafg6l" path="res://materials/metal.tres" id="2_rbbxj"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_oapqq"]
-material = ExtResource("2_rbbxj")
+[sub_resource type="BoxShape3D" id="BoxShape3D_cq7vq"]
+size = Vector3(1.9970703, 1.9960938, 2.0009766)
 
 [node name="warehouse_building" instance=ExtResource("1_yrebx")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.49, 4.13)
 
-[node name="door" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(-1.9665327e-08, -1, 0, 0.44989023, -4.371139e-08, 0, 0, 0, 0.3261086, -1.004426, -0.5473821, -2.202753)
-mesh = SubResource("PlaneMesh_oapqq")
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_cq7vq")

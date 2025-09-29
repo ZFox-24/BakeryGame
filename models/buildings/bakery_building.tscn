@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xgtpypppfq6"]
+
+[ext_resource type="PackedScene" uid="uid://u7iphdn6qtff" path="res://models/buildings/bakery_building.glb" id="1_a543b"]
+[ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="2_5gqxx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6jfxs"]
+size = Vector3(1.9941406, 2.3499756, 2.0302734)
+
+[node name="bakery_building" instance=ExtResource("1_a543b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.49, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19500732, 0)
+shape = SubResource("BoxShape3D_6jfxs")
+
+[node name="Cylinder" parent="." index="1"]
+transform = Transform3D(-2.1612209e-08, 1.1523851, 0, -0.4944297, -5.0372353e-08, 0, 0, 0, 1.0415235, 0.14877567, 0.9042117, 0)
+
+[node name="ПЕКАРНЯ _Булочка с маком_" parent="." index="2"]
+transform = Transform3D(-8.192094e-09, 1, -8.192094e-09, 0, -4.371139e-08, -0.18741328, -0.18741328, -4.371139e-08, 3.580878e-16, 1.3248839, 0.8796737, 0.83307016)
+
+[node name="teleporter" parent="." index="3" instance=ExtResource("2_5gqxx")]
+transform = Transform3D(-2.9140926e-08, 0, 0.6666666, 0, 0.6666666, 0, -0.6666666, 0, -2.9140926e-08, 1.0226816, -0.99333334, 0.012065779)
+location_path = "res://scenes/bakery_interior.tscn"

@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu8g5atyfceby"]
+
+[ext_resource type="PackedScene" uid="uid://cs3tc3oeihpcm" path="res://models/buildings/truck.glb" id="1_jwfjj"]
+
+[sub_resource type="Animation" id="Animation_jwfjj"]
+resource_name = "move_back"
+length = 5.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 11, 0, 0, 5, 1, 25, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0)
+
+[sub_resource type="Animation" id="Animation_6edi7"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2mgk"]
+_data = {
+&"RESET": SubResource("Animation_6edi7"),
+&"move_back": SubResource("Animation_jwfjj")
+}
+
+[node name="truck" instance=ExtResource("1_jwfjj")]
+
+[node name="Cube_004" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.29054856, 0, 0, 0, 0.3045081, -0.010207921, 0.57527775, 0.041270018)
+
+[node name="Cube_005" parent="." index="1"]
+transform = Transform3D(0.25570804, 0, 0, 0, 0.29054856, 0, 0, 0, 0.30450806, -1.3881732, 0.57527775, 0.041270018)
+
+[node name="Cube_006" parent="." index="2"]
+transform = Transform3D(1.1198347, 0, 0, 0, 0.07067394, 0, 0, 0, 0.17814264, -0.4992409, 0.2737776, 0.041270018)
+
+[node name="Cylinder_061" parent="." index="3"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, -1.3866223, 0.15889591, -0.16772461)
+
+[node name="Cylinder_062" parent="." index="4"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, -1.3866223, 0.15889591, 0.2602179)
+
+[node name="Cylinder_064" parent="." index="5"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.6489749, 0.15889591, 0.2602179)
+
+[node name="Cylinder_065" parent="." index="6"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.23591563, 0.15889591, 0.2602179)
+
+[node name="Cylinder_066" parent="." index="7"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.23591563, 0.15889591, -0.17310238)
+
+[node name="Cylinder_067" parent="." index="8"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.6489749, 0.15889591, -0.17310238)
+
+[node name="ПЕКАРНЯ _Булочка с маком__001" parent="." index="9"]
+transform = Transform3D(0.18741328, 0, 0, 0, 0, -0.18741328, 0, 1, 0, -0.87110424, 0.65943205, 0.34910917)
+
+[node name="ПЕКАРНЯ _Булочка с маком__002" parent="." index="10"]
+transform = Transform3D(-0.18741328, -7.549791e-08, -1.414931e-08, 1.414931e-08, 0, -0.18741328, 1.414931e-08, -1, 1.0682433e-15, 0.7406014, 0.65943205, -0.25524902)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11"]
+libraries = {
+&"": SubResource("AnimationLibrary_i2mgk")
+}
