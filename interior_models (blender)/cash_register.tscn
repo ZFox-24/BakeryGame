@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5l8ga4ua8gg3"]
+
+[ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
+[ext_resource type="Script" uid="uid://c27sv08edbl21" path="res://interior_models (blender)/screen.gd" id="2_ilcao"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rmaeb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmaeb"]
+size = Vector3(0.0625, 0.078125, 48.73343)
+
+[node name="cash_register" instance=ExtResource("1_rmaeb")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.84, -0.48, -0.607)
+
+[node name="screen" type="StaticBody3D" parent="Cube_017" index="0"]
+physics_material_override = SubResource("PhysicsMaterial_rmaeb")
+script = ExtResource("2_ilcao")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_017/screen" index="0"]
+transform = Transform3D(-32.274998, 1.4210855e-13, -3.5843324e-09, 0, 31.999992, 2.2351742e-08, 2.8215702e-06, -3.5762787e-07, -0.041, 0.005049944, 0.20872402, -0.008187771)
+shape = SubResource("BoxShape3D_rmaeb")

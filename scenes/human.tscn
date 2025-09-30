@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bhp2d1h17nly4" path="res://interior_models (blender)/human.glb" id="1_swaxu"]
 [ext_resource type="Script" uid="uid://f1uy8gioef2s" path="res://scenes/human.gd" id="2_cwf78"]
 
+[sub_resource type="Animation" id="Animation_4otcn"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_cwf78"]
 resource_name = "to_counter"
 tracks/0/type = "position_3d"
@@ -12,9 +15,6 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.97, 0, 1, 1, 20.385, 0.97, 0)
-
-[sub_resource type="Animation" id="Animation_4otcn"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_mayv3"]
 resource_name = "to_exit"
@@ -34,7 +34,7 @@ _data = {
 }
 
 [node name="human" instance=ExtResource("1_swaxu")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0.97, 0)
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, 0)
 script = ExtResource("2_cwf78")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]

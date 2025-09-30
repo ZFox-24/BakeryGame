@@ -29,3 +29,12 @@ func _physics_process(delta: float) -> void:
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
 	move_and_slide()
+	
+	%InteractText.hide()
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		if target.has_method("interact"):
+			%InteractText.show()
+			if Input.is_key_pressed(KEY_E):
+				%InteractText.hide()
+				target.interact()
