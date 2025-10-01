@@ -13,7 +13,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			%Camera3D.rotation_degrees.x, -80, 80
 		) # ограничение угла наклона камеры вниз/вверх
 	elif event.is_action_pressed("ui_cancel"):
+		var pause_menu = load("uid://cbglsp3wlye20").instantiate() # новые добавления
+		add_child(pause_menu) #
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
 
 func _physics_process(delta: float) -> void:
 	const SPEED = 5.5 # метры/с
@@ -38,3 +41,5 @@ func _physics_process(delta: float) -> void:
 			if Input.is_key_pressed(KEY_E):
 				%InteractText.hide()
 				target.interact()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				get_tree().paused = true

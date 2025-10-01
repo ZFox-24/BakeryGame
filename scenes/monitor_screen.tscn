@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvpmvbobcgiv7"]
+[gd_scene load_steps=3 format=3 uid="uid://bvpmvbobcgiv7"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
+[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
 
 [node name="Control" type="Panel"]
+process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,6 +15,7 @@ offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qb77y")
+item = ExtResource("2_gkxkc")
 
 [node name="exit_button" type="Button" parent="."]
 unique_name_in_owner = true
@@ -26,31 +29,35 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 31
 text = "X"
 
-[node name="Label" type="Label" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -111.5
-offset_top = -210.0
-offset_right = 111.5
-offset_bottom = -99.0
+anchor_bottom = 0.5
+offset_left = -474.0
+offset_top = -255.0
+offset_right = 474.0
+offset_bottom = 255.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 81
-text = "PRICE"
+grow_vertical = 2
+current_tab = 0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Продажа" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/Продажа"]
 layout_mode = 0
-offset_left = 182.22223
-offset_top = 148.0
-offset_right = 971.2222
-offset_bottom = 284.0
+offset_left = 83.77777
+offset_top = 50.0
+offset_right = 872.7778
+offset_bottom = 186.0
 size_flags_horizontal = 3
 
-[node name="item_icon" type="TextureRect" parent="Panel"]
+[node name="item_icon" type="TextureRect" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -61,7 +68,8 @@ offset_right = 152.44446
 offset_bottom = 68.0
 grow_vertical = 2
 
-[node name="item_name" type="Label" parent="Panel"]
+[node name="item_name" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,7 +85,8 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "ITEM_NAME"
 
-[node name="quantity" type="Label" parent="Panel"]
+[node name="item_quantity" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -92,18 +101,85 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QUANTITY"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="TabContainer/Продажа/Panel"]
 layout_mode = 0
 offset_left = 176.22223
 offset_top = 346.0
 offset_right = 268.22223
 offset_bottom = 369.0
-text = "Стоимость:"
+text = "Итого:"
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Label2" type="Label" parent="TabContainer/Продажа/Panel"]
 layout_mode = 0
 offset_left = 307.22223
 offset_top = 68.0
 offset_right = 398.22223
 offset_bottom = 91.0
 text = "Количство:"
+
+[node name="item_price" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 24.722229
+offset_top = -38.0
+offset_right = 69.72223
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PRICE"
+
+[node name="Label3" type="Label" parent="TabContainer/Продажа/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.27777
+offset_top = 30.0
+offset_right = 6.722229
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Стоимость товара: "
+
+[node name="final_price" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 232.22223
+offset_top = 286.0
+offset_right = 635.2222
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 81
+text = "final_price"
+
+[node name="sell_button" type="Button" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -70.0
+offset_right = -22.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Продать"
+
+[node name="Пополнение запасов" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Улучшения" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

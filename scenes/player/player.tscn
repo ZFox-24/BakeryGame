@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=4 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -37,3 +38,9 @@ offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Нажмите \"E\" для доступа к компьютеру"
+
+[node name="Label" parent="CanvasLayer" instance=ExtResource("2_dovo2")]
+offset_left = -200.0
+offset_top = -337.0
+offset_right = -1.0
+offset_bottom = -285.0

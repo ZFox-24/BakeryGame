@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://76pi48laytsu"]
+
+[ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lkicd"]
+
+[node name="item_card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ce1kl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 276.0
+offset_bottom = 363.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 18.0
+offset_right = 90.0
+offset_bottom = 198.0
+grow_horizontal = 2
+texture = SubResource("PlaceholderTexture2D_lkicd")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = 15.5
+offset_right = 80.5
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "item_name"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -42.0
+offset_right = -8.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Пополнить"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 67.5
+offset_right = 90.0
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Количество:"
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="add_menu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -601.0
+offset_top = -134.0
+offset_right = 601.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exit_button" type="Button" parent="add_menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.04663
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 31
+text = "X"
+
+[node name="Label" type="Label" parent="add_menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_right = 80.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Пополнить запасы: "
+horizontal_alignment = 1
+vertical_alignment = 1
