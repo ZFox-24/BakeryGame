@@ -1,0 +1,11 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3hxcl17gatwy"]
+
+[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="1_p10a6"]
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="2_yyeoq"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="3_x2o6j"]
+[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="4_0xn7n"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="5_nuqf4"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_p10a6")
+items = Array[ExtResource("2_yyeoq")]([ExtResource("3_x2o6j"), ExtResource("4_0xn7n"), ExtResource("5_nuqf4")])

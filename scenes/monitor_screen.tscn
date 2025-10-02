@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvpmvbobcgiv7"]
+[gd_scene load_steps=5 format=3 uid="uid://bvpmvbobcgiv7"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
+[ext_resource type="Script" uid="uid://cp7i0kirv8fo2" path="res://scenes/add_items_warehouse.gd" id="3_ek4jp"]
+[ext_resource type="PackedScene" uid="uid://76pi48laytsu" path="res://scenes/item_card.tscn" id="4_a4yse"]
 
 [node name="Control" type="Panel"]
 process_mode = 2
@@ -42,9 +44,10 @@ offset_right = 474.0
 offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 
 [node name="Продажа" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -175,9 +178,61 @@ grow_vertical = 0
 text = "Продать"
 
 [node name="Пополнение запасов" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
+script = ExtResource("3_ek4jp")
 metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Пополнение запасов"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 320
+theme_override_constants/v_separation = 384
+columns = 3
+
+[node name="item_card" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card2" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card3" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card4" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card5" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card6" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card7" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card8" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card9" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+
+[node name="item_card10" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
 
 [node name="Улучшения" type="TabBar" parent="TabContainer"]
 visible = false
