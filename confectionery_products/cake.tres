@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_0hyf2")
+item_name = "Торт"
+item_quantity = 2
+item_price = 200
 metadata/_custom_type_script = "uid://trevfjnntn62"

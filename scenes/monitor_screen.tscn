@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvpmvbobcgiv7"]
+[gd_scene load_steps=10 format=3 uid="uid://bvpmvbobcgiv7"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
 [ext_resource type="Script" uid="uid://cp7i0kirv8fo2" path="res://scenes/add_items_warehouse.gd" id="3_ek4jp"]
+[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
 [ext_resource type="PackedScene" uid="uid://76pi48laytsu" path="res://scenes/item_card.tscn" id="4_a4yse"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="5_cnrhv"]
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="5_pukmn"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="6_oania"]
+[ext_resource type="Resource" uid="uid://btkkj5nan8r3l" path="res://confectionery_products/bun.tres" id="7_r4edn"]
 
 [node name="Control" type="Panel"]
-process_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -190,7 +194,7 @@ anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 21.0
-offset_bottom = -16.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -202,37 +206,30 @@ columns = 3
 layout_mode = 2
 theme_override_constants/h_separation = 320
 theme_override_constants/v_separation = 384
-columns = 3
+columns = 2
 
-[node name="item_card" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+[node name="cake" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = ExtResource("5_cnrhv")
+
+[node name="croissant" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = ExtResource("2_gkxkc")
+
+[node name="eclair" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = ExtResource("6_oania")
+
+[node name="bun" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = ExtResource("7_r4edn")
+
+[node name="macaroon" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
 layout_mode = 2
 
-[node name="item_card2" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card3" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card4" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card5" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card6" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card7" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card8" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card9" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
-
-[node name="item_card10" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
-layout_mode = 2
+[node name="warehouse_management" type="Node" parent="TabContainer/Пополнение запасов"]
+script = ExtResource("4_2lnht")
+items = Array[ExtResource("5_pukmn")]([null])
 
 [node name="Улучшения" type="TabBar" parent="TabContainer"]
 visible = false

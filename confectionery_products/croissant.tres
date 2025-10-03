@@ -9,5 +9,5 @@ script = ExtResource("1_fwx6u")
 item_name = "Круассан"
 item_icon = SubResource("PlaceholderTexture2D_fwx6u")
 item_quantity = 1
-item_price = 45
+item_price = 24
 metadata/_custom_type_script = "uid://trevfjnntn62"

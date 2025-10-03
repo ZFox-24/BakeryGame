@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="2_4lcok"]
-[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_ltbao"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="2_ltbao"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lkicd"]
 
@@ -56,6 +56,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "item_name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="add_button" type="Button" parent="Panel"]
 unique_name_in_owner = true
@@ -90,9 +92,10 @@ grow_vertical = 2
 [node name="Label2" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Количество:"
+text = "На складе:"
 
-[node name="Label3" type="Label" parent="Panel/HBoxContainer"]
+[node name="quantity_lbl" type="Label" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "0"
@@ -101,6 +104,7 @@ text = "0"
 
 [node name="add_menu" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

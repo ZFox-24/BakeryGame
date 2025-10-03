@@ -1,11 +1,11 @@
 extends Panel
 
 @onready var total_items := 0
-@onready var item := get_node(".").item as SaleItem # решить проблему
+@export var item : SaleItem # решить проблему
 
 func _ready() -> void:
-	print(item)
-	%item_name.text = "Пополнить запасы: " + %item_name_card.text 
+	print(item.item_name)
+	%item_name.text = "Пополнить запасы: " + item.item_name#+ #%item_name_card.text
 	%num_field.text = str(total_items)
 	%num_field.caret_column = %num_field.text.length()
 	%exit_button.pressed.connect(%add_menu.hide)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaleItem" load_steps=2 format=3 uid="uid://btkkj5nan8r3l"]
+
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_dhk2j"]
+
+[resource]
+script = ExtResource("1_dhk2j")
+item_name = "Булочка"
+item_quantity = 2
+item_price = 20
+metadata/_custom_type_script = "uid://trevfjnntn62"
