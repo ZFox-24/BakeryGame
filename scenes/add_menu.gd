@@ -28,7 +28,7 @@ func buy_item():
 	else:
 		Money.money -= item.item_price * total_items
 		item.item_quantity += total_items
-		Warehouse.item = item
+		#Warehouse.item = item
 		Warehouse.update_item.emit()
 		Money.update_money.emit()
 		queue_free()

@@ -6,7 +6,7 @@ func _ready() -> void:
 	%item_name_card.text = item.item_name
 	%quantity_lbl.text = str(item.item_quantity)
 	%add_button.pressed.connect(show_menu)
-	Warehouse.update_item_card.connect(update_item)
+	Warehouse.update_item.connect(update_item)
 
 func show_menu():
 	Warehouse.item = item
@@ -14,7 +14,6 @@ func show_menu():
 	add_child(menu)
 
 func update_item():
-	item.item_quantity = Warehouse.item.item_quantity
+	#item = Warehouse.item
 	%quantity_lbl.text = str(item.item_quantity)
-	%quantity_lbl.queue_redraw()
-	Warehouse.item = null
+	#Warehouse.item = null

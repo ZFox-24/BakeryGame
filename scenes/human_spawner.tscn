@@ -4,3 +4,7 @@
 
 [node name="human_spawner" type="Node3D"]
 script = ExtResource("1_spwdq")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true

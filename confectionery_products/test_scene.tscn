@@ -13,7 +13,7 @@ transform = Transform3D(2.9849644, 0, 0, 0, 1.0000002, 0, 0, 0, 3.254522, 0, 0, 
 mesh = SubResource("PlaneMesh_ympw5")
 
 [node name="human_spawner" parent="." instance=ExtResource("1_6c6wg")]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -0.7524537, 0, 0.5629312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7524537, 0, 0.5629312)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 5, 2, 5)
