@@ -3,7 +3,11 @@ extends CharacterBody3D
 var sensitivity := 0.4
 
 func _ready() -> void:
+	VisitorManager.bakery_opened_no_exit.connect(play_anim)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # убирает курсор
+
+func play_anim():
+	$CanvasLayer/CantExitText/text_animate.play("text")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

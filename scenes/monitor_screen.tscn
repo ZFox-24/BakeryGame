@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvpmvbobcgiv7"]
+[gd_scene load_steps=23 format=3 uid="uid://bvpmvbobcgiv7"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
 [ext_resource type="PackedScene" uid="uid://76pi48laytsu" path="res://scenes/item_card.tscn" id="4_a4yse"]
 [ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="5_pukmn"]
+[ext_resource type="PackedScene" uid="uid://7yj7tdeo2lhr" path="res://upgrades/upgrade_button.tscn" id="8_cnrhv"]
+[ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="9_r4edn"]
+[ext_resource type="Script" uid="uid://b57yqdbpc51g0" path="res://upgrades/popularity/popularity.gd" id="10_gocw3"]
 
 [sub_resource type="Resource" id="Resource_2lnht"]
 script = ExtResource("5_pukmn")
@@ -66,6 +69,18 @@ item_quantity = 5
 item_price = 35
 metadata/_custom_type_script = "uid://trevfjnntn62"
 
+[sub_resource type="Resource" id="Resource_0ruak"]
+script = ExtResource("9_r4edn")
+upg_name = "Популярность"
+upg_desc = "Покупатели приходят чаще"
+upg_price = 2000
+upgrades = Array[Script]([ExtResource("10_gocw3")])
+metadata/_custom_type_script = "uid://ccb4qrp37f1kv"
+
+[sub_resource type="Resource" id="Resource_51iji"]
+script = ExtResource("9_r4edn")
+metadata/_custom_type_script = "uid://ccb4qrp37f1kv"
+
 [node name="Control" type="Panel"]
 process_mode = 3
 anchors_preset = 15
@@ -118,14 +133,16 @@ offset_right = 474.0
 offset_bottom = 255.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 
 [node name="Продажа" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("3_gynbd")
 metadata/_tab_index = 0
 
 [node name="Panel" type="Panel" parent="TabContainer/Продажа"]
+visible = false
 layout_mode = 0
 offset_left = 83.77777
 offset_top = 50.0
@@ -253,7 +270,6 @@ text = "Продать"
 
 [node name="nothin_to_sell_label" type="Label" parent="TabContainer/Продажа"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -337,6 +353,31 @@ layout_mode = 2
 script = ExtResource("4_2lnht")
 
 [node name="Улучшения" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Улучшения"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = 19.0
+offset_right = -168.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Улучшения/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 89
+
+[node name="upgrade" parent="TabContainer/Улучшения/ScrollContainer/VBoxContainer" instance=ExtResource("8_cnrhv")]
+layout_mode = 2
+upgrade = SubResource("Resource_0ruak")
+
+[node name="upgrade2" parent="TabContainer/Улучшения/ScrollContainer/VBoxContainer" instance=ExtResource("8_cnrhv")]
+layout_mode = 2
+upgrade = SubResource("Resource_51iji")

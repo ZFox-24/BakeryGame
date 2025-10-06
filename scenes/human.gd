@@ -8,7 +8,6 @@ func despawn():
 	queue_free()
 	print("Чел освобожден")
 	VisitorManager.spawn_visitor.emit()
-	#else: printerr("Нет родителя")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_P):
