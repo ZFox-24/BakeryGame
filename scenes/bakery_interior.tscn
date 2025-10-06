@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=20 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="PackedScene" uid="uid://dfr48hqk2dj03" path="res://interior_models (blender)/table.glb" id="3_w8wwi"]
-[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="4_qb75j"]
 [ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="5_p7p2x"]
 [ext_resource type="PackedScene" uid="uid://bofc0ylktx33o" path="res://interior_models (blender)/show_cabinet_oneside_glass.glb" id="7_ygjh0"]
 [ext_resource type="PackedScene" uid="uid://vm1d7p1wyrnx" path="res://interior_models (blender)/chair.glb" id="8_6vprp"]
 [ext_resource type="PackedScene" uid="uid://c5l8ga4ua8gg3" path="res://interior_models (blender)/cash_register.tscn" id="9_iie45"]
+[ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="9_iyh8a"]
 [ext_resource type="PackedScene" uid="uid://cshex65r5vbjn" path="res://scenes/window.tscn" id="10_iyh8a"]
+[ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="10_oj335"]
 [ext_resource type="PackedScene" uid="uid://c4nwfwqv185h5" path="res://scenes/window_wo_light.tscn" id="11_oj335"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
@@ -105,9 +106,6 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, 0.805
 
 [node name="table7" parent="." instance=ExtResource("3_w8wwi")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.6, -1.1076835)
-
-[node name="player_spawner" parent="." instance=ExtResource("4_qb75j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2751021, -0.98977405, 3.7958696)
 
 [node name="teleporter_outside" parent="." instance=ExtResource("5_p7p2x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.2989266, -1.005305, 4.480319)
@@ -212,3 +210,9 @@ shape = SubResource("BoxShape3D_oj335")
 
 [node name="cash_register" parent="." instance=ExtResource("9_iie45")]
 transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -1.8443649, -1.48, 2.54003)
+
+[node name="Player" parent="." instance=ExtResource("9_iyh8a")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.2626312, -1, 4.178807)
+
+[node name="human_spawner" parent="." instance=ExtResource("10_oj335")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.2799286, -1, 5.0209856)

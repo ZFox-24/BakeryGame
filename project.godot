@@ -37,6 +37,10 @@ enabled=PackedStringArray("res://addons/project-time-tracker/plugin.cfg", "res:/
 
 import/blender/enabled=false
 
+[global]
+
+Build_number=""
+
 [input]
 
 move_forward={

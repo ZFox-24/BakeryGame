@@ -1,10 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://gysvgvskue8k"]
+[gd_scene load_steps=6 format=3 uid="uid://gysvgvskue8k"]
 
 [ext_resource type="PackedScene" uid="uid://bhp2d1h17nly4" path="res://interior_models (blender)/human.glb" id="1_swaxu"]
 [ext_resource type="Script" uid="uid://f1uy8gioef2s" path="res://scenes/human.gd" id="2_cwf78"]
 
 [sub_resource type="Animation" id="Animation_4otcn"]
 length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cwf78"]
 resource_name = "to_counter"
@@ -14,28 +33,35 @@ tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.97, 0, 1, 1, 20.385, 0.97, 0)
-
-[sub_resource type="Animation" id="Animation_mayv3"]
-resource_name = "to_exit"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 20, 0.97, 0, 1, 1, 0, 0.97, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, -1.656, 0.74, 1.754, 1, 1, -1.656, 0.74, -0.48)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5707964, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mayv3"]
 _data = {
 &"RESET": SubResource("Animation_4otcn"),
-&"to_counter": SubResource("Animation_cwf78"),
-&"to_exit": SubResource("Animation_mayv3")
+&"to_counter": SubResource("Animation_cwf78")
 }
 
 [node name="human" instance=ExtResource("1_swaxu")]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.8, 0, 1, 0, -4.371139e-08, -1.656, 0.74, 1.754)
 script = ExtResource("2_cwf78")
+
+[node name="Sphere_003" parent="." index="0"]
+transform = Transform3D(-0.123401165, 0, 0, 0, 0.1207555, -1.0556781e-08, 0, 1.0556781e-08, 0.1207555, 2.4132922, -0.48945147, 0)
+
+[node name="Cylinder_017" parent="." index="2"]
+transform = Transform3D(0.0490849, 0, 0, 0, 0.07990335, 0.02856364, 0, -0.06767089, 0.033726916, 2.4176419, -0.7089784, 0.09693118)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 unique_name_in_owner = true

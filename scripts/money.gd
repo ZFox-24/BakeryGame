@@ -1,3 +1,4 @@
 extends Node
 
-@onready var money := 0
+signal update_money
+@onready var money := 2220

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2cb3pdiossfq" path="res://scenes/bakery_building.tscn" id="5_4kw0k"]
 [ext_resource type="PackedScene" uid="uid://4xirkwkugr7o" path="res://models/buildings/lamp_post.tscn" id="5_8sspb"]
 [ext_resource type="PackedScene" uid="uid://d1xgtpypppfq6" path="res://models/buildings/bakery_building.tscn" id="10_5yycj"]
-[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="10_8yq4j"]
+[ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="10_8yq4j"]
 [ext_resource type="PackedScene" uid="uid://cs3tc3oeihpcm" path="res://models/buildings/truck.glb" id="12_4bv6t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
@@ -727,9 +727,6 @@ transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.43093
 [node name="lamp_post4" parent="." instance=ExtResource("5_8sspb")]
 transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291894, 0, -21.048092)
 
-[node name="player_spawner" parent="." instance=ExtResource("10_8yq4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.152716, 0, 0)
-
 [node name="truck" parent="." instance=ExtResource("12_4bv6t")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7.11881, 2, 4.157799)
 
@@ -738,3 +735,6 @@ transform = Transform3D(1.4488888, 0, 0.38822857, 0, 1.5, 0, -0.38822857, 0, 1.4
 
 [node name="warehouse_building" parent="." instance=ExtResource("1_6ttmh")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.864, 1.49, 3.049)
+
+[node name="Player" parent="." instance=ExtResource("10_8yq4j")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 9.324641, 0.004999995, 1.5915668)

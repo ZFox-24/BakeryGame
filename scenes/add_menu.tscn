@@ -1,0 +1,207 @@
+[gd_scene load_steps=6 format=3 uid="uid://cntdgq2l2sw3u"]
+
+[ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
+bg_color = Color(0.1254902, 0.1254902, 0.1254902, 0.98039216)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Animation" id="Animation_2oa50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("not_enough_money:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("add_menu/buy_button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8o024"]
+resource_name = "not_enough"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("not_enough_money:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("add_menu/buy_button:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jd5wg"]
+_data = {
+&"RESET": SubResource("Animation_2oa50"),
+&"not_enough": SubResource("Animation_8o024")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_8o024")
+
+[node name="add_menu" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = -134.0
+offset_right = 446.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltbao")
+
+[node name="exit_button" type="Button" parent="add_menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_right = 0.04663086
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 31
+text = "X"
+
+[node name="item_name" type="Label" parent="add_menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.5
+offset_right = 80.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Пополнить запасы: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="num_field" type="LineEdit" parent="add_menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -20.0
+offset_right = 284.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+max_length = 5
+
+[node name="less_button" type="Button" parent="add_menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 100.0
+offset_top = 108.0
+offset_right = 146.0
+offset_bottom = 157.0
+text = "<"
+
+[node name="more_button" type="Button" parent="add_menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 746.0
+offset_top = 108.0
+offset_right = 792.0
+offset_bottom = 157.0
+text = ">"
+
+[node name="buy_button" type="Button" parent="add_menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -55.0
+offset_right = -17.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Купить"
+
+[node name="Label" type="Label" parent="add_menu"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 121.0
+offset_right = 150.0
+offset_bottom = 144.0
+text = "Количество:"
+
+[node name="total_price_hbox" type="HBoxContainer" parent="add_menu"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 118.0
+offset_right = 720.0
+offset_bottom = 148.0
+alignment = 2
+
+[node name="Label" type="Label" parent="add_menu/total_price_hbox"]
+layout_mode = 2
+text = "Итого: "
+
+[node name="total_price_lbl" type="Label" parent="add_menu/total_price_hbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "total_price"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_jd5wg")
+}
+
+[node name="not_enough_money" type="Label" parent="."]
+visible = false
+offset_left = 916.0
+offset_top = 540.0
+offset_right = 1098.0
+offset_bottom = 563.0
+text = "Недостаточно средств"

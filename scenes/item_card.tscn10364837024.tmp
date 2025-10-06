@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://76pi48laytsu"]
+[gd_scene load_steps=4 format=3 uid="uid://76pi48laytsu"]
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="2_ltbao"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lkicd"]
 
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ce1kl")
+item = ExtResource("2_ltbao")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

@@ -8,12 +8,13 @@ func _ready() -> void:
 	%item_icon.texture = item.item_icon
 	%item_quantity.text = str(item.item_quantity)
 	%item_price.text = str(item.item_price)
-	%final_price.text = str(item.item_price * item.item_quantity)
+	%final_price.text = str(roundi((item.item_price * item.item_quantity) * 1.05))
 	%exit_button.pressed.connect(exit_menu)
 	%sell_button.pressed.connect(sell_item)
 
 func sell_item():
 	Money.money += int(%final_price.text)
+	Money.update_money.emit()
 	exit_menu()
 
 func exit_menu():

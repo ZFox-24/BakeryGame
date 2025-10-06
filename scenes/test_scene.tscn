@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bffmwmgxq6qbm"]
 
 [ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="1_j8ivh"]
-[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/player_spawner.tscn" id="2_nd71p"]
+[ext_resource type="PackedScene" uid="uid://b0kiiafdldx10" path="res://scenes/visitor_spawner.tscn" id="2_nd71p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7ddre"]
 
