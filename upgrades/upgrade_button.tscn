@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://7yj7tdeo2lhr"]
+
+[ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
+[ext_resource type="Resource" uid="uid://cfs2iuk4igt2u" path="res://upgrades/popularity/popularity.tres" id="2_ebbir"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebbir"]
+
+[sub_resource type="Animation" id="Animation_4o4m5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buy_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nem_lbl:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buy_button:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["price"]
+}
+
+[sub_resource type="Animation" id="Animation_ebbir"]
+resource_name = "bought"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buy_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buy_button:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Куплено"]
+}
+
+[sub_resource type="Animation" id="Animation_1v606"]
+resource_name = "nem"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buy_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("nem_lbl:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o4m5"]
+_data = {
+&"RESET": SubResource("Animation_4o4m5"),
+&"bought": SubResource("Animation_ebbir"),
+&"nem": SubResource("Animation_1v606")
+}
+
+[node name="upgrade" type="Panel"]
+offset_right = 534.0
+offset_bottom = 82.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ebbir")
+script = ExtResource("1_4o4m5")
+upgrade = ExtResource("2_ebbir")
+
+[node name="buy_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -39.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "price"
+
+[node name="upgrade_name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 178.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 24
+text = "upgrade_name"
+
+[node name="upgrade_description" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 45.0
+offset_right = 49.0
+offset_bottom = 68.0
+text = "upgrade_description"
+
+[node name="nem_lbl" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 344.0
+offset_top = 6.0
+offset_right = 526.0
+offset_bottom = 29.0
+text = "Недостаточно средств"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_4o4m5")
+}
