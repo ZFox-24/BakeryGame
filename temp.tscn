@@ -1,0 +1,15 @@
+[gd_scene load_steps=10 format=3 uid="uid://kdyur1ekujo"]
+
+[ext_resource type="Script" uid="uid://28e2a37murd0" path="res://confectionery_products/order.gd" id="1_b6ebu"]
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="2_v4i6i"]
+[ext_resource type="Resource" uid="uid://c2qk42kpdsd42" path="res://confectionery_products/baguette.tres" id="3_1hi8c"]
+[ext_resource type="Resource" uid="uid://btkkj5nan8r3l" path="res://confectionery_products/bun.tres" id="4_lmyum"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="5_htolm"]
+[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="6_rhudg"]
+[ext_resource type="Resource" uid="uid://b336ptejb10il" path="res://confectionery_products/donut.tres" id="7_vutqn"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="8_ifmb6"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="9_rocot"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_b6ebu")
+products = Array[ExtResource("2_v4i6i")]([ExtResource("3_1hi8c"), ExtResource("4_lmyum"), ExtResource("5_htolm"), ExtResource("6_rhudg"), ExtResource("7_vutqn"), ExtResource("8_ifmb6"), ExtResource("9_rocot")])

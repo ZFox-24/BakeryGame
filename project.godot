@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Игра - пекарня \"Булочка с маком\""
+config/version="Test 1"
 run/main_scene="uid://b032niy2ngqfh"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -19,6 +20,7 @@ config/icon="res://icon.svg"
 
 Money="*res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
+VisitorManager="*res://scenes/visitor_manager.gd"
 
 [display]
 
@@ -39,7 +41,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number=""
+Build_number="17"
 
 [input]
 

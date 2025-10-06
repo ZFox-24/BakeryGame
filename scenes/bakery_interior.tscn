@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=22 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="PackedScene" uid="uid://dfr48hqk2dj03" path="res://interior_models (blender)/table.glb" id="3_w8wwi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cshex65r5vbjn" path="res://scenes/window.tscn" id="10_iyh8a"]
 [ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="10_oj335"]
 [ext_resource type="PackedScene" uid="uid://c4nwfwqv185h5" path="res://scenes/window_wo_light.tscn" id="11_oj335"]
+[ext_resource type="Script" uid="uid://dmvsjkr1my88w" path="res://scenes/order_area.gd" id="11_vopvl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
 size = Vector2(5, 7)
@@ -54,6 +55,9 @@ adjustment_color_correction = SubResource("GradientTexture2D_8yq4j")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oj335"]
 size = Vector3(5.015625, 1.9921875, 0.087890625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7d6md"]
+size = Vector3(1, 0.1, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -216,3 +220,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.2626312, -1, 4.17880
 
 [node name="human_spawner" parent="." instance=ExtResource("10_oj335")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.9071794, -1.068401, 5.8582506)
+
+[node name="order_area" type="Area3D" parent="."]
+collision_mask = 4
+script = ExtResource("11_vopvl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="order_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7465258, -0.9382753, 1.6468382)
+shape = SubResource("BoxShape3D_7d6md")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[connection signal="area_entered" from="order_area" to="order_area" method="_on_area_entered"]

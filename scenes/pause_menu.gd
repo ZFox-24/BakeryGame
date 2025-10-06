@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	%build_num.text = "Build " + ProjectSettings.get_setting("global/Build_number")
+	%version.text = "v. " + ProjectSettings.get_setting("application/config/version")
+	
 	%continue_button.pressed.connect(continue_game)
 	%exit_game_button.pressed.connect(get_tree().quit)
 	

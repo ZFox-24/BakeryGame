@@ -4,10 +4,12 @@ func _ready() -> void:
 	%AnimationPlayer.play("to_counter")
 
 func despawn():
-	if get_parent().has_method("is_inside"):
-		get_parent().is_inside = false
-		queue_free()
+	VisitorManager.current_visitors -= 1
+	queue_free()
+	print("Чел освобожден")
+	VisitorManager.spawn_visitor.emit()
+	#else: printerr("Нет родителя")
 
-#func _physics_process(delta: float) -> void:
-	#if Input.is_key_pressed(KEY_P):
-		#%AnimationPlayer.play("to_exit")
+func _physics_process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_P):
+		%AnimationPlayer.play("to_exit")

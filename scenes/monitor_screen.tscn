@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvpmvbobcgiv7"]
+[gd_scene load_steps=18 format=3 uid="uid://bvpmvbobcgiv7"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
+[ext_resource type="Script" uid="uid://cbfabnan6wb0s" path="res://scenes/selling_tab.gd" id="3_gynbd"]
 [ext_resource type="Script" uid="uid://d4bb7qd8wb3r1" path="res://scenes/check_item_card.gd" id="3_pukmn"]
 [ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
 [ext_resource type="PackedScene" uid="uid://76pi48laytsu" path="res://scenes/item_card.tscn" id="4_a4yse"]
@@ -66,7 +67,7 @@ item_price = 35
 metadata/_custom_type_script = "uid://trevfjnntn62"
 
 [node name="Control" type="Panel"]
-process_mode = 2
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -91,6 +92,19 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 31
 text = "X"
 
+[node name="open_close_bakery_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.44446
+offset_top = 10.0
+offset_right = -99.44446
+offset_bottom = 51.0
+grow_horizontal = 0
+text = "Открыть пекарню"
+
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -108,6 +122,7 @@ current_tab = 0
 
 [node name="Продажа" type="TabBar" parent="TabContainer"]
 layout_mode = 2
+script = ExtResource("3_gynbd")
 metadata/_tab_index = 0
 
 [node name="Panel" type="Panel" parent="TabContainer/Продажа"]
@@ -220,21 +235,39 @@ offset_bottom = 397.0
 theme_override_font_sizes/font_size = 81
 text = "final_price"
 
-[node name="sell_button" type="Button" parent="TabContainer/Продажа"]
+[node name="sell_button" type="Button" parent="TabContainer/Продажа/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -70.0
-offset_right = -22.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 1.067
+anchor_top = 2.9710002
+anchor_right = 1.067
+anchor_bottom = 2.9710002
+offset_left = -106.64081
+offset_top = -45.05603
+offset_right = 0.3591919
+offset_bottom = -0.056030273
 grow_horizontal = 0
 grow_vertical = 0
 text = "Продать"
+
+[node name="nothin_to_sell_label" type="Label" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -22.5
+offset_right = 97.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Заказов нет"
 
 [node name="Пополнение запасов" type="TabBar" parent="TabContainer"]
 visible = false

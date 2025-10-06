@@ -1,15 +1,21 @@
 extends Node3D
 
-var time1 : int = 2
-var time2: int
-var is_inside : bool = false
+var time1 := VisitorManager.time1
+var time2 := VisitorManager.time2
 
 func _ready() -> void:
-	%Timer.timeout.connect(spawn_human)
-	#human.set_global_position(Vector3(-0.005, 1.575,-2.446))
+	VisitorManager.open_bakery.connect(bakery_opened)
+	VisitorManager.spawn_visitor.connect(bakery_opened)
+	VisitorManager.close_bakery.connect(%Timer.stop)
 
 func spawn_human():
-	if !is_inside:
+	if VisitorManager.current_visitors < VisitorManager.max_visitors and VisitorManager.is_bakery_open:
 		var human = load("res://scenes/human.tscn").instantiate()
 		add_child(human)
-	is_inside = true
+		VisitorManager.current_visitors += 1
+		%Timer.disconnect("timeout", spawn_human)
+
+func bakery_opened():
+	%Timer.wait_time = randi_range(time1, time2)
+	%Timer.start()
+	%Timer.timeout.connect(spawn_human)

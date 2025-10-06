@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckgqbix55cyfm"]
+[gd_scene load_steps=3 format=3 uid="uid://ckgqbix55cyfm"]
 
 [ext_resource type="Script" uid="uid://m0mmq7wnsbpj" path="res://human_spawner.gd" id="1_spwdq"]
+[ext_resource type="Script" uid="uid://cduglmmv2y136" path="res://scenes/visitor_manager.gd" id="2_spwdq"]
 
-[node name="human_spawner" type="Node3D"]
+[node name="visitor_spawner" type="Node3D"]
 script = ExtResource("1_spwdq")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 autostart = true
+
+[node name="visitor_manager" type="Node" parent="."]
+script = ExtResource("2_spwdq")

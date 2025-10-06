@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://gysvgvskue8k"]
+[gd_scene load_steps=8 format=3 uid="uid://gysvgvskue8k"]
 
 [ext_resource type="PackedScene" uid="uid://bhp2d1h17nly4" path="res://interior_models (blender)/human.glb" id="1_swaxu"]
 [ext_resource type="Script" uid="uid://f1uy8gioef2s" path="res://scenes/human.gd" id="2_cwf78"]
@@ -90,8 +90,11 @@ _data = {
 &"to_exit": SubResource("Animation_mayv3")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwf78"]
+size = Vector3(0.22949219, 0.7334595, 0.40820313)
+
 [node name="human" instance=ExtResource("1_swaxu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.8, 0, 1, 0, -4.371139e-08, 2.435, 1.74, -0.046)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.8, 0, 1, 0, -4.371139e-08, 6.619, 1.74, -0.046)
 script = ExtResource("2_cwf78")
 
 [node name="Sphere_003" parent="." index="0"]
@@ -105,3 +108,10 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_mayv3")
 }
+
+[node name="Area3D" type="Area3D" parent="." index="7"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 9.627854e-13, 0, 1, 0, -9.627854e-13, 0, 1, 2.4129498, -0.7348163, 0.0021300316)
+shape = SubResource("BoxShape3D_cwf78")
