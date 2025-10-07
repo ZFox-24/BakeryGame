@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://7yj7tdeo2lhr"]
 
 [ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://7yj7tdeo2lhr"]
+
+[ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
+[ext_resource type="Resource" uid="uid://cfs2iuk4igt2u" path="res://upgrades/popularity/popularity.tres" id="2_ebbir"]
+>>>>>>> 0ce500b7dafb441ff0d9391fd76887f9a18e10ce
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebbir"]
 
@@ -111,6 +118,10 @@ offset_bottom = 82.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ebbir")
 script = ExtResource("1_4o4m5")
+<<<<<<< HEAD
+=======
+upgrade = ExtResource("2_ebbir")
+>>>>>>> 0ce500b7dafb441ff0d9391fd76887f9a18e10ce
 
 [node name="buy_button" type="Button" parent="."]
 unique_name_in_owner = true

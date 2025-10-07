@@ -6,7 +6,13 @@
 [resource]
 script = ExtResource("1_rmxcp")
 upg_name = "Популярность"
+<<<<<<< HEAD
 upg_desc = "Покупатели приходят чаще"
 upg_price = 2000
 upgrades = Array[Script]([ExtResource("2_hjyqd")])
+=======
+upg_desc = "Посетители приходят чаще"
+upg_price = 2000
+upgrades = Array[Script]([ExtResource("2_hjyqd"), null, null])
+>>>>>>> 0ce500b7dafb441ff0d9391fd76887f9a18e10ce
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"
