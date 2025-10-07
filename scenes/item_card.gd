@@ -6,6 +6,7 @@ func _ready() -> void:
 	%item_name_card.text = item.item_name
 	%quantity_lbl.text = str(item.item_quantity)
 	%add_button.pressed.connect(show_menu)
+	%item_texture.texture = item.item_icon
 	Warehouse.update_item.connect(update_item)
 
 func show_menu():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=24 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="PackedScene" uid="uid://dfr48hqk2dj03" path="res://interior_models (blender)/table.glb" id="3_w8wwi"]
@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="10_oj335"]
 [ext_resource type="PackedScene" uid="uid://c4nwfwqv185h5" path="res://scenes/window_wo_light.tscn" id="11_oj335"]
 [ext_resource type="Script" uid="uid://dmvsjkr1my88w" path="res://scenes/order_area.gd" id="11_vopvl"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
-size = Vector2(5, 7)
+[ext_resource type="PackedScene" uid="uid://c8a46e2j80syf" path="res://interior_models (blender)/show_cabinet_oneside.tscn" id="12_vopvl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_djn2f"]
 
@@ -57,13 +55,15 @@ adjustment_color_correction = SubResource("GradientTexture2D_8yq4j")
 size = Vector3(5.015625, 1.9921875, 0.087890625)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7d6md"]
-size = Vector3(1, 0.1, 1)
+size = Vector3(1, 0.29523927, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ya3af"]
+size = Vector2(5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vopvl"]
+size = Vector3(0.001, 0.001, 7.069214)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1)
-mesh = SubResource("PlaneMesh_ya3af")
 
 [node name="wall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.524217, 8.742278e-08, -3.8213705e-15, 0, -4.3711385e-08, -1, -2.2067405e-07, -1, 4.3711385e-08, -1, 0, 4.506719)
@@ -90,17 +90,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, 2.8722
 [node name="_Light2" parent="." instance=ExtResource("1_djn2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2307274, 0.8255594, -0.92255163)
 
-[node name="table" parent="." instance=ExtResource("3_w8wwi")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.480416, -1.8523475)
-
 [node name="table2" parent="." instance=ExtResource("3_w8wwi")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.480416, -0.19765079)
 
 [node name="table3" parent="." instance=ExtResource("3_w8wwi")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.480416, 1.6418542)
-
-[node name="table4" parent="." instance=ExtResource("3_w8wwi")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.19923782, -1.480416, 3.1311784)
 
 [node name="table5" parent="." instance=ExtResource("3_w8wwi")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.1014471, -1.480416, 2.4508574)
@@ -219,15 +213,44 @@ transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.2626312, -1, 4.178807)
 
 [node name="human_spawner" parent="." instance=ExtResource("10_oj335")]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -1.9071794, -1.068401, 5.8582506)
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -1.9071794, -0.9991354, 5.8582506)
 
 [node name="order_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0620718, 0)
 collision_mask = 4
+collision_priority = 19.585
 script = ExtResource("11_vopvl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="order_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7465258, -0.9382753, 1.6468382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7465258, -0.8406557, 1.6468382)
 shape = SubResource("BoxShape3D_7d6md")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[connection signal="area_entered" from="order_area" to="order_area" method="_on_area_entered"]
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="floor" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1)
+mesh = SubResource("PlaneMesh_ya3af")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, -1.0103545, 0.99935246)
+shape = SubResource("BoxShape3D_vopvl")
+
+[node name="show_cabinet_oneside" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 2.720065, -1.3853306, 4.734513)
+
+[node name="show_cabinet_oneside2" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 1.643244, -1.3853306, 4.734513)
+
+[node name="show_cabinet_oneside3" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.1606526, -1.3853306, -2.7057548)
+
+[node name="show_cabinet_oneside4" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0838318, -1.3853306, -2.7057548)
+
+[node name="show_cabinet_oneside5" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.1021018, -1.3853306, -2.7057548)
+
+[node name="show_cabinet_oneside6" parent="." instance=ExtResource("12_vopvl")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.0252808, -1.3853306, -2.7057548)

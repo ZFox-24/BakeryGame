@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Money="*res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
+OrderManager="*res://scripts/order_manager.gd"
 
 [display]
 
@@ -41,7 +42,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="17"
+Build_number="24"
 
 [input]
 

@@ -18,7 +18,8 @@ layout_mode = 1
 offset_right = 276.0
 offset_bottom = 363.0
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="item_texture" type="TextureRect" parent="Panel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -29,6 +30,7 @@ offset_right = 90.0
 offset_bottom = 198.0
 grow_horizontal = 2
 texture = SubResource("PlaceholderTexture2D_lkicd")
+expand_mode = 1
 
 [node name="item_name_card" type="Label" parent="Panel"]
 unique_name_in_owner = true

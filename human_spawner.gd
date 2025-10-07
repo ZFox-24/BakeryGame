@@ -1,8 +1,5 @@
 extends Node3D
 
-var time1 := VisitorManager.time1
-var time2 := VisitorManager.time2
-
 func _ready() -> void:
 	VisitorManager.open_bakery.connect(bakery_opened)
 	VisitorManager.spawn_visitor.connect(bakery_opened)
@@ -16,6 +13,9 @@ func spawn_human():
 		%Timer.disconnect("timeout", spawn_human)
 
 func bakery_opened():
+	var time1 = VisitorManager.time1
+	var time2 = VisitorManager.time2
 	%Timer.wait_time = randi_range(time1, time2)
+	print(str(time1) + " : " + str(time2))
 	%Timer.start()
 	%Timer.timeout.connect(spawn_human)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Order" load_steps=10 format=3 uid="uid://cpvv8jyww0idr"]
+
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_putf6"]
+[ext_resource type="Resource" uid="uid://c2qk42kpdsd42" path="res://confectionery_products/baguette.tres" id="2_e6lxq"]
+[ext_resource type="Script" uid="uid://28e2a37murd0" path="res://confectionery_products/order.gd" id="2_kon8x"]
+[ext_resource type="Resource" uid="uid://btkkj5nan8r3l" path="res://confectionery_products/bun.tres" id="3_723v6"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="4_7hpdp"]
+[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="5_wli56"]
+[ext_resource type="Resource" uid="uid://b336ptejb10il" path="res://confectionery_products/donut.tres" id="6_o20ej"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="7_3gwvs"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="8_5v7uc"]
+
+[resource]
+script = ExtResource("2_kon8x")
+products = Array[ExtResource("1_putf6")]([ExtResource("2_e6lxq"), ExtResource("3_723v6"), ExtResource("4_7hpdp"), ExtResource("5_wli56"), ExtResource("6_o20ej"), ExtResource("7_3gwvs"), ExtResource("8_5v7uc")])
+metadata/_custom_type_script = "uid://28e2a37murd0"

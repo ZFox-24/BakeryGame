@@ -12,5 +12,5 @@ var is_bakery_open := false
 var current_visitors := 0
 var max_visitors := 1
 
-var time1 : float = 2.0
-var time2: float = 5.0
+var time1 : float = 15.0
+var time2: float = 30.0

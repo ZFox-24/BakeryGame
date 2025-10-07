@@ -1,6 +1,7 @@
 extends Node3D
 
 func _ready() -> void:
+	VisitorManager.order_complete.connect(to_exit)
 	%AnimationPlayer.play("to_counter")
 
 func despawn():
@@ -11,4 +12,7 @@ func despawn():
 
 func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_P):
-		%AnimationPlayer.play("to_exit")
+		to_exit()
+
+func to_exit():
+	%AnimationPlayer.play("to_exit")

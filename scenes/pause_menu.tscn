@@ -56,7 +56,6 @@ layout_mode = 2
 text = "Выйти"
 
 [node name="version_vbox" type="VBoxContainer" parent="."]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -74,3 +73,18 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = -250.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
+
+Анохин Р.Р. - 3D модели интерьера пекарни, здания пекарни и склада, 3D модель грузовика"
