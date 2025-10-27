@@ -1,0 +1,482 @@
+[gd_scene load_steps=37 format=3 uid="uid://c21kiilpipoiu"]
+
+[ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
+[ext_resource type="Resource" uid="uid://bte4m7ffelxtk" path="res://confectionery_products/croissant.tres" id="2_gkxkc"]
+[ext_resource type="Script" uid="uid://cbfabnan6wb0s" path="res://scenes/selling_tab.gd" id="3_gynbd"]
+[ext_resource type="Script" uid="uid://d4bb7qd8wb3r1" path="res://scenes/check_item_card.gd" id="3_pukmn"]
+[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
+[ext_resource type="PackedScene" uid="uid://76pi48laytsu" path="res://scenes/item_card.tscn" id="4_a4yse"]
+[ext_resource type="Script" uid="uid://28e2a37murd0" path="res://confectionery_products/order.gd" id="5_lorb1"]
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="5_pukmn"]
+[ext_resource type="Resource" uid="uid://c2qk42kpdsd42" path="res://confectionery_products/baguette.tres" id="5_q6bim"]
+[ext_resource type="Resource" uid="uid://btkkj5nan8r3l" path="res://confectionery_products/bun.tres" id="6_enmgh"]
+[ext_resource type="Texture2D" uid="uid://baadi7wa2p3jp" path="res://confectionery_products/1V6aGz1uKWqPSG-3Vlwd.png" id="6_q45id"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="7_bydw3"]
+[ext_resource type="PackedScene" uid="uid://7yj7tdeo2lhr" path="res://upgrades/upgrade_button.tscn" id="8_cnrhv"]
+[ext_resource type="Resource" uid="uid://b336ptejb10il" path="res://confectionery_products/donut.tres" id="8_tq8uo"]
+[ext_resource type="Texture2D" uid="uid://bdb31ukq7x7ij" path="res://confectionery_products/free-icon-croissant-352642.png" id="8_x75c2"]
+[ext_resource type="Texture2D" uid="uid://o16fw1kep6f4" path="res://confectionery_products/vecteezy_ai-generated-eclair-clip-art_34928244.png" id="9_lorb1"]
+[ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="9_r4edn"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="9_vn45b"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="10_emofm"]
+[ext_resource type="Script" uid="uid://b57yqdbpc51g0" path="res://upgrades/popularity/popularity.gd" id="10_gocw3"]
+[ext_resource type="Texture2D" uid="uid://iqxgdmgxwkpe" path="res://confectionery_products/1V6aF91jQooTij-SbXI4.png" id="10_l8xx1"]
+[ext_resource type="Texture2D" uid="uid://cjh18e2orbyus" path="res://confectionery_products/vecteezy_donut-with_25269655.png" id="11_v37pt"]
+[ext_resource type="Texture2D" uid="uid://hdbggwnk7uhk" path="res://confectionery_products/macaron_PNG119.png" id="11_x75c2"]
+[ext_resource type="Texture2D" uid="uid://b68nmnoqtgl7t" path="res://confectionery_products/vecteezy_ai-generated-baguette-clip-art_34969537.png" id="12_8dy6g"]
+
+[sub_resource type="Resource" id="Resource_q6bim"]
+script = ExtResource("5_lorb1")
+products = Array[ExtResource("5_pukmn")]([ExtResource("5_q6bim"), ExtResource("6_enmgh"), ExtResource("7_bydw3"), ExtResource("2_gkxkc"), ExtResource("8_tq8uo"), ExtResource("9_vn45b"), ExtResource("10_emofm")])
+metadata/_custom_type_script = "uid://28e2a37murd0"
+
+[sub_resource type="Animation" id="Animation_enmgh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%sell_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/nei:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q6bim"]
+resource_name = "nei"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%sell_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/nei:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bydw3"]
+_data = {
+&"RESET": SubResource("Animation_enmgh"),
+&"nei": SubResource("Animation_q6bim")
+}
+
+[sub_resource type="Resource" id="Resource_2lnht"]
+script = ExtResource("5_pukmn")
+item_name = "Торт"
+item_icon = ExtResource("6_q45id")
+item_quantity = 2
+item_price = 200
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_pukmn"]
+script = ExtResource("5_pukmn")
+item_name = "Круассан"
+item_icon = ExtResource("8_x75c2")
+item_quantity = 1
+item_price = 24
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_gynbd"]
+script = ExtResource("5_pukmn")
+item_name = "Эклер"
+item_icon = ExtResource("9_lorb1")
+item_quantity = 1
+item_price = 45
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_cnrhv"]
+script = ExtResource("5_pukmn")
+item_name = "Булочка"
+item_icon = ExtResource("10_l8xx1")
+item_quantity = 2
+item_price = 20
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_oania"]
+script = ExtResource("5_pukmn")
+item_name = "Макарун"
+item_icon = ExtResource("11_x75c2")
+item_quantity = 20
+item_price = 5
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_r4edn"]
+script = ExtResource("5_pukmn")
+item_name = "Пончик"
+item_icon = ExtResource("11_v37pt")
+item_quantity = 4
+item_price = 25
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_gocw3"]
+script = ExtResource("5_pukmn")
+item_name = "Багет"
+item_icon = ExtResource("12_8dy6g")
+item_quantity = 5
+item_price = 35
+metadata/_custom_type_script = "uid://trevfjnntn62"
+
+[sub_resource type="Resource" id="Resource_0ruak"]
+script = ExtResource("9_r4edn")
+upg_name = "Популярность"
+upg_desc = "Покупатели приходят чаще"
+upg_price = 2000
+upgrades = Array[Script]([ExtResource("10_gocw3")])
+metadata/_custom_type_script = "uid://ccb4qrp37f1kv"
+
+[node name="Control" type="Panel"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 227.55554
+offset_top = 128.0
+offset_right = -227.55554
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qb77y")
+
+[node name="exit_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.04663
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 31
+text = "X"
+
+[node name="open_close_bakery_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.44446
+offset_top = 10.0
+offset_right = -99.44446
+offset_bottom = 51.0
+grow_horizontal = 0
+text = "Открыть пекарню"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -265.0
+offset_right = 496.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Продажа" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("3_gynbd")
+order = SubResource("Resource_q6bim")
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/Продажа"]
+visible = false
+layout_mode = 0
+offset_left = 83.77777
+offset_top = 50.0
+offset_right = 872.7778
+offset_bottom = 186.0
+size_flags_horizontal = 3
+
+[node name="item_icon" type="TextureRect" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.222229
+offset_top = -68.0
+offset_right = 152.44446
+offset_bottom = 68.0
+grow_vertical = 2
+
+[node name="item_name" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -49.0
+offset_right = 365.72223
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "ITEM_NAME"
+
+[node name="item_quantity" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.5
+offset_top = 1.0
+offset_right = 88.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUANTITY"
+
+[node name="Label" type="Label" parent="TabContainer/Продажа/Panel"]
+layout_mode = 0
+offset_left = 43.22223
+offset_top = 346.0
+offset_right = 229.22223
+offset_bottom = 369.0
+text = "Итого (с наценкой 5%):"
+
+[node name="Label2" type="Label" parent="TabContainer/Продажа/Panel"]
+layout_mode = 0
+offset_left = 307.22223
+offset_top = 68.0
+offset_right = 398.22223
+offset_bottom = 91.0
+text = "Количство:"
+
+[node name="item_price" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 24.722229
+offset_top = -38.0
+offset_right = 69.72223
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PRICE"
+
+[node name="Label3" type="Label" parent="TabContainer/Продажа/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.27777
+offset_top = 30.0
+offset_right = 6.722229
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Стоимость товара: "
+
+[node name="final_price" type="Label" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 232.22223
+offset_top = 286.0
+offset_right = 635.2222
+offset_bottom = 397.0
+theme_override_font_sizes/font_size = 81
+text = "final_price"
+
+[node name="sell_button" type="Button" parent="TabContainer/Продажа/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.067
+anchor_top = 2.9710002
+anchor_right = 1.067
+anchor_bottom = 2.9710002
+offset_left = -106.64081
+offset_top = -45.05603
+offset_right = 0.3591919
+offset_bottom = -0.056030273
+grow_horizontal = 0
+grow_vertical = 0
+text = "Продать"
+
+[node name="nei" type="Label" parent="TabContainer/Продажа/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 620.2222
+offset_top = 433.0
+offset_right = 935.2222
+offset_bottom = 456.0
+text = "Недостаточно товаров. Закажите еще."
+
+[node name="nothin_to_sell_label" type="Label" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -22.5
+offset_right = 97.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Заказов нет"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_bydw3")
+}
+
+[node name="Пополнение запасов" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Пополнение запасов"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 320
+theme_override_constants/v_separation = 384
+columns = 3
+script = ExtResource("3_pukmn")
+
+[node name="cake" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_2lnht")
+
+[node name="croissant" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_pukmn")
+
+[node name="eclair" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_gynbd")
+
+[node name="bun" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_cnrhv")
+
+[node name="macaroon" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_oania")
+
+[node name="donut" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_r4edn")
+
+[node name="baguette" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer" instance=ExtResource("4_a4yse")]
+layout_mode = 2
+item = SubResource("Resource_gocw3")
+
+[node name="filler1" type="Panel" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 363)
+layout_mode = 2
+
+[node name="filler2" type="Panel" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 363)
+layout_mode = 2
+
+[node name="warehouse_management" type="Node" parent="TabContainer/Пополнение запасов"]
+script = ExtResource("4_2lnht")
+
+[node name="Улучшения" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Улучшения"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = 19.0
+offset_right = -168.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Улучшения/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+
+[node name="popularity" parent="TabContainer/Улучшения/ScrollContainer/VBoxContainer" instance=ExtResource("8_cnrhv")]
+layout_mode = 2
+upgrade = SubResource("Resource_0ruak")
+
+[node name="Label" type="Label" parent="TabContainer/Улучшения"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_top = -24.0
+offset_right = 249.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Улучшения заработают только после переоткрытия пекарни"

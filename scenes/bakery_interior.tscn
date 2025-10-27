@@ -81,7 +81,7 @@ visible = false
 mesh = SubResource("PlaneMesh_djn2f")
 
 [node name="ceiling" type="MeshInstance3D" parent="."]
-transform = Transform3D(6.7742358e-15, -8.742278e-08, -2.685147, 1.5497648e-07, -1, 2.34743e-07, -3.545448, -4.371139e-08, 5.1304714e-15, -0.9, 1, 1.0053927)
+transform = Transform3D(6.7742354e-15, -8.742277e-08, -2.685147, 1.5497648e-07, -1, 2.34743e-07, -3.545448, -4.371139e-08, 5.1304714e-15, -0.9, 1, 1.0053926)
 mesh = SubResource("PlaneMesh_djn2f")
 
 [node name="Light" parent="." instance=ExtResource("1_djn2f")]
@@ -238,19 +238,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, -1.0103545, 0.9993524
 shape = SubResource("BoxShape3D_vopvl")
 
 [node name="show_cabinet_oneside" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 2.720065, -1.3853306, 4.734513)
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 2.720065, -1.3853306, 4.8012714)
 
 [node name="show_cabinet_oneside2" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 1.643244, -1.3853306, 4.734513)
+transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 1.643244, -1.3853306, 4.8012714)
 
 [node name="show_cabinet_oneside3" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.1606526, -1.3853306, -2.7057548)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.1606526, -1.3853307, -2.7926266)
 
 [node name="show_cabinet_oneside4" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0838318, -1.3853306, -2.7057548)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0838318, -1.3853306, -2.7926266)
 
 [node name="show_cabinet_oneside5" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.1021018, -1.3853306, -2.7057548)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.1021018, -1.3853306, -2.7926266)
 
 [node name="show_cabinet_oneside6" parent="." instance=ExtResource("12_vopvl")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.0252808, -1.3853306, -2.7057548)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.0252808, -1.3853306, -2.7926266)

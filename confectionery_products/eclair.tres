@@ -1,13 +1,11 @@
 [gd_resource type="Resource" script_class="SaleItem" load_steps=3 format=3 uid="uid://d2g2ondca04bk"]
 
+[ext_resource type="Texture2D" uid="uid://o16fw1kep6f4" path="res://confectionery_products/vecteezy_ai-generated-eclair-clip-art_34928244.png" id="1_5o08a"]
 [ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_yx5ph"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yx5ph"]
 
 [resource]
 script = ExtResource("1_yx5ph")
 item_name = "Эклер"
-item_icon = SubResource("PlaceholderTexture2D_yx5ph")
-item_quantity = 1
+item_icon = ExtResource("1_5o08a")
 item_price = 45
 metadata/_custom_type_script = "uid://trevfjnntn62"

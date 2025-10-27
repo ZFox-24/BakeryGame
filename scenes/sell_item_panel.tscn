@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsrf278yjlwf"]
+
+[ext_resource type="Script" uid="uid://b1uyga62sv3ya" path="res://scenes/sell_item_panel.gd" id="1_8ygei"]
+
+[node name="sell_item_panel" type="Panel"]
+custom_minimum_size = Vector2(789, 136)
+offset_left = 83.77777
+offset_top = 50.0
+offset_right = 872.7778
+offset_bottom = 186.0
+size_flags_horizontal = 3
+script = ExtResource("1_8ygei")
+
+[node name="item_icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.222229
+offset_top = -68.0
+offset_right = 152.44446
+offset_bottom = 68.0
+grow_vertical = 2
+
+[node name="item_name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -49.0
+offset_right = 365.72223
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "ITEM_NAME"
+
+[node name="item_quantity" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.5
+offset_top = 1.0
+offset_right = 88.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUANTITY"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 297.22223
+offset_top = 68.0
+offset_right = 397.22223
+offset_bottom = 91.0
+text = "Количество:"
+
+[node name="item_price" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.722229
+offset_top = -38.0
+offset_right = 87.72223
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PRICE"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.27777
+offset_top = 30.0
+offset_right = 4.722229
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Стоимость за штуку: "
+
+[node name="nei" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 620.2222
+offset_top = 433.0
+offset_right = 935.2222
+offset_bottom = 456.0
+text = "Недостаточно товаров. Закажите еще."

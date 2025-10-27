@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://76pi48laytsu"]
+[gd_scene load_steps=5 format=3 uid="uid://76pi48laytsu"]
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
+[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="2_4lcok"]
+
+[sub_resource type="Resource" id="Resource_ltbao"]
+script = ExtResource("2_4lcok")
+metadata/_custom_type_script = "uid://trevfjnntn62"
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lkicd"]
 
@@ -12,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ce1kl")
+item = SubResource("Resource_ltbao")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

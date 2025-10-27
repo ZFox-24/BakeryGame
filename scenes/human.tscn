@@ -94,7 +94,7 @@ _data = {
 size = Vector3(0.22949219, 0.7334595, 0.40820313)
 
 [node name="human" instance=ExtResource("1_swaxu")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.8, 0, 1, 0, -4.371139e-08, 6.619, 1.74, -0.046)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.8, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("2_cwf78")
 
 [node name="Sphere_003" parent="." index="0"]

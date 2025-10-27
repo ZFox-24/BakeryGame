@@ -1,6 +1,8 @@
 extends Panel
 
 func _ready() -> void:
+	Warehouse.load_products()
+	OrderManager.order_opened.emit()
 	#item.item_quantity = randi_range(1, 8)
 	#%item_name.text = item.item_name
 	#%item_icon.texture = item.item_icon
@@ -21,6 +23,7 @@ func sell_item():
 func exit_menu():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Warehouse.loaded_products.clear()
 	queue_free()
 
 ### УПРАВЛЕНИЕ ПЕКАРНЕЙ

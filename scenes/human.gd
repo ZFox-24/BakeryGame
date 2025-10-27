@@ -1,6 +1,7 @@
 extends Node3D
 
 func _ready() -> void:
+	VisitorManager.close_bakery.connect(to_exit)
 	VisitorManager.order_complete.connect(to_exit)
 	%AnimationPlayer.play("to_counter")
 
