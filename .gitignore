@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+BakeryGame_Test1.exe

@@ -11,6 +11,9 @@ size = Vector3(0.0625, 0.078125, 48.73343)
 [node name="cash_register" instance=ExtResource("1_rmaeb")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.84, -0.48, -0.607)
 
+[node name="Cube_010" parent="." index="0"]
+transform = Transform3D(-0.2307992, 0, 0, 0, 0.004766052, 1.0508963e-08, 0, -4.166615e-10, 0.120208524, -0.37738878, 0.3944181, 0.21578977)
+
 [node name="screen" type="StaticBody3D" parent="Cube_017" index="0"]
 physics_material_override = SubResource("PhysicsMaterial_rmaeb")
 script = ExtResource("2_ilcao")

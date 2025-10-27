@@ -1,5 +1,32 @@
 extends Node
 
+# Предметы должны загружаться только когда открыто меню управления пекарней
+
+signal transfer_item(tr_item: SaleItem)
 signal update_item
 signal update_item_card
-var item : SaleItem
+signal products_loaded
+#var item : SaleItem
+var item := {
+	"croissant": preload("res://confectionery_products/croissant.tres"),
+	"baguette": preload("res://confectionery_products/baguette.tres"),
+	"bun": preload("res://confectionery_products/bun.tres"),
+	"cake": preload("res://confectionery_products/cake.tres"),
+	"donut": preload("res://confectionery_products/donut.tres"),
+	"eclair": preload("res://confectionery_products/eclair.tres"),
+	"macaroon": preload("res://confectionery_products/macaroon.tres")
+}
+
+var loaded_products := []
+var array_item = ["res://confectionery_products/croissant.tres",
+					"res://confectionery_products/baguette.tres",
+					"res://confectionery_products/bun.tres",
+					"res://confectionery_products/cake.tres",
+					"res://confectionery_products/donut.tres",
+					"res://confectionery_products/eclair.tres",
+					"res://confectionery_products/macaroon.tres"]
+
+func load_products():
+	for i in array_item:
+		loaded_products.append(load(i))
+	products_loaded.emit()

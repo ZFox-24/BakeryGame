@@ -190,7 +190,7 @@ text = "Итого: "
 [node name="total_price_lbl" type="Label" parent="add_menu/total_price_hbox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "total_price"
+text = "0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

@@ -21,5 +21,5 @@ mesh = SubResource("PlaneMesh_iie45")
 transform = Transform3D(0.86602527, 2.185569e-08, 0.49999994, 0.49999994, -3.7855166e-08, -0.86602527, 0, 1, -4.3711385e-08, 0.1691346, 0, 0)
 light_color = Color(0.98039216, 0.7411765, 0.18431373, 1)
 shadow_enabled = true
-spot_range = 4.8294983
+spot_range = 11.188
 spot_angle = 33.215412

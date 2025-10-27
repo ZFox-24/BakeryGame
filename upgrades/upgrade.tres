@@ -1,12 +1,10 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://xcfgoudkfejf"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://xcfgoudkfejf"]
 
 [ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="1_qvxtw"]
-[ext_resource type="Script" uid="uid://b57yqdbpc51g0" path="res://upgrades/popularity/popularity.gd" id="2_exyvn"]
 
 [resource]
 script = ExtResource("1_qvxtw")
-upg_name = "Популярность"
-upg_desc = "Покупатели приходят чаще"
-upg_price = 2000
-upgrades = Array[Script]([ExtResource("2_exyvn")])
+upg_name = "Больше товаров"
+upg_desc = "Посетители могут купить 2 товара"
+upg_price = 3500
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"

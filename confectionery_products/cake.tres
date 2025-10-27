@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="SaleItem" load_steps=2 format=3 uid="uid://c3ax5q714ccje"]
+[gd_resource type="Resource" script_class="SaleItem" load_steps=3 format=3 uid="uid://c3ax5q714ccje"]
 
 [ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_0hyf2"]
+[ext_resource type="Texture2D" uid="uid://b51betagthxn6" path="res://confectionery_products/1V6aGz1uKWqPSG-3Vlwd.webp" id="1_bdadt"]
 
 [resource]
 script = ExtResource("1_0hyf2")
 item_name = "Торт"
-item_quantity = 2
+item_icon = ExtResource("1_bdadt")
 item_price = 200
 metadata/_custom_type_script = "uid://trevfjnntn62"
