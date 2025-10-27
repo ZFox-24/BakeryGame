@@ -5,7 +5,8 @@ extends Node
 signal transfer_item(tr_item: SaleItem)
 signal update_item
 signal update_item_card
-signal products_loaded
+# signal products_loaded
+
 #var item : SaleItem
 var item := {
 	"croissant": preload("res://confectionery_products/croissant.tres"),
@@ -27,6 +28,6 @@ var array_item = ["res://confectionery_products/croissant.tres",
 					"res://confectionery_products/macaroon.tres"]
 
 func load_products():
-	for i in array_item:
-		loaded_products.append(load(i))
-	products_loaded.emit()
+	if loaded_products.size() < array_item.size(): 
+		for i in array_item:
+			loaded_products.append(load(i))

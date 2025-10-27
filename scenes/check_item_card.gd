@@ -13,8 +13,7 @@ func _ready() -> void:
 					#
 
 func fill_list():
-	await Warehouse.products_loaded
-	#for i in Warehouse.item.values(): # если со словаря поменяется на массив - переделать
+	await Warehouse.load_products()
 	for i in Warehouse.loaded_products:
 		var item_card = load("uid://76pi48laytsu").instantiate()
 		add_child(item_card)

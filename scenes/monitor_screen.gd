@@ -23,7 +23,6 @@ func sell_item():
 func exit_menu():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Warehouse.loaded_products.clear()
 	queue_free()
 
 ### УПРАВЛЕНИЕ ПЕКАРНЕЙ

@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func sell_item():
 	check_products_intersection(Warehouse.loaded_products, order.products)
+	VisitorManager.order_complete.emit()
 	#var index = 0
 	#for i in order.products:
 		#for l in Warehouse.loaded_products:

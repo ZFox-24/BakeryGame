@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7yj7tdeo2lhr" path="res://upgrades/upgrade_button.tscn" id="8_cnrhv"]
 [ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="9_r4edn"]
 [ext_resource type="Script" uid="uid://b57yqdbpc51g0" path="res://upgrades/popularity/popularity.gd" id="10_gocw3"]
-[ext_resource type="AudioStream" uid="uid://dqvgxp3gk2xfh" path="res://income.mp3" id="12_enmgh"]
+[ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
 [ext_resource type="Resource" uid="uid://calkbp3sxlne5" path="res://upgrades/buy_more/buy_more_upg.tres" id="19_l8xx1"]
 
 [sub_resource type="Animation" id="Animation_enmgh"]
