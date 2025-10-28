@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cntdgq2l2sw3u"]
+[gd_scene load_steps=8 format=3 uid="uid://cntdgq2l2sw3u"]
 
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
 
@@ -8,6 +8,12 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+
+[sub_resource type="InputEventAction" id="InputEventAction_8o024"]
+action = &"ui_accept"
+
+[sub_resource type="Shortcut" id="Shortcut_2oa50"]
+events = [SubResource("InputEventAction_8o024")]
 
 [sub_resource type="Animation" id="Animation_2oa50"]
 length = 0.001
@@ -165,6 +171,7 @@ offset_right = -17.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+shortcut = SubResource("Shortcut_2oa50")
 text = "Купить"
 
 [node name="Label" type="Label" parent="add_menu"]

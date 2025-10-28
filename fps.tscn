@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4deldnqmo4hy"]
+
+[ext_resource type="Script" uid="uid://6g3sudh6oiuf" path="res://fps.gd" id="1_3w8p6"]
+
+[node name="fps" type="CanvasLayer"]
+script = ExtResource("1_3w8p6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 102.0
+offset_bottom = 33.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "FPS: "
+
+[node name="fps_num" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

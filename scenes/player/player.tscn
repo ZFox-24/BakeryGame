@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=8 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
+[ext_resource type="PackedScene" uid="uid://d4deldnqmo4hy" path="res://fps.tscn" id="2_gmlin"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -45,6 +46,8 @@ _data = {
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_8afob")
+
+[node name="fps" parent="." instance=ExtResource("2_gmlin")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0277908, 0)

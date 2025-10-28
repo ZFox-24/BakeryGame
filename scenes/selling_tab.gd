@@ -13,64 +13,59 @@ func _ready() -> void:
 		%nothin_to_sell_label.show()
 
 func sell_item():
-	check_products_intersection(Warehouse.loaded_products, order.products)
-	VisitorManager.order_complete.emit()
-	#var index = 0
-	#for i in order.products:
-		#for l in Warehouse.loaded_products:
-			#if l.has(i):
-				#print("ЗНАЧЕНИЯ МАССИВОВ ОДИНАКОВЫВЫЫЫ")
-				#if i.item_quantity <= l.item_quantity:
-					#print("L: " + l.item_name + " | " + str(l.item_quantity))
-					#print("I: " + i.item_name + " | " + str(i.item_quantity))
-					#VisitorManager.order_complete.emit()
-		#index += 1
-	#var temp_item = Warehouse.item.values()
-	#for i in order.products:
-		#var u = temp_item
-		#u = i # приводит к тому, что кол-ва товаров равны. Изменить
-		## может, создать дубликаты данных из словаря, чтобы оно не меняло значения оригинала?
-		#if i.item_quantity <= u.item_quantity: # я че, сравниваю массив со словарем?
-			#print("U: " + u.item_name + " | " + str(u.item_quantity))
-			#VisitorManager.order_complete.emit()
-			
-			#else:
-				#%AnimationPlayer.play("nei")
-
-	for c in $ScrollContainer/VBoxContainer.get_children():
-		c.queue_free()
+	var rts_item := []
+	var nrts_items := []
+	for i in order.products:
+		var index = order.products.find(i,0)
+		var item = Warehouse.loaded_products.get(index)
+		if i.item_quantity <= item.item_quantity:
+			rts_item.append(i)
+			print("кол-во соответствует")
+			#Money.money -= roundi((i.item_price * i.item_quantity) * 1.1) # переделать на order.final_price
+			# после добавления дополнительной проверки, указанной снизу
+			index += 1
+		else:
+			if !nrts_items.has(i):
+				nrts_items.append(i)
+		#else: 
+			#%AnimationPlayer.play("nei")
+			#print("кол-во НЕ соответствует")
+			### Тут снимают деньги и проигрывают анимацию дважды, так быть не должно
+			## Добавить дополнительную проверку
+			## Добавить каждый элемент в массив для продажи. Если предметов в массиве столько же,
+			## сколько в заказе - только тогда выполнять продажу товаров
+	if rts_item.size() < order.products.size():
+		%AnimationPlayer.play("nei")
+		for i in nrts_items:
+			var l = Label.new()
+			%nei_vbox.add_child(l)
+			var index = order.products.find(i,0)
+			var item = Warehouse.loaded_products.get(index)
+			l.text = "- " + i.item_name + " в количестве " + str(i.item_quantity - item.item_quantity) + " шт."
+		print("кол-во НЕ соответствует")
+	else:
+		for i in order.products:
+			var index = order.products.find(i,0)
+			var item = Warehouse.loaded_products.get(index)
+			item.item_quantity -= i.item_quantity
+		Warehouse.update_item.emit()
+		nrts_items.clear()
+		for c in $ScrollContainer/VBoxContainer.get_children():
+			c.queue_free()
 		
-	$panel.hide()
-	%sell_button.hide()
-	%nothin_to_sell_label.show()
+		$panel.hide()
+		%sell_button.hide()
+		%nothin_to_sell_label.show()
+		VisitorManager.order_complete.emit()
+		Money.money += order.final_price
+		Money.update_money.emit()
+		OrderManager.order_in_process = false
+		$income_sound.play()
 
-	Money.money += order.final_price
-	Money.update_money.emit()
-	OrderManager.order_in_process = false
-	$income_sound.play()
-
-#func sell_item(): # второй вариант
-	#var temp_item = Warehouse.array_item
-	#for i in order.products:
-		#for a in temp_item:
-			#if a == i:
-				##a = i # приводит к тому, что кол-ва товаров равны. Изменить
-				## может, создать дубликаты данных из словаря, чтобы оно не меняло значения оригинала?
-				#if i.item_quantity <= a.item_quantity: # я че, сравниваю массив со словарем?
-					#print("U: " + a.item_name + " | " + str(a.item_quantity))
-					#VisitorManager.order_complete.emit()
-				#else:
-					#%AnimationPlayer.play("nei")
-
-func check_products_intersection(array1 : Array, array2 : Array):
-	var arr2_dict = {}
-	for v in array2:
-		arr2_dict[v] = true
-	var in_both_arrays = []
-	for v in array1:
-		if arr2_dict.get(v, false):
-			in_both_arrays.append(v)
-	return in_both_arrays
+#для очистки nrts
+func clear_nrts():
+	for c in %nei_vbox.get_children():
+		c.queue_free()
 
 func recieve_order():
 	for p in order.products:

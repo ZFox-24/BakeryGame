@@ -15,11 +15,6 @@ func _ready() -> void:
 	check_bakery_state()
 	%open_close_bakery_button.pressed.connect(bakery_state)
 
-func sell_item():
-	Money.money += int(%final_price.text)
-	Money.update_money.emit()
-	exit_menu()
-
 func exit_menu():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
