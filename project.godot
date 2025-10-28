@@ -22,6 +22,7 @@ Money="*res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
 OrderManager="*res://scripts/order_manager.gd"
+SavesManagement="*res://saving system/saves_management.gd"
 
 [display]
 

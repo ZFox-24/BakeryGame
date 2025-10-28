@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://calkbp3sxlne5"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=4 format=3 uid="uid://calkbp3sxlne5"]
 
 [ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="1_6oh3q"]
 [ext_resource type="Script" uid="uid://dp6h4ggvenmh0" path="res://upgrades/buy_more/buy_more.gd" id="2_iq2en"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6oh3q"]
+
 [resource]
 script = ExtResource("1_6oh3q")
+upg_icon = SubResource("PlaceholderTexture2D_6oh3q")
 upg_name = "Больше товаров"
-upg_desc = "Посетители могут купить 2 товара c шансом 40%"
+upg_desc = "С шансом 40% посетитель купит 2 товара"
 upg_price = 3500
 upgrades = Array[Script]([ExtResource("2_iq2en")])
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"

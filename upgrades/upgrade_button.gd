@@ -1,15 +1,15 @@
 extends Panel
 
-@export var upgrade : Upgrade = preload("res://upgrades/upgrade.tres")
-@export var upgrade_bought := false
+@export var upgrade : Upgrade
 
 var nodes_array := 0
-var total_upgrades := len(upgrade.upgrades) # почему-то выдает 0
+var total_upgrades # почему-то выдает 0
 
 func _ready() -> void:
-	print(upgrade_bought)
+	await Warehouse.load_upgrades
+	total_upgrades = len(upgrade.upgrades)
 	%buy_button.pressed.connect(invoke_upgrade)
-	if upgrade_bought:
+	if upgrade.upgrade_bought:
 		%AnimationPlayer.play("bought")
 	%upgrade_name.text = upgrade.upg_name
 	%upgrade_description.text = upgrade.upg_desc
@@ -18,6 +18,7 @@ func _ready() -> void:
 func invoke_upgrade():
 	print(total_upgrades)
 	if upgrade.upg_price <= Money.money:
+		upgrade.upgrade_bought = true
 		var p_upgrades = Node.new()
 		add_child(p_upgrades)
 		for u in upgrade.upgrades:
@@ -32,7 +33,8 @@ func invoke_upgrade():
 		Money.money -= upgrade.upg_price
 		Money.update_money.emit()
 		%AnimationPlayer.play("bought")
-		upgrade_bought = true
-		print(upgrade_bought)
+		#var upg_item = Warehouse.upgrades_list.find(upgrade,0)
+		#Warehouse.upgrades_list.erase(upg_item)
+		#Warehouse.upgrades_list.append(upgrade)
 	else:
 		%AnimationPlayer.play("nem")

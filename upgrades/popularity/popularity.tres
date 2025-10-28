@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cdshuyxho7bkc"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=4 format=3 uid="uid://cdshuyxho7bkc"]
 
 [ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="1_rmxcp"]
 [ext_resource type="Script" uid="uid://b57yqdbpc51g0" path="res://upgrades/popularity/popularity.gd" id="2_rmxcp"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rmxcp"]
+
 [resource]
 script = ExtResource("1_rmxcp")
+upg_icon = SubResource("PlaceholderTexture2D_rmxcp")
 upg_name = "Популярность"
 upg_desc = "Покупатели приходят чаще"
 upg_price = 2000
