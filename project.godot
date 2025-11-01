@@ -22,6 +22,7 @@ Money="*res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
 OrderManager="*res://scripts/order_manager.gd"
+SaveLoad="*res://saving system/save_load.gd"
 SavesManagement="*res://saving system/saves_management.gd"
 
 [display]
@@ -43,7 +44,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="28"
+Build_number="32"
 
 [input]
 

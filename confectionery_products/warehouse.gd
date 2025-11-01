@@ -43,3 +43,19 @@ func upgrades_loaded():
 	if loaded_upgrades.size() < upgrades_list.size():
 		for i in upgrades_list:
 			loaded_upgrades.append(load(i))
+
+func _ready():
+	SaveLoad.save_data.connect(save_items)
+	SaveLoad.load_data.connect(load_items)
+
+func save_items():
+	for i in loaded_products:
+		SaveLoad.save_file_data.products_quantity.append(i)
+	SaveLoad._save()
+
+func load_items():
+	SaveLoad._load()
+	loaded_products.clear()
+	for i in SaveLoad.save_file_data.products_quantity:
+		loaded_products.append(i)
+	update_item.emit()
