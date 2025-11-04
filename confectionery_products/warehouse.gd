@@ -47,15 +47,23 @@ func upgrades_loaded():
 func _ready():
 	SaveLoad.save_data.connect(save_items)
 	SaveLoad.load_data.connect(load_items)
+	SaveLoad.save_data.connect(save_upgrades)
+	SaveLoad.load_data.connect(load_upgrades_func)
 
 func save_items():
 	for i in loaded_products:
 		SaveLoad.save_file_data.products_quantity.append(i)
-	SaveLoad._save()
 
 func load_items():
-	SaveLoad._load()
 	loaded_products.clear()
 	for i in SaveLoad.save_file_data.products_quantity:
 		loaded_products.append(i)
 	update_item.emit()
+
+func save_upgrades():
+	SaveLoad.save_file_data.bought_upgrades = loaded_upgrades
+
+func load_upgrades_func():
+	for i in SaveLoad.save_file_data.bought_upgrades:
+		loaded_upgrades.append(i)
+	

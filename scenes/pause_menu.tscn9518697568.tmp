@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cbglsp3wlye20"]
+[gd_scene load_steps=13 format=3 uid="uid://cbglsp3wlye20"]
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="Script" uid="uid://byw4p46m8ygu7" path="res://scenes/save_window.gd" id="2_myx47"]
-[ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_v4r4p"]
 [ext_resource type="PackedScene" uid="uid://3b2ncqvlbla6" path="res://saving system/save_slot.tscn" id="3_kukqi"]
 [ext_resource type="PackedScene" uid="uid://cb7wbv0ec3286" path="res://saving system/add_save_button.tscn" id="4_5d2l8"]
 [ext_resource type="Script" uid="uid://befemkgvpg8hg" path="res://saving system/add_panel.gd" id="5_7l7mv"]
@@ -162,7 +161,6 @@ grow_vertical = 2
 [node name="continue_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-shortcut = ExtResource("2_v4r4p")
 text = "Продолжить"
 
 [node name="saves_button" type="Button" parent="Panel/VBoxContainer"]

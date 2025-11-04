@@ -5,7 +5,8 @@ func _ready() -> void:
 	%version.text = "v. " + ProjectSettings.get_setting("application/config/version")
 	
 	%continue_button.pressed.connect(continue_game)
-	%saves_button.pressed.connect(open_save_menu)
+	%saves_button.pressed.connect(save_game)
+	%load_button.pressed.connect(load_game)
 	%exit_game_button.pressed.connect(get_tree().quit)
 	
 func continue_game():
@@ -17,5 +18,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		continue_game()
 
-func open_save_menu():
-	%AnimationPlayer.play("open_save_menu")
+func save_game():
+	SaveLoad.save_data.emit()
+	await SaveLoad.save_game
+	SaveManagerLite.save_game(SaveLoad.save_file_data.data)
+	print(SaveLoad.save_file_data.data)
+
+func load_game():
+	SaveManagerLite.load_game()
+	SaveLoad.save_file_data.data = SaveManagerLite.load_game()
+	SaveLoad.load_data.emit()
+	print(SaveLoad.save_file_data.data)

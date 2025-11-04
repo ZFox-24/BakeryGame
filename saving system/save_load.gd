@@ -2,6 +2,9 @@ extends Node
 
 signal save_data
 signal load_data
+signal save_game
+signal load_game
+signal load_other_data
 
 var save_location = "user://saves/" + save_name + ".tres"
 var save_name : String

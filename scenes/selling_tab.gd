@@ -60,7 +60,7 @@ func sell_item():
 		Money.money += order.final_price
 		Money.update_money.emit()
 		OrderManager.order_in_process = false
-		$income_sound.play()
+		$income_sound.call_deferred("play")
 
 #для очистки nrts
 func clear_nrts():

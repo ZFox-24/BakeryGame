@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cntdgq2l2sw3u"]
+[gd_scene load_steps=9 format=3 uid="uid://cntdgq2l2sw3u"]
 
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
+[ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_2oa50"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
 bg_color = Color(0.1254902, 0.1254902, 0.1254902, 0.98039216)
@@ -104,6 +105,7 @@ offset_right = 0.04663086
 offset_bottom = 64.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 31
+shortcut = ExtResource("2_2oa50")
 text = "X"
 
 [node name="item_name" type="Label" parent="add_menu"]
