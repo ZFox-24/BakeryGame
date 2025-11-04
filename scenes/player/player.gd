@@ -59,9 +59,17 @@ func save_player_pos():
 	print("Игрок сохранен")
 
 func load_player_pos():
+<<<<<<< HEAD
 	if !SaveLoad.save_file_data.data["player_position"].size() == 0 and !SaveLoad.save_file_data.data["player_rotation"].size() == 0:
 		var gl_pos = bytes_to_var(SaveLoad.save_file_data.data["player_position"]) as Vector3
 		var gl_rot = bytes_to_var(SaveLoad.save_file_data.data["player_rotation"]) as Vector3
 		global_position = gl_pos
 		global_rotation = gl_rot
 		print("Игрок загружен")
+=======
+	var gl_pos = bytes_to_var(SaveLoad.save_file_data.data["player_position"]) as Vector3
+	var gl_rot = bytes_to_var(SaveLoad.save_file_data.data["player_rotation"]) as Vector3
+	global_position = gl_pos
+	global_rotation = gl_rot
+	print("Игрок загружен")
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe

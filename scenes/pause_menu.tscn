@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=17 format=3 uid="uid://cbglsp3wlye20"]
+=======
+[gd_scene load_steps=14 format=3 uid="uid://cbglsp3wlye20"]
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="Script" uid="uid://byw4p46m8ygu7" path="res://scenes/save_window.gd" id="2_myx47"]
@@ -104,6 +108,7 @@ _data = {
 &"close_save_menu": SubResource("Animation_5d2l8"),
 &"open_save_menu": SubResource("Animation_myx47")
 }
+<<<<<<< HEAD
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4r4p"]
 bg_color = Color(0.5529412, 0, 0, 1)
@@ -118,6 +123,8 @@ expand_margin_bottom = 5.0
 Button/constants/h_separation = 2
 Window/styles/embedded_border = SubResource("StyleBoxFlat_v4r4p")
 Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_1s2dm")
+=======
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 2
@@ -385,6 +392,7 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_5d2l8")
 }
+<<<<<<< HEAD
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
@@ -396,3 +404,5 @@ theme = SubResource("Theme_v4r4p")
 ok_button_text = "Да"
 dialog_text = "Вы действительно хотите удалить текущее сохранение и начать заново?"
 cancel_button_text = "Нет"
+=======
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe

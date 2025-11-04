@@ -14,6 +14,7 @@ class_name save_data_resource
 @export var bakery_status : bool
 
 @export var data = {
+<<<<<<< HEAD
 	"scene_loaded": "res://materials/ground.tscn",
 	"player_position": [],
 	"product_quantity": [], # надо подумать
@@ -24,6 +25,9 @@ class_name save_data_resource
 
 @export var empty_data = {
 	"scene_loaded": "res://materials/ground.tscn",
+=======
+	"scene_loaded": "",
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
 	"player_position": [],
 	"product_quantity": [], # надо подумать
 	"player_money": 0,

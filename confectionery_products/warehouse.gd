@@ -51,6 +51,7 @@ func _ready():
 	SaveLoad.load_data.connect(load_upgrades_func)
 
 func save_items():
+<<<<<<< HEAD
 	var items := 0
 	for i in loaded_products:
 		if items < SaveLoad.save_file_data.data["product_quantity"].size():
@@ -61,6 +62,15 @@ func load_items():
 	loaded_products.clear()
 	for i in SaveLoad.save_file_data.data["product_quantity"]:
 		loaded_products.append(load(i))
+=======
+	for i in loaded_products:
+		SaveLoad.save_file_data.products_quantity.append(i)
+
+func load_items():
+	loaded_products.clear()
+	for i in SaveLoad.save_file_data.products_quantity:
+		loaded_products.append(i)
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
 	update_item.emit()
 
 func save_upgrades():

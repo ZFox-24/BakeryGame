@@ -7,7 +7,10 @@ func _ready() -> void:
 	%continue_button.pressed.connect(continue_game)
 	%saves_button.pressed.connect(save_game)
 	%load_button.pressed.connect(load_game)
+<<<<<<< HEAD
 	%new_game_button.pressed.connect(%ConfirmationDialog.show)
+=======
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
 	%exit_game_button.pressed.connect(get_tree().quit)
 	
 	%ConfirmationDialog.confirmed.connect(delete_game)
@@ -28,6 +31,7 @@ func save_game():
 	print(SaveLoad.save_file_data.data)
 
 func load_game():
+<<<<<<< HEAD
 	if FileAccess.file_exists(SaveManagerLite.save_path):
 		SaveLoad.save_file_data.data = SaveManagerLite.load_game()
 		get_tree().change_scene_to_file(SaveLoad.save_file_data.data["scene_loaded"])
@@ -38,3 +42,9 @@ func load_game():
 func delete_game():
 	SaveManagerLite.delete_save()
 	SceneManager.reload_game.emit()
+=======
+	SaveManagerLite.load_game()
+	SaveLoad.save_file_data.data = SaveManagerLite.load_game()
+	SaveLoad.load_data.emit()
+	print(SaveLoad.save_file_data.data)
+>>>>>>> 8de7062445f4cba91c07c0846043b40e238b92fe
