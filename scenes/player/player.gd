@@ -3,6 +3,9 @@ extends CharacterBody3D
 var sensitivity := 0.4
 
 func _ready() -> void:
+	SaveLoad.save_data.connect(save_player_pos)
+	SaveLoad.load_other_data.connect(load_player_pos) # заменить на сигнал вызова со сцены
+	
 	VisitorManager.bakery_opened_no_exit.connect(play_anim)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # убирает курсор
 
@@ -47,3 +50,18 @@ func _physics_process(delta: float) -> void:
 				target.interact()
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				get_tree().paused = true
+
+### СИСТЕМА СОХРАНЕНИЯ И ЗАГРУЗКИ
+# позиция игрока должна загружаться после загрузки сцены
+func save_player_pos():
+	SaveLoad.save_file_data.data["player_position"] = var_to_bytes(global_position) as Array
+	SaveLoad.save_file_data.data["player_rotation"] = var_to_bytes(global_rotation) as Array
+	print("Игрок сохранен")
+
+func load_player_pos():
+	if !SaveLoad.save_file_data.data["player_position"].size() == 0 and !SaveLoad.save_file_data.data["player_rotation"].size() == 0:
+		var gl_pos = bytes_to_var(SaveLoad.save_file_data.data["player_position"]) as Vector3
+		var gl_rot = bytes_to_var(SaveLoad.save_file_data.data["player_rotation"]) as Vector3
+		global_position = gl_pos
+		global_rotation = gl_rot
+		print("Игрок загружен")

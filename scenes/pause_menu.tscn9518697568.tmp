@@ -1,0 +1,371 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbglsp3wlye20"]
+
+[ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://byw4p46m8ygu7" path="res://scenes/save_window.gd" id="2_myx47"]
+[ext_resource type="PackedScene" uid="uid://3b2ncqvlbla6" path="res://saving system/save_slot.tscn" id="3_kukqi"]
+[ext_resource type="PackedScene" uid="uid://cb7wbv0ec3286" path="res://saving system/add_save_button.tscn" id="4_5d2l8"]
+[ext_resource type="Script" uid="uid://befemkgvpg8hg" path="res://saving system/add_panel.gd" id="5_7l7mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
+bg_color = Color(0.4392157, 0.32156864, 0.25490198, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0.19015557, 0.10586826, 0.062274583, 0.28235295)
+
+[sub_resource type="Animation" id="Animation_kukqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("save_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5d2l8"]
+resource_name = "close_save_menu"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("save_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_myx47"]
+resource_name = "open_save_menu"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("save_window:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5d2l8"]
+_data = {
+&"RESET": SubResource("Animation_kukqi"),
+&"close_save_menu": SubResource("Animation_5d2l8"),
+&"open_save_menu": SubResource("Animation_myx47")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_n87rw")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_myx47")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -294.0
+offset_right = 119.5
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "Пауза"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.5
+offset_top = -102.0
+offset_right = 130.5
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="continue_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Продолжить"
+
+[node name="saves_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Сохранить"
+
+[node name="load_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Загрузить"
+
+[node name="new_game_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Начать заново"
+
+[node name="exit_game_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Выйти"
+
+[node name="game_saved_lbl" type="Label" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = 57.0
+offset_right = 104.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Игра сохранена"
+
+[node name="version_vbox" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -74.0
+offset_right = 198.0
+offset_bottom = -13.0
+grow_vertical = 0
+
+[node name="build_num" type="Label" parent="version_vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="version" type="Label" parent="version_vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -221.0
+offset_top = -250.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
+
+Анохин Р.Р. - 3D модели интерьера пекарни, здания пекарни и склада, 3D модель грузовика"
+
+[node name="save_window" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -371.0
+offset_right = 338.0
+offset_bottom = 371.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_myx47")
+script = ExtResource("2_myx47")
+
+[node name="exit_button" type="Button" parent="save_window"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 51.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
+text = "<-"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="save_window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.0
+offset_top = -290.0
+offset_right = 309.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="saves_list" type="VBoxContainer" parent="save_window/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="save_slot" parent="save_window/ScrollContainer/saves_list" instance=ExtResource("3_kukqi")]
+layout_mode = 2
+
+[node name="save_slot2" parent="save_window/ScrollContainer/saves_list" instance=ExtResource("3_kukqi")]
+layout_mode = 2
+
+[node name="new_save_button" parent="save_window/ScrollContainer/saves_list" instance=ExtResource("4_5d2l8")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="add_panel" type="Panel" parent="save_window"]
+visible = false
+custom_minimum_size = Vector2(46.405, 0)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 595.0
+offset_right = 667.0
+offset_bottom = 732.7909
+theme_override_styles/panel = SubResource("StyleBoxFlat_5d2l8")
+script = ExtResource("5_7l7mv")
+
+[node name="Button" type="Button" parent="save_window/add_panel"]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 84.0
+offset_right = 646.0
+offset_bottom = 115.0
+text = "Сохранить"
+
+[node name="save_button" type="Label" parent="save_window/add_panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 23.0
+offset_top = 39.0
+offset_right = 254.0
+offset_bottom = 62.0
+text = "Назовите новое сохранение"
+
+[node name="LineEdit" type="LineEdit" parent="save_window/add_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.5
+offset_top = 15.5
+offset_right = 214.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+max_length = 16
+clear_button_enabled = true
+
+[node name="cancel_button" type="Button" parent="save_window/add_panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="operations_tab" type="TabBar" parent="save_window"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 19.0
+offset_right = 149.5
+offset_bottom = 59.0
+grow_horizontal = 2
+current_tab = 0
+tab_count = 3
+tab_0/title = "Сохранить"
+tab_1/title = "Загрузить"
+tab_2/title = "Удалить"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5d2l8")
+}

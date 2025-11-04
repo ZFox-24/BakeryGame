@@ -1,0 +1,339 @@
+[gd_scene load_steps=10 format=3 uid="uid://c21kiilpipoiu"]
+
+[ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
+[ext_resource type="Script" uid="uid://cbfabnan6wb0s" path="res://scenes/selling_tab.gd" id="3_gynbd"]
+[ext_resource type="Script" uid="uid://d4bb7qd8wb3r1" path="res://scenes/check_item_card.gd" id="3_pukmn"]
+[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
+[ext_resource type="Script" uid="uid://s6labs2nxrdb" path="res://scenes/add_upgrades_to_list.gd" id="6_pukmn"]
+[ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
+
+[sub_resource type="Animation" id="Animation_enmgh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("panel/sell_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%nei:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q6bim"]
+resource_name = "nei"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("panel/sell_button:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%nei:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"clear_nrts"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bydw3"]
+_data = {
+&"RESET": SubResource("Animation_enmgh"),
+&"nei": SubResource("Animation_q6bim")
+}
+
+[node name="Control" type="Panel"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 227.55554
+offset_top = 128.0
+offset_right = -227.55554
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qb77y")
+
+[node name="exit_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.04663
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 31
+text = "X"
+
+[node name="open_close_bakery_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.44446
+offset_top = 10.0
+offset_right = -99.44446
+offset_bottom = 51.0
+grow_horizontal = 0
+text = "Открыть пекарню"
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -265.0
+offset_right = 496.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Продажа" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("3_gynbd")
+metadata/_tab_index = 0
+
+[node name="nothin_to_sell_label" type="Label" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -22.5
+offset_right = 97.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Заказов нет"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/Продажа"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_bydw3")
+}
+
+[node name="income_sound" type="AudioStreamPlayer" parent="TabContainer/Продажа"]
+stream = ExtResource("12_enmgh")
+
+[node name="panel" type="Control" parent="TabContainer/Продажа"]
+layout_mode = 1
+anchor_top = 0.78400004
+anchor_right = 1.0
+anchor_bottom = 1.1010001
+offset_top = -0.03201294
+offset_bottom = 0.17694092
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/Продажа/panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 57.0
+offset_right = 315.0
+offset_bottom = 80.0
+text = "Итого (с наценкой 10%):"
+
+[node name="final_price" type="Label" parent="TabContainer/Продажа/panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 316.0
+offset_top = -3.0
+offset_right = 719.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 81
+text = "final_price"
+
+[node name="sell_button" type="Button" parent="TabContainer/Продажа/panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.067
+anchor_top = 2.9710002
+anchor_right = 1.067
+anchor_bottom = 2.9710002
+offset_left = -286.412
+offset_top = -454.18604
+offset_right = -179.41193
+offset_bottom = -409.18604
+grow_horizontal = 0
+grow_vertical = 0
+text = "Продать"
+
+[node name="nei" type="Control" parent="TabContainer/Продажа/panel"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -132.0
+offset_right = 518.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="not_enough_money_lbl" type="Label" parent="TabContainer/Продажа/panel/nei"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_right = 61.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Недостаточно:"
+horizontal_alignment = 1
+
+[node name="nei_vbox" type="VBoxContainer" parent="TabContainer/Продажа/panel/nei"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 31.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Продажа"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 50.0
+offset_right = -163.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Продажа/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Пополнение запасов" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Пополнение запасов"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 21.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Пополнение запасов/ScrollContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 320
+theme_override_constants/v_separation = 384
+columns = 3
+script = ExtResource("3_pukmn")
+
+[node name="warehouse_management" type="Node" parent="TabContainer/Пополнение запасов"]
+script = ExtResource("4_2lnht")
+
+[node name="Улучшения" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Улучшения"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = 19.0
+offset_right = -168.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Улучшения/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 14
+script = ExtResource("6_pukmn")
+
+[node name="Label" type="Label" parent="TabContainer/Улучшения"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -249.5
+offset_top = -24.0
+offset_right = 249.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Улучшения заработают только после переоткрытия пекарни"

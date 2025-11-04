@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=9 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://d4deldnqmo4hy" path="res://fps.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://dxa04a1d0ccul" path="res://scenes/player_loader.tscn" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -106,3 +107,5 @@ offset_left = -200.0
 offset_top = -337.0
 offset_right = -1.0
 offset_bottom = -285.0
+
+[node name="player_loader" parent="." instance=ExtResource("4_lvxji")]

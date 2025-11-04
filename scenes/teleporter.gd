@@ -8,3 +8,4 @@ func _on_body_entered(body: Node3D) -> void:
 	elif !VisitorManager.is_bakery_open:
 		Warehouse.loaded_products.clear()
 		get_tree().call_deferred("change_scene_to_file", location_path)
+		SceneManager.current_scene = location_path

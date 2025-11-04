@@ -4,7 +4,4 @@
 
 [resource]
 script = ExtResource("1_qvxtw")
-upg_name = "Больше товаров"
-upg_desc = "Посетители могут купить 2 товара"
-upg_price = 3500
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"

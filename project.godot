@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Игра - пекарня \"Булочка с маком\""
 config/version="Test 1"
-run/main_scene="uid://b032niy2ngqfh"
+run/main_scene="uid://dtggv2wnvtmbp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,7 +21,11 @@ config/icon="res://icon.svg"
 Money="*res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
+SaveLoad="*res://saving system/save_load.gd"
 OrderManager="*res://scripts/order_manager.gd"
+SavesManagement="*res://saving system/saves_management.gd"
+SaveManagerLite="*res://addons/SaveManagerLite/SaveManagerLite.gd"
+SceneManager="*res://scenes/scene_manager.gd"
 
 [display]
 
@@ -34,7 +38,7 @@ project/assembly_name="Игра - пекарня -Булочка с маком-"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/project-time-tracker/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
+enabled=PackedStringArray("res://addons/SaveManagerLite/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
 
 [filesystem]
 
@@ -42,7 +46,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="28"
+Build_number="32"
 
 [input]
 
