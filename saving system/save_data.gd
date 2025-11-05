@@ -17,7 +17,7 @@ class_name save_data_resource
 	"scene_loaded": "res://materials/ground.tscn",
 	"player_position": [],
 	"product_quantity": [], # надо подумать
-	"player_money": 0,
+	"player_money": 200,
 	"bought_upgrades": [],
 	"bakery_status": false
 }

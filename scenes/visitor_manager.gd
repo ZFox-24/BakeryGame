@@ -8,6 +8,7 @@ signal open_bakery
 signal close_bakery
 signal bakery_opened_no_exit
 var is_bakery_open := false
+var is_computer_open := false
 
 var current_visitors := 0
 var max_visitors := 1

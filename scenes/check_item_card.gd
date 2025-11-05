@@ -13,13 +13,21 @@ func _ready() -> void:
 					#
 
 func fill_list():
-	await Warehouse.load_products()
-	for i in Warehouse.loaded_products:
-		var item_card = load("uid://76pi48laytsu").instantiate()
-		add_child(item_card)
-		item_card.item = i
-		OrderManager.load_items.emit()
+	await Warehouse.loading_items_finished
+	if !SaveLoad.save_file_data.data["product_quantity"].is_empty():
+		for i in Warehouse.loaded_products:
+			var item = load(i["resource_path"])
+			var item_card = load("uid://76pi48laytsu").instantiate()
+			add_child(item_card)
+			item_card.item = item
+	else:
+		for i in Warehouse.array_item:
+			i = load(i)
+			var item_card = load("uid://76pi48laytsu").instantiate()
+			add_child(item_card)
+			item_card.item = i
 	for f in 2:
 		var fill = Panel.new()
 		fill.custom_minimum_size = Vector2(0, 363)
 		add_child(fill)
+	OrderManager.load_items.emit()

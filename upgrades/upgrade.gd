@@ -5,5 +5,5 @@ class_name Upgrade extends Resource
 @export var upg_desc : String
 @export var upg_price : int
 
-@export var upgrade_bought := false
+@export var upgrade_bought : bool
 @export var upgrades : Array[Script] = []

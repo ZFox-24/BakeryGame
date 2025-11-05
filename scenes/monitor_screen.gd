@@ -1,7 +1,9 @@
 extends Panel
 
 func _ready() -> void:
-	Warehouse.load_products()
+	VisitorManager.is_computer_open = true
+	#Warehouse.load_products()
+	Warehouse.load_items()
 	Warehouse.upgrades_loaded()
 	OrderManager.order_opened.emit()
 	#item.item_quantity = randi_range(1, 8)
