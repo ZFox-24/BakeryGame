@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://b8lqxjwbq22o5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3s3q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e3s3q"]
+material = SubResource("StandardMaterial3D_e3s3q")
+size = Vector3(0.59, 0.155, 0.06)
+
+[sub_resource type="Gradient" id="Gradient_e3s3q"]
+colors = PackedColorArray(0.96862745, 0.06666667, 0.08235294, 1, 0.96862745, 0.06666667, 0.08235294, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ct0j"]
+gradient = SubResource("Gradient_e3s3q")
+fill = 1
+fill_from = Vector2(0.5119048, 0.23809524)
+fill_to = Vector2(0.14880952, 0.14880952)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku5ya"]
+albedo_texture = SubResource("GradientTexture2D_5ct0j")
+emission_enabled = true
+emission = Color(0.9999998, 0.12513441, 0.08084821, 1)
+emission_energy_multiplier = 5.2
+rim_tint = 0.35
+ao_enabled = true
+backlight_enabled = true
+backlight = Color(0.9098039, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_5ct0j"]
+material = SubResource("StandardMaterial3D_ku5ya")
+left_to_right = 0.0
+size = Vector3(0.105, 0.125, 0.25)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ct0j"]
+top_radius = 0.065
+bottom_radius = 0.075
+height = 0.015
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ct0j"]
+albedo_color = Color(0.20511743, 0.20511743, 0.20511743, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ku5ya"]
+material = SubResource("StandardMaterial3D_5ct0j")
+top_radius = 0.03
+bottom_radius = 0.05
+height = 0.03
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnd10"]
+albedo_texture = SubResource("GradientTexture2D_5ct0j")
+emission = Color(0.9999998, 0.12513441, 0.08084821, 1)
+emission_energy_multiplier = 5.2
+rim_tint = 0.35
+backlight = Color(0.9098039, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_lahsp"]
+material = SubResource("StandardMaterial3D_tnd10")
+left_to_right = 0.0
+size = Vector3(0.105, 0.125, 0.25)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_e3s3q")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.09078727, 0, 0, 0, 0.40998146, 0, 0, 0, 0.10817914, 0.05325585, 0, 0.031339966)
+mesh = SubResource("BoxMesh_e3s3q")
+
+[node name="switch" type="MeshInstance3D" parent="CSGMesh3D3"]
+transform = Transform3D(-4.371135e-08, -1.748454e-07, -0.99999934, -7.642736e-15, 0.9999991, -1.7484543e-07, 0.9999994, 2.446845e-22, -4.371136e-08, 0, 0, 0.08674055)
+mesh = SubResource("PrismMesh_5ct0j")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGMesh3D3/switch"]
+light_color = Color(1, 0.023529412, 0.03137255, 1)
+light_energy = 0.091
+light_specular = 0.0
+omni_range = 0.103
+omni_attenuation = 0.773
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.19555801, 0, 0.02293086)
+operation = 2
+mesh = SubResource("CylinderMesh_5ct0j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGMesh3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01366967, -5.975206e-10)
+mesh = SubResource("CylinderMesh_ku5ya")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="."]
+transform = Transform3D(-0.09078727, -3.584172e-08, 0, 7.9368725e-09, -0.40998143, 0, 0, 0, 0.10817914, -0.06566408, -6.2202252e-09, 0.031339966)
+mesh = SubResource("BoxMesh_e3s3q")
+
+[node name="switch" type="MeshInstance3D" parent="CSGMesh3D4"]
+transform = Transform3D(-4.3711353e-08, -1.748454e-07, -0.9999994, -7.642736e-15, 0.9999992, -1.7484543e-07, 0.9999994, 2.446845e-22, -4.371136e-08, 0, 0, 0.08674055)
+mesh = SubResource("PrismMesh_lahsp")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="."]
+transform = Transform3D(-1, 3.821371e-15, 8.742278e-08, 8.742278e-08, 4.371139e-08, 1, 0, 1, -4.371139e-08, -0.20796624, 6.220225e-09, 0.02293086)
+operation = 2
+mesh = SubResource("CylinderMesh_5ct0j")
+
+[node name="socket2" type="Node3D" parent="."]

@@ -246,21 +246,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -221.0
-offset_top = -250.0
-offset_bottom = -12.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
-
-Анохин Р.Р. - 3D модели интерьера пекарни, здания пекарни и склада, 3D модель грузовика"
-
 [node name="settings_win" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -345,3 +330,33 @@ theme = SubResource("Theme_v4r4p")
 ok_button_text = "KEY_YES"
 dialog_text = "TEXT_CONFIRMDELETE"
 cancel_button_text = "KEY_NO"
+
+[node name="authors" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -267.0
+offset_top = -329.0
+offset_right = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 59
+
+[node name="RichTextLabel" type="RichTextLabel" parent="authors"]
+layout_mode = 2
+text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
+
+Анохин Р.Р. - 3D модели интерьера пекарни, здания пекарни и склада, 3D модель грузовика"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="authors"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_font_sizes/font_size = 18
+text = "© 2025 ZacksterDev"
+horizontal_alignment = 2

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cimbausae7e55"]
+
+[ext_resource type="PackedScene" uid="uid://bofc0ylktx33o" path="res://interior_models (blender)/show_cabinet_oneside_glass.glb" id="1_elqm4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_luxwc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxmey"]
+size = Vector3(0.45214844, 0.43945313, 0.14654541)
+
+[node name="show_cabinet_oneside_glass" instance=ExtResource("1_elqm4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_luxwc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4626303, 0.41190016, 0.23348998)
+shape = SubResource("BoxShape3D_pxmey")

@@ -1,0 +1,269 @@
+[gd_scene load_steps=20 format=3 uid="uid://weyjxho88s6t"]
+
+[ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="1_1wfj7"]
+
+[sub_resource type="Curve" id="Curve_cy7r8"]
+_data = [Vector2(0.12195122, 0.2842105), 0.0, 0.7866756, 0, 0, Vector2(0.57926834, 0.631579), 0.0, 0.0, 0, 0, Vector2(0.847561, 0.35789472), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_1wfj7"]
+radial_steps = 32
+curve = SubResource("Curve_cy7r8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ta6k"]
+metallic_specular = 0.71
+roughness = 0.47
+emission = Color(1, 1, 1, 1)
+clearcoat_roughness = 0.62
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qi8dg"]
+top_radius = 0.15
+bottom_radius = 0.0
+height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cy7r8"]
+height = 1.0031738
+radius = 0.31298828
+
+[sub_resource type="Curve" id="Curve_1wfj7"]
+_data = [Vector2(0.054878056, 0), 0.0, -0.30464408, 0, 0, Vector2(0.48170733, 0.14736843), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cy7r8"]
+albedo_color = Color(0.41382664, 0.5955132, 0.23563865, 1)
+roughness = 0.49
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_2ta6k"]
+material = SubResource("StandardMaterial3D_cy7r8")
+shape = 0
+curve = SubResource("Curve_1wfj7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wfj7"]
+albedo_color = Color(0.2012313, 0.47081238, 0.26070422, 1)
+roughness = 0.48
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qi8dg"]
+lightmap_size_hint = Vector2i(2, 5)
+material = SubResource("StandardMaterial3D_1wfj7")
+size = Vector2(0.155, 0.665)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qi8dg"]
+albedo_color = Color(0.9653501, 0.25562692, 0.15350738, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cy7r8"]
+material = SubResource("StandardMaterial3D_qi8dg")
+top_radius = 0.02
+bottom_radius = 0.01
+height = 0.02
+radial_segments = 16
+
+[sub_resource type="Curve" id="Curve_2ta6k"]
+_data = [Vector2(0.07317074, 0.063157916), 0.0, 0.0, 0, 0, Vector2(0.80487806, 0.69473684), -0.6431374, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_44fy1"]
+colors = PackedColorArray(0.1166599, 0.09588797, 0.3254133, 1, 0.453107, 0.18740594, 0.4703459, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6t8al"]
+gradient = SubResource("Gradient_44fy1")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqpwh"]
+albedo_texture = SubResource("GradientTexture2D_6t8al")
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_qi8dg"]
+material = SubResource("StandardMaterial3D_pqpwh")
+shape = 0
+size = 0.05
+section_length = 0.02
+curve = SubResource("Curve_2ta6k")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_44fy1"]
+material = ExtResource("1_1wfj7")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.5
+
+[node name="vase" type="CSGCombiner3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25116575, 0)
+
+[node name="CSGCombiner3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("TubeTrailMesh_1wfj7")
+material = SubResource("StandardMaterial3D_2ta6k")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37099212, 0)
+operation = 2
+mesh = SubResource("CylinderMesh_qi8dg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0020751953, 0)
+shape = SubResource("CylinderShape3D_cy7r8")
+
+[node name="plant" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-1, 0, 8.742278e-08, -1.1090179e-08, 0.991921, -0.12685686, -8.671649e-08, -0.12685686, -0.991921, 0, 0.83649015, -0.073886275)
+mesh = SubResource("RibbonTrailMesh_2ta6k")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-1, 0, 8.742278e-08, 1.5200342e-08, 0.98476845, 0.1738716, -8.6091184e-08, 0.1738716, -0.98476845, 0, 0.83649015, 0.10430974)
+mesh = SubResource("RibbonTrailMesh_2ta6k")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-4.2379796e-08, 0.17387162, -0.98476845, 1.5200344e-08, 0.98476845, 0.17387162, 1, -7.600169e-09, -4.437718e-08, 0.0642162, 0.83649015, -0.012330651)
+mesh = SubResource("RibbonTrailMesh_2ta6k")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-4.5022873e-08, -0.173081, -0.98490775, -1.9537616e-10, 0.98490775, -0.173081, 1, -7.600169e-09, -4.437718e-08, -0.1294261, 0.83649015, -0.012330651)
+mesh = SubResource("RibbonTrailMesh_2ta6k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-0.9659258, -0.2500001, -0.066987336, 0.12940957, -0.24236244, -0.96151626, 0.22414392, -0.93742216, 0.2664565, -0.019288614, 0.4183241, -0.051070094)
+mesh = SubResource("PlaneMesh_qi8dg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(-0.99999994, -7.4505806e-08, 2.2351745e-08, -4.8043496e-08, 0.2588191, -0.96592605, 7.550037e-08, -0.965926, -0.25881913, 0, 0.4183241, 0.056762725)
+mesh = SubResource("PlaneMesh_qi8dg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(1.1921175e-07, -0.965926, -0.25881913, -4.80435e-08, 0.2588191, -0.96592605, 0.99999994, 1.2444119e-07, -3.9825245e-08, 0.036753118, 0.4183241, -0.005014032)
+mesh = SubResource("PlaneMesh_qi8dg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="plant"]
+transform = Transform3D(1.2726214e-07, -0.96592593, 0.2588191, 1.7998993e-08, -0.25881907, -0.965926, 0.9999999, 1.2444116e-07, -3.9825217e-08, -0.05800253, 0.4183241, -0.005014032)
+mesh = SubResource("PlaneMesh_qi8dg")
+
+[node name="flower2" type="Node3D" parent="plant"]
+transform = Transform3D(0.9998845, -0.015218261, 5.702034e-05, 0.015216338, 0.9998022, 0.012805818, -0.00025189266, -0.012803456, 0.9999176, 0.0499726, -0.0101389885, -0.019916413)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower2"]
+transform = Transform3D(1.3, 0, 0, 0, 0.8841889, 0.9530004, 0, -0.9530004, 0.8841889, 0, 1.1566279, -0.0057896674)
+mesh = SubResource("CylinderMesh_cy7r8")
+skeleton = NodePath("../../flower2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(-1, 4.4566146e-08, -7.521037e-08, -6.2513465e-08, 0.23687223, 0.97154117, 6.111306e-08, 0.97154117, -0.23687223, 0.00030810386, 0.011050701, 0.057092734)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(1, 4.2851028e-08, 7.62006e-08, -8.4694804e-08, 0.25881913, 0.96592605, 2.166875e-08, -0.96592605, 0.25881913, 0.00030810386, 0.013245702, -0.05505845)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(-1.9092113e-08, -0.9687956, 0.24786158, 0.011326836, 0.24784568, 0.96873355, -0.99993587, 0.0028075068, 0.010973385, -0.06256049, 0.012565374, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(-6.542541e-08, 0.96879554, -0.24786158, -0.011327004, 0.24784568, 0.96873355, 0.999936, 0.0028075927, 0.010973536, 0.056704886, 0.012565732, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(0.7071067, 0.70706147, 0.0080093425, -0.008009409, -0.003317302, 0.99996245, 0.70706147, -0.7071442, 0.0033174623, 0.03821416, 0.0027946234, -0.03021269)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(-0.70710677, -0.7070614, -0.008009343, 0.0080092605, -0.019334946, 0.9997811, -0.70706147, 0.7068879, 0.019334907, -0.040371586, 0.0019361973, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(0.7071068, -0.70706147, -0.008009234, 0.008009257, -0.0033173012, 0.9999624, -0.7070613, -0.7071443, 0.0033173533, -0.04314517, 0.0028787851, -0.0376085)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="plant/flower2/MeshInstance3D"]
+transform = Transform3D(-0.7071069, 0.7070614, 0.008009233, -0.008009408, -0.019334944, 0.999781, 0.70706123, 0.7068879, 0.019335013, 0.042836856, 0.0019364357, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="plant/flower2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90785396, 0)
+mesh = SubResource("CylinderMesh_44fy1")
+
+[node name="flower3" type="Node3D" parent="plant"]
+transform = Transform3D(0.9914727, -0.13030867, -0.001418776, 0.13006632, 0.9888361, 0.07270249, -0.008070838, -0.07226706, 0.9973522, 0.03340841, -0.0101389885, -0.019916413)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower3"]
+transform = Transform3D(1.3, 0, 0, 0, 0.8841889, 0.9530004, 0, -0.9530004, 0.8841889, 0, 1.1566279, -0.0057896674)
+mesh = SubResource("CylinderMesh_cy7r8")
+skeleton = NodePath("../../flower2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(-1, 4.4566146e-08, -7.521037e-08, -6.2513465e-08, 0.23687223, 0.97154117, 6.111306e-08, 0.97154117, -0.23687223, 0.00030810386, 0.011050701, 0.057092734)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(1, 4.2851028e-08, 7.62006e-08, -8.4694804e-08, 0.25881913, 0.96592605, 2.166875e-08, -0.96592605, 0.25881913, 0.00030810386, 0.013245702, -0.05505845)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(-1.9092113e-08, -0.9687956, 0.24786158, 0.011326836, 0.24784568, 0.96873355, -0.99993587, 0.0028075068, 0.010973385, -0.06256049, 0.012565374, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(-6.542541e-08, 0.96879554, -0.24786158, -0.011327004, 0.24784568, 0.96873355, 0.999936, 0.0028075927, 0.010973536, 0.056704886, 0.012565732, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(0.7071067, 0.70706147, 0.0080093425, -0.008009409, -0.003317302, 0.99996245, 0.70706147, -0.7071442, 0.0033174623, 0.03821416, 0.0027946234, -0.03021269)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(-0.70710677, -0.7070614, -0.008009343, 0.0080092605, -0.019334946, 0.9997811, -0.70706147, 0.7068879, 0.019334907, -0.040371586, 0.0019361973, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(0.7071068, -0.70706147, -0.008009234, 0.008009257, -0.0033173012, 0.9999624, -0.7070613, -0.7071443, 0.0033173533, -0.04314517, 0.0028787851, -0.0376085)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="plant/flower3/MeshInstance3D"]
+transform = Transform3D(-0.7071069, 0.7070614, 0.008009233, -0.008009408, -0.019334944, 0.999781, 0.70706123, 0.7068879, 0.019335013, 0.042836856, 0.0019364357, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="plant/flower3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90785396, 0)
+mesh = SubResource("CylinderMesh_44fy1")
+
+[node name="flower" type="Node3D" parent="plant"]
+transform = Transform3D(0.99670994, -0.08103925, 0.0014003969, 0.08105135, 0.99656117, -0.017221052, 0, 0.017277898, 0.99985075, 0, -0.0050781965, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower"]
+transform = Transform3D(1.3, 0, 0, 0, 0.8841889, 0.9530004, 0, -0.9530004, 0.8841889, 0, 1.1566279, -0.0057896674)
+mesh = SubResource("CylinderMesh_cy7r8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(-1, 4.4566146e-08, -7.521037e-08, -6.2513465e-08, 0.23687223, 0.97154117, 6.111306e-08, 0.97154117, -0.23687223, 0.00030810386, 0.011050701, 0.057092734)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(1, 4.2851028e-08, 7.62006e-08, -8.4694804e-08, 0.25881913, 0.96592605, 2.166875e-08, -0.96592605, 0.25881913, 0.00030810386, 0.013245702, -0.05505845)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(-1.9092113e-08, -0.9687956, 0.24786158, 0.011326836, 0.24784568, 0.96873355, -0.99993587, 0.0028075068, 0.010973385, -0.06256049, 0.012565374, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(-6.542541e-08, 0.96879554, -0.24786158, -0.011327004, 0.24784568, 0.96873355, 0.999936, 0.0028075927, 0.010973536, 0.056704886, 0.012565732, 0.0050326735)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(0.7071067, 0.70706147, 0.0080093425, -0.008009409, -0.003317302, 0.99996245, 0.70706147, -0.7071442, 0.0033174623, 0.03821416, 0.0027946234, -0.03021269)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(-0.70710677, -0.7070614, -0.008009343, 0.0080092605, -0.019334946, 0.9997811, -0.70706147, 0.7068879, 0.019334907, -0.040371586, 0.0019361973, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(0.7071068, -0.70706147, -0.008009234, 0.008009257, -0.0033173012, 0.9999624, -0.7070613, -0.7071443, 0.0033173533, -0.04314517, 0.0028787851, -0.0376085)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="plant/flower/MeshInstance3D"]
+transform = Transform3D(-0.7071069, 0.7070614, 0.008009233, -0.008009408, -0.019334944, 0.999781, 0.70706123, 0.7068879, 0.019335013, 0.042836856, 0.0019364357, 0.045594573)
+mesh = SubResource("RibbonTrailMesh_qi8dg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="plant/flower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90785396, 0)
+mesh = SubResource("CylinderMesh_44fy1")
+skeleton = NodePath("../..")

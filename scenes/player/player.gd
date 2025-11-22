@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * SPEED
 	move_and_slide()
 	
+	# переделать систему взаимодействия с предметами
 	%InteractText.hide()
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
@@ -48,8 +49,8 @@ func _physics_process(delta: float) -> void:
 			if Input.is_key_pressed(KEY_E):
 				%InteractText.hide()
 				target.interact()
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				get_tree().paused = true
+				#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				#get_tree().paused = true
 
 ### СИСТЕМА СОХРАНЕНИЯ И ЗАГРУЗКИ
 # позиция игрока должна загружаться после загрузки сцены

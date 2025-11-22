@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5l8ga4ua8gg3"]
+[gd_scene load_steps=8 format=3 uid="uid://c5l8ga4ua8gg3"]
 
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
 [ext_resource type="Material" uid="uid://dxkdrvylickrh" path="res://interior_models (blender)/wood_desk/wood_desk.tres" id="2_2m1l8"]
@@ -11,6 +11,9 @@ material = ExtResource("2_2m1l8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmaeb"]
 size = Vector3(0.0625, 0.078125, 48.73343)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m1l8"]
+size = Vector3(0.4189453, 0.2084961, 0.18206787)
 
 [node name="cash_register" instance=ExtResource("1_rmaeb")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.84, -0.48, -0.607)
@@ -31,3 +34,9 @@ script = ExtResource("2_ilcao")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_017/screen" index="0"]
 transform = Transform3D(-32.274998, 1.4210855e-13, -3.5843324e-09, 0, 31.999992, 2.2351742e-08, 2.8215702e-06, -3.5762787e-07, -0.041, 0.005049944, 0.20872402, -0.008187771)
 shape = SubResource("BoxShape3D_rmaeb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="19"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37841797, 0.2927246, 0.21762085)
+shape = SubResource("BoxShape3D_2m1l8")

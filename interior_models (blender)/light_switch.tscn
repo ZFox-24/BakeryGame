@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://c16773mqt3rmv"]
+
+[ext_resource type="Script" uid="uid://jyfs6aaj0380" path="res://interior_models (blender)/light_switch.gd" id="1_7tibc"]
+[ext_resource type="Material" uid="uid://d308mplwumnda" path="res://interior_models (blender)/light_switch_off.tres" id="3_tdkcq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hek0h"]
+size = Vector3(0.375, 0.585, 0.05)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hek0h"]
+left_to_right = 0.0
+size = Vector3(0.06, 0.365, 0.19)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_injju"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tibc"]
+size = Vector3(0.13842392, 0.34350586, 0.19897461)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7guqr"]
+material = ExtResource("3_tdkcq")
+size = Vector2(0.06, 0.145)
+
+[node name="light_switch" type="MeshInstance3D"]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+mesh = SubResource("BoxMesh_hek0h")
+
+[node name="switch" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, 0, 0.06110029, 0.051011413)
+mesh = SubResource("PrismMesh_hek0h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="switch"]
+physics_material_override = SubResource("PhysicsMaterial_injju")
+script = ExtResource("1_7tibc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch/StaticBody3D"]
+transform = Transform3D(1, 4.7857404e-20, 0, 4.3215966e-22, 1, -1.8890299e-29, 0, -2.0734011e-27, 1, 0.043027878, -0.011108402, 2.4424907e-15)
+shape = SubResource("BoxShape3D_7tibc")
+
+[node name="light" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, -4.371139e-08, -1, -1, 1.9106855e-15, 4.371139e-08, 0, 1, -4.371139e-08, 0, -0.214401, 0.026091516)
+mesh = SubResource("PlaneMesh_7guqr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light"]
+unique_name_in_owner = true
+light_color = Color(0, 0.87058824, 0.02745098, 1)
+light_energy = 0.455
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 0.04049615
+omni_attenuation = 0.091
