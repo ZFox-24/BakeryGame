@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://caa3iu3arfrcl"]
+
+[ext_resource type="Script" uid="uid://cq7qh6dxu4m8w" path="res://addons/virtual_joystick/virtual_joystick.gd" id="1_nt7q6"]
+
+[node name="ui" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 632.0
+offset_right = 266.0
+offset_bottom = 834.0
+script = ExtResource("1_nt7q6")
+joystick_preset_texture = 0
+stick_preset_texture = 0

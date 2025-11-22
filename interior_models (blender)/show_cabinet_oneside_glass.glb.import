@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Material.010": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://materials/glass.tres",
+"use_external/path": "uid://baow4sg1cwis4"
+}
+},
 "meshes": {
 "show_cabinet_oneside_glass_Cube_043": {
 "generate/lightmap_uv": 1,

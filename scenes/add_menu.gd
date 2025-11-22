@@ -9,7 +9,8 @@ func _ready() -> void:
 	Warehouse.transfer_item.connect(set_item)
 	await Warehouse.transfer_item
 	%num_field.text_changed.connect(_on_num_field_changed)
-	%item_name.text = "Пополнить запасы: " + item.item_name#+ %item_name_card.text
+	%item_name.text = tr("TITLE_REFILL") + tr(item.item_name)#+ %item_name_card.text
+	
 	%num_field.text = str(total_items)
 	%num_field.caret_column = %num_field.text.length()
 	%more_button.pressed.connect(add_values)
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 func set_item(tr_item):
 	item = tr_item
+	
 
 #func _process(delta: float) -> void:
 	#total_items = int(%num_field.text)

@@ -8,8 +8,8 @@
 [resource]
 script = ExtResource("1_rmxcp")
 upg_icon = SubResource("PlaceholderTexture2D_rmxcp")
-upg_name = "Популярность"
-upg_desc = "Покупатели приходят чаще"
+upg_name = "UPGRADE_POPULARITY"
+upg_desc = "DESC_POPULARITY"
 upg_price = 2000
 upgrades = Array[Script]([ExtResource("2_rmxcp")])
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"

@@ -32,5 +32,6 @@ func invoke_upgrade():
 		Money.money -= upgrade.upg_price
 		Money.update_money.emit()
 		%AnimationPlayer.play("bought")
+		%buy_button.text = tr("TEXT_BOUGHT")
 	else:
 		%AnimationPlayer.play("nem")

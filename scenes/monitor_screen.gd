@@ -1,7 +1,6 @@
 extends Panel
 
 func _ready() -> void:
-	VisitorManager.is_computer_open = true
 	#Warehouse.load_products()
 	Warehouse.load_items()
 	Warehouse.upgrades_loaded()
@@ -28,14 +27,14 @@ func bakery_state():
 	if !VisitorManager.is_bakery_open:
 		VisitorManager.open_bakery.emit()
 		VisitorManager.is_bakery_open = true
-		%open_close_bakery_button.text = "Закрыть пекарню"
+		%open_close_bakery_button.text = tr("TEXT_BAKERYCLOSE")
 	else:
 		VisitorManager.close_bakery.emit()
 		VisitorManager.is_bakery_open = false
-		%open_close_bakery_button.text = "Открыть пекарню"
+		%open_close_bakery_button.text = tr("TEXT_BAKERYOPEN")
 
 func check_bakery_state():
 	if !VisitorManager.is_bakery_open:
-		%open_close_bakery_button.text = "Открыть пекарню"
+		%open_close_bakery_button.text = tr("TEXT_BAKERYOPEN")
 	else:
-		%open_close_bakery_button.text = "Закрыть пекарню"
+		%open_close_bakery_button.text = tr("TEXT_BAKERYCLOSE")

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_fwx6u")
-item_name = "Круассан"
+item_name = "TEXT_CROISSANT"
 item_icon = ExtResource("1_ourqm")
 item_price = 24
 metadata/_custom_type_script = "uid://trevfjnntn62"

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dxkdrvylickrh"]
+
+[ext_resource type="Texture2D" uid="uid://chy3vk53s2ue6" path="res://interior_models (blender)/cash_register_wood06_diffuse.jpg" id="1_y7blp"]
+[ext_resource type="Texture2D" uid="uid://bb04bf737r2y5" path="res://interior_models (blender)/cash_register_wood06_normal_opengl.jpg" id="2_dhjue"]
+
+[resource]
+albedo_texture = ExtResource("1_y7blp")
+albedo_texture_force_srgb = true
+roughness_texture = ExtResource("1_y7blp")
+emission_enabled = true
+normal_enabled = true
+normal_texture = ExtResource("2_dhjue")
+texture_filter = 5
+grow_amount = 6.4
+stencil_flags = 2

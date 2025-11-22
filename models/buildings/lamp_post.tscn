@@ -61,12 +61,12 @@ transform = Transform3D(3.7855177e-08, 0.4999999, -0.8660253, 2.185569e-08, -0.8
 mesh = SubResource("PlaneMesh_2yf03")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1.0928541, 1.904097e-08, -0.43560654, 0.43560654, -4.7770182e-08, 1.0928541, -3.2939285e-16, -1.1764706, -5.142518e-08, 2.7465835, 7.4820604, 0)
+transform = Transform3D(1.0205841, 2.558111e-08, -0.5852275, 0.5852275, -4.4611152e-08, 1.0205841, 5.946647e-16, -1.1764706, -5.1425165e-08, 2.7465835, 7.4820623, 0)
 visible = false
 light_color = Color(0.9262658, 0.7032017, 0.3118382, 1)
 light_energy = 8.434
 shadow_enabled = true
 shadow_bias = 0.939
 shadow_normal_bias = 5.848
-spot_range = 11.0
-spot_angle = 23.085243
+spot_range = 10.698992
+spot_angle = 38.907333

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cntdgq2l2sw3u"]
+[gd_scene load_steps=10 format=3 uid="uid://cntdgq2l2sw3u"]
 
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_2oa50"]
+[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_jd5wg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
 bg_color = Color(0.1254902, 0.1254902, 0.1254902, 0.98039216)
@@ -118,8 +119,9 @@ offset_left = -80.5
 offset_right = 80.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_jd5wg")
 theme_override_font_sizes/font_size = 30
-text = "Пополнить запасы: "
+text = "TITLE_REFILL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -173,16 +175,19 @@ offset_right = -17.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_jd5wg")
 shortcut = SubResource("Shortcut_2oa50")
-text = "Купить"
+text = "KEY_BUY"
 
 [node name="Label" type="Label" parent="add_menu"]
 layout_mode = 0
-offset_left = 50.0
+offset_left = 13.0
 offset_top = 121.0
-offset_right = 150.0
+offset_right = 158.0
 offset_bottom = 144.0
-text = "Количество:"
+theme_override_fonts/font = ExtResource("3_jd5wg")
+text = "TEXT_QUANTITY"
+horizontal_alignment = 2
 
 [node name="total_price_hbox" type="HBoxContainer" parent="add_menu"]
 layout_mode = 0
@@ -194,7 +199,9 @@ alignment = 2
 
 [node name="Label" type="Label" parent="add_menu/total_price_hbox"]
 layout_mode = 2
-text = "Итого: "
+theme_override_fonts/font = ExtResource("3_jd5wg")
+text = "TEXT_TOTAL"
+horizontal_alignment = 2
 
 [node name="total_price_lbl" type="Label" parent="add_menu/total_price_hbox"]
 unique_name_in_owner = true

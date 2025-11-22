@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_p44ro")
-item_name = "Макарун"
+item_name = "TEXT_MACARON"
 item_icon = ExtResource("1_11aiq")
 item_quantity = 20
 item_price = 5

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpsrf278yjlwf"]
+[gd_scene load_steps=3 format=3 uid="uid://cpsrf278yjlwf"]
 
 [ext_resource type="Script" uid="uid://b1uyga62sv3ya" path="res://scenes/sell_item_panel.gd" id="1_8ygei"]
+[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_8ygei"]
 
 [node name="sell_item_panel" type="Panel"]
 custom_minimum_size = Vector2(789, 136)
@@ -37,6 +38,7 @@ offset_right = 365.72223
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
 theme_override_font_sizes/font_size = 32
 text = "ITEM_NAME"
 
@@ -54,15 +56,18 @@ offset_right = 88.5
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
 text = "QUANTITY"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 297.22223
+offset_left = 174.22223
 offset_top = 68.0
-offset_right = 397.22223
+offset_right = 394.22223
 offset_bottom = 91.0
-text = "Количество:"
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "TEXT_QUANTITY"
+horizontal_alignment = 2
 
 [node name="item_price" type="Label" parent="."]
 unique_name_in_owner = true
@@ -78,6 +83,7 @@ offset_right = 87.72223
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_8ygei")
 text = "PRICE"
 
 [node name="Label3" type="Label" parent="."]
@@ -87,13 +93,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -166.27777
+offset_left = -240.27777
 offset_top = 30.0
-offset_right = 4.722229
+offset_right = -0.277771
 offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Стоимость за штуку: "
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "TEXT_ONEITEM"
+horizontal_alignment = 2
 
 [node name="nei" type="Label" parent="."]
 visible = false

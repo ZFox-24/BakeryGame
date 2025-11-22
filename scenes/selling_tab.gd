@@ -16,8 +16,17 @@ func sell_item():
 	var rts_item := []
 	var nrts_items := []
 	for i in order.products:
-		var index = order.products.find(i,0)
+		print("product: " + str(i) + "\n" +
+				"product_name: " + i.item_name)
+		#var index = order.products.find(i,0) # проблема здесь. Круассан... ПОСТОЯННО ДОЛБАНЫЙ БЛЯТЬ КРУАССАН
+		#var item = Warehouse.loaded_products.get(index) # нужно перелопатить систему поиска
+		var index = Warehouse.loaded_products.find(i, 0)
+		print("index: " + str(index))
 		var item = Warehouse.loaded_products.get(index)
+		#print("item: " + item.item_name)
+		print(i)
+		print(item)
+		print(index)
 		if i.item_quantity <= item.item_quantity:
 			rts_item.append(i)
 			print("кол-во соответствует")
@@ -39,9 +48,11 @@ func sell_item():
 		for i in nrts_items:
 			var l = Label.new()
 			%nei_vbox.add_child(l)
-			var index = order.products.find(i,0)
+			#var index = order.products.find(i,0)
+			#var item = Warehouse.loaded_products.get(index)
+			var index = Warehouse.loaded_products.find(i)
 			var item = Warehouse.loaded_products.get(index)
-			l.text = "- " + i.item_name + " в количестве " + str(i.item_quantity - item.item_quantity) + " шт."
+			l.text = "- " + i.item_name + tr("TEXT_INTHEAMOUNT") + str(i.item_quantity - item.item_quantity) + tr("TEXT_ITEMS")
 		print("кол-во НЕ соответствует")
 	else:
 		for i in order.products:

@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5l8ga4ua8gg3"]
+[gd_scene load_steps=7 format=3 uid="uid://c5l8ga4ua8gg3"]
 
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
+[ext_resource type="Material" uid="uid://dxkdrvylickrh" path="res://interior_models (blender)/wood_desk/wood_desk.tres" id="2_2m1l8"]
 [ext_resource type="Script" uid="uid://c27sv08edbl21" path="res://interior_models (blender)/screen.gd" id="2_ilcao"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tu2hx"]
+material = ExtResource("2_2m1l8")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rmaeb"]
 
@@ -12,7 +16,13 @@ size = Vector3(0.0625, 0.078125, 48.73343)
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.84, -0.48, -0.607)
 
 [node name="Cube_010" parent="." index="0"]
-transform = Transform3D(-0.2307992, 0, 0, 0, 0.004766052, 1.0508963e-08, 0, -4.166615e-10, 0.120208524, -0.37738878, 0.3944181, 0.21578977)
+transform = Transform3D(-0.46109176, 0, 0, 0, 0.004766052, 2.0685262e-08, 0, -4.1666146e-10, 0.2366118, -0.37738878, 0.3944181, 0.21578977)
+mesh = SubResource("BoxMesh_tu2hx")
+
+[node name="price" type="Label3D" parent="Cube_014" index="0"]
+transform = Transform3D(-0.99335283, 0.0036386896, 0.0006119687, 0.0004853811, -0.027029753, 0.8817405, 0.005230711, 0.6935243, 0.034362834, -0.0006637573, 1.0222778, 0.1046679)
+text = "0"
+font_size = 157
 
 [node name="screen" type="StaticBody3D" parent="Cube_017" index="0"]
 physics_material_override = SubResource("PhysicsMaterial_rmaeb")

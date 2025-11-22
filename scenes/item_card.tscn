@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://76pi48laytsu"]
+[gd_scene load_steps=6 format=3 uid="uid://76pi48laytsu"]
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
 [ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="2_4lcok"]
+[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_ltbao"]
 
 [sub_resource type="Resource" id="Resource_ltbao"]
 script = ExtResource("2_4lcok")
@@ -52,6 +53,7 @@ offset_right = 80.5
 offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ltbao")
 theme_override_font_sizes/font_size = 30
 text = "item_name"
 horizontal_alignment = 1
@@ -71,7 +73,8 @@ offset_right = -8.0
 offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Пополнить"
+theme_override_fonts/font = ExtResource("3_ltbao")
+text = "KEY_FILL"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
@@ -86,11 +89,14 @@ offset_right = 90.0
 offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ltbao")
 theme_override_font_sizes/font_size = 30
-text = "На складе:"
+text = "TEXT_ATWAREHOUSE"
+horizontal_alignment = 1
 
 [node name="quantity_lbl" type="Label" parent="Panel/HBoxContainer"]
 unique_name_in_owner = true

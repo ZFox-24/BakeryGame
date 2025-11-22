@@ -4,6 +4,7 @@ func _ready() -> void:
 	%build_num.text = "Build " + ProjectSettings.get_setting("global/Build_number")
 	%version.text = "v. " + ProjectSettings.get_setting("application/config/version")
 	
+	%settings_button.pressed.connect(%settings_win.show)
 	%continue_button.pressed.connect(continue_game)
 	%saves_button.pressed.connect(save_game)
 	%load_button.pressed.connect(load_game)

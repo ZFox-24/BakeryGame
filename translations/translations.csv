@@ -1,0 +1,46 @@
+﻿key,ru,en
+TEXT_PAUSE,Пауза,Paused
+KEY_CONTINUE,Продолжить,Continue
+KEY_SAVE,Сохранить,Save
+KEY_LOAD,Загрузить,Load
+KEY_SETTINGS,Настройки,Settings
+KEY_STARTOVER,Начать заново,Start over
+KEY_EXIT,Выйти,Exit
+TITLE_CONFIRMDELETE,Удаление сохранения,Save deletion
+TEXT_CONFIRMDELETE,Вы действительно хотите удалить текущее сохранение и начать заново?,Do you really wish to delete the save and start over?
+KEY_YES,Да,Yes
+KEY_NO,Нет,No
+TITLE_SETTINGS,Настройки,Settings
+TEXT_LANGUAGE,Язык игры,Language
+TEXT_OBJINTERACT,Нажмите "Е" для доступа к компьютеру,Press "E" to use the computer
+TAB_SELLING,Продажа,Sale
+TAB_BUYING,Пополнение товаров,Refilling the stock
+TAB_UPGRADES,Улучшения,Upgrades
+TEXT_NOTHINGTOSELL,Заказов нет,Nothing to sell
+KEY_FILL,Пополнить,Refill
+TEXT_ATWAREHOUSE,На складе: ,In stock:
+TITLE_REFILL,Пополнить товар: ,Refill: 
+TEXT_TOTAL,Итого: ,Total: 
+KEY_BUY,Купить,Buy
+KEY_SELL,Продать,Sell
+TEXT_QUANTITY,Количество: ,Quantity: 
+TEXT_ONEITEM,Стоимость за штуку: ,Price per item: 
+TEXT_NOTENOUGH,Недостаточно:,Not enough:
+TEXT_NOTENOUGHMONEY,Недостаточно средств,Not enough money
+TEXT_INTHEAMOUNT, в количестве , in the amount of 
+TEXT_ITEMS, шт.,items.
+TEXT_BOUGHT,Куплено,Bought
+TEXT_BAGUETTE,Багет,Baguette
+TEXT_BUN,Булочка,Bun
+TEXT_CAKE,Торт,Cake
+TEXT_CROISSANT,Круассан,Croissant
+TEXT_DONUT,Пончик,Donut
+TEXT_ECLAIR,Эклер,Eclair
+TEXT_MACARON,Макарун,Macaron
+UPGRADE_MOREITEMS,Больше товаров,More items
+DESC_MOREITEMS,С шансом 40% покупатель купит 2 товара,With a chance of 40% a customer will buy 2 items
+UPGRADE_POPULARITY,Популярность,Popularity
+DESC_POPULARITY,Покупатели приходят чаще,Customers visit more often
+TEXT_UPGRADESNOTICE,Улучшения заработают только после переоткрытия пекарни.,Upgrades will work after you re-open the bakery.
+TEXT_BAKERYOPEN,Открыть пекарню,Open the bakery
+TEXT_BAKERYCLOSE,Закрыть пекарню,Close the bakery

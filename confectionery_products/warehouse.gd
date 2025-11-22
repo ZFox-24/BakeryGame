@@ -52,15 +52,15 @@ func _ready():
 	SaveLoad.save_data.connect(save_upgrades)
 
 func save_items():
-	if VisitorManager.is_computer_open == true:
-		SaveLoad.save_file_data.data["product_quantity"].clear()
-		var items_data = []
-		for i in loaded_products:
-			items_data.append({
-				"resource_path": i.resource_path,
-				"item_quantity": i.item_quantity
-			})
-		SaveLoad.save_file_data.data["product_quantity"] = items_data
+	SaveLoad.save_file_data.data["product_quantity"].clear()
+	var items_data = []
+	for i in loaded_products:
+		items_data.append({
+			"resource_path": i.resource_path,
+			"item_quantity": i.item_quantity
+		})
+	SaveLoad.save_file_data.data["product_quantity"] = items_data
+	return
 
 func load_items():
 	loaded_products.clear()
@@ -68,7 +68,7 @@ func load_items():
 		for i in SaveLoad.save_file_data.data["product_quantity"]:
 			var res = load(i["resource_path"])
 			res.item_quantity = i["item_quantity"]
-			loaded_products.append(i)
+			loaded_products.append(res) # может, оставить i
 	else:
 		if loaded_products.size() < array_item.size(): 
 			for i in array_item:
@@ -80,10 +80,15 @@ func save_upgrades():
 	SaveLoad.save_file_data.data["bought_upgrades"].clear()
 	var upgrades_data = []
 	for i in loaded_upgrades:
-		upgrades_data.append({
-			"upgrade_path": i.resource_path,
-			"upgrade_bought": i.upgrade_bought
-		})
+		if i is Dictionary:
+			continue
+		if i is Resource and i.resource_path != "":
+			upgrades_data.append({
+				"upgrade_path": i.resource_path,
+				"upgrade_bought": i.upgrade_bought
+			})
+		else:
+			push_error("Неверный тип элемента" + str(i))
 	SaveLoad.save_file_data.data["bought_upgrades"] = upgrades_data
 
 func upgrades_loaded():

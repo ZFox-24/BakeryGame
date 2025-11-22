@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=11 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://d4deldnqmo4hy" path="res://fps.tscn" id="2_gmlin"]
+[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="4_75vfm"]
 [ext_resource type="PackedScene" uid="uid://dxa04a1d0ccul" path="res://scenes/player_loader.tscn" id="4_lvxji"]
+[ext_resource type="Script" uid="uid://cq7qh6dxu4m8w" path="res://addons/virtual_joystick/virtual_joystick.gd" id="5_p47bc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -48,6 +50,23 @@ transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-
 collision_layer = 2
 script = ExtResource("1_8afob")
 
+[node name="ui" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 632.0
+offset_right = 284.0
+offset_bottom = 852.0
+pivot_offset = Vector2(110, 110)
+script = ExtResource("5_p47bc")
+joystick_use_textures = false
+joystick_preset_texture = 0
+stick_use_textures = false
+stick_preset_texture = 0
+
 [node name="fps" parent="." instance=ExtResource("2_gmlin")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -78,7 +97,9 @@ offset_right = 161.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Нажмите \"E\" для доступа к компьютеру"
+theme_override_fonts/font = ExtResource("4_75vfm")
+text = "TEXT_OBJINTERACT"
+horizontal_alignment = 1
 
 [node name="CantExitText" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -94,6 +115,7 @@ offset_right = 161.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_75vfm")
 text = "Перед уходом закройте пекарню"
 horizontal_alignment = 1
 

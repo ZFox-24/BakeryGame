@@ -28,4 +28,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("QuadMesh_tsywe")
 skeleton = NodePath("../CollisionShape3D")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34032154, 0)
+light_color = Color(0.41568628, 0.30588236, 0.7176471, 1)
+omni_range = 1.0998939
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_dhk2j")
-item_name = "Булочка"
+item_name = "TEXT_BUN"
 item_icon = ExtResource("1_pnr2u")
 item_price = 20
 metadata/_custom_type_script = "uid://trevfjnntn62"

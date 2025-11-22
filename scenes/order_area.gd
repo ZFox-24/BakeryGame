@@ -7,6 +7,7 @@ func _ready() -> void:
 func create_order(area: Area3D):
 	OrderManager.order_in_process = true
 	make_order_res()
+	await make_order_res()
 	VisitorManager.create_order.emit()
 
 func delete_order(area: Area3D):
@@ -15,11 +16,13 @@ func delete_order(area: Area3D):
 
 func make_order_res(): # создает ресурс заказа для использования в OrderManager
 	#var item_dict = Warehouse.item
-	var item_array = Warehouse.loaded_products
+	var item_array = []
+	for i in Warehouse.loaded_products:
+		item_array.append(i)
 	var order = Order.new()
 	var rannum = randf()
 	
-	var available_items = item_array#item_dict.keys()
+	var available_items = item_array #item_dict.keys()
 	available_items.shuffle()
 	var items_added = 0
 	for key in available_items:
@@ -28,6 +31,7 @@ func make_order_res(): # создает ресурс заказа для исп�
 		var item = key.duplicate()
 		#var item = item_dict[key].duplicate()
 		order.products.append(item)
+		print("item: " + str(item))
 		items_added += 1
 		match(item.item_name):
 			"Торт":
@@ -39,3 +43,6 @@ func make_order_res(): # создает ресурс заказа для исп�
 		if rannum > 0.4:
 			break
 	OrderManager.order = order
+	#for i in order.products:
+		#print("product: " + str(i) + "\n" +
+				#"product_name: " + i.item_name)

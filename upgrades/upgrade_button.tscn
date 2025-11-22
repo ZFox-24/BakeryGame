@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://7yj7tdeo2lhr"]
+[gd_scene load_steps=8 format=3 uid="uid://7yj7tdeo2lhr"]
 
 [ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
+[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_ebbir"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebbir"]
 
@@ -68,7 +69,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Куплено"]
+"values": ["TEXT_BOUGHT"]
 }
 
 [sub_resource type="Animation" id="Animation_1v606"]
@@ -127,6 +128,7 @@ offset_right = -10.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ebbir")
 text = "price"
 
 [node name="upgrade_name" type="Label" parent="."]
@@ -136,6 +138,7 @@ offset_left = 93.0
 offset_top = 2.0
 offset_right = 266.0
 offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("2_ebbir")
 theme_override_font_sizes/font_size = 24
 text = "upgrade_name"
 
@@ -146,17 +149,20 @@ offset_left = 97.0
 offset_top = 45.0
 offset_right = 256.0
 offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_ebbir")
 text = "upgrade_description"
 
 [node name="nem_lbl" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 344.0
+offset_left = 317.0
 offset_top = 6.0
-offset_right = 526.0
+offset_right = 523.0
 offset_bottom = 29.0
-text = "Недостаточно средств"
+theme_override_fonts/font = ExtResource("2_ebbir")
+text = "TEXT_NOTENOUGHMONEY"
+horizontal_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
