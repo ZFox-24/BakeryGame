@@ -9,10 +9,14 @@ func interact():
 	if !is_on:
 		%OmniLight3D.hide()
 		%light.mesh.material = is_on_material
-		%switch.rotate_x(180)
+		%switch.rotation_degrees = Vector3(180, 90, -180)
 		is_on = true
+		VisitorManager.is_lamp_on = is_on
+		VisitorManager.change_lamp_state.emit()
 	else:
 		%OmniLight3D.show()
 		%light.mesh.material = is_off_material
-		%switch.rotate_x(-180)
+		%switch.rotation_degrees = Vector3(0, 90, -180)
 		is_on = false
+		VisitorManager.is_lamp_on = is_on
+		VisitorManager.change_lamp_state.emit()

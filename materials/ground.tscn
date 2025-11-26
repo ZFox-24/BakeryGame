@@ -45,6 +45,7 @@ sky = SubResource("Sky_8yq4j")
 ambient_light_source = 3
 ambient_light_color = Color(0.27279034, 0.63891447, 0.6799078, 1)
 reflected_light_source = 2
+ssr_enabled = true
 glow_enabled = true
 glow_intensity = 1.64
 glow_bloom = 0.15

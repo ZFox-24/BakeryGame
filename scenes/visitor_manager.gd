@@ -10,6 +10,9 @@ signal bakery_opened_no_exit
 var is_bakery_open := false
 var is_computer_open := false
 
+var is_lamp_on : bool
+signal change_lamp_state
+
 var current_visitors := 0
 var max_visitors := 1
 

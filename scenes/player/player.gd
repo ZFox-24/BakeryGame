@@ -42,15 +42,15 @@ func _physics_process(delta: float) -> void:
 	
 	# переделать систему взаимодействия с предметами
 	%InteractText.hide()
-	if %SeeCast.is_colliding():
-		var target = %SeeCast.get_collider()
-		if target.has_method("interact"):
-			%InteractText.show()
-			if Input.is_key_pressed(KEY_E):
-				%InteractText.hide()
-				target.interact()
-				#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				#get_tree().paused = true
+	#if %SeeCast.is_colliding():
+		#var target = %SeeCast.get_collider()
+		#if target.has_method("interact"):
+			#%InteractText.show()
+			#if Input.is_key_pressed(KEY_E):
+				#%InteractText.hide()
+				#target.interact()
+				##Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				##get_tree().paused = true
 
 ### СИСТЕМА СОХРАНЕНИЯ И ЗАГРУЗКИ
 # позиция игрока должна загружаться после загрузки сцены

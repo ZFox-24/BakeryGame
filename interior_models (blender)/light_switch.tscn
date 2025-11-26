@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c16773mqt3rmv"]
+[gd_scene load_steps=9 format=3 uid="uid://c16773mqt3rmv"]
 
 [ext_resource type="Script" uid="uid://jyfs6aaj0380" path="res://interior_models (blender)/light_switch.gd" id="1_7tibc"]
+[ext_resource type="Material" uid="uid://bls7giae47s10" path="res://interior_models (blender)/light_switch_on.tres" id="3_injju"]
 [ext_resource type="Material" uid="uid://d308mplwumnda" path="res://interior_models (blender)/light_switch_off.tres" id="3_tdkcq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hek0h"]
@@ -25,12 +26,14 @@ mesh = SubResource("BoxMesh_hek0h")
 
 [node name="switch" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(4.371139e-08, -3.821371e-15, 1, -8.742278e-08, -1, 0, 1, -8.742278e-08, -4.371139e-08, 0, 0.06110029, 0.051011413)
+transform = Transform3D(4.371139e-08, 3.821371e-15, 1, 8.742278e-08, -1, 0, 1, 8.742278e-08, -4.371139e-08, 0, 0.06110029, 0.051011413)
 mesh = SubResource("PrismMesh_hek0h")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="switch"]
 physics_material_override = SubResource("PhysicsMaterial_injju")
 script = ExtResource("1_7tibc")
+is_off_material = ExtResource("3_tdkcq")
+is_on_material = ExtResource("3_injju")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="switch/StaticBody3D"]
 transform = Transform3D(1, 4.7857404e-20, 0, 4.3215966e-22, 1, -1.8890299e-29, 0, -2.0734011e-27, 1, 0.043027878, -0.011108402, 2.4424907e-15)

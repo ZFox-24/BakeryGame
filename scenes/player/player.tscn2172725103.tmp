@@ -73,7 +73,6 @@ stick_use_textures = false
 stick_preset_texture = 0
 
 [node name="crosshair" type="TextureRect" parent="ui"]
-unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -86,7 +85,6 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_qek5x")
-stretch_mode = 3
 script = ExtResource("4_5gtgg")
 default = ExtResource("3_qek5x")
 hand = ExtResource("5_h17s1")

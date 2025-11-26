@@ -1,15 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv84ssob33i55"]
+[gd_scene load_steps=5 format=3 uid="uid://cv84ssob33i55"]
 
 [ext_resource type="Material" uid="uid://dj3xu5c17uhk3" path="res://materials/windows_glow.tres" id="1_3hyp2"]
+[ext_resource type="Script" uid="uid://c07o7pyv5iep4" path="res://models/light.gd" id="1_xb4e7"]
+[ext_resource type="Material" uid="uid://4uw24kt55sun" path="res://materials/window.tres" id="3_xakox"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g7sry"]
-material = ExtResource("1_3hyp2")
+material = ExtResource("3_xakox")
 
 [node name="Light" type="Node3D"]
+script = ExtResource("1_xb4e7")
+text_on = ExtResource("1_3hyp2")
+text_off = ExtResource("3_xakox")
 
 [node name="light" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.34540874, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_g7sry")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light"]
+unique_name_in_owner = true
+visible = false
 light_color = Color(0.98896474, 0.9463404, 0.82337034, 1)
+light_bake_mode = 1
+shadow_enabled = true

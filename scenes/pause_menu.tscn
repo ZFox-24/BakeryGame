@@ -338,15 +338,18 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -267.0
-offset_top = -329.0
+offset_top = -340.0
 offset_right = -12.0
+offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 59
+alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="authors"]
+visible = false
 layout_mode = 2
 text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
 
