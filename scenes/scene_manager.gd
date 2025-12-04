@@ -8,6 +8,9 @@ func _ready() -> void:
 	SaveLoad.save_data.connect(save_last_scene)
 	SaveLoad.load_data.connect(load_last_scene)
 	load_scene()
+	
+	# временно для теста монитора
+	#get_tree().change_scene_to_file("res://confectionery_products/test_scene.tscn")
 
 func save_last_scene():
 	SaveLoad.save_file_data.data["scene_loaded"] = current_scene

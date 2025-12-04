@@ -58,7 +58,6 @@ script = ExtResource("1_8afob")
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="ui"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 64.0

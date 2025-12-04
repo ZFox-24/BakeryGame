@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c21kiilpipoiu"]
+[gd_scene load_steps=13 format=3 uid="uid://c21kiilpipoiu"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_gynbd"]
@@ -8,6 +8,13 @@
 [ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
 [ext_resource type="Script" uid="uid://s6labs2nxrdb" path="res://scenes/add_upgrades_to_list.gd" id="6_pukmn"]
 [ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnrhv"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_enmgh"]
 length = 0.001
@@ -84,7 +91,7 @@ _data = {
 }
 
 [node name="Control" type="Panel"]
-process_mode = 2
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,7 +101,24 @@ offset_right = -227.55554
 offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cnrhv")
 script = ExtResource("1_qb77y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.44446
+offset_top = -133.0
+offset_right = 236.44446
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.38200003)
 
 [node name="exit_button" type="Button" parent="."]
 unique_name_in_owner = true

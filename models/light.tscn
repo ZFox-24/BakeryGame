@@ -21,5 +21,6 @@ mesh = SubResource("BoxMesh_g7sry")
 unique_name_in_owner = true
 visible = false
 light_color = Color(0.98896474, 0.9463404, 0.82337034, 1)
+light_energy = 0.7
 light_bake_mode = 1
 shadow_enabled = true

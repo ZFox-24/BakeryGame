@@ -46,9 +46,9 @@ mesh = SubResource("PlaneMesh_7guqr")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="light"]
 unique_name_in_owner = true
-light_color = Color(0, 0.87058824, 0.02745098, 1)
-light_energy = 0.455
+light_color = Color(0.74855804, 1, 0.72615844, 1)
+light_energy = 4.454
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 0.04049615
-omni_attenuation = 0.091
+omni_range = 0.08
+omni_attenuation = -2.409

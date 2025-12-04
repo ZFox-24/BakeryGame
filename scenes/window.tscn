@@ -20,6 +20,7 @@ mesh = SubResource("PlaneMesh_iie45")
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.46366242, 2.185569e-08, 0.9023628, 0.26769564, -3.7855166e-08, -1.5629382, 0, 1, -7.888707e-08, 0.1691346, 0, 0)
 light_color = Color(0.98039216, 0.7411765, 0.18431373, 1)
+light_cull_mask = 4294967293
 shadow_enabled = true
 shadow_bias = 0.08
 spot_range = 11.188
