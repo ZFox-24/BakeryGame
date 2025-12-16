@@ -57,6 +57,10 @@ func _physics_process(delta: float) -> void:
 				##Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				##get_tree().paused = true
 
+func _play_footstep_audio():
+	%footstep_audio.pitch_scale = randf_range(.8, 1.2)
+	%footstep_audio.play()
+
 ### СИСТЕМА СОХРАНЕНИЯ И ЗАГРУЗКИ
 # позиция игрока должна загружаться после загрузки сцены
 func save_player_pos():

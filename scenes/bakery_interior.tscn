@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=44 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
+[ext_resource type="Script" uid="uid://dugdllji4axry" path="res://scenes/bakery_interior.gd" id="1_xl57x"]
 [ext_resource type="PackedScene" uid="uid://b2skgkqep08eo" path="res://interior_models (blender)/table.tscn" id="3_h7maj"]
 [ext_resource type="PackedScene" uid="uid://cimbausae7e55" path="res://interior_models (blender)/show_cabinet_oneside_glass.tscn" id="5_aceu4"]
 [ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="5_p7p2x"]
@@ -21,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://b8lqxjwbq22o5" path="res://interior_models (blender)/socket.tscn" id="19_h7maj"]
 [ext_resource type="PackedScene" uid="uid://c16773mqt3rmv" path="res://interior_models (blender)/light_switch.tscn" id="20_0uvp7"]
 [ext_resource type="Material" uid="uid://gwc1pfxdfeg" path="res://interior_models (blender)/screen.tres" id="20_xl57x"]
+[ext_resource type="AudioStream" uid="uid://ct4x1u5j1h5d" path="res://assets/sfx/bakery_crowd_sfx.wav" id="23_kb83y"]
+[ext_resource type="AudioStream" uid="uid://c3s4atjgmt7c1" path="res://assets/sfx/door.mp3" id="24_2811x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m23nw"]
 albedo_color = Color(0.68718165, 0.5786994, 0.58695066, 1)
@@ -120,6 +123,7 @@ bottom_radius = 0.005
 height = 0.935
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_xl57x")
 
 [node name="ceiling" type="MeshInstance3D" parent="."]
 transform = Transform3D(6.7742354e-15, -8.742277e-08, -2.685147, 1.5497648e-07, -1, 2.34743e-07, -3.545448, -4.371139e-08, 5.1304714e-15, -0.9, 1, 1.0053926)
@@ -256,7 +260,7 @@ shape = SubResource("BoxShape3D_oj335")
 transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -1.8443649, -1.48, 2.54003)
 
 [node name="Player" parent="." instance=ExtResource("9_iyh8a")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.2626312, -1, 4.178807)
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -1.2626312, -1, 4.178807)
 
 [node name="human_spawner" parent="." instance=ExtResource("10_oj335")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -1.9071794, -0.9991354, 5.8582506)
@@ -397,5 +401,16 @@ mesh = SubResource("CylinderMesh_5orq6")
 transform = Transform3D(-4.371118e-08, -0.9999952, 0.0030890862, 1.3503355e-10, 0.0030890862, 0.9999952, -1, 4.371139e-08, 3.8402466e-15, -2.9157233, -0.9933589, 2.029653)
 mesh = SubResource("CylinderMesh_kb83y")
 
+[node name="bakery_ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_kb83y")
+volume_db = -35.0
+
+[node name="door_open_audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6842067, -0.7293548, 4.3502417)
+stream = ExtResource("24_2811x")
+volume_db = -5.0
+autoplay = true
+
 [editable path="window2"]
+[editable path="human_spawner"]
 [editable path="light_switch"]

@@ -17,3 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func to_exit():
 	%AnimationPlayer.play("to_exit")
+	
+func _play_footstep_audio():
+	%footsteps_sfx.pitch_scale = randf_range(.8, 1.2)
+	%footsteps_sfx.play()

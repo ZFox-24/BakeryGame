@@ -3,18 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
 [ext_resource type="Material" uid="uid://dxkdrvylickrh" path="res://interior_models (blender)/wood_desk/wood_desk.tres" id="2_2m1l8"]
 [ext_resource type="Script" uid="uid://c27sv08edbl21" path="res://interior_models (blender)/screen.gd" id="2_ilcao"]
+[ext_resource type="Script" uid="uid://21j0jchd83c" path="res://interior_models (blender)/cash_registerr.gd" id="2_tu2hx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tu2hx"]
 material = ExtResource("2_2m1l8")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_tu2hx"]
-viewport_path = NodePath("MeshInstance3D/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu2hx"]
 resource_local_to_scene = true
 blend_mode = 1
 albedo_color = Color(2.838728, 2.7260628, 3.3276787, 1)
-albedo_texture = SubResource("ViewportTexture_tu2hx")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.2
@@ -27,7 +24,7 @@ material = SubResource("StandardMaterial3D_tu2hx")
 size = Vector2(1.79, 1.78)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmaeb"]
-size = Vector3(0.0625, 0.078125, 48.73343)
+size = Vector3(2.0146484, 2.6170654, 2.1894531)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2m1l8"]
 size = Vector3(0.4189453, 0.2084961, 0.18206787)
@@ -45,19 +42,20 @@ glow_enabled = true
 
 [node name="cash_register" instance=ExtResource("1_rmaeb")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.84, -0.48, -0.607)
+script = ExtResource("2_tu2hx")
 
 [node name="Cube_010" parent="." index="0"]
 transform = Transform3D(-0.46109176, 0, 0, 0, 0.004766052, 2.0685262e-08, 0, -4.1666146e-10, 0.2366118, -0.37738878, 0.3944181, 0.21578977)
 mesh = SubResource("BoxMesh_tu2hx")
 
 [node name="price" type="Label3D" parent="Cube_014" index="0"]
+unique_name_in_owner = true
 transform = Transform3D(-0.99335283, 0.0036386896, 0.0006119687, 0.0004853811, -0.027029753, 0.8817405, 0.005230711, 0.6935243, 0.034362834, -0.0006637573, 1.0222778, 0.1046679)
 text = "0"
 font_size = 157
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="7"]
 transform = Transform3D(0.060558498, 0, 0, 0, 0.0017173174, -0.039331757, 0, 0.0051029045, 0.0132366, -0.31897098, 0.4672452, 0.20850022)
-visible = false
 mesh = SubResource("PlaneMesh_2ktg2")
 skeleton = NodePath("../Cube_017")
 
@@ -67,14 +65,11 @@ spot_range = 0.53368694
 spot_angle = 61.60348
 spot_angle_attenuation = 2.73208
 
-[node name="Cube_017" parent="." index="8"]
-visible = false
-
-[node name="screen" type="Area3D" parent="Cube_017" index="0"]
+[node name="screen" type="StaticBody3D" parent="Cube_017" index="0"]
 script = ExtResource("2_ilcao")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_017/screen" index="0"]
-transform = Transform3D(-32.274998, 1.4210855e-13, -3.5843324e-09, 0, 31.999992, 2.2351742e-08, 2.8215702e-06, -3.5762787e-07, -0.041, 0.005049944, 0.20872402, -0.008187771)
+transform = Transform3D(-0.99999976, -1.7763568e-15, -1.5099576e-07, 2.2737368e-13, 1, 0, 1.5099582e-07, -1.1175871e-08, -1, 0.005049944, 0.028977394, -0.008187771)
 shape = SubResource("BoxShape3D_rmaeb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="20"]

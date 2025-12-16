@@ -10,8 +10,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		%crosshair.hide()
 		if target.has_method("interact"):
 			target.interact()
-			if target.has_child("Camera3D"):
-				%Camera3D.current = false
+			#if target.has_child("Camera3D"):
+				#%Camera3D.current = false
 
 func _process(delta: float) -> void:
 	%InteractText.hide()

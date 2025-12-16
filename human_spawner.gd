@@ -12,6 +12,7 @@ func spawn_human():
 		add_child(human)
 		VisitorManager.current_visitors += 1
 		%Timer.disconnect("timeout", spawn_human)
+		$"../door_open_audio".play()
 
 func bakery_opened():
 	var time1 = VisitorManager.time1

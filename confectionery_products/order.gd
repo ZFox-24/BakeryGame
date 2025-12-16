@@ -5,11 +5,10 @@ class_name Order extends Resource
 var final_price := 0
 
 func calc_finprice():
-	await OrderManager.order_opened
+	#await OrderManager.order_opened
 	for p in products:
 		final_price += p.item_price * p.item_quantity
 	final_price *= 1.1
-	print("final_price:" + str(final_price))
 
 func _init() -> void:
 	calc_finprice()
