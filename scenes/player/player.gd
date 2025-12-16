@@ -40,8 +40,13 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * SPEED
 	move_and_slide()
 	
+	if velocity.x or velocity.z > 0:
+		%camera_animation.play("camera_bob")
+	else:
+		%camera_animation.stop()
+	
 	# переделать систему взаимодействия с предметами
-	%InteractText.hide()
+	#%InteractText.hide()
 	#if %SeeCast.is_colliding():
 		#var target = %SeeCast.get_collider()
 		#if target.has_method("interact"):

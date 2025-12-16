@@ -8,10 +8,11 @@ var last_event_pos2D = null
 var last_event_time: float = -1.0
 
 @onready var node_viewport = $SubViewport
-@onready var node_quad = $Quad
+@onready var node_quad = $Screen
 @onready var node_area = $Screen/Area3D
 
 func _ready():
+	#%object_camera_manager.switch_to_PC.emit()
 	node_area.mouse_entered.connect(_mouse_entered_area)
 	node_area.mouse_exited.connect(_mouse_exited_area)
 	node_area.input_event.connect(_mouse_input_event)

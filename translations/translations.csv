@@ -13,7 +13,7 @@ KEY_NO,Нет,No
 TITLE_SETTINGS,Настройки,Settings
 TEXT_LANGUAGE,Язык игры,Language
 TEXT_OBJINTERACT,Нажмите "Е" для доступа к компьютеру,Press "E" to use the computer
-TAB_SELLING,Продажа,Sale
+TAB_SELLING,Заказы,Orders
 TAB_BUYING,Пополнение товаров,Refilling the stock
 TAB_UPGRADES,Улучшения,Upgrades
 TEXT_NOTHINGTOSELL,Заказов нет,Nothing to sell
@@ -44,3 +44,5 @@ DESC_POPULARITY,Покупатели приходят чаще,Customers visit m
 TEXT_UPGRADESNOTICE,Улучшения заработают только после переоткрытия пекарни.,Upgrades will work after you re-open the bakery.
 TEXT_BAKERYOPEN,Открыть пекарню,Open the bakery
 TEXT_BAKERYCLOSE,Закрыть пекарню,Close the bakery
+BAKERY_BUILDING_NAME,Пекарня "Булочка с маком",Bakery
+WAREHOUSE_BUILDING_NAME,Склад,Warehouse

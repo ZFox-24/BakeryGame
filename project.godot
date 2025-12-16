@@ -41,13 +41,19 @@ project/assembly_name="Игра - пекарня -Булочка с маком-"
 
 enabled=PackedStringArray("res://addons/SaveManagerLite/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://test_monitor/": "pink"
+}
+
 [filesystem]
 
 import/blender/enabled=false
 
 [global]
 
-Build_number="40"
+Build_number="41"
 
 [input]
 

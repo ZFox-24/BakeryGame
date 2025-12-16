@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=30 format=3 uid="uid://b032niy2ngqfh"]
 
 [ext_resource type="PackedScene" uid="uid://c3t5k8bkk5xb3" path="res://models/buildings/warehouse_building.tscn" id="1_6ttmh"]
 [ext_resource type="Script" uid="uid://bpf2sx0opodm2" path="res://addons/scene_object_brush/Brush.gd" id="1_srsxv"]
@@ -10,9 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cu8g5atyfceby" path="res://models/truck.tscn" id="10_4bv6t"]
 [ext_resource type="PackedScene" uid="uid://d1xgtpypppfq6" path="res://models/buildings/bakery_building.tscn" id="10_5yycj"]
 [ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="10_8yq4j"]
-[ext_resource type="AudioStream" uid="uid://dnjumsbo0vem8" path="res://assets/sfx/birds.mp3" id="11_a55h4"]
-[ext_resource type="AudioStream" uid="uid://nv78ciitph6o" path="res://assets/sfx/leaves1.mp3" id="12_h0tbc"]
-[ext_resource type="AudioStream" uid="uid://b6yhrol2yi0dr" path="res://assets/sfx/outskirts.mp3" id="13_if3wq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -91,15 +88,8 @@ material = ExtResource("3_utnsy")
 radius = 7.431
 height = 9.911
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_8yq4j"]
-size = Vector2(0.045, 1.305)
-center_offset = Vector3(0, 0.01, 0)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_utnsy"]
 center_offset = Vector3(0, 0.01, 0)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a55h4"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ttmh"]
 albedo_color = Color(0.3721532, 0.39474586, 0.39627662, 1)
@@ -114,15 +104,6 @@ center_offset = Vector3(0, 0.001, 0)
 [sub_resource type="PlaneMesh" id="PlaneMesh_8sspb"]
 size = Vector2(0.185, 2)
 center_offset = Vector3(0, 0.002, 0)
-
-[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2lx38"]
-stream_count = 3
-stream_0/stream = ExtResource("11_a55h4")
-stream_0/volume = -10.96
-stream_1/stream = ExtResource("12_h0tbc")
-stream_1/volume = -4.7
-stream_2/stream = ExtResource("13_if3wq")
-stream_2/volume = 0.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -413,11 +394,6 @@ mesh = SubResource("SphereMesh_el2dr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4390182, -16.190718)
 mesh = SubResource("SphereMesh_8sspb")
 
-[node name="sidewalk" type="MeshInstance3D" parent="."]
-transform = Transform3D(51.931335, 0, 0, 0, 1, 0, 0, 0, 47.190872, 11.709139, 0, -2.6757088)
-mesh = SubResource("PlaneMesh_8yq4j")
-skeleton = NodePath("../MeshInstance3D2")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.20634, 0, 0, 0, 1, 0, 0, 0, 6.869561, -2.5440464, 0, 2.5501592)
 mesh = SubResource("PlaneMesh_utnsy")
@@ -427,12 +403,6 @@ mesh = SubResource("PlaneMesh_utnsy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="fence"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
 mesh = ExtResource("4_6ttmh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="fence/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_a55h4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="fence"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
@@ -501,12 +471,6 @@ mesh = ExtResource("4_6ttmh")
 transform = Transform3D(12.475269, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -3.5020852, 0.2684924, -4.046691)
 mesh = ExtResource("4_6ttmh")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fence4/MeshInstance3D3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence4/MeshInstance3D3/StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_a55h4")
-
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="fence4"]
 transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09, 0, 0, 0, 0.08590374, 2.2841194, 0.46002436, -4.046691)
 mesh = ExtResource("4_6ttmh")
@@ -561,12 +525,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.291529)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="fence2"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
 mesh = ExtResource("4_6ttmh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="fence2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence2/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_a55h4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="fence2"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
@@ -630,12 +588,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="fence3"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.27686775, -4.046691)
 mesh = ExtResource("4_6ttmh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="fence3/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence3/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_a55h4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="fence3"]
 transform = Transform3D(13.572219, 0, 0, 0, 0.15460509, 0, 0, 0, 0.08590375, -2.4053516, 0.67932856, -4.046691)
@@ -763,16 +715,16 @@ transform = Transform3D(-0.609712, 0, 0.018745631, 0, 0.61000013, 0, -0.01874563
 transform = Transform3D(-0.6099687, 0, -0.0061854273, 0, 0.61000013, 0, 0.0061854273, 0, -0.6099687, 14.812743, 0.91160774, 23.1571)
 
 [node name="lamp_post" parent="." instance=ExtResource("5_8sspb")]
-transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.924969, 0, 25.97414)
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291889, 0, 25.97414)
 
 [node name="lamp_post2" parent="." instance=ExtResource("5_8sspb")]
-transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.924971, 0, 11.093778)
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291891, 0, 11.093778)
 
 [node name="lamp_post3" parent="." instance=ExtResource("5_8sspb")]
-transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.924973, 0, -5.077809)
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291893, 0, -5.077809)
 
 [node name="lamp_post4" parent="." instance=ExtResource("5_8sspb")]
-transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.9249735, 0, -21.048092)
+transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 12.291894, 0, -21.048092)
 
 [node name="bakery_building" parent="." instance=ExtResource("10_5yycj")]
 transform = Transform3D(1.4488888, 0, 0.38822857, 0, 1.5, 0, -0.38822857, 0, 1.4488888, -5.124953, 1.5050001, 5.38699)
@@ -789,8 +741,3 @@ size = Vector3(78.243286, 31.527044, 77.8291)
 
 [node name="truck" parent="." instance=ExtResource("10_4bv6t")]
 transform = Transform3D(1.805, 0, 0, 0, 1.805, 0, 0, 0, 1.805, -0.5470214, 0.005484402, -0.8121545)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamSynchronized_2lx38")
-volume_db = -23.7
-autoplay = true

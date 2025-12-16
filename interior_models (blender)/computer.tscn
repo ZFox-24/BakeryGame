@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://cwm8fla17c7op"]
+
+[ext_resource type="Script" uid="uid://d2vkfxd0ifcqn" path="res://test_monitor/computer.gd" id="1_5lug5"]
+[ext_resource type="Material" uid="uid://dmms7n8vpodgj" path="res://interior_models (blender)/monitor_frame.tres" id="2_0dpri"]
+[ext_resource type="Script" uid="uid://c4on8v36vvnwu" path="res://interior_models (blender)/pc_interaction.gd" id="3_0dpri"]
+[ext_resource type="PackedScene" uid="uid://c21kiilpipoiu" path="res://scenes/monitor_screen.tscn" id="3_5lug5"]
+[ext_resource type="Script" uid="uid://r6bxgnfc2got" path="res://interior_models (blender)/object_camera_manager.gd" id="5_0dpri"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0dpri"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mdrmh"]
+size = Vector3(0.4501953, 0.25952148, 0.032226563)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mdrmh"]
+viewport_path = NodePath("Computer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dpri"]
+resource_local_to_scene = true
+albedo_color = Color(2.3926709, 2.3926709, 2.3926709, 1)
+albedo_texture = SubResource("ViewportTexture_mdrmh")
+roughness = 0.55
+
+[sub_resource type="QuadMesh" id="QuadMesh_0dpri"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_0dpri")
+size = Vector2(0.118, 0.067)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mdrmh"]
+points = PackedVector3Array(0.059, 0.0335, 0, 0.059, -0.0335, 0, -0.059, 0.0335, 0, -0.059, -0.0335, 0)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Computer" type="Node3D" parent="."]
+script = ExtResource("1_5lug5")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Computer"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.029733032, 0.46524224, 0.21007147)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0.009814434, 0, -0.0018450618)
+size = Vector3(0.42797852, 0.253, 0.025)
+material = ExtResource("2_0dpri")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Computer/CSGCombiner3D/CSGBox3D"]
+physics_material_override = SubResource("PhysicsMaterial_0dpri")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/CSGCombiner3D/CSGBox3D/StaticBody3D"]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
+shape = SubResource("BoxShape3D_mdrmh")
+script = ExtResource("3_0dpri")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.009814434, 0, 0.010540605)
+operation = 2
+size = Vector3(0.45, 0.253, 0.005)
+material = ExtResource("2_0dpri")
+
+[node name="SubViewport" type="SubViewport" parent="Computer"]
+size = Vector2i(1600, 900)
+
+[node name="Control" parent="Computer/SubViewport" instance=ExtResource("3_5lug5")]
+mouse_filter = 2
+
+[node name="Screen" type="MeshInstance3D" parent="Computer"]
+transform = Transform3D(1, -8.742277e-08, 8.7422784e-08, 8.742278e-08, 1, -8.742277e-08, -8.742278e-08, 8.742278e-08, 1, -0.026788713, 0.46524224, 0.21260457)
+layers = 2
+mesh = SubResource("QuadMesh_0dpri")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Computer/Screen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/Screen/Area3D"]
+transform = Transform3D(1, -5.373145e-16, 0, -5.373145e-16, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_mdrmh")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Computer"]
+transform = Transform3D(1, 0, 0, 0, -0.999711, -0.024041025, 0, 0.024041025, -0.999711, 0, 0.4749424, 0.20549467)
+visible = false
+layers = 2
+spot_range = 0.53368694
+spot_angle = 61.60348
+spot_angle_attenuation = 2.73208
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -8.881785e-15, 0, 8.881785e-15, 1, -0.026788713, 0.46524224, 0.31353393)
+visible = false
+light_energy = 3.364
+light_bake_mode = 1
+spot_range = 0.32730934
+spot_attenuation = 0.32
+spot_angle = 45.77
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028700292, 0.46566877, 0.26698485)
+fov = 78.8
+
+[node name="object_camera_manager" type="Node" parent="." node_paths=PackedStringArray("object_camera")]
+unique_name_in_owner = true
+script = ExtResource("5_0dpri")
+object_camera = NodePath("../Camera3D")

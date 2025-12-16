@@ -1,0 +1,179 @@
+[gd_scene load_steps=19 format=3 uid="uid://1n340fkai7j4"]
+
+[ext_resource type="Script" uid="uid://d2vkfxd0ifcqn" path="res://test_monitor/computer.gd" id="1_okq71"]
+[ext_resource type="Texture2D" uid="uid://72h1huy1s5hl" path="res://icon.svg" id="2_wosnj"]
+[ext_resource type="Script" path="res://test_monitor/player_camera.gd" id="3_t3l2h"]
+[ext_resource type="Shader" path="res://test_monitor/crt_shader.gdshader" id="3_wosnj"]
+[ext_resource type="PackedScene" uid="uid://c21kiilpipoiu" path="res://scenes/monitor_screen.tscn" id="4_x46w6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0.334122, 0.334122, 0.334122, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4arys"]
+resource_local_to_scene = true
+size = Vector2(0.4, 0.3)
+
+[sub_resource type="Theme" id="Theme_wosnj"]
+TabContainer/font_sizes/font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3l2h"]
+shader = ExtResource("3_wosnj")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.108
+shader_parameter/grille_opacity = 0.265
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.97
+shader_parameter/roll_size = 9.975
+shader_parameter/roll_variation = 1.48
+shader_parameter/distort_intensity = 0.024
+shader_parameter/noise_opacity = 0.254
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.226
+shader_parameter/aberration = 0.015
+shader_parameter/brightness = 1.45
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.165
+shader_parameter/vignette_opacity = 0.2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x46w6"]
+viewport_path = NodePath("Computer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q75hp"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_x46w6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x46w6"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_q75hp")
+size = Vector2(0.8, 0.59)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x46w6"]
+points = PackedVector3Array(0.4, 0.295, 0, 0.4, -0.295, 0, -0.4, 0.295, 0, -0.4, -0.295, 0)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_okq71"]
+
+[sub_resource type="Sky" id="Sky_wosnj"]
+sky_material = SubResource("ProceduralSkyMaterial_okq71")
+
+[sub_resource type="Environment" id="Environment_t3l2h"]
+background_mode = 2
+background_energy_multiplier = 1.02
+sky = SubResource("Sky_wosnj")
+ambient_light_source = 3
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosnj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8auw"]
+albedo_color = Color(0.113665, 0.113665, 0.113665, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Computer" type="Node3D" parent="."]
+script = ExtResource("1_okq71")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Computer"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1995)
+size = Vector3(0.45, 0.35, 0.001)
+material = SubResource("StandardMaterial3D_i5arm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0611729)
+operation = 2
+size = Vector3(0.4, 0.3, 0.3)
+
+[node name="Quad" type="MeshInstance3D" parent="Computer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.213765)
+visible = false
+mesh = SubResource("QuadMesh_4arys")
+
+[node name="SubViewport" type="SubViewport" parent="Computer"]
+size = Vector2i(1600, 900)
+
+[node name="Control" type="Control" parent="Computer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wosnj")
+
+[node name="TabContainer" type="TabContainer" parent="Computer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="TextureRect" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+visible = false
+modulate = Color(2.45467e-06, 0.615723, 0.31067, 1)
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+visible = false
+modulate = Color(0.990857, 0.305122, 0.315717, 1)
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Computer/SubViewport/Control"]
+z_index = 1
+material = SubResource("ShaderMaterial_t3l2h")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control2" parent="Computer/SubViewport" instance=ExtResource("4_x46w6")]
+visible = false
+
+[node name="Screen" type="MeshInstance3D" parent="Computer"]
+transform = Transform3D(0.5, 0, -3.1786513e-08, 0, 0.5, 0, 3.1786513e-08, 0, 0.5, 0, 0, 0.19740218)
+mesh = SubResource("QuadMesh_x46w6")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Computer/Screen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/Screen/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_x46w6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.504846)
+script = ExtResource("3_t3l2h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t3l2h")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(4, 4, 4)
+material = SubResource("StandardMaterial3D_wosnj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+operation = 2
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_a8auw")

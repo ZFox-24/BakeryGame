@@ -1,13 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5l8ga4ua8gg3"]
+[gd_scene load_steps=13 format=3 uid="uid://c5l8ga4ua8gg3"]
 
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
 [ext_resource type="Material" uid="uid://dxkdrvylickrh" path="res://interior_models (blender)/wood_desk/wood_desk.tres" id="2_2m1l8"]
 [ext_resource type="Script" uid="uid://c27sv08edbl21" path="res://interior_models (blender)/screen.gd" id="2_ilcao"]
-[ext_resource type="PackedScene" uid="uid://c21kiilpipoiu" path="res://scenes/monitor_screen.tscn" id="4_tu2hx"]
-[ext_resource type="Script" uid="uid://3ew54iif8atp" path="res://interior_models (blender)/computer.gd" id="5_bl5ec"]
-[ext_resource type="Script" uid="uid://bbsgxscu33ac" path="res://interior_models (blender)/interact_camera.gd" id="6_4o5dq"]
-[ext_resource type="Shader" uid="uid://dhsumploao0fi" path="res://interior_models (blender)/glowing_screen.gdshader" id="6_bl5ec"]
-[ext_resource type="Material" uid="uid://dmms7n8vpodgj" path="res://interior_models (blender)/monitor_frame.tres" id="7_w88x6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tu2hx"]
 material = ExtResource("2_2m1l8")
@@ -36,37 +31,6 @@ size = Vector3(0.0625, 0.078125, 48.73343)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2m1l8"]
 size = Vector3(0.4189453, 0.2084961, 0.18206787)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_w88x6"]
-viewport_path = NodePath("Computer/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bl5ec"]
-shader = ExtResource("6_bl5ec")
-shader_parameter/hpass = 1.0
-shader_parameter/vpass = 1.0
-shader_parameter/radius = 65
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl5ec"]
-resource_local_to_scene = true
-next_pass = SubResource("ShaderMaterial_bl5ec")
-cull_mode = 2
-albedo_color = Color(2.8323438, 2.8323438, 2.8323438, 1)
-albedo_texture = SubResource("ViewportTexture_w88x6")
-metallic_specular = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4o5dq"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_bl5ec")
-size = Vector2(0.118, 0.067)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w88x6"]
-data = PackedVector3Array(0.225, 0, 0.1265, -0.225, 0, 0.1265, 0.225, 0, -0.1265, -0.225, 0, 0.1265, -0.225, 0, -0.1265, 0.225, 0, -0.1265)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jy8a"]
-shader = ExtResource("6_bl5ec")
-shader_parameter/hpass = 1.0
-shader_parameter/vpass = 1.0
-shader_parameter/radius = 65
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl5ec"]
 
@@ -120,78 +84,5 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37841797, 0.2927246, 0.21762085)
 shape = SubResource("BoxShape3D_2m1l8")
 
-[node name="Computer" type="Node3D" parent="." index="21"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2928136, 0, 0)
-script = ExtResource("5_bl5ec")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Computer" index="0"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.029733032, 0.46524224, 0.21007147)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Computer/CSGCombiner3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00981444, 0, 0)
-size = Vector3(0.42797852, 0.253, 0.025)
-material = ExtResource("7_w88x6")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Computer/CSGCombiner3D" index="1"]
-transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, 0.009814441, 0, 0.010540575)
-operation = 2
-size = Vector3(0.45, 0.253, 0.005)
-material = ExtResource("7_w88x6")
-
-[node name="Quad" type="MeshInstance3D" parent="Computer" index="1"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.026788712, 0.46524224, 0.21259889)
-layers = 2
-mesh = SubResource("PlaneMesh_4o5dq")
-
-[node name="Area3D" type="Area3D" parent="Computer/Quad" index="0"]
-transform = Transform3D(0.262, 0, 0, 0, 0.262, -9.30811e-16, 0, 9.30811e-16, 0.262, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/Quad/Area3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_w88x6")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Computer/Quad/Area3D" index="1"]
-transform = Transform3D(1.5267175, 0, 0, 0, -6.673494e-08, 1.5267175, 0, -1.5267175, -6.673494e-08, 0, 0.38524827, 0)
-visible = false
-light_energy = 3.364
-light_bake_mode = 1
-spot_range = 0.32730934
-spot_attenuation = 0.32
-spot_angle = 45.77
-
-[node name="SubViewport" type="SubViewport" parent="Computer" index="2"]
-size = Vector2i(1600, 900)
-
-[node name="Control" parent="Computer/SubViewport" index="0" instance=ExtResource("4_tu2hx")]
-
-[node name="TabContainer" parent="Computer/SubViewport/Control" index="3"]
-mouse_filter = 2
-
-[node name="TAB_SELLING" parent="Computer/SubViewport/Control/TabContainer" index="1"]
-mouse_force_pass_scroll_events = false
-
-[node name="ColorRect" type="ColorRect" parent="Computer/SubViewport" index="1"]
-visible = false
-material = SubResource("ShaderMaterial_4jy8a")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Computer" index="3"]
-transform = Transform3D(0.4, 0, 0, 0, -0.3998844, -0.009616409, 0, 0.00961641, -0.3998844, 0, 0.4749424, 0.20549467)
-spot_range = 0.53368694
-spot_angle = 61.60348
-spot_angle_attenuation = 2.73208
-
-[node name="Camera3D" type="Camera3D" parent="." index="22"]
-transform = Transform3D(0.4, 0, 0, 0, 0.39999977, 0.00046074987, 0, -0.00046074987, 0.39999977, -0.31941247, 0.4657511, 0.2641546)
-visible = false
-current = true
-script = ExtResource("6_4o5dq")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="23"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="21"]
 environment = SubResource("Environment_w2g01")
-
-[editable path="Computer/SubViewport/Control"]

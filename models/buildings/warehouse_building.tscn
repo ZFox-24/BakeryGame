@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3t5k8bkk5xb3"]
+[gd_scene load_steps=5 format=3 uid="uid://c3t5k8bkk5xb3"]
 
 [ext_resource type="PackedScene" uid="uid://cr6n6xwb43ftx" path="res://models/buildings/warehouse_building.glb" id="1_yrebx"]
+[ext_resource type="Script" uid="uid://32c7ne2f0plt" path="res://models/buildings/static_objects_interactions.gd" id="2_yrebx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cq7vq"]
 size = Vector3(1.9970703, 1.9960938, 2.0009766)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yrebx"]
+size = Vector3(0.41882324, 0.9561157, 1)
 
 [node name="warehouse_building" instance=ExtResource("1_yrebx")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.49, 4.13)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
+script = ExtResource("2_yrebx")
+name_to_display = "WAREHOUSE_BUILDING_NAME"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_cq7vq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2089809, 0.58412015, 0)
+shape = SubResource("BoxShape3D_yrebx")

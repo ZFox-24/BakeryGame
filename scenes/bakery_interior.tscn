@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=41 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="PackedScene" uid="uid://b2skgkqep08eo" path="res://interior_models (blender)/table.tscn" id="3_h7maj"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://weyjxho88s6t" path="res://interior_models (blender)/vase.tscn" id="18_aceu4"]
 [ext_resource type="PackedScene" uid="uid://b8lqxjwbq22o5" path="res://interior_models (blender)/socket.tscn" id="19_h7maj"]
 [ext_resource type="PackedScene" uid="uid://c16773mqt3rmv" path="res://interior_models (blender)/light_switch.tscn" id="20_0uvp7"]
+[ext_resource type="Material" uid="uid://gwc1pfxdfeg" path="res://interior_models (blender)/screen.tres" id="20_xl57x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m23nw"]
 albedo_color = Color(0.68718165, 0.5786994, 0.58695066, 1)
@@ -79,8 +80,7 @@ ao_texture = ExtResource("14_h7maj")
 material = SubResource("StandardMaterial3D_g5d6d")
 size = Vector2(5, 7)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vopvl"]
-size = Vector3(0.001, 0.001, 7.069214)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5orq6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aceu4"]
 albedo_color = Color(0.965161, 0.9479962, 0.939086, 1)
@@ -88,6 +88,36 @@ albedo_color = Color(0.965161, 0.9479962, 0.939086, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_h7maj"]
 material = SubResource("StandardMaterial3D_aceu4")
 size = Vector3(0.015, 0.09, 0.84)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0uvp7"]
+material = ExtResource("20_xl57x")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.07
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nm30q"]
+material = ExtResource("20_xl57x")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.22
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xl57x"]
+material = ExtResource("20_xl57x")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.07
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5orq6"]
+material = ExtResource("20_xl57x")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.45
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kb83y"]
+material = ExtResource("20_xl57x")
+top_radius = 0.005
+bottom_radius = 0.005
+height = 0.935
 
 [node name="Node3D" type="Node3D"]
 
@@ -250,8 +280,8 @@ mesh = SubResource("PlaneMesh_ya3af")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4995, -1.0103545, 0.99935246)
-shape = SubResource("BoxShape3D_vopvl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, 1)
+shape = SubResource("WorldBoundaryShape3D_5orq6")
 
 [node name="show_cabinet_oneside" parent="." instance=ExtResource("12_vopvl")]
 transform = Transform3D(-2, 0, 1.7484555e-07, 0, 2, 0, -1.7484555e-07, 0, -2, 2.720065, -1.3853306, 4.8012714)
@@ -280,8 +310,9 @@ interior = true
 enable_shadows = true
 reflection_mask = 1048573
 mesh_lod_threshold = 0.0
-ambient_color = Color(18.892157, 0, 0, 1)
-ambient_color_energy = 16.0
+ambient_mode = 2
+ambient_color = Color(0.26862392, 0.23621652, 0.12949058, 1)
+ambient_color_energy = 1.91
 
 [node name="vase" parent="." instance=ExtResource("18_aceu4")]
 transform = Transform3D(-0.25097427, 0, -0.43244874, 0, 0.5, 0, 0.43244874, 0, -0.25097427, -3.1378243, -0.74500424, 4.177862)
@@ -334,20 +365,37 @@ transform = Transform3D(-4.371139e-08, 0, 6.174157, 0, 1, 0, -1, 0, -2.6988099e-
 mesh = SubResource("BoxMesh_h7maj")
 skeleton = NodePath("../..")
 
-[node name="cable" type="Node3D" parent="."]
-transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -3.5042017, -0.68185526, 2.1663435)
-
 [node name="CSGCombiner3D" parent="." instance=ExtResource("19_h7maj")]
 transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, -3.5042017, -0.68185526, 2.1663435)
 
-[node name="conn1" type="Node3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20238185, 0, 0.05120325)
-
-[node name="conn2" type="Node3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18680525, 0.2575302, 1.5338464)
-
 [node name="light_switch" parent="." instance=ExtResource("20_0uvp7")]
 transform = Transform3D(-1.5298985e-08, 0, 0.35, 0, 0.35, 0, -0.35, 0, -1.5298985e-08, -3.47996, -0.20628804, 2.6864896)
+
+[node name="cable" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(-3.0812988e-08, -0.70491904, 0.70928776, 3.1003957e-08, 0.70928776, 0.70491904, -1, 4.371139e-08, 1.9106855e-15, -3.451433, -0.70493835, 2.029653)
+mesh = SubResource("CylinderMesh_0uvp7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(-3.0812988e-08, -0.70491904, 0.70928776, 3.1003957e-08, 0.70928776, 0.70491904, -1, 4.371139e-08, 1.9106855e-15, -3.4044573, -0.9684162, 2.029653)
+mesh = SubResource("CylinderMesh_0uvp7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(1.3503543e-10, 0.00308913, 0.9999952, 4.371118e-08, 0.9999952, -0.00308913, -1, 4.371139e-08, 3.821371e-15, -3.427734, -0.83704513, 2.029653)
+mesh = SubResource("CylinderMesh_nm30q")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(1.1823576e-07, 0.70491904, -0.70928776, 3.1003957e-08, 0.70928776, 0.70491904, 1, -1.0533737e-07, 6.2007906e-08, -2.4227319, -0.9684162, 2.029653)
+mesh = SubResource("CylinderMesh_xl57x")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(8.728774e-08, -0.00308913, -0.9999952, 4.371118e-08, 0.9999952, -0.00308913, 1, -4.344133e-08, 8.742235e-08, -2.3994553, -0.72335905, 2.029653)
+mesh = SubResource("CylinderMesh_5orq6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="cable"]
+transform = Transform3D(-4.371118e-08, -0.9999952, 0.0030890862, 1.3503355e-10, 0.0030890862, 0.9999952, -1, 4.371139e-08, 3.8402466e-15, -2.9157233, -0.9933589, 2.029653)
+mesh = SubResource("CylinderMesh_kb83y")
 
 [editable path="window2"]
 [editable path="light_switch"]
