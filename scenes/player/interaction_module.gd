@@ -6,12 +6,10 @@ extends Node
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and is_colliding:
-		%InteractText.hide()
-		%crosshair.hide()
 		if target.has_method("interact"):
 			target.interact()
-			#if target.has_child("Camera3D"):
-				#%Camera3D.current = false
+			%InteractText.hide()
+			%crosshair.hide()
 
 func _process(delta: float) -> void:
 	%InteractText.hide()

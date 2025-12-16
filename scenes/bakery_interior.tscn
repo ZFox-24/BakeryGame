@@ -260,7 +260,7 @@ shape = SubResource("BoxShape3D_oj335")
 transform = Transform3D(-1.09278474e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278474e-07, -1.8443649, -1.48, 2.54003)
 
 [node name="Player" parent="." instance=ExtResource("9_iyh8a")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -1.2626312, -1, 4.178807)
+transform = Transform3D(0.5, 0, 8.742278e-08, 0, 0.5, 0, -8.742278e-08, 0, 0.5, -1.2626312, -1, 4.178807)
 
 [node name="human_spawner" parent="." instance=ExtResource("10_oj335")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -1.9071794, -0.9991354, 5.8582506)

@@ -1,7 +1,6 @@
 extends Node3D
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	VisitorManager.open_bakery.connect(bakery_opened)
 	VisitorManager.spawn_visitor.connect(bakery_opened)
 	VisitorManager.close_bakery.connect(%Timer.stop)
