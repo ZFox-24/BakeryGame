@@ -3,7 +3,10 @@ extends CanvasLayer
 @onready var total_items := 0
 @export var item : SaleItem
 
+@onready var regex = RegEx.new()
 func _ready() -> void:
+	regex.compile("[^0-9]")
+	
 	%exit_button.pressed.connect(queue_free)
 	%buy_button.pressed.connect(buy_item)
 	Warehouse.transfer_item.connect(set_item)
@@ -25,6 +28,10 @@ func set_item(tr_item):
 	#%total_price_lbl.text = str(item.item_price * total_items)
 
 func _on_num_field_changed(new_text : String):
+	var text = %num_field.text
+	text = regex.sub(text, "", true)
+	%num_field.set_text(text)
+	%num_field.caret_column = len(text)
 	total_items = int(new_text)
 	%total_price_lbl.text = str(item.item_price * total_items)
 

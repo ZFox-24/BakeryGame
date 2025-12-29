@@ -8,6 +8,9 @@ func _ready() -> void:
 	%lng_select_butt.item_selected.connect(_on_lang_selected)
 	$fullscreen_mode_chkbox.toggled.connect(window_mode)
 	
+	if get_window().get_mode() == Window.MODE_FULLSCREEN:
+		$fullscreen_mode_chkbox.set_pressed_no_signal(true)
+	
 	# сигнал ожидания?
 	#for s in SavesManagement.available_saves:
 		#var save_slot = load("uid://3b2ncqvlbla6").instantiate()
