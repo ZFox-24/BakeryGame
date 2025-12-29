@@ -13,40 +13,55 @@ func _ready() -> void:
 		%nothin_to_sell_label.show()
 
 func sell_item():
-	var rts_item := []
-	var nrts_items := []
-	for i in order.products:
-		var index = order.products.find(i,0)
-		var item = Warehouse.loaded_products.get(index)
-		if i.item_quantity <= item.item_quantity:
-			rts_item.append(i)
-			print("кол-во соответствует")
-			index += 1
-		else:
-			if !nrts_items.has(i):
-				nrts_items.append(i)
-	if rts_item.size() < order.products.size():
+	var missing_items = [] # эти твари для продажи не годны
+	
+	for oi in order.products:
+		var item = null
+		
+		# молись, чтоб ты искал именно то, че надо
+		for w_item in Warehouse.loaded_products:
+			if w_item.item_name == oi.item_name:
+				item = w_item
+				break
+
+		# проверка кол-ва
+		if item == null:
+			missing_items.append({
+				"name": oi.item_name,
+				"diff": oi.item_quantity
+			})
+		elif item.item_quantity < oi.item_quantity:
+			var diff = oi.item_quantity - item.item_quantity
+			missing_items.append({
+				"name": oi.item_name,
+				"diff": diff
+			})
+			
+	if missing_items.size() > 0:
 		%AnimationPlayer.play("nei")
-		for i in nrts_items:
+		
+		for c in %nei_vbox.get_children():
+			c.queue_free()
+		
+		for e in missing_items:
 			var l = Label.new()
 			%nei_vbox.add_child(l)
-			var index = order.products.find(i,0)
-			var item = Warehouse.loaded_products.get(index)
-			l.text = "- " + tr(i.item_name) + " в количестве " + str(i.item_quantity - item.item_quantity) + " шт."
-		print("кол-во НЕ соответствует")
+			l.text = "- " + tr(e.name) + " в количестве " + str(e.diff) + " шт."
 	else:
-		for i in order.products:
-			var index = order.products.find(i,0)
-			var item = Warehouse.loaded_products.get(index)
-			item.item_quantity -= i.item_quantity
-		Warehouse.update_item.emit()
-		nrts_items.clear()
+		for oi in order.products:
+			for w_item in Warehouse.loaded_products:
+				if w_item in Warehouse.loaded_products:
+					if w_item.item_name == oi.item_name:
+						w_item.item_quantity -= oi.item_quantity
+						break
+	
 		for c in $ScrollContainer/VBoxContainer.get_children():
 			c.queue_free()
 		
 		$panel.hide()
 		%sell_button.hide()
 		%nothin_to_sell_label.show()
+		Warehouse.update_item.emit()
 		VisitorManager.order_complete.emit()
 		Moneyyy.Money.money += order.final_price
 		Moneyyy.Money.update_money.emit()

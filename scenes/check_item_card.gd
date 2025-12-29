@@ -1,6 +1,8 @@
 extends GridContainer
 
 func _ready() -> void:
+	Warehouse.load_products()
+	await Warehouse.load_products()
 	fill_list()
 	#Warehouse.update_item.connect(check_item)
 

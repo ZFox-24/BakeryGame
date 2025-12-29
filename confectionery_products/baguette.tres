@@ -7,6 +7,5 @@
 script = ExtResource("1_3aimy")
 item_name = "TEXT_BAGUETTE"
 item_icon = ExtResource("1_4q8qh")
-item_quantity = 2
 item_price = 35
 metadata/_custom_type_script = "uid://trevfjnntn62"

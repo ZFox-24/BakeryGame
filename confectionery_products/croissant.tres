@@ -7,6 +7,6 @@
 script = ExtResource("1_fwx6u")
 item_name = "TEXT_CROISSANT"
 item_icon = ExtResource("1_ourqm")
-item_quantity = 1
+item_quantity = 5
 item_price = 24
 metadata/_custom_type_script = "uid://trevfjnntn62"
