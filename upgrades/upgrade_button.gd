@@ -17,7 +17,7 @@ func _ready() -> void:
 	%buy_button.text = str(upgrade.upg_price)
 
 func invoke_upgrade():
-	if upgrade.upg_price <= Money.money:
+	if upgrade.upg_price <= Moneyyy.Money.money:
 		upgrade.upgrade_bought = true
 		var p_upgrades = Node.new()
 		add_child(p_upgrades)
@@ -29,9 +29,10 @@ func invoke_upgrade():
 				node.set_script(u)
 				print(node)
 		p_upgrades.queue_free()
-		Money.money -= upgrade.upg_price
-		Money.update_money.emit()
+		Moneyyy.Money.money -= upgrade.upg_price
+		Moneyyy.Money.update_money.emit()
 		%AnimationPlayer.play("bought")
 		%buy_button.text = tr("TEXT_BOUGHT")
+		ResourceSaver.save(upgrade)
 	else:
 		%AnimationPlayer.play("nem")

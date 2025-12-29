@@ -46,3 +46,4 @@ TEXT_BAKERYOPEN,Открыть пекарню,Open the bakery
 TEXT_BAKERYCLOSE,Закрыть пекарню,Close the bakery
 BAKERY_BUILDING_NAME,Пекарня "Булочка с маком",Bakery
 WAREHOUSE_BUILDING_NAME,Склад,Warehouse
+LEAVING_BAKERY_WARNING,Перед уходом закройте пекарню,Close the bakery before you leave

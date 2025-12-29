@@ -2,8 +2,8 @@ extends Panel
 
 func _ready() -> void:
 	#Warehouse.load_products()
-	Warehouse.load_items()
-	Warehouse.upgrades_loaded()
+	#Warehouse.load_items()
+	#Warehouse.upgrades_loaded()
 	OrderManager.order_opened.emit()
 	#item.item_quantity = randi_range(1, 8)
 	#%item_name.text = item.item_name

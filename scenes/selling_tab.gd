@@ -16,43 +16,23 @@ func sell_item():
 	var rts_item := []
 	var nrts_items := []
 	for i in order.products:
-		print("product: " + str(i) + "\n" +
-				"product_name: " + i.item_name)
-		#var index = order.products.find(i,0) # проблема здесь. Круассан... ПОСТОЯННО ДОЛБАНЫЙ БЛЯТЬ КРУАССАН
-		#var item = Warehouse.loaded_products.get(index) # нужно перелопатить систему поиска
-		var index = Warehouse.loaded_products.find(i, 0)
-		print("index: " + str(index))
+		var index = order.products.find(i,0)
 		var item = Warehouse.loaded_products.get(index)
-		#print("item: " + item.item_name)
-		print(i)
-		print(item)
-		print(index)
 		if i.item_quantity <= item.item_quantity:
 			rts_item.append(i)
 			print("кол-во соответствует")
-			#Money.money -= roundi((i.item_price * i.item_quantity) * 1.1) # переделать на order.final_price
-			# после добавления дополнительной проверки, указанной снизу
 			index += 1
 		else:
 			if !nrts_items.has(i):
 				nrts_items.append(i)
-		#else: 
-			#%AnimationPlayer.play("nei")
-			#print("кол-во НЕ соответствует")
-			### Тут снимают деньги и проигрывают анимацию дважды, так быть не должно
-			## Добавить дополнительную проверку
-			## Добавить каждый элемент в массив для продажи. Если предметов в массиве столько же,
-			## сколько в заказе - только тогда выполнять продажу товаров
 	if rts_item.size() < order.products.size():
 		%AnimationPlayer.play("nei")
 		for i in nrts_items:
 			var l = Label.new()
 			%nei_vbox.add_child(l)
-			#var index = order.products.find(i,0)
-			#var item = Warehouse.loaded_products.get(index)
-			var index = Warehouse.loaded_products.find(i)
+			var index = order.products.find(i,0)
 			var item = Warehouse.loaded_products.get(index)
-			l.text = "- " + i.item_name + tr("TEXT_INTHEAMOUNT") + str(i.item_quantity - item.item_quantity) + tr("TEXT_ITEMS")
+			l.text = "- " + tr(i.item_name) + " в количестве " + str(i.item_quantity - item.item_quantity) + " шт."
 		print("кол-во НЕ соответствует")
 	else:
 		for i in order.products:
@@ -68,10 +48,11 @@ func sell_item():
 		%sell_button.hide()
 		%nothin_to_sell_label.show()
 		VisitorManager.order_complete.emit()
-		Money.money += order.final_price
-		Money.update_money.emit()
+		Moneyyy.Money.money += order.final_price
+		Moneyyy.Money.update_money.emit()
+		ResourceSaver.save(Moneyyy.Money)
 		OrderManager.order_in_process = false
-		$income_sound.call_deferred("play")
+		$income_sound.play()
 
 #для очистки nrts
 func clear_nrts():

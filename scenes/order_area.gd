@@ -31,12 +31,11 @@ func make_order_res(): # создает ресурс заказа для исп�
 		var item = key.duplicate()
 		#var item = item_dict[key].duplicate()
 		order.products.append(item)
-		print("item: " + str(item))
 		items_added += 1
 		match(item.item_name):
-			"Торт":
+			"TEXT_CAKE":
 				item.item_quantity = randi_range(1, 2)
-			"Макарун":
+			"TEXT_MACARON":
 				item.item_quantity = randi_range(6, 24)
 			_:
 				item.item_quantity = randi_range(1, 8)

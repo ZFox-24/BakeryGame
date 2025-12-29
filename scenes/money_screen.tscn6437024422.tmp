@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://buec6qjgctrkb"]
+
+[ext_resource type="Script" uid="uid://cnnildw70p5yj" path="res://scenes/money_screen.gd" id="1_12v6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kov5t"]
+bg_color = Color(0.05490196, 0.05490196, 0.05490196, 0.78431374)
+
+[node name="Label" type="Label"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -357.0
+offset_bottom = -305.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_kov5t")
+text = "money"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_12v6s")

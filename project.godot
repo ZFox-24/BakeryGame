@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Money="*res://scripts/money.gd"
+Money="res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
 SaveLoad="*res://saving system/save_load.gd"
@@ -27,6 +27,7 @@ SavesManagement="*res://saving system/saves_management.gd"
 SaveManagerLite="*res://addons/SaveManagerLite/SaveManagerLite.gd"
 SceneManager="*res://scenes/scene_manager.gd"
 GameSettings="*res://scripts/game_settings.gd"
+Moneyyy="*res://scripts/Moneyyy.gd"
 
 [display]
 
@@ -53,7 +54,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="43"
+Build_number="44"
 
 [input]
 

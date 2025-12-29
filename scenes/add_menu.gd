@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var total_items := 0
-@export var item : SaleItem # решить проблему
+@export var item : SaleItem
 
 func _ready() -> void:
 	%exit_button.pressed.connect(queue_free)
@@ -35,12 +35,14 @@ func subtract_values():
 	total_items -= 1
 
 func buy_item():
-	if Money.money < item.item_price * total_items:
+	if Moneyyy.Money.money < item.item_price * total_items:
 		%AnimationPlayer.play("not_enough")
 	else:
-		Money.money -= item.item_price * total_items
+		Moneyyy.Money.money -= item.item_price * total_items
 		item.item_quantity += total_items
 		#Warehouse.item = item
 		Warehouse.update_item.emit()
-		Money.update_money.emit()
+		Moneyyy.Money.update_money.emit()
 		queue_free()
+		ResourceSaver.save(item)
+		ResourceSaver.save(Moneyyy.Money)

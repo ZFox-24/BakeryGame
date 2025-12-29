@@ -1,7 +1,10 @@
 extends VBoxContainer
 
 func _ready() -> void:
-	await Warehouse.loading_upgrades_finished
+	#await Warehouse.loading_upgrades_finished
+	load_upgrades()
+
+func load_upgrades():
 	if !SaveLoad.save_file_data.data["bought_upgrades"].is_empty():
 		for i in Warehouse.loaded_upgrades:
 			var item = load(i["upgrade_path"])
@@ -12,7 +15,7 @@ func _ready() -> void:
 																	# доп.свойство, если у ресурсов с
 																	# товарами это не нужно?
 	else:
-		for i in Warehouse.upgrades_list:
+		for i in Warehouse.upgrades_array:
 			i = load(i)
 			var upgrade_button = load("uid://7yj7tdeo2lhr").instantiate()
 			add_child(upgrade_button)

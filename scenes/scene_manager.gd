@@ -4,16 +4,16 @@ extends Node
 signal reload_game
 
 func _ready() -> void:
-	reload_game.connect(load_scene)
-	SaveLoad.save_data.connect(save_last_scene)
-	SaveLoad.load_data.connect(load_last_scene)
-	load_scene()
+	#reload_game.connect(load_scene)
+	#SaveLoad.save_data.connect(save_last_scene)
+	#SaveLoad.load_data.connect(load_last_scene)
+	#load_scene()
 	
 	# временно для теста монитора
 	# "res://test_monitor/node_3d.tscn"
 	# "res://interior_models (blender)/computer.tscn"
 	# "res://interior_models (blender)/bakery_monitor.tscn"
-	#get_tree().change_scene_to_file("res://interior_models (blender)/computer.tscn")
+	get_tree().change_scene_to_file("res://scenes/bakery_interior.tscn")
 
 func save_last_scene():
 	SaveLoad.save_file_data.data["scene_loaded"] = current_scene

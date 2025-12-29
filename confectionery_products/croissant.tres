@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="SaleItem" load_steps=3 format=3 uid="uid://bte4m7ffelxtk"]
+[gd_resource type="Resource" script_class="SaleItem" load_steps=3 format=3]
 
-[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_fwx6u"]
-[ext_resource type="Texture2D" uid="uid://bdb31ukq7x7ij" path="res://confectionery_products/free-icon-croissant-352642.png" id="1_ourqm"]
+[ext_resource type="Script" path="res://resources/item.gd" id="1_fwx6u"]
+[ext_resource type="Texture2D" path="res://confectionery_products/free-icon-croissant-352642.png" id="1_ourqm"]
 
 [resource]
 script = ExtResource("1_fwx6u")
 item_name = "TEXT_CROISSANT"
 item_icon = ExtResource("1_ourqm")
+item_quantity = 1
 item_price = 24
 metadata/_custom_type_script = "uid://trevfjnntn62"

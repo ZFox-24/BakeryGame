@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c16773mqt3rmv"]
+[gd_scene load_steps=10 format=3 uid="uid://c16773mqt3rmv"]
 
 [ext_resource type="Script" uid="uid://jyfs6aaj0380" path="res://interior_models (blender)/light_switch.gd" id="1_7tibc"]
 [ext_resource type="Material" uid="uid://bls7giae47s10" path="res://interior_models (blender)/light_switch_on.tres" id="3_injju"]
 [ext_resource type="Material" uid="uid://d308mplwumnda" path="res://interior_models (blender)/light_switch_off.tres" id="3_tdkcq"]
+[ext_resource type="AudioStream" uid="uid://dqqaltxyar4r4" path="res://assets/sfx/lightswitch_sfx.mp3" id="4_tdkcq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hek0h"]
 size = Vector3(0.375, 0.585, 0.05)
@@ -52,3 +53,9 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 0.08
 omni_attenuation = -2.409
+
+[node name="state_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0.061096624)
+stream = ExtResource("4_tdkcq")
+volume_db = -5.0

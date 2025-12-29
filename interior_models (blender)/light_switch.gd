@@ -11,6 +11,8 @@ func interact():
 		%light.mesh.material = is_on_material
 		%switch.rotation_degrees = Vector3(180, 90, -180)
 		is_on = true
+		%state_sound.pitch_scale = 1.3
+		%state_sound.play()
 		VisitorManager.is_lamp_on = is_on
 		VisitorManager.change_lamp_state.emit()
 	else:
@@ -18,5 +20,7 @@ func interact():
 		%light.mesh.material = is_off_material
 		%switch.rotation_degrees = Vector3(0, 90, -180)
 		is_on = false
+		%state_sound.pitch_scale = 0.7
+		%state_sound.play()
 		VisitorManager.is_lamp_on = is_on
 		VisitorManager.change_lamp_state.emit()

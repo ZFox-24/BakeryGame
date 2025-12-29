@@ -41,9 +41,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if velocity.x or velocity.z > 0:
-		%camera_animation.play("camera_bob")
-	else:
-		%camera_animation.stop()
+		#%camera_animation.stop()
+		%camera_animation.current_animation = "camera_bob"
+	elif velocity.x or velocity.z == 0:
+		%camera_animation.current_animation = "idle"
 	
 	# переделать систему взаимодействия с предметами
 	#%InteractText.hide()
