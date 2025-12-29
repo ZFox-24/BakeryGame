@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cntdgq2l2sw3u"]
+[gd_scene load_steps=11 format=3 uid="uid://cntdgq2l2sw3u"]
 
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_2oa50"]
@@ -22,12 +22,15 @@ action = &"ui_accept"
 [sub_resource type="Shortcut" id="Shortcut_2oa50"]
 events = [SubResource("InputEventAction_8o024")]
 
+[sub_resource type="SystemFont" id="SystemFont_jd5wg"]
+font_names = PackedStringArray("Comic Sans MS")
+
 [sub_resource type="Animation" id="Animation_2oa50"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("not_enough_money:visible")
+tracks/0/path = NodePath("add_menu/not_enough_money:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,7 +57,7 @@ resource_name = "not_enough"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("not_enough_money:visible")
+tracks/0/path = NodePath("add_menu/not_enough_money:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -214,16 +217,25 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
+[node name="not_enough_money" type="Label" parent="add_menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -338.0
+offset_top = -48.0
+offset_right = -156.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = SubResource("SystemFont_jd5wg")
+text = "TEXT_NOTENOUGHMONEY"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_jd5wg")
 }
-
-[node name="not_enough_money" type="Label" parent="."]
-visible = false
-offset_left = 916.0
-offset_top = 540.0
-offset_right = 1098.0
-offset_bottom = 563.0
-text = "Недостаточно средств"
