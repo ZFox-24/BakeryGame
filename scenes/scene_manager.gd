@@ -13,7 +13,7 @@ func _ready() -> void:
 	# "res://test_monitor/node_3d.tscn"
 	# "res://interior_models (blender)/computer.tscn"
 	# "res://interior_models (blender)/bakery_monitor.tscn"
-	get_tree().change_scene_to_file("res://scenes/bakery_interior.tscn")
+	get_tree().change_scene_to_file(current_scene)
 
 func save_last_scene():
 	SaveLoad.save_file_data.data["scene_loaded"] = current_scene

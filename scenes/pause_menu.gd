@@ -10,7 +10,8 @@ func _ready() -> void:
 	%load_button.pressed.connect(load_game)
 	%new_game_button.pressed.connect(%ConfirmationDialog.show)
 	%exit_game_button.pressed.connect(get_tree().quit)
-	
+	%credits_exit_button.pressed.connect(%credits_win.hide)
+	%authors_link.pressed.connect(%credits_win.show)
 	%ConfirmationDialog.confirmed.connect(delete_game)
 	
 func continue_game():

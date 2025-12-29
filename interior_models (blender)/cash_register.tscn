@@ -73,7 +73,6 @@ transform = Transform3D(-0.99999976, -1.7763568e-15, -1.5099576e-07, 2.2737368e-
 shape = SubResource("BoxShape3D_rmaeb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="20"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37841797, 0.2927246, 0.21762085)

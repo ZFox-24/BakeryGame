@@ -46,7 +46,7 @@ func sell_item():
 		for e in missing_items:
 			var l = Label.new()
 			%nei_vbox.add_child(l)
-			l.text = "- " + tr(e.name) + " в количестве " + str(e.diff) + " шт."
+			l.text = "- " + tr(e.name) + tr("TEXT_INTHEAMOUNT") + str(e.diff) + tr("TEXT_ITEMS")
 	else:
 		for oi in order.products:
 			for w_item in Warehouse.loaded_products:

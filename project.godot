@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Money="res://scripts/money.gd"
 Warehouse="*res://confectionery_products/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
 SaveLoad="*res://saving system/save_load.gd"
@@ -33,6 +32,7 @@ Moneyyy="*res://scripts/Moneyyy.gd"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -42,19 +42,13 @@ project/assembly_name="Игра - пекарня -Булочка с маком-"
 
 enabled=PackedStringArray("res://addons/SaveManagerLite/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
 
-[file_customization]
-
-folder_colors={
-"res://test_monitor/": "pink"
-}
-
 [filesystem]
 
 import/blender/enabled=false
 
 [global]
 
-Build_number="46"
+Build_number="47"
 
 [input]
 

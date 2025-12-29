@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbglsp3wlye20"]
+[gd_scene load_steps=16 format=3 uid="uid://cbglsp3wlye20"]
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_5d2l8"]
@@ -8,7 +8,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
-bg_color = Color(0.10038767, 0.076813705, 0.106107526, 1)
+bg_color = Color(0.09985284, 0.07846785, 0.106126174, 0.99000007)
+
+[sub_resource type="SystemFont" id="SystemFont_5d2l8"]
+font_names = PackedStringArray("Comic Sans MS")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
 bg_color = Color(0.27589417, 0.2558377, 0.42010412, 1)
@@ -248,6 +251,77 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 
+[node name="credits_win" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -152.0
+offset_right = 338.0
+offset_bottom = 314.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_myx47")
+
+[node name="credits_exit_button" type="Button" parent="credits_win"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 51.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
+text = "<-"
+
+[node name="title_lbl" type="Label" parent="credits_win"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+text = "TITLE_CREDITS"
+
+[node name="Zack_credits" type="RichTextLabel" parent="credits_win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -179.0
+offset_right = 249.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "CREDITS_ZACKSTERDEV"
+
+[node name="Friend_redits" type="RichTextLabel" parent="credits_win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -12.0
+offset_right = 249.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "CREDITS_FRIEND"
+
 [node name="settings_win" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -264,6 +338,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myx47")
 script = ExtResource("2_myx47")
+
+[node name="fullscreen_mode_chkbox" type="CheckBox" parent="settings_win"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = 53.0
+offset_right = 109.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_5d2l8")
+text = "TEXT_FULLSCREENMODE"
 
 [node name="exit_button" type="Button" parent="settings_win"]
 unique_name_in_owner = true
@@ -339,9 +429,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -267.0
+offset_left = -192.0
 offset_top = -340.0
-offset_right = -12.0
+offset_right = 63.0
 offset_bottom = -11.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -350,18 +440,9 @@ size_flags_vertical = 3
 theme_override_constants/separation = 59
 alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="authors"]
-visible = false
-layout_mode = 2
-text = "Завацкий З.В. - программирование, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.
-
-Анохин Р.Р. - 3D модели интерьера пекарни, здания пекарни и склада, 3D модель грузовика"
-fit_content = true
-horizontal_alignment = 2
-
-[node name="Label" type="Label" parent="authors"]
+[node name="authors_link" type="LinkButton" parent="authors"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 18
 text = "© 2025 ZacksterDev"
-horizontal_alignment = 2

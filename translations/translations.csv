@@ -11,10 +11,12 @@ TEXT_CONFIRMDELETE,Вы действительно хотите удалить �
 KEY_YES,Да,Yes
 KEY_NO,Нет,No
 TITLE_SETTINGS,Настройки,Settings
+TITLE_CREDITS,Авторы,Credits
+TEXT_FULLSCREENMODE,Полноэкранный режим,Fullscreen mode
 TEXT_LANGUAGE,Язык игры,Language
 TEXT_OBJINTERACT,Нажмите "Е" для доступа к компьютеру,Press "E" to use the computer
 TAB_SELLING,Заказы,Orders
-TAB_BUYING,Пополнение товаров,Refilling the stock
+TAB_BUYING,Склад,Warehouse
 TAB_UPGRADES,Улучшения,Upgrades
 TEXT_NOTHINGTOSELL,Заказов нет,Nothing to sell
 KEY_FILL,Пополнить,Refill
@@ -28,7 +30,7 @@ TEXT_ONEITEM,Стоимость за штуку: ,Price per item:
 TEXT_NOTENOUGH,Недостаточно:,Not enough:
 TEXT_NOTENOUGHMONEY,Недостаточно средств,Not enough money
 TEXT_INTHEAMOUNT, в количестве , in the amount of 
-TEXT_ITEMS, шт.,items.
+TEXT_ITEMS, шт., items.
 TEXT_BOUGHT,Куплено,Bought
 TEXT_BAGUETTE,Багет,Baguette
 TEXT_BUN,Булочка,Bun
@@ -47,3 +49,5 @@ TEXT_BAKERYCLOSE,Закрыть пекарню,Close the bakery
 BAKERY_BUILDING_NAME,Пекарня "Булочка с маком",Bakery
 WAREHOUSE_BUILDING_NAME,Склад,Warehouse
 LEAVING_BAKERY_WARNING,Перед уходом закройте пекарню,Close the bakery before you leave
+CREDITS_ZACKSTERDEV,"[b][i]ZacksterDev[/i][/b] - программирование, UI/UX, 3D модели деревьев, домов и фонарных столбов, окружение, текстуринг.","[b][i]ZacksterDev[/i][/b] - programming, UI/UX, 3D models of trees, houses, fences, plants and lightpoles, worldbuilding, texturing."
+CREDITS_FRIEND,"Спасибо [b][i]другу[/i][/b] за помощь в создании 3D моделей для интерьера пекарни, здания пекарни и склада, 3D модели грузовика.","Thanks to my [b][i]friend[/i][/b] for 3D models of tables, shelves, buildings, truck and cashier table."
