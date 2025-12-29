@@ -182,12 +182,14 @@ text = "KEY_CONTINUE"
 
 [node name="saves_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 text = "KEY_SAVE"
 
 [node name="load_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 text = "KEY_LOAD"

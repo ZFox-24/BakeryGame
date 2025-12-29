@@ -10,11 +10,16 @@
 [ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnrhv"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.25030932, 0.20285092, 0.26711738, 0.845)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6199763, 0.37980857, 0.5324359, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="Animation" id="Animation_enmgh"]
 length = 0.001
@@ -107,6 +112,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cnrhv")
 script = ExtResource("1_qb77y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

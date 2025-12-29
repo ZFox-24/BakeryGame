@@ -1,9 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://7yj7tdeo2lhr"]
+[gd_scene load_steps=10 format=3 uid="uid://7yj7tdeo2lhr"]
 
 [ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_ebbir"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebbir"]
+bg_color = Color(0.11774104, 0.17558163, 0.27395758, 0.845)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25580212, 0.41496605, 0.6881131, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="SystemFont" id="SystemFont_ebbir"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="SystemFont" id="SystemFont_hgf67"]
+font_names = PackedStringArray("Comic Sans MS")
+font_italic = true
 
 [sub_resource type="Animation" id="Animation_4o4m5"]
 length = 0.001
@@ -131,24 +148,26 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_ebbir")
 text = "price"
 
-[node name="upgrade_name" type="Label" parent="."]
+[node name="upgrade_name" type="RichTextLabel" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 93.0
-offset_top = 2.0
-offset_right = 266.0
-offset_bottom = 36.0
-theme_override_fonts/font = ExtResource("2_ebbir")
-theme_override_font_sizes/font_size = 24
-text = "upgrade_name"
+offset_left = 96.0
+offset_right = 319.0
+offset_bottom = 34.0
+theme_override_fonts/normal_font = SubResource("SystemFont_ebbir")
+theme_override_fonts/italics_font = SubResource("SystemFont_hgf67")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+bbcode_enabled = true
+text = "[i]upgrade_name[/i]"
 
 [node name="upgrade_description" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 97.0
-offset_top = 45.0
-offset_right = 256.0
-offset_bottom = 68.0
+offset_left = 96.0
+offset_top = 43.0
+offset_right = 255.0
+offset_bottom = 66.0
 theme_override_fonts/font = ExtResource("2_ebbir")
 text = "upgrade_description"
 
@@ -171,6 +190,7 @@ libraries = {
 }
 
 [node name="upgrade_icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://76pi48laytsu"]
+[gd_scene load_steps=8 format=3 uid="uid://76pi48laytsu"]
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
 [ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="2_4lcok"]
@@ -8,7 +8,26 @@
 script = ExtResource("2_4lcok")
 metadata/_custom_type_script = "uid://trevfjnntn62"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
+bg_color = Color(0.09985284, 0.09320182, 0.19966345, 0.845)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.38022453, 0.3967637, 0.616522, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lkicd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42m7w"]
+bg_color = Color(0.33030546, 0.22703394, 0.39979446, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="item_card" type="Control"]
 layout_mode = 3
@@ -24,6 +43,7 @@ item = SubResource("Resource_ltbao")
 layout_mode = 1
 offset_right = 276.0
 offset_bottom = 363.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltbao")
 
 [node name="item_texture" type="TextureRect" parent="Panel"]
 unique_name_in_owner = true
@@ -67,13 +87,14 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -107.0
-offset_top = -42.0
-offset_right = -8.0
-offset_bottom = -11.0
+offset_left = -108.0
+offset_top = -43.0
+offset_right = -9.0
+offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_ltbao")
+theme_override_styles/normal = SubResource("StyleBoxFlat_42m7w")
 text = "KEY_FILL"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]

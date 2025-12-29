@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="money" load_steps=2 format=3 uid="uid://ch8ydslvgwgju"]
+[gd_resource type="Resource" script_class="money" load_steps=2 format=3 uid="uid://sp8r274rnbwi"]
 
 [ext_resource type="Script" uid="uid://btho8tfrprx6a" path="res://scripts/money.gd" id="1_2qwup"]
 
 [resource]
 script = ExtResource("1_2qwup")
-money = 1000752
+money = 200
 metadata/_custom_type_script = "uid://btho8tfrprx6a"

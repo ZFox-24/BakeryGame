@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://buec6qjgctrkb"]
+[gd_scene load_steps=5 format=3 uid="uid://buec6qjgctrkb"]
 
 [ext_resource type="Script" uid="uid://cnnildw70p5yj" path="res://scenes/money_screen.gd" id="1_12v6s"]
+[ext_resource type="Texture2D" uid="uid://fo0tq05g12j5" path="res://upgrades/upgrades_icons.png" id="2_21guw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kov5t"]
 bg_color = Color(0.05490196, 0.05490196, 0.05490196, 0.78431374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12v6s"]
+atlas = ExtResource("2_21guw")
+region = Rect2(138.52, 0, 69, 69)
 
 [node name="Label" type="Label"]
 anchors_preset = 6
@@ -23,3 +28,11 @@ text = "money"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_12v6s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -9.0
+offset_right = 42.0
+offset_bottom = 60.0
+texture = SubResource("AtlasTexture_12v6s")

@@ -37,5 +37,24 @@ func load_game():
 	#get_tree().paused = false
 
 func delete_game():
-	SaveManagerLite.delete_save()
-	SceneManager.reload_game.emit()
+	for p in Warehouse.products_array:
+		load(p)
+		Warehouse.loaded_products.append(p)
+		
+		for i in Warehouse.loaded_products:
+			i.item_quantity = 0
+			ResourceSaver.save(i)
+			Warehouse.loaded_products = []
+	
+	Moneyyy.Money.money = 200
+	ResourceSaver.save(Moneyyy.Money)
+	Moneyyy.Money.update_money.emit()
+	
+	for u in Warehouse.upgrades_array:
+		load(u)
+		Warehouse.loaded_upgrades.append(u)
+		
+		for i in Warehouse.loaded_upgrades:
+			i.upgrade_bought = false
+			ResourceSaver.save(i)
+			Warehouse.loaded_upgrades = []

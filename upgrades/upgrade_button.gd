@@ -12,7 +12,8 @@ func _ready() -> void:
 		%AnimationPlayer.play("bought")
 	total_upgrades = len(upgrade.upgrades)
 	%buy_button.pressed.connect(invoke_upgrade)
-	%upgrade_name.text = upgrade.upg_name
+	%upgrade_icon.texture = upgrade.upg_icon
+	%upgrade_name.text = "[i]" + tr(upgrade.upg_name) + "[/i]"
 	%upgrade_description.text = upgrade.upg_desc
 	%buy_button.text = str(upgrade.upg_price)
 
