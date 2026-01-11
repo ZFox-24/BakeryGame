@@ -1,9 +1,5 @@
 extends Label
 
 func _ready() -> void:
-	text = str(Moneyyy.Money.money)
-	Moneyyy.Money.update_money.connect(update_money_value)
-
-func update_money_value():
-	text = str(Moneyyy.Money.money)
-	queue_redraw()
+	text = str(Money.money_resource.money)
+	Money.money_changed.connect(func(): text = str(Money.money_resource.money))

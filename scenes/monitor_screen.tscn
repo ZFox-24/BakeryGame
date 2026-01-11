@@ -5,7 +5,7 @@
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_cnrhv"]
 [ext_resource type="Script" uid="uid://cbfabnan6wb0s" path="res://scenes/selling_tab.gd" id="3_gynbd"]
 [ext_resource type="Script" uid="uid://d4bb7qd8wb3r1" path="res://scenes/check_item_card.gd" id="3_pukmn"]
-[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse.gd" id="4_2lnht"]
+[ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse/warehouse.gd" id="4_2lnht"]
 [ext_resource type="Script" uid="uid://s6labs2nxrdb" path="res://scenes/add_upgrades_to_list.gd" id="6_pukmn"]
 [ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
 

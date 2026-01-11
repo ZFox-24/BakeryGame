@@ -1,13 +1,12 @@
 class_name Order extends Resource
 
-@export var products : Array[SaleItem] = []
+@export var products : Array[ProdSlot] = []
 
 var final_price := 0
 
 func calc_finprice():
-	#await OrderManager.order_opened
 	for p in products:
-		final_price += p.item_price * p.item_quantity
+		final_price += p.item.item_price * p.amount
 	final_price *= 1.1
 
 func _init() -> void:

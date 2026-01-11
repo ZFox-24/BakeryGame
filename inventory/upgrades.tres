@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgInv" load_steps=7 format=3 uid="uid://ms5h6tt6jn7"]
+
+[ext_resource type="Script" uid="uid://ccqjo4cxvm6ew" path="res://inventory/upg_inv.gd" id="1_eoqrh"]
+[ext_resource type="Script" uid="uid://b7at2ecqohxxt" path="res://inventory/slots/upg_slot.gd" id="2_fse4n"]
+[ext_resource type="Resource" uid="uid://calkbp3sxlne5" path="res://upgrades/buy_more/buy_more_upg.tres" id="3_lhsnt"]
+[ext_resource type="Resource" uid="uid://cdshuyxho7bkc" path="res://upgrades/popularity/popularity.tres" id="4_qxo3i"]
+
+[sub_resource type="Resource" id="Resource_u00w1"]
+script = ExtResource("2_fse4n")
+item = ExtResource("3_lhsnt")
+metadata/_custom_type_script = "uid://b7at2ecqohxxt"
+
+[sub_resource type="Resource" id="Resource_ncjkp"]
+script = ExtResource("2_fse4n")
+item = ExtResource("4_qxo3i")
+metadata/_custom_type_script = "uid://b7at2ecqohxxt"
+
+[resource]
+script = ExtResource("1_eoqrh")
+slots = Array[ExtResource("2_fse4n")]([SubResource("Resource_u00w1"), SubResource("Resource_ncjkp")])
+metadata/_custom_type_script = "uid://ccqjo4cxvm6ew"

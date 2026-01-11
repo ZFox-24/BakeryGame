@@ -1,7 +1,5 @@
 extends Panel
 
-# всякие сигналы по типу "сохранение завершено", "появилось новое сохранение"
-
 func _ready() -> void:
 	add_languages()
 	%exit_button.pressed.connect(exit_window)
@@ -10,11 +8,6 @@ func _ready() -> void:
 	
 	if get_window().get_mode() == Window.MODE_FULLSCREEN:
 		$fullscreen_mode_chkbox.set_pressed_no_signal(true)
-	
-	# сигнал ожидания?
-	#for s in SavesManagement.available_saves:
-		#var save_slot = load("uid://3b2ncqvlbla6").instantiate()
-		#%saves_list.add_child(save_slot)
 
 func exit_window():
 	%AnimationPlayer.play("close_save_menu")

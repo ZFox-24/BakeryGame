@@ -1,7 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=36 format=3 uid="uid://b032niy2ngqfh"]
 
 [ext_resource type="PackedScene" uid="uid://c3t5k8bkk5xb3" path="res://models/buildings/warehouse_building.tscn" id="1_6ttmh"]
-[ext_resource type="Script" uid="uid://bpf2sx0opodm2" path="res://addons/scene_object_brush/Brush.gd" id="1_srsxv"]
 [ext_resource type="PackedScene" uid="uid://cywrvye8u30lu" path="res://materials/tree.glb" id="2_gofy3"]
 [ext_resource type="Material" uid="uid://dirgsa7uuqw83" path="res://materials/sky_original.tres" id="3_h0tbc"]
 [ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="3_utnsy"]
@@ -123,218 +122,6 @@ stream_2/volume = 0.0
 size = Vector3(65.17212, 1.9207764, 0.0146484375)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="trees" type="Node3D" parent="." node_paths=PackedStringArray("limitToBodies")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.775, 0)
-script = ExtResource("1_srsxv")
-brushSize = 8.635
-brushDensity = 5
-paintableObjects = Array[PackedScene]([ExtResource("2_gofy3")])
-randomRotMin = Vector3(0, 2, 0)
-randomRotMax = Vector3(0, 13, 0)
-limitToBodies = [NodePath("../MeshInstance3D/StaticBody3D")]
-metadata/_custom_type_script = "uid://bpf2sx0opodm2"
-
-[node name="Brush_1758873212_379" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.370762, 0.0050001144, -25.763063)
-
-[node name="Brush_1758873212_380" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.557475, 0.0050001144, -18.116182)
-
-[node name="Brush_1758873212_381" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.682081, 0.0050001144, -22.180742)
-
-[node name="Brush_1758873212_382" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.139292, 4.8276744, -19.612349)
-
-[node name="Brush_1758873212_383" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.621721, 5.005, -14.7696905)
-
-[node name="Brush_1758873213_325" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.157757, 0.0050001144, -4.260314)
-
-[node name="Brush_1758873213_326" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.729816, 0.0050001144, -9.159399)
-
-[node name="Brush_1758873213_327" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -24.088598, 5.005, -4.864496)
-
-[node name="Brush_1758873213_328" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.890223, 0.0050001144, -5.5701156)
-
-[node name="Brush_1758873213_329" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.104868, 0.0050001144, -8.819364)
-
-[node name="Brush_1758873213_899" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2012367, 0.0050001144, -6.5792713)
-
-[node name="Brush_1758873213_900" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(0.98718464, -0.12975216, 0.092903756, 0.13083757, 0.9913876, -0.0056632194, -0.09136881, 0.017745921, 0.9956591, 3.1973085, 0.0050001144, -9.178867)
-
-[node name="Brush_1758873213_902" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.569728, 0.0050001144, -10.424045)
-
-[node name="Brush_1758873213_903" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.582181, 0.0050001144, -13.05634)
-
-[node name="Brush_1758873214_486" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1304331, 0.0050001144, -15.118565)
-
-[node name="Brush_1758873214_487" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.825147, 0.0050001144, -14.242253)
-
-[node name="Brush_1758873214_488" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.806858, 0.0050001144, -9.716125)
-
-[node name="Brush_1758873214_489" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.109135, 0.0050001144, -12.248)
-
-[node name="Brush_1758873214_490" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8275137, 0.0050001144, -21.716524)
-
-[node name="Brush_1758873215_526" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.573977, 0.0050001144, -12.811659)
-
-[node name="Brush_1758873215_527" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8987823, 0.0050001144, -16.699438)
-
-[node name="Brush_1758873215_528" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.560566, 0.0050001144, -15.286031)
-
-[node name="Brush_1758873215_529" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.736103, 0.0050001144, -19.011425)
-
-[node name="Brush_1758873215_530" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.55057, 0.0050001144, -14.4214115)
-
-[node name="Brush_1758873216_113" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.335828, 0.0050001144, -13.488312)
-
-[node name="Brush_1758873216_114" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7912383, 0.0050001144, -18.556454)
-
-[node name="Brush_1758873216_115" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6586742, 0.0050001144, -19.95076)
-
-[node name="Brush_1758873216_116" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2678979, 0.0050001144, -21.409061)
-
-[node name="Brush_1758873216_117" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(0.6899414, 0.01472212, -0.6969405, -0.07079671, 1.2932862, -0.055131573, 0.68994147, 0.11798539, 0.69128335, 2.7724361, 6.138399, -23.565767)
-
-[node name="Brush_1758873217_793" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.849599, 0.0050001144, 3.0053732)
-
-[node name="Brush_1758873217_794" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.872381, 0.0050001144, 6.5678906)
-
-[node name="Brush_1758873217_795" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(0.9512512, -0.26047227, -0.25488698, 0.16773124, 1.4772115, -0.044943452, 0.25881904, 0, 0.9659258, 0.96907234, 0.0050001144, 21.526537)
-
-[node name="Brush_1758873217_796" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.012812, 0.0050001144, -0.52687055)
-
-[node name="Brush_1758873217_797" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.284279, 0.0050001144, -6.039047)
-
-[node name="Brush_1758873218_993" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.720537, 0.0050001144, 24.652472)
-
-[node name="Brush_1758873218_994" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -24.92723, 8.142635, 14.345927)
-
-[node name="Brush_1758873218_995" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.469893, 0.0050001144, 22.587633)
-
-[node name="Brush_1758873218_996" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -22.793245, 5.005, 23.180073)
-
-[node name="Brush_1758873218_997" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.997485, 0.0050001144, 23.763098)
-
-[node name="Brush_1758873221_488" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.310611, 0.0050001144, 9.274798)
-
-[node name="Brush_1758873221_489" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.753412, 8.005, 18.886616)
-
-[node name="Brush_1758873221_490" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7612634, 0.0050001144, 12.40377)
-
-[node name="Brush_1758873221_491" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.008799, 0.0050001144, 12.859894)
-
-[node name="Brush_1758873221_492" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.993133, 0.0050001144, 11.095653)
-
-[node name="Brush_1758873222_048" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.657022, 0.0050001144, 15.611111)
-
-[node name="Brush_1758873222_049" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6063576, 0.0050001144, 18.027163)
-
-[node name="Brush_1758873222_050" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.201119, 0.0050001144, 12.255532)
-
-[node name="Brush_1758873222_052" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.766894, 0.0050001144, 15.930081)
-
-[node name="Brush_1758873223_235" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3672366, 0.0050001144, 14.240664)
-
-[node name="Brush_1758873224_594" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.919134, 0.0050001144, 4.6730666)
-
-[node name="Brush_1758873224_595" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.055744, 0.0050001144, 0.35175267)
-
-[node name="Brush_1758873224_596" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935794, 0.0050001144, -1.6527138)
-
-[node name="Brush_1758873224_597" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.10075, 0.0050001144, -3.612642)
-
-[node name="Brush_1758873224_598" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(0.8619921, 0, 0.50692165, 0, 1, 0, -0.50692165, 0, 0.8619921, -3.8779645, 0.0050001144, 16.034172)
-
-[node name="Brush_1758873225_582" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.409409, 0.0050001144, 8.949619)
-
-[node name="Brush_1758873225_583" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5087523, 0.0050001144, 6.986751)
-
-[node name="Brush_1758873225_584" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.173714, 0.0050001144, 3.9153838)
-
-[node name="Brush_1758873225_585" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6272836, 0.0050001144, 3.8642237)
-
-[node name="Brush_1758873225_586" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.218176, 0.0050001144, -0.8086903)
-
-[node name="Brush_1758873301_559" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.040241, 0.0050001144, 20.256344)
-
-[node name="Brush_1758873309_054" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.660395, 0.0050001144, -20.09108)
-
-[node name="Brush_1758873309_055" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(-0.78905195, 0, 0.6143265, 0.035116903, 0.99836487, 0.045104783, -0.61332196, 0.05716326, -0.78776175, 10.983183, 5.6629133, -32.076668)
-
-[node name="Brush_1758873314_643" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.06172, 0.0050001144, -9.478918)
-
-[node name="Brush_1758873314_644" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.839285, 0.0050001144, -3.1341019)
-
-[node name="Brush_1758873314_645" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.652441, 0.0050001144, -2.6329079)
-
-[node name="Brush_1758873321_578" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.434984, 0.0050001144, 4.007935)
-
-[node name="Brush_1758873326_195" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(0.8012225, 0, 0.59836656, 0, 1.4854563, 0, -0.59836656, 0, 0.8012225, 30.75192, 0.005001068, 10.453954)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2925332, 0, 0, 0, 1, 0, 0, 0, 2.214426, 0, 0, 0)
@@ -809,5 +596,208 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.
 shape = SubResource("BoxShape3D_h0tbc")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="wall1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6004343, 0.460392, -52.755886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6004343, 0.460392, -48.00018)
 shape = SubResource("BoxShape3D_h0tbc")
+
+[node name="trees" type="Node3D" parent="."]
+
+[node name="Brush_1758873212_379" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.370762, 0.0050001144, -25.763063)
+
+[node name="Brush_1758873212_380" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.557475, 0.0050001144, -18.116182)
+
+[node name="Brush_1758873212_381" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.682081, 0.0050001144, -22.180742)
+
+[node name="Brush_1758873212_382" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.139292, 4.8276744, -19.612349)
+
+[node name="Brush_1758873212_383" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.621721, 5.005, -14.7696905)
+
+[node name="Brush_1758873213_325" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.157757, 0.0050001144, -4.260314)
+
+[node name="Brush_1758873213_326" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.729816, 0.0050001144, -9.159399)
+
+[node name="Brush_1758873213_327" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -24.088598, 5.005, -4.864496)
+
+[node name="Brush_1758873213_328" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.890223, 0.0050001144, -5.5701156)
+
+[node name="Brush_1758873213_329" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.104868, 0.0050001144, -8.819364)
+
+[node name="Brush_1758873213_899" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2012367, 0.0050001144, -6.5792713)
+
+[node name="Brush_1758873213_900" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.98718464, -0.12975216, 0.092903756, 0.13083757, 0.9913876, -0.0056632194, -0.09136881, 0.017745921, 0.9956591, 3.1973085, 0.0050001144, -9.178867)
+
+[node name="Brush_1758873213_902" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.569728, 0.0050001144, -10.424045)
+
+[node name="Brush_1758873213_903" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.582181, 0.0050001144, -13.05634)
+
+[node name="Brush_1758873214_486" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1304331, 0.0050001144, -15.118565)
+
+[node name="Brush_1758873214_487" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.825147, 0.0050001144, -14.242253)
+
+[node name="Brush_1758873214_488" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.806858, 0.0050001144, -9.716125)
+
+[node name="Brush_1758873214_489" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.109135, 0.0050001144, -12.248)
+
+[node name="Brush_1758873214_490" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8275137, 0.0050001144, -21.716524)
+
+[node name="Brush_1758873215_526" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.573977, 0.0050001144, -12.811659)
+
+[node name="Brush_1758873215_527" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8987823, 0.0050001144, -16.699438)
+
+[node name="Brush_1758873215_528" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.560566, 0.0050001144, -15.286031)
+
+[node name="Brush_1758873215_529" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.736103, 0.0050001144, -19.011425)
+
+[node name="Brush_1758873215_530" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.55057, 0.0050001144, -14.4214115)
+
+[node name="Brush_1758873216_113" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.335828, 0.0050001144, -13.488312)
+
+[node name="Brush_1758873216_114" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7912383, 0.0050001144, -18.556454)
+
+[node name="Brush_1758873216_115" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6586742, 0.0050001144, -19.95076)
+
+[node name="Brush_1758873216_116" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2678979, 0.0050001144, -21.409061)
+
+[node name="Brush_1758873216_117" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.6899414, 0.01472212, -0.6969405, -0.07079671, 1.2932862, -0.055131573, 0.68994147, 0.11798539, 0.69128335, 2.7724361, 6.138399, -23.565767)
+
+[node name="Brush_1758873217_793" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.849599, 0.0050001144, 3.0053732)
+
+[node name="Brush_1758873217_794" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.872381, 0.0050001144, 6.5678906)
+
+[node name="Brush_1758873217_795" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.9512512, -0.26047227, -0.25488698, 0.16773124, 1.4772115, -0.044943452, 0.25881904, 0, 0.9659258, 0.96907234, 0.0050001144, 21.526537)
+
+[node name="Brush_1758873217_796" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.012812, 0.0050001144, -0.52687055)
+
+[node name="Brush_1758873217_797" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.284279, 0.0050001144, -6.039047)
+
+[node name="Brush_1758873218_993" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.720537, 0.0050001144, 24.652472)
+
+[node name="Brush_1758873218_994" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -24.92723, 8.142635, 14.345927)
+
+[node name="Brush_1758873218_995" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.469893, 0.0050001144, 22.587633)
+
+[node name="Brush_1758873218_996" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -22.793245, 5.005, 23.180073)
+
+[node name="Brush_1758873218_997" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.997485, 0.0050001144, 23.763098)
+
+[node name="Brush_1758873221_488" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.310611, 0.0050001144, 9.274798)
+
+[node name="Brush_1758873221_489" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.753412, 8.005, 18.886616)
+
+[node name="Brush_1758873221_490" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7612634, 0.0050001144, 12.40377)
+
+[node name="Brush_1758873221_491" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.008799, 0.0050001144, 12.859894)
+
+[node name="Brush_1758873221_492" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.993133, 0.0050001144, 11.095653)
+
+[node name="Brush_1758873222_048" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.657022, 0.0050001144, 15.611111)
+
+[node name="Brush_1758873222_049" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6063576, 0.0050001144, 18.027163)
+
+[node name="Brush_1758873222_050" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.201119, 0.0050001144, 12.255532)
+
+[node name="Brush_1758873222_052" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.766894, 0.0050001144, 15.930081)
+
+[node name="Brush_1758873223_235" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3672366, 0.0050001144, 14.240664)
+
+[node name="Brush_1758873224_594" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.919134, 0.0050001144, 4.6730666)
+
+[node name="Brush_1758873224_595" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.055744, 0.0050001144, 0.35175267)
+
+[node name="Brush_1758873224_596" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.935794, 0.0050001144, -1.6527138)
+
+[node name="Brush_1758873224_597" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.10075, 0.0050001144, -3.612642)
+
+[node name="Brush_1758873224_598" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.8619921, 0, 0.50692165, 0, 1, 0, -0.50692165, 0, 0.8619921, -3.8779645, 0.0050001144, 16.034172)
+
+[node name="Brush_1758873225_582" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.409409, 0.0050001144, 8.949619)
+
+[node name="Brush_1758873225_583" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5087523, 0.0050001144, 6.986751)
+
+[node name="Brush_1758873225_584" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.173714, 0.0050001144, 3.9153838)
+
+[node name="Brush_1758873225_585" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6272836, 0.0050001144, 3.8642237)
+
+[node name="Brush_1758873225_586" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.218176, 0.0050001144, -0.8086903)
+
+[node name="Brush_1758873301_559" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.040241, 0.0050001144, 20.256344)
+
+[node name="Brush_1758873309_054" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.660395, 0.0050001144, -20.09108)
+
+[node name="Brush_1758873309_055" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(-0.78905195, 0, 0.6143265, 0.035116903, 0.99836487, 0.045104783, -0.61332196, 0.05716326, -0.78776175, 10.983183, 5.6629133, -32.076668)
+
+[node name="Brush_1758873314_643" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.06172, 0.0050001144, -9.478918)
+
+[node name="Brush_1758873314_644" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.839285, 0.0050001144, -3.1341019)
+
+[node name="Brush_1758873314_645" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.652441, 0.0050001144, -2.6329079)
+
+[node name="Brush_1758873321_578" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.434984, 0.0050001144, 4.007935)
+
+[node name="Brush_1758873326_195" parent="trees" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.8012225, 0, 0.59836656, 0, 1.4854563, 0, -0.59836656, 0, 0.8012225, 30.75192, 0.005001068, 10.453954)

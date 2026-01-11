@@ -1,31 +1,19 @@
 extends CanvasLayer
 
 @onready var total_items := 0
-@export var item : SaleItem
+@export var slot: ProdSlot
 
 @onready var regex = RegEx.new()
 func _ready() -> void:
-	regex.compile("[^0-9]")
-	
-	%exit_button.pressed.connect(queue_free)
-	%buy_button.pressed.connect(buy_item)
-	Warehouse.transfer_item.connect(set_item)
-	await Warehouse.transfer_item
-	%num_field.text_changed.connect(_on_num_field_changed)
-	%item_name.text = tr("TITLE_REFILL") + tr(item.item_name)#+ %item_name_card.text
-	
+	%item_name.text = tr("TITLE_REFILL") + tr(slot.item.item_name)
 	%num_field.text = str(total_items)
-	%num_field.caret_column = %num_field.text.length()
-	%more_button.pressed.connect(add_values)
-	%less_button.pressed.connect(subtract_values)
-
-func set_item(tr_item):
-	item = tr_item
 	
-
-#func _process(delta: float) -> void:
-	#total_items = int(%num_field.text)
-	#%total_price_lbl.text = str(item.item_price * total_items)
+	regex.compile("[^0-9]")
+	%num_field.caret_column = %num_field.text.length()
+	%num_field.text_changed.connect(_on_num_field_changed)
+	
+	%buy_button.pressed.connect(buy_item)
+	%exit_button.pressed.connect(queue_free)
 
 func _on_num_field_changed(new_text : String):
 	var text = %num_field.text
@@ -33,23 +21,15 @@ func _on_num_field_changed(new_text : String):
 	%num_field.set_text(text)
 	%num_field.caret_column = len(text)
 	total_items = int(new_text)
-	%total_price_lbl.text = str(item.item_price * total_items)
-
-func add_values():
-	total_items += 1
-
-func subtract_values():
-	total_items -= 1
+	%total_price_lbl.text = str(slot.item.item_price * total_items)
 
 func buy_item():
-	if Moneyyy.Money.money < item.item_price * total_items:
+	if Money.money_resource.money < slot.item.item_price * total_items:
 		%AnimationPlayer.play("not_enough")
 	else:
-		Moneyyy.Money.money -= item.item_price * total_items
-		item.item_quantity += total_items
-		#Warehouse.item = item
-		Warehouse.update_item.emit()
-		Moneyyy.Money.update_money.emit()
+		Money.calculate_money(-slot.item.item_price * total_items)
+		slot.amount += total_items
+		slot.emit_changed()
+		Money.money_changed.emit()
+		SaveSystem.save()
 		queue_free()
-		ResourceSaver.save(item)
-		ResourceSaver.save(Moneyyy.Money)

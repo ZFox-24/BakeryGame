@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ProdInv" load_steps=17 format=3 uid="uid://boxr4uox1aknp"]
+
+[ext_resource type="Script" uid="uid://d1jn3gqt0sgv5" path="res://inventory/prod_inv.gd" id="1_x6dhl"]
+[ext_resource type="Script" uid="uid://d3wpc8jimw82m" path="res://inventory/slots/prod_slot.gd" id="2_gwbas"]
+[ext_resource type="Resource" uid="uid://i8i5v13rioru" path="res://confectionery_products/baguette.tres" id="3_u5tos"]
+[ext_resource type="Resource" uid="uid://c3xnnui4a8i5x" path="res://confectionery_products/bun.tres" id="4_rdouo"]
+[ext_resource type="Resource" uid="uid://c3ax5q714ccje" path="res://confectionery_products/cake.tres" id="5_2qudd"]
+[ext_resource type="Resource" uid="uid://do4po0bs6cged" path="res://confectionery_products/croissant.tres" id="6_qb00j"]
+[ext_resource type="Resource" uid="uid://b336ptejb10il" path="res://confectionery_products/donut.tres" id="7_d3yvb"]
+[ext_resource type="Resource" uid="uid://d2g2ondca04bk" path="res://confectionery_products/eclair.tres" id="8_44wf0"]
+[ext_resource type="Resource" uid="uid://nadddlwjalcg" path="res://confectionery_products/macaroon.tres" id="9_njf60"]
+
+[sub_resource type="Resource" id="Resource_0dy13"]
+script = ExtResource("2_gwbas")
+item = ExtResource("3_u5tos")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_l1xmj"]
+script = ExtResource("2_gwbas")
+item = ExtResource("4_rdouo")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_ktios"]
+script = ExtResource("2_gwbas")
+item = ExtResource("5_2qudd")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_ljvvp"]
+script = ExtResource("2_gwbas")
+item = ExtResource("6_qb00j")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_dv2qj"]
+script = ExtResource("2_gwbas")
+item = ExtResource("7_d3yvb")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_4nfej"]
+script = ExtResource("2_gwbas")
+item = ExtResource("8_44wf0")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[sub_resource type="Resource" id="Resource_o0odw"]
+script = ExtResource("2_gwbas")
+item = ExtResource("9_njf60")
+metadata/_custom_type_script = "uid://d3wpc8jimw82m"
+
+[resource]
+script = ExtResource("1_x6dhl")
+slots = Array[ExtResource("2_gwbas")]([SubResource("Resource_0dy13"), SubResource("Resource_l1xmj"), SubResource("Resource_ktios"), SubResource("Resource_ljvvp"), SubResource("Resource_dv2qj"), SubResource("Resource_4nfej"), SubResource("Resource_o0odw")])
+metadata/_custom_type_script = "uid://d1jn3gqt0sgv5"

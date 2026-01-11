@@ -1,22 +1,19 @@
 extends Control
 
-@export var item : SaleItem
+@export var slot: ProdSlot
 
 func _ready() -> void:
-	await OrderManager.load_items
-	%item_name_card.text = item.item_name
-	%quantity_lbl.text = str(item.item_quantity)
-	%add_button.pressed.connect(show_menu)
-	%item_texture.texture = item.item_icon
-	Warehouse.update_item.connect(update_item)
+	%add_button.pressed.connect(edit_amount)
+	update_slot()
 
-func show_menu():
-	#Warehouse.item = item
-	var menu = load("res://scenes/add_menu.tscn").instantiate()
-	add_child(menu)
-	Warehouse.transfer_item.emit(item)
+func edit_amount():
+	var edit_win = load("res://scenes/add_menu.tscn").instantiate()
+	edit_win.slot = slot
+	add_child(edit_win)
+	if !edit_win.slot.changed.has_connections():
+		edit_win.slot.changed.connect(func(): %quantity_lbl.text = str(slot.amount))
 
-func update_item():
-	#item = Warehouse.item
-	%quantity_lbl.text = str(item.item_quantity)
-	#Warehouse.item = null
+func update_slot():
+	%item_name_card.text = slot.item.item_name
+	%quantity_lbl.text = str(slot.amount)
+	%item_texture.texture = slot.item.item_icon

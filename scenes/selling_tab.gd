@@ -1,11 +1,12 @@
 extends TabBar
 
 @export var order = OrderManager.order
-var product : SaleItem
+@export var list: ProdInv
 
 func _ready() -> void:
+	list = SaveSystem.save_game.products_data
 	if OrderManager.order_in_process and OrderManager.order != null:
-		recieve_order()
+		receive_order()
 		#VisitorManager.create_order.connect(recieve_order)
 		%sell_button.pressed.connect(sell_item)
 	else:
@@ -19,21 +20,21 @@ func sell_item():
 		var item = null
 		
 		# молись, чтоб ты искал именно то, че надо
-		for w_item in Warehouse.loaded_products:
-			if w_item.item_name == oi.item_name:
+		for w_item in list.slots:
+			if w_item.item.item_name == oi.item.item_name:
 				item = w_item
 				break
 
 		# проверка кол-ва
 		if item == null:
 			missing_items.append({
-				"name": oi.item_name,
+				"name": oi.item.item_name,
 				"diff": oi.item_quantity
 			})
-		elif item.item_quantity < oi.item_quantity:
-			var diff = oi.item_quantity - item.item_quantity
+		elif item.amount < oi.amount:
+			var diff = oi.amount - item.amount
 			missing_items.append({
-				"name": oi.item_name,
+				"name": oi.item.item_name,
 				"diff": diff
 			})
 			
@@ -49,10 +50,10 @@ func sell_item():
 			l.text = "- " + tr(e.name) + tr("TEXT_INTHEAMOUNT") + str(e.diff) + tr("TEXT_ITEMS")
 	else:
 		for oi in order.products:
-			for w_item in Warehouse.loaded_products:
-				if w_item in Warehouse.loaded_products:
-					if w_item.item_name == oi.item_name:
-						w_item.item_quantity -= oi.item_quantity
+			for w_item in list.slots:
+				if w_item in list.slots:
+					if w_item.item.item_name == oi.item.item_name:
+						w_item.amount -= oi.amount
 						break
 	
 		for c in $ScrollContainer/VBoxContainer.get_children():
@@ -63,9 +64,8 @@ func sell_item():
 		%nothin_to_sell_label.show()
 		Warehouse.update_item.emit()
 		VisitorManager.order_complete.emit()
-		Moneyyy.Money.money += order.final_price
-		Moneyyy.Money.update_money.emit()
-		ResourceSaver.save(Moneyyy.Money)
+		Money.calculate_money(order.final_price)
+		Money.money_changed.emit()
 		OrderManager.order_in_process = false
 		$income_sound.play()
 
@@ -74,10 +74,10 @@ func clear_nrts():
 	for c in %nei_vbox.get_children():
 		c.queue_free()
 
-func recieve_order():
+func receive_order():
 	for p in order.products:
 		var sell_item_panel = load("res://scenes/sell_item_panel.tscn").instantiate()
-		sell_item_panel.resource = p
+		sell_item_panel.slot = p
 		$ScrollContainer/VBoxContainer.add_child(sell_item_panel)
 	# для каждого предмета в заказе добавлять sell_item_panel.tscn
 	$panel.show()

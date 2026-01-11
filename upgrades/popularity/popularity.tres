@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=5 format=3 uid="uid://cdshuyxho7bkc"]
+[gd_resource type="Resource" script_class="UpgItem" load_steps=5 format=3 uid="uid://cdshuyxho7bkc"]
 
 [ext_resource type="Script" uid="uid://ccb4qrp37f1kv" path="res://upgrades/upgrade.gd" id="1_rmxcp"]
 [ext_resource type="Texture2D" uid="uid://fo0tq05g12j5" path="res://upgrades/upgrades_icons.png" id="2_hjyqd"]

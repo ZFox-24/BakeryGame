@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ProdInv" load_steps=3 format=3 uid="uid://btlk64gyfmavt"]
+
+[ext_resource type="Script" uid="uid://d1jn3gqt0sgv5" path="res://inventory/prod_inv.gd" id="1_uxbpw"]
+[ext_resource type="Script" uid="uid://d3wpc8jimw82m" path="res://inventory/slots/prod_slot.gd" id="2_7gvhp"]
+
+[resource]
+script = ExtResource("1_uxbpw")
+metadata/_custom_type_script = "uid://d1jn3gqt0sgv5"

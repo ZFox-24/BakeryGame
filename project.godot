@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Игра - пекарня \"Булочка с маком\""
+config/name="Some Bakery Game"
 config/version="1.0 pre-release"
 run/main_scene="uid://dtggv2wnvtmbp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
@@ -18,15 +18,13 @@ config/icon="uid://dww7s2spbgd37"
 
 [autoload]
 
-Warehouse="*res://confectionery_products/warehouse.gd"
-VisitorManager="*res://scenes/visitor_manager.gd"
-SaveLoad="*res://saving system/save_load.gd"
-OrderManager="*res://scripts/order_manager.gd"
-SavesManagement="*res://saving system/saves_management.gd"
-SaveManagerLite="*res://addons/SaveManagerLite/SaveManagerLite.gd"
 SceneManager="*res://scenes/scene_manager.gd"
+Warehouse="*res://confectionery_products/warehouse/warehouse.gd"
+VisitorManager="*res://scenes/visitor_manager.gd"
+OrderManager="*res://scripts/order_manager.gd"
 GameSettings="*res://scripts/game_settings.gd"
-Moneyyy="*res://scripts/Moneyyy.gd"
+SaveSystem="*res://saving system/save_system.gd"
+Money="*res://scripts/money/money.gd"
 
 [display]
 
@@ -48,7 +46,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="48"
+Build_number="51"
 
 [input]
 

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Order" load_steps=3 format=3 uid="uid://cpvv8jyww0idr"]
-
-[ext_resource type="Script" uid="uid://trevfjnntn62" path="res://resources/item.gd" id="1_putf6"]
-[ext_resource type="Script" uid="uid://28e2a37murd0" path="res://confectionery_products/order.gd" id="2_kon8x"]
-
-[resource]
-script = ExtResource("2_kon8x")
-metadata/_custom_type_script = "uid://28e2a37murd0"
