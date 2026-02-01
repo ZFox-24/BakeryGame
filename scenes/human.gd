@@ -11,7 +11,7 @@ func despawn():
 	print("Чел освобожден")
 	VisitorManager.spawn_visitor.emit()
 
-func _physics_process(delta: float) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_P):
 		to_exit()
 

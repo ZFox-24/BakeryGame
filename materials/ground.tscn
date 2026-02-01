@@ -27,11 +27,13 @@ size = Vector2(25, 25)
 size = Vector3(25, 0.01, 25)
 
 [sub_resource type="Gradient" id="Gradient_utnsy"]
-colors = PackedColorArray(0, 0, 0.05490196, 1, 1, 1, 0.9372549, 1)
+offsets = PackedFloat32Array(0, 0.969)
+colors = PackedColorArray(0.025373936, 0.017160036, 0.0010007767, 1, 1, 1, 0.9372549, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gofy3"]
 gradient = SubResource("Gradient_utnsy")
-fill_from = Vector2(0.25252524, 0.43434343)
+fill = 1
+fill_from = Vector2(0.045454547, 0.056818184)
 
 [sub_resource type="Sky" id="Sky_8yq4j"]
 sky_material = ExtResource("3_h0tbc")
@@ -42,16 +44,23 @@ sky = SubResource("Sky_8yq4j")
 ambient_light_source = 3
 ambient_light_color = Color(0.27279034, 0.63891447, 0.6799078, 1)
 reflected_light_source = 2
-ssr_enabled = true
+tonemap_mode = 2
+tonemap_exposure = 0.62
+tonemap_white = 0.81
+ssr_max_steps = 512
+ssr_fade_in = 0.7135243
+ssr_fade_out = 187.40337
+ssr_depth_tolerance = 7.81
+ssao_enabled = true
+ssil_enabled = true
 glow_enabled = true
 glow_intensity = 1.64
 glow_bloom = 0.15
 fog_enabled = true
-fog_light_color = Color(0.6227759, 0.53238374, 0.44001216, 1)
-fog_light_energy = 0.66
+fog_light_color = Color(0.37585592, 0.6232067, 0.33388647, 1)
 fog_sun_scatter = 0.96
 fog_aerial_perspective = 0.821
-fog_sky_affect = 0.326
+fog_sky_affect = 0.131
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_gofy3")
 
@@ -98,7 +107,7 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ttmh"]
 albedo_color = Color(0.3721532, 0.39474586, 0.39627662, 1)
 metallic_specular = 0.02
-roughness = 0.0
+roughness = 0.81
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4kw0k"]
 material = SubResource("StandardMaterial3D_6ttmh")
@@ -139,11 +148,12 @@ environment = SubResource("Environment_6ttmh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.9151163, -0.40019453, 0.04905715, 0.39692983, -0.87285525, 0.28384972, -0.070775285, 0.27922776, 0.95761305, 43.102997, 8.98167, -43.43419)
-light_color = Color(0.9803265, 0.7405179, 0.18553057, 1)
+light_color = Color(0.99456114, 0.80488914, 0.42612022, 1)
 light_energy = 2.455
 light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.05
+shadow_opacity = 0.97
 
 [node name="background" type="Node3D" parent="."]
 

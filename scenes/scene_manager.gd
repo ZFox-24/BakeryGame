@@ -13,7 +13,7 @@ func _ready() -> void:
 	# "res://test_monitor/node_3d.tscn"
 	# "res://interior_models (blender)/computer.tscn"
 	# "res://interior_models (blender)/bakery_monitor.tscn"
-	get_tree().change_scene_to_file(current_scene)
+	get_tree().change_scene_to_file.call_deferred(current_scene)
 	#Warehouse.load_items()
 
 #func save_last_scene():

@@ -42,7 +42,10 @@ func make_order_res(): # создает ресурс заказа для исп�
 				slot.amount = randi_range(1, 8)
 		if rannum > 0.4:
 			break
-	OrderManager.order = order
-	#for i in order.products:
-		#print("product: " + str(i) + "\n" +
-				#"product_name: " + i.item_name)
+	
+	# Убедиться, что денег хватает для выполнения заказа
+	# если нет - сгенерить новый заказ
+	if order.final_price > Money.money_resource.money:
+		make_order_res()
+	else:
+		OrderManager.order = order

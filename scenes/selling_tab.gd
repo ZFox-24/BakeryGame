@@ -66,6 +66,7 @@ func sell_item():
 		VisitorManager.order_complete.emit()
 		Money.calculate_money(order.final_price)
 		Money.money_changed.emit()
+		SaveSystem.save()
 		OrderManager.order_in_process = false
 		$income_sound.play()
 

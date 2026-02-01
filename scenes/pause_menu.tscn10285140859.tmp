@@ -354,7 +354,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("SystemFont_5d2l8")
 text = "TEXT_FULLSCREENMODE"
-alignment = 1
 
 [node name="exit_button" type="Button" parent="settings_win"]
 unique_name_in_owner = true

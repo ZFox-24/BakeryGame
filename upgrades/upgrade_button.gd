@@ -12,16 +12,19 @@ func _ready() -> void:
 	%buy_button.pressed.connect(invoke_upgrade)
 	total_upgrades = len(slot.item.upgrades)
 	if slot.upg_bought:
-		var p_upgrades = Node.new()
-		add_child(p_upgrades)
-		for u in slot.item.upgrades:
-			if nodes_array < total_upgrades:
-				var node = Node.new()
-				p_upgrades.add_child(node)
-				nodes_array += 1
-				node.set_script(u)
-				print(node)
-		p_upgrades.queue_free()
+		if slot.allow_invoke:
+			var p_upgrades = Node.new()
+			add_child(p_upgrades)
+			for u in slot.item.upgrades:
+				if nodes_array < total_upgrades:
+					var node = Node.new()
+					p_upgrades.add_child(node)
+					nodes_array += 1
+					node.set_script(u)
+					print(node)
+			p_upgrades.queue_free()
+			slot.allow_invoke = false
+			SaveSystem.save()
 		%AnimationPlayer.play("bought")
 	update_slot()
 

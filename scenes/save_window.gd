@@ -6,8 +6,13 @@ func _ready() -> void:
 	%lng_select_butt.item_selected.connect(_on_lang_selected)
 	$fullscreen_mode_chkbox.toggled.connect(window_mode)
 	
-	if get_window().get_mode() == Window.MODE_FULLSCREEN:
+	if ConfigFileHandler.load_video_settings().fullscreen:
 		$fullscreen_mode_chkbox.set_pressed_no_signal(true)
+	
+	select_language_on_start()
+	
+	#%lng_select_butt.select(func() -> int:
+		#%lng_select_butt.items)
 
 func exit_window():
 	%AnimationPlayer.play("close_save_menu")
@@ -16,6 +21,8 @@ func _on_lang_selected(index: int):
 	var ID = %lng_select_butt.get_item_text(index)
 	TranslationServer.set_locale(GameSettings.language[ID])
 	GameSettings.current_language = TranslationServer.get_locale()
+	ConfigFileHandler.save_language_setting("language", GameSettings.current_language)
+	ConfigFileHandler.save_language_setting("languageID", index)
 
 func add_languages():
 	var current_lang = TranslationServer.get_locale()
@@ -26,7 +33,12 @@ func add_languages():
 			%lng_select_butt.select(ID)
 			ID += 1
 
+func select_language_on_start():
+	var lang_sett = ConfigFileHandler.load_language_setting()
+	%lng_select_butt.select(int(lang_sett.languageID))
+
 func window_mode(toggled_on: bool):
+	ConfigFileHandler.save_video_setting("fullscreen", toggled_on)
 	if toggled_on:
 		get_window().set_mode(Window.MODE_FULLSCREEN)
 	else:

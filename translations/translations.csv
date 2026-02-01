@@ -40,7 +40,7 @@ TEXT_DONUT,Пончик,Donut
 TEXT_ECLAIR,Эклер,Eclair
 TEXT_MACARON,Макарун,Macaron
 UPGRADE_MOREITEMS,Больше товаров,More items
-DESC_MOREITEMS,С шансом 40% покупатель купит 2 товара,With a chance of 40% a customer will buy 2 items
+DESC_MOREITEMS,С некоторым шансом покупатель купит 2 типа товаров,With some chance a customer will buy 2 types of items
 UPGRADE_POPULARITY,Популярность,Popularity
 DESC_POPULARITY,Покупатели приходят чаще,Customers visit more often
 TEXT_UPGRADESNOTICE,Улучшения заработают только после переоткрытия пекарни.,Upgrades will work after you re-open the bakery.

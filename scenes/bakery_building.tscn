@@ -4,6 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vscrq"]
 albedo_color = Color(0.39554405, 0.4089954, 0.352437, 1)
+subsurf_scatter_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_pkrj7"]
 material = SubResource("StandardMaterial3D_vscrq")

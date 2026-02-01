@@ -30,6 +30,7 @@ func create_new_save():
 	save_game.money_resource = MoneyResource.new()
 	save_game.money_resource.money = 200
 	save()
+	
 	if Money.money_resource != null:
 		Money.money_resource.emit_changed()
 
@@ -42,3 +43,16 @@ func new_upgrades() -> UpgInv:
 	var new_upg = UpgInv.new()
 	new_upg = load("res://inventory/upgrades.tres").duplicate()
 	return new_upg
+
+# Для отловки и поимки notification. Удобно, например, для выполнения логики перед закрытием игры
+func _notification(what: int) -> void:
+	match(what):
+		NOTIFICATION_WM_CLOSE_REQUEST:
+			save_upg_slots()
+
+## Метод для сохранения значения allow_invoke в UpgSlot
+func save_upg_slots():
+	for i in save_game.upgrades_data.slots:
+		i.allow_invoke = true
+		print(i.allow_invoke)
+	save()

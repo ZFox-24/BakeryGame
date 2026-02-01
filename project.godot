@@ -18,6 +18,7 @@ config/icon="uid://dww7s2spbgd37"
 
 [autoload]
 
+ConfigFileHandler="*res://saving system/config_file_handler.gd"
 SceneManager="*res://scenes/scene_manager.gd"
 Warehouse="*res://confectionery_products/warehouse/warehouse.gd"
 VisitorManager="*res://scenes/visitor_manager.gd"
@@ -38,7 +39,7 @@ project/assembly_name="Игра - пекарня -Булочка с маком-"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SaveManagerLite/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
+enabled=PackedStringArray("res://addons/project-time-tracker/plugin.cfg")
 
 [filesystem]
 
@@ -92,6 +93,7 @@ afk/afk_timer=300
 
 [rendering]
 
-renderer/rendering_method="mobile"
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
 lights_and_shadows/positional_shadow/soft_shadow_filter_quality=4
+anti_aliasing/quality/msaa_3d=1
+anti_aliasing/quality/screen_space_aa=1

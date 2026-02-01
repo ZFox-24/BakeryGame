@@ -8,7 +8,9 @@ func _ready() -> void:
 	%continue_button.pressed.connect(continue_game)
 
 	%new_game_button.pressed.connect(%ConfirmationDialog.show)
-	%exit_game_button.pressed.connect(get_tree().quit)
+	%exit_game_button.pressed.connect(func():
+		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+		get_tree().quit())
 	%credits_exit_button.pressed.connect(%credits_win.hide)
 	%authors_link.pressed.connect(%credits_win.show)
 	%ConfirmationDialog.confirmed.connect(delete_game)
@@ -23,4 +25,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		continue_game()
 
 func delete_game():
-	Warehouse.delete_items(Warehouse.products, Warehouse.upgrades)
+	SaveSystem.create_new_save()
