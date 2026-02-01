@@ -203,6 +203,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 text = "KEY_SETTINGS"
 
+[node name="credits_button" type="Button" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+text = "TITLE_CREDITS"
+
 [node name="new_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -424,26 +430,20 @@ ok_button_text = "KEY_YES"
 dialog_text = "TEXT_CONFIRMDELETE"
 cancel_button_text = "KEY_NO"
 
-[node name="authors" type="VBoxContainer" parent="."]
+[node name="authors_link" type="LinkButton" parent="."]
+unique_name_in_owner = true
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -340.0
-offset_right = 63.0
-offset_bottom = -11.0
+offset_left = -193.0
+offset_top = -40.0
+offset_right = 62.0
+offset_bottom = -14.0
 grow_horizontal = 0
 grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 59
-alignment = 2
-
-[node name="authors_link" type="LinkButton" parent="authors"]
-unique_name_in_owner = true
-layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 theme_override_font_sizes/font_size = 18
 text = "© 2026 ZacksterDev"
+uri = "https://github.com/ZacksterDev"

@@ -12,7 +12,7 @@ func _ready() -> void:
 		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		get_tree().quit())
 	%credits_exit_button.pressed.connect(%credits_win.hide)
-	%authors_link.pressed.connect(%credits_win.show)
+	%credits_button.pressed.connect(%credits_win.show)
 	%ConfirmationDialog.confirmed.connect(delete_game)
 	
 func continue_game():

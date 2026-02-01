@@ -11,10 +11,12 @@ config_version=5
 [application]
 
 config/name="Some Bakery Game"
-config/version="1.0 pre-release"
+config/version="1.0"
 run/main_scene="uid://dtggv2wnvtmbp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/image="uid://bfmqa4ynxkgta"
 config/icon="uid://dww7s2spbgd37"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
@@ -47,7 +49,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="51"
+Build_number="53"
 
 [input]
 
