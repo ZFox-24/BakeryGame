@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://cbglsp3wlye20"]
+[gd_scene load_steps=21 format=3 uid="uid://cbglsp3wlye20"]
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_5d2l8"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_7l7mv"]
 [ext_resource type="Script" uid="uid://byw4p46m8ygu7" path="res://scenes/save_window.gd" id="2_myx47"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_v4r4p"]
 
@@ -10,11 +11,37 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
 bg_color = Color(0.09985284, 0.07846785, 0.106126174, 0.99000007)
 
-[sub_resource type="SystemFont" id="SystemFont_5d2l8"]
-font_names = PackedStringArray("Comic Sans MS")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
-bg_color = Color(0.27589417, 0.2558377, 0.42010412, 1)
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88e76"]
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3372549, 0.4509804, 0.6431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knqa7"]
+bg_color = Color(0.16790411, 0.21251479, 0.4097077, 0.9882353)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7l7mv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3372549, 0.4509804, 0.6431373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5d2l8"]
+color = Color(1, 1, 1, 0.5)
+vertical = true
 
 [sub_resource type="Animation" id="Animation_kukqi"]
 length = 0.001
@@ -116,7 +143,7 @@ expand_margin_bottom = 5.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s2dm"]
 
 [sub_resource type="Theme" id="Theme_v4r4p"]
-default_font = ExtResource("2_5d2l8")
+default_font = ExtResource("2_7l7mv")
 Button/constants/h_separation = 2
 Window/styles/embedded_border = SubResource("StyleBoxFlat_v4r4p")
 Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_1s2dm")
@@ -156,7 +183,7 @@ offset_right = 119.5
 offset_bottom = -183.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 theme_override_font_sizes/font_size = 81
 text = "TEXT_PAUSE"
 horizontal_alignment = 1
@@ -179,7 +206,7 @@ grow_vertical = 2
 [node name="continue_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 shortcut = ExtResource("2_v4r4p")
 text = "KEY_CONTINUE"
 
@@ -200,25 +227,25 @@ text = "KEY_LOAD"
 [node name="settings_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_SETTINGS"
 
 [node name="credits_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TITLE_CREDITS"
 
 [node name="new_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_STARTOVER"
 
 [node name="exit_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_EXIT"
 
 [node name="game_saved_lbl" type="Label" parent="Panel"]
@@ -242,20 +269,22 @@ text = "Игра сохранена"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = -74.0
-offset_right = 198.0
-offset_bottom = -13.0
+offset_left = 32.0
+offset_top = -92.0
+offset_right = 217.0
+offset_bottom = -31.0
 grow_vertical = 0
 
 [node name="build_num" type="Label" parent="version_vbox"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "BUILD NUMBER"
 
 [node name="version" type="Label" parent="version_vbox"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+text = "VERSION"
 
 [node name="credits_win" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -293,7 +322,7 @@ offset_top = 14.0
 offset_right = 44.0
 offset_bottom = 37.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TITLE_CREDITS"
 
 [node name="Zack_credits" type="RichTextLabel" parent="credits_win"]
@@ -337,30 +366,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -338.0
-offset_top = -152.0
+offset_top = -382.0
 offset_right = 338.0
-offset_bottom = 152.0
+offset_bottom = 382.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myx47")
 script = ExtResource("2_myx47")
-
-[node name="fullscreen_mode_chkbox" type="CheckBox" parent="settings_win"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = 53.0
-offset_right = 109.0
-offset_bottom = 84.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = SubResource("SystemFont_5d2l8")
-text = "TEXT_FULLSCREENMODE"
-alignment = 1
 
 [node name="exit_button" type="Button" parent="settings_win"]
 unique_name_in_owner = true
@@ -382,36 +394,306 @@ offset_top = 14.0
 offset_right = 44.0
 offset_bottom = 37.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TITLE_SETTINGS"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="settings_win"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.5
+offset_top = -138.0
+offset_right = 120.5
+offset_bottom = -82.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="settings_win/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "TEXT_LANGUAGE"
+
+[node name="lng_select_butt" type="OptionButton" parent="settings_win/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_88e76")
+theme_override_styles/hover = SubResource("StyleBoxFlat_knqa7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7l7mv")
+alignment = 1
+
+[node name="Panel" type="Panel" parent="settings_win"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.0
+offset_top = 68.0
+offset_right = 215.0
+offset_bottom = 426.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7l7mv")
+
+[node name="Label" type="Label" parent="settings_win/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "TITLE_SETTINGS_GRAPHICS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings_win/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.5
-offset_top = -23.5
-offset_right = 120.5
-offset_bottom = 32.0
+offset_left = -180.0
+offset_top = -123.0
+offset_right = 180.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 39
+
+[node name="lighting_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "SETTING_LIGHTING"
+
+[node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 360.0
+offset_bottom = 20.0
+max_value = 2.0
+value = 1.0
+rounded = true
+ticks_on_borders = true
+
+[node name="Panel" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel2" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+layout_mode = 0
+offset_left = 359.0
+offset_right = 360.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel3" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+layout_mode = 0
+offset_left = 179.0
+offset_right = 180.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="shadows_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/shadows_settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "SETTING_SHADOWS"
+
+[node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/shadows_settings/title"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 27.0
+offset_right = -4.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.5)
+theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_font_sizes/font_size = 12
+text = "OFF"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 360.0
+offset_bottom = 20.0
+max_value = 3.0
+value = 2.0
+rounded = true
+ticks_on_borders = true
+
+[node name="Panel" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel2" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+layout_mode = 0
+offset_left = 359.0
+offset_right = 360.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel3" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+layout_mode = 0
+offset_left = 122.0
+offset_right = 123.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel3" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider/Panel3"]
+layout_mode = 0
+offset_left = 115.0
+offset_right = 116.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="texture_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/texture_settings"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "SETTING_TEXTURES"
+
+[node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/texture_settings"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 360.0
+offset_bottom = 20.0
+max_value = 2.0
+value = 1.0
+rounded = true
+ticks_on_borders = true
+
+[node name="Panel" type="Panel" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel2" type="Panel" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+layout_mode = 0
+offset_left = 359.0
+offset_right = 360.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel3" type="Panel" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+layout_mode = 0
+offset_left = 179.0
+offset_right = 180.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="toggles" type="VBoxContainer" parent="settings_win/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.5
+offset_top = -81.0
+offset_right = 116.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="fullscreen_mode_chkbox" type="CheckBox" parent="settings_win/Panel/toggles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "TEXT_FULLSCREENMODE"
+alignment = 1
+
+[node name="antialiasing_chkbox" type="CheckBox" parent="settings_win/Panel/toggles"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "TEXT_ANTIALIASING"
+alignment = 1
+
+[node name="sensitivity_settings" type="VBoxContainer" parent="settings_win"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 57.0
+offset_right = 180.0
+offset_bottom = 84.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="settings_win/VBoxContainer"]
+[node name="title" type="Label" parent="settings_win/sensitivity_settings"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5d2l8")
-text = "TEXT_LANGUAGE"
-horizontal_alignment = 1
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "SETTING_SENSITIVITY"
 
-[node name="lng_select_butt" type="OptionButton" parent="settings_win/VBoxContainer"]
-unique_name_in_owner = true
+[node name="title" type="Label" parent="settings_win/sensitivity_settings/title"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 26.0
+offset_right = 420.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("2_7l7mv")
+text = "0.0"
+
+[node name="Slider" type="Panel" parent="settings_win/sensitivity_settings"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_5d2l8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_kukqi")
-alignment = 1
+
+[node name="HSlider" type="HSlider" parent="settings_win/sensitivity_settings/Slider"]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 360.0
+offset_bottom = 20.0
+max_value = 2.0
+value = 1.0
+rounded = true
+ticks_on_borders = true
+
+[node name="Panel" type="Panel" parent="settings_win/sensitivity_settings/Slider"]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+
+[node name="Panel2" type="Panel" parent="settings_win/sensitivity_settings/Slider"]
+layout_mode = 0
+offset_left = 359.0
+offset_right = 360.0
+offset_bottom = 22.0
+theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -437,13 +719,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -193.0
-offset_top = -40.0
-offset_right = 62.0
-offset_bottom = -14.0
+offset_left = -208.0
+offset_top = -52.0
+offset_right = -30.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_5d2l8")
+theme_override_fonts/font = ExtResource("2_7l7mv")
 theme_override_font_sizes/font_size = 18
 text = "© 2026 ZacksterDev"
 uri = "https://github.com/ZacksterDev"

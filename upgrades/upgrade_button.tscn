@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://7yj7tdeo2lhr"]
 
 [ext_resource type="Script" uid="uid://kbtgqtuffrd" path="res://upgrades/upgrade_button.gd" id="1_4o4m5"]
-[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_ebbir"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_ebbir"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebbir"]
 bg_color = Color(0.11774104, 0.17558163, 0.27395758, 0.845)

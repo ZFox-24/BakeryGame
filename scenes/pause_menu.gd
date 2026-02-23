@@ -1,8 +1,14 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	GameSettings.hide_mobile_buttons.emit()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = true
+	
 	%build_num.text = "Build " + ProjectSettings.get_setting("global/Build_number")
 	%version.text = "v. " + ProjectSettings.get_setting("application/config/version")
+	if OS.get_name() == "Android":
+		%version.text = "Android " + "v. " + ProjectSettings.get_setting("application/config/version")
 	
 	%settings_button.pressed.connect(%settings_win.show)
 	%continue_button.pressed.connect(continue_game)
@@ -17,6 +23,7 @@ func _ready() -> void:
 	
 func continue_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	GameSettings.show_mobile_buttons.emit()
 	get_tree().paused = false
 	queue_free()
 

@@ -1,15 +1,32 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=24 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
 [ext_resource type="PackedScene" uid="uid://d4deldnqmo4hy" path="res://fps.tscn" id="2_gmlin"]
 [ext_resource type="Texture2D" uid="uid://ck8gqphpb271n" path="res://cursors/crosshair_def.png" id="3_qek5x"]
 [ext_resource type="Script" uid="uid://duggkejiraouy" path="res://scenes/player/crosshair.gd" id="4_5gtgg"]
-[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://dy8e1o0okwh64" path="res://cursors/crosshair_hand.png" id="5_h17s1"]
 [ext_resource type="Script" uid="uid://cq7qh6dxu4m8w" path="res://addons/virtual_joystick/virtual_joystick.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://djkcw4jwwn7gk" path="res://scenes/player/mobile_buttons.gd" id="6_je7p5"]
 [ext_resource type="Script" uid="uid://c1u86fvdqmtpi" path="res://scenes/player/interaction_module.gd" id="7_0owmy"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="7_je7p5"]
 [ext_resource type="AudioStream" uid="uid://djr2n200onqom" path="res://assets/sfx/Concrete 1.wav" id="11_je7p5"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_fm80t"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="Shortcut" id="Shortcut_gx1jg"]
+events = [SubResource("InputEventKey_fm80t")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_je7p5"]
+device = -1
+keycode = 73
+unicode = 105
+
+[sub_resource type="Shortcut" id="Shortcut_fm80t"]
+events = [SubResource("InputEventKey_je7p5")]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -152,21 +169,14 @@ collision_layer = 2
 script = ExtResource("1_8afob")
 
 [node name="ui" type="CanvasLayer" parent="."]
+process_priority = 1
+process_physics_priority = 1
 
-[node name="Control" type="Control" parent="ui"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 64.0
-offset_top = 632.0
-offset_right = 284.0
-offset_bottom = 852.0
-pivot_offset = Vector2(110, 110)
-script = ExtResource("5_p47bc")
-joystick_use_textures = false
-joystick_preset_texture = 0
-stick_use_textures = false
-stick_preset_texture = 0
+[node name="fps" parent="ui" instance=ExtResource("2_gmlin")]
+offset_left = 36.0
+offset_top = 113.0
+offset_right = 116.0
+offset_bottom = 113.0
 
 [node name="crosshair" type="TextureRect" parent="ui"]
 unique_name_in_owner = true
@@ -187,7 +197,53 @@ script = ExtResource("4_5gtgg")
 default = ExtResource("3_qek5x")
 hand = ExtResource("5_h17s1")
 
-[node name="fps" parent="." instance=ExtResource("2_gmlin")]
+[node name="joystick" type="Control" parent="ui"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -352.0
+offset_right = 348.0
+offset_bottom = -132.0
+grow_vertical = 0
+pivot_offset = Vector2(110, 110)
+script = ExtResource("5_p47bc")
+only_mobile = true
+joystick_use_textures = false
+joystick_preset_texture = 0
+stick_use_textures = false
+stick_preset_texture = 0
+
+[node name="pause_button" type="Button" parent="ui"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 116.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_gx1jg")
+text = "||"
+
+[node name="interact_button" type="Button" parent="ui"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 130)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -130.0
+offset_right = -62.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_fm80t")
+text = "E"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0277908, 0)
@@ -217,7 +273,7 @@ offset_right = 161.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_75vfm")
+theme_override_fonts/font = ExtResource("7_je7p5")
 horizontal_alignment = 1
 
 [node name="CantExitText" type="Label" parent="CanvasLayer"]
@@ -234,7 +290,7 @@ offset_right = 161.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_75vfm")
+theme_override_fonts/font = ExtResource("7_je7p5")
 text = "LEAVING_BAKERY_WARNING"
 horizontal_alignment = 1
 
@@ -261,6 +317,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_je7p5")
 }
 autoplay = "idle"
+
+[node name="mobile_buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("6_je7p5")
 
 [node name="footstep_audio" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true

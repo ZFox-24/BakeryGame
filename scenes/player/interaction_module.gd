@@ -2,7 +2,7 @@ extends Node
 
 @export var SeeCast : RayCast3D
 @onready var is_colliding := false
-@onready var target 
+@onready var target
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and is_colliding:
@@ -13,12 +13,14 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	%InteractText.hide()
+	%interact_button.hide()
 	%crosshair.change_crosshair("default")
 	if SeeCast.is_colliding():
 		target = SeeCast.get_collider()
 		if target.has_method("interact"):
-			#%InteractText.show() # переделать взаимодействие
 			%crosshair.show()
+			if OS.get_name() == "Android" or OS.get_name() == "iOS" or OS.get_name() == "Windows": # изменить перед релизом
+				%interact_button.show()
 			%crosshair.change_crosshair("hand")
 			is_colliding = true
 		if target.has_method("show_obj_name"):

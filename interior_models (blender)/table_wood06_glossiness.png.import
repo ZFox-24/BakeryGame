@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gidrvepsfnl0"
 path.s3tc="res://.godot/imported/table_wood06_glossiness.png-72eb3d651fe1d852e137b62d84b32091.s3tc.ctex"
+path.etc2="res://.godot/imported/table_wood06_glossiness.png-72eb3d651fe1d852e137b62d84b32091.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://interior_models (blender)/table_wood06_glossiness.png"
-dest_files=["res://.godot/imported/table_wood06_glossiness.png-72eb3d651fe1d852e137b62d84b32091.s3tc.ctex"]
+dest_files=["res://.godot/imported/table_wood06_glossiness.png-72eb3d651fe1d852e137b62d84b32091.s3tc.ctex", "res://.godot/imported/table_wood06_glossiness.png-72eb3d651fe1d852e137b62d84b32091.etc2.ctex"]
 
 [params]
 

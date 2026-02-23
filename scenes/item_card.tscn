@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://76pi48laytsu"]
 
 [ext_resource type="Script" uid="uid://c8ufohycohffj" path="res://scenes/item_card.gd" id="1_ce1kl"]
-[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_ltbao"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_4lcok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
 bg_color = Color(0.09985284, 0.09320182, 0.19966345, 0.845)
@@ -67,7 +67,7 @@ offset_right = 80.5
 offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_ltbao")
+theme_override_fonts/font = ExtResource("2_4lcok")
 theme_override_font_sizes/font_size = 30
 text = "item_name"
 horizontal_alignment = 1
@@ -87,7 +87,7 @@ offset_right = -9.0
 offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_ltbao")
+theme_override_fonts/font = ExtResource("2_4lcok")
 theme_override_styles/normal = SubResource("StyleBoxFlat_42m7w")
 text = "KEY_FILL"
 
@@ -108,7 +108,7 @@ alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ltbao")
+theme_override_fonts/font = ExtResource("2_4lcok")
 theme_override_font_sizes/font_size = 30
 text = "TEXT_ATWAREHOUSE"
 horizontal_alignment = 1

@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cntdgq2l2sw3u"]
+[gd_scene load_steps=10 format=3 uid="uid://cntdgq2l2sw3u"]
 
 [ext_resource type="Script" uid="uid://tdo5cww85djm" path="res://scenes/add_menu.gd" id="1_8o024"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_2oa50"]
-[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_jd5wg"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="3_jd5wg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltbao"]
-bg_color = Color(0.09985284, 0.09320182, 0.19966345, 0.99000007)
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -21,9 +21,6 @@ action = &"ui_accept"
 
 [sub_resource type="Shortcut" id="Shortcut_2oa50"]
 events = [SubResource("InputEventAction_8o024")]
-
-[sub_resource type="SystemFont" id="SystemFont_jd5wg"]
-font_names = PackedStringArray("Comic Sans MS")
 
 [sub_resource type="Animation" id="Animation_2oa50"]
 length = 0.001
@@ -231,7 +228,7 @@ offset_right = -156.0
 offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = SubResource("SystemFont_jd5wg")
+theme_override_fonts/font = ExtResource("3_jd5wg")
 text = "TEXT_NOTENOUGHMONEY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

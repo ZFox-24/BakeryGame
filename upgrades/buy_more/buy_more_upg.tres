@@ -13,6 +13,6 @@ script = ExtResource("1_6oh3q")
 upg_icon = SubResource("AtlasTexture_iq2en")
 upg_name = "UPGRADE_MOREITEMS"
 upg_desc = "DESC_MOREITEMS"
-upg_price = 3500
+upg_price = 2000
 upgrades = Array[Script]([ExtResource("2_iq2en")])
 metadata/_custom_type_script = "uid://ccb4qrp37f1kv"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpsrf278yjlwf"]
 
 [ext_resource type="Script" uid="uid://b1uyga62sv3ya" path="res://scenes/sell_item_panel.gd" id="1_8ygei"]
-[ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_8ygei"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_8ygei"]
 
 [node name="sell_item_panel" type="Panel"]
 custom_minimum_size = Vector2(789, 136)

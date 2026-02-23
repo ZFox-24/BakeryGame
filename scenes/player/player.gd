@@ -19,13 +19,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		var pause_menu = load("uid://cbglsp3wlye20").instantiate() # новые добавления
 		add_child(pause_menu) #
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
 
 func _physics_process(_delta: float) -> void:
 	const SPEED = 5.5 # метры/с
+	var input_dicrection_2D
 	
-	var input_dicrection_2D = Input.get_vector(
+	# компьютерное или мобильное управление
+	if OS.get_name() == "Android" or OS.get_name() == "iOS":
+		input_dicrection_2D = %joystick.get_value()
+	else:
+		input_dicrection_2D = Input.get_vector(
 		"move_left", "move_right", "move_forward", "move_back"
 	)
 	var input_direction_3D = Vector3(
@@ -38,22 +41,9 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	if velocity.x or velocity.z > 0:
-		#%camera_animation.stop()
 		%camera_animation.current_animation = "camera_bob"
 	elif velocity.x or velocity.z == 0:
 		%camera_animation.current_animation = "idle"
-	
-	# переделать систему взаимодействия с предметами
-	#%InteractText.hide()
-	#if %SeeCast.is_colliding():
-		#var target = %SeeCast.get_collider()
-		#if target.has_method("interact"):
-			#%InteractText.show()
-			#if Input.is_key_pressed(KEY_E):
-				#%InteractText.hide()
-				#target.interact()
-				##Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				##get_tree().paused = true
 
 func _play_footstep_audio():
 	%footstep_audio.pitch_scale = randf_range(.8, 1.2)

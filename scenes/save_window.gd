@@ -1,13 +1,16 @@
 extends Panel
 
 func _ready() -> void:
+	if OS.get_name() == "Android":
+		%sensitivity_settings.queue_free()
+		%fullscreen_mode_chkbox.queue_free()
 	add_languages()
 	%exit_button.pressed.connect(exit_window)
 	%lng_select_butt.item_selected.connect(_on_lang_selected)
-	$fullscreen_mode_chkbox.toggled.connect(window_mode)
+	%fullscreen_mode_chkbox.toggled.connect(window_mode)
 	
 	if ConfigFileHandler.load_video_settings().fullscreen:
-		$fullscreen_mode_chkbox.set_pressed_no_signal(true)
+		%fullscreen_mode_chkbox.set_pressed_no_signal(true)
 	
 	select_language_on_start()
 	

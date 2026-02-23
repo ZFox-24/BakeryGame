@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuc3iq4qs38xx"
 path.s3tc="res://.godot/imported/Poliigon_WoodFloorAsh_4186_BaseColor.jpg-d159644dbd4a06a6d4639e62c4921316.s3tc.ctex"
+path.etc2="res://.godot/imported/Poliigon_WoodFloorAsh_4186_BaseColor.jpg-d159644dbd4a06a6d4639e62c4921316.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/wood/Poliigon_WoodFloorAsh_4186_BaseColor.jpg"
-dest_files=["res://.godot/imported/Poliigon_WoodFloorAsh_4186_BaseColor.jpg-d159644dbd4a06a6d4639e62c4921316.s3tc.ctex"]
+dest_files=["res://.godot/imported/Poliigon_WoodFloorAsh_4186_BaseColor.jpg-d159644dbd4a06a6d4639e62c4921316.s3tc.ctex", "res://.godot/imported/Poliigon_WoodFloorAsh_4186_BaseColor.jpg-d159644dbd4a06a6d4639e62c4921316.etc2.ctex"]
 
 [params]
 

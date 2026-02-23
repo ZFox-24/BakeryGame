@@ -1,7 +1,6 @@
-extends CanvasLayer
+extends Control
 
 func _ready():
-	#if OS.set_restart_on_exit()
 	if !OS.is_debug_build():
 		queue_free()
 

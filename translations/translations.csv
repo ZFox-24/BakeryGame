@@ -7,12 +7,18 @@ KEY_SETTINGS,Настройки,Settings
 KEY_STARTOVER,Начать заново,Start over
 KEY_EXIT,Выйти,Exit
 TITLE_CONFIRMDELETE,Удаление сохранения,Save deletion
+TITLE_SETTINGS_GRAPHICS,Графика,Graphics
+SETTING_LIGHTING,Освещение,Lighting
+SETTING_SHADOWS,Тени,Shadows
+SETTING_TEXTURES,Разрешение текстур,Textures resolution
+SETTING_SENSITIVITY,Чувствительность,Sensitivity
 TEXT_CONFIRMDELETE,Вы действительно хотите удалить текущее сохранение и начать заново?,Do you really wish to delete the save and start over?
 KEY_YES,Да,Yes
 KEY_NO,Нет,No
 TITLE_SETTINGS,Настройки,Settings
 TITLE_CREDITS,Авторы,Credits
 TEXT_FULLSCREENMODE,Полноэкранный режим,Fullscreen mode
+TEXT_ANTIALIASING,Сглаживание,Antialiasing
 TEXT_LANGUAGE,Язык игры,Language
 TEXT_OBJINTERACT,Нажмите "Е" для доступа к компьютеру,Press "E" to use the computer
 TAB_SELLING,Заказы,Orders

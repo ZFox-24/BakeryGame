@@ -47,5 +47,6 @@ func make_order_res(): # создает ресурс заказа для исп�
 	# если нет - сгенерить новый заказ
 	if order.final_price > Money.money_resource.money:
 		make_order_res()
+		return
 	else:
 		OrderManager.order = order

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb04bf737r2y5"
 path.s3tc="res://.godot/imported/cash_register_wood06_normal_opengl.jpg-0eb61b7e888e86a0915f871f308918f0.s3tc.ctex"
+path.etc2="res://.godot/imported/cash_register_wood06_normal_opengl.jpg-0eb61b7e888e86a0915f871f308918f0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://interior_models (blender)/cash_register_wood06_normal_opengl.jpg"
-dest_files=["res://.godot/imported/cash_register_wood06_normal_opengl.jpg-0eb61b7e888e86a0915f871f308918f0.s3tc.ctex"]
+dest_files=["res://.godot/imported/cash_register_wood06_normal_opengl.jpg-0eb61b7e888e86a0915f871f308918f0.s3tc.ctex", "res://.godot/imported/cash_register_wood06_normal_opengl.jpg-0eb61b7e888e86a0915f871f308918f0.etc2.ctex"]
 
 [params]
 

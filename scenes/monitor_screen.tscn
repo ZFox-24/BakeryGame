@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c21kiilpipoiu"]
+[gd_scene load_steps=14 format=3 uid="uid://c21kiilpipoiu"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_gynbd"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="3_cnrhv"]
 [ext_resource type="Script" uid="uid://cbfabnan6wb0s" path="res://scenes/selling_tab.gd" id="3_gynbd"]
+[ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="3_oania"]
 [ext_resource type="Script" uid="uid://d4bb7qd8wb3r1" path="res://scenes/check_item_card.gd" id="3_pukmn"]
 [ext_resource type="Script" uid="uid://dy2btnto31qle" path="res://confectionery_products/warehouse/warehouse.gd" id="4_2lnht"]
 [ext_resource type="Script" uid="uid://s6labs2nxrdb" path="res://scenes/add_upgrades_to_list.gd" id="6_pukmn"]
@@ -148,7 +149,7 @@ offset_top = 10.0
 offset_right = -99.44446
 offset_bottom = 51.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 text = "KEY_BAKERYOPEN"
 
 [node name="TabContainer" type="TabContainer" parent="."]
@@ -164,7 +165,7 @@ offset_right = 496.0
 offset_bottom = 289.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 current_tab = 0
 
 [node name="TAB_SELLING" type="TabBar" parent="TabContainer"]
@@ -188,7 +189,7 @@ offset_right = 97.0
 offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 theme_override_font_sizes/font_size = 32
 text = "TEXT_NOTHINGTOSELL"
 
@@ -217,7 +218,7 @@ offset_left = 120.0
 offset_top = 57.0
 offset_right = 315.0
 offset_bottom = 80.0
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 text = "TEXT_TOTAL"
 horizontal_alignment = 2
 
@@ -228,7 +229,7 @@ offset_left = 316.0
 offset_top = -3.0
 offset_right = 719.0
 offset_bottom = 108.0
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 theme_override_font_sizes/font_size = 81
 text = "final_price"
 
@@ -246,7 +247,7 @@ offset_right = -179.41193
 offset_bottom = -409.18604
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 text = "KEY_SELL"
 
 [node name="nei" type="Control" parent="TabContainer/TAB_SELLING/panel"]
@@ -274,7 +275,7 @@ offset_left = -61.0
 offset_right = 61.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 text = "TEXT_NOTENOUGH"
 horizontal_alignment = 1
 
@@ -330,6 +331,8 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/TAB_BUYING/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 3
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/TAB_BUYING/ScrollContainer/GridContainer"]
@@ -381,6 +384,6 @@ offset_right = 249.5
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_cnrhv")
+theme_override_fonts/font = ExtResource("3_oania")
 text = "TEXT_UPGRADESNOTICE"
 horizontal_alignment = 1
