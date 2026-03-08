@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://byhfavw4mjssi"]
+
+[ext_resource type="ArrayMesh" uid="uid://v0rnq1c6fueb" path="res://interior_models (blender)/bakery_building_new.obj" id="1_5icwx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48r1f"]
+size = Vector3(2.2872314, 0.001, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+lod_bias = 0.1
+mesh = ExtResource("1_5icwx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14361572, 0, 0)
+shape = SubResource("BoxShape3D_48r1f")

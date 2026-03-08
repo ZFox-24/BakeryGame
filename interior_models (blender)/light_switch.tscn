@@ -59,3 +59,4 @@ unique_name_in_owner = true
 transform = Transform3D(2.857143, 0, 0, 0, 2.857143, 0, 0, 0, 2.857143, 0, 0, 0.061096624)
 stream = ExtResource("4_tdkcq")
 volume_db = -5.0
+bus = &"SFX"

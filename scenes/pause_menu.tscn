@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbglsp3wlye20"]
+[gd_scene load_steps=22 format=3 uid="uid://cbglsp3wlye20"]
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_5d2l8"]
@@ -38,6 +38,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_7l7mv"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5d2l8"]
 color = Color(1, 1, 1, 0.5)
@@ -476,41 +478,24 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "SETTING_LIGHTING"
 
-[node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
 layout_mode = 2
 
-[node name="lighting_slider" type="HSlider" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_top = 4.0
-offset_right = 360.0
-offset_bottom = 20.0
-max_value = 2.0
-value = 1.0
-rounded = true
-ticks_on_borders = true
+[node name="setting_graphics_baked" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+button_group = SubResource("ButtonGroup_7l7mv")
+text = "SETTING_LIGHTING_BACKED"
 
-[node name="Panel" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
-layout_mode = 0
-offset_right = 1.0
-offset_bottom = 22.0
-theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
-
-[node name="Panel2" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
-layout_mode = 0
-offset_left = 359.0
-offset_right = 360.0
-offset_bottom = 22.0
-theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
-
-[node name="Panel3" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
-layout_mode = 0
-offset_left = 179.0
-offset_right = 180.0
-offset_bottom = 22.0
-theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
+[node name="setting_graphics_real" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5d2l8")
+button_pressed = true
+button_group = SubResource("ButtonGroup_7l7mv")
+text = "SETTING_LIGHTING_REAL"
 
 [node name="shadows_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.19607843)
 layout_mode = 2
 
 [node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/shadows_settings"]

@@ -201,6 +201,7 @@ libraries = {
 
 [node name="income_sound" type="AudioStreamPlayer" parent="TabContainer/TAB_SELLING"]
 stream = ExtResource("12_enmgh")
+bus = &"SFX"
 
 [node name="panel" type="Control" parent="TabContainer/TAB_SELLING"]
 layout_mode = 1

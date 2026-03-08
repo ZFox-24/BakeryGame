@@ -22,7 +22,7 @@ material = SubResource("StandardMaterial3D_aj1bw")
 [sub_resource type="BoxShape3D" id="BoxShape3D_pkrj7"]
 size = Vector3(6.982422, 4.010132, 5.0041504)
 
-[node name="BakeryBuilding" type="MeshInstance3D"]
+[node name="BakeryBuilding" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 lod_bias = 0.1

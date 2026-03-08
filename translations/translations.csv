@@ -9,6 +9,8 @@ KEY_EXIT,Выйти,Exit
 TITLE_CONFIRMDELETE,Удаление сохранения,Save deletion
 TITLE_SETTINGS_GRAPHICS,Графика,Graphics
 SETTING_LIGHTING,Освещение,Lighting
+SETTING_LIGHTING_BACKED,Запеченное,Baked
+SETTING_LIGHTING_REAL,В реальном времени,IRT
 SETTING_SHADOWS,Тени,Shadows
 SETTING_TEXTURES,Разрешение текстур,Textures resolution
 SETTING_SENSITIVITY,Чувствительность,Sensitivity

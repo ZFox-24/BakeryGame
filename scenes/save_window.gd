@@ -19,7 +19,7 @@ func _ready() -> void:
 	##
 	var video_sett = ConfigFileHandler.load_video_settings()
 	var misc_sett = ConfigFileHandler.load_misc_setting()
-	%lighting_slider.value = video_sett.lighting
+	#%lighting_slider.value = 0 #TODO: заменить настройку на два чек-бокса
 	%shadows_slider.value = video_sett.shadows
 	%textures_slider.value = video_sett.textures
 	%sensitivity_slider.value = misc_sett.sensitivity
@@ -30,7 +30,7 @@ func _ready() -> void:
 	%sensitivity_slider.value_changed.connect(func(value: float): %sens_num.text = str(value))
 	
 	%sensitivity_slider.drag_ended.connect(func(value: bool): save_slider_value(1, "sensitivity", %sensitivity_slider.value))
-	%lighting_slider.drag_ended.connect(func(value: bool): save_slider_value(0, "lighting", %lighting_slider.value))
+	#%lighting_slider.drag_ended.connect(func(value: bool): save_slider_value(0, "lighting", %lighting_slider.value))
 	%shadows_slider.drag_ended.connect(func(value: bool):
 		save_slider_value(0, "shadows", %shadows_slider.value)
 		GameSettings.change_shadows_setting(%shadows_slider.value))
