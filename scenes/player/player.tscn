@@ -171,6 +171,7 @@ script = ExtResource("1_8afob")
 [node name="ui" type="CanvasLayer" parent="."]
 process_priority = 1
 process_physics_priority = 1
+physics_interpolation_mode = 2
 
 [node name="fps" parent="ui" instance=ExtResource("2_gmlin")]
 offset_left = 36.0
@@ -258,6 +259,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.5, -4.307743e-08, 2.185569e-08, 2.1855694e-08, -4.307743e-08, -0.4999999, 2.1855694e-08, 0.98549676, -2.1855689e-08, 0, 0.01770091, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+physics_interpolation_mode = 2
 
 [node name="InteractText" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -274,6 +276,7 @@ offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_je7p5")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
 [node name="CantExitText" type="Label" parent="CanvasLayer"]
@@ -295,6 +298,7 @@ text = "LEAVING_BAKERY_WARNING"
 horizontal_alignment = 1
 
 [node name="text_animate" type="AnimationPlayer" parent="CanvasLayer/CantExitText"]
+physics_interpolation_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_lvxji")
 }
@@ -308,11 +312,13 @@ offset_bottom = 180.0
 grow_vertical = 1
 
 [node name="interaction_module" type="Node" parent="." node_paths=PackedStringArray("SeeCast")]
+physics_interpolation_mode = 2
 script = ExtResource("7_0owmy")
 SeeCast = NodePath("../Camera3D/SeeCast")
 
 [node name="camera_animation" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
+physics_interpolation_mode = 2
 libraries = {
 &"": SubResource("AnimationLibrary_je7p5")
 }

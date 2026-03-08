@@ -13,6 +13,10 @@ size = Vector3(0.69963074, 1.5036926, 2.0703125)
 [node name="bakery_building" instance=ExtResource("1_a543b")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.49, 0)
 
+[node name="Cube" parent="." index="0"]
+lod_bias = 0.1
+visibility_range_end = 30.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
@@ -21,9 +25,13 @@ shape = SubResource("BoxShape3D_6jfxs")
 
 [node name="Cylinder" parent="." index="1"]
 transform = Transform3D(-2.1612209e-08, 1.1523851, 0, -0.4944297, -5.0372353e-08, 0, 0, 0, 1.0415235, 0.14877567, 0.9042117, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
 
 [node name="ПЕКАРНЯ _Булочка с маком_" parent="." index="2"]
 transform = Transform3D(-8.192094e-09, 1, -8.192094e-09, 0, -4.371139e-08, -0.18741328, -0.18741328, -4.371139e-08, 3.580878e-16, 1.3248839, 0.8796737, 0.83307016)
+lod_bias = 0.1
+visibility_range_end = 30.0
 
 [node name="teleporter" parent="." index="3" instance=ExtResource("2_5gqxx")]
 transform = Transform3D(-2.9140926e-08, 0, 0.6666666, 0, 0.6666666, 0, -0.6666666, 0, -2.9140926e-08, 1.0226816, -0.99333334, 0.012065779)

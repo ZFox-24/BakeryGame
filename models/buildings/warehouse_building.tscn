@@ -12,6 +12,11 @@ size = Vector3(0.41882324, 0.9561157, 1)
 [node name="warehouse_building" instance=ExtResource("1_yrebx")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.49, 4.13)
 
+[node name="Cube_002" parent="." index="0"]
+lod_bias = 0.1
+gi_mode = 0
+visibility_range_end = 30.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
 script = ExtResource("2_yrebx")
 name_to_display = "WAREHOUSE_BUILDING_NAME"
@@ -22,3 +27,13 @@ shape = SubResource("BoxShape3D_cq7vq")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2089809, 0.58412015, 0)
 shape = SubResource("BoxShape3D_yrebx")
+
+[node name="Cube_003" parent="." index="1"]
+lod_bias = 0.1
+gi_mode = 0
+visibility_range_end = 30.0
+
+[node name="Text" parent="." index="2"]
+lod_bias = 0.1
+gi_mode = 0
+visibility_range_end = 30.0

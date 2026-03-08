@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b032niy2ngqfh"]
+[gd_scene load_steps=44 format=3 uid="uid://b032niy2ngqfh"]
 
 [ext_resource type="PackedScene" uid="uid://c3t5k8bkk5xb3" path="res://models/buildings/warehouse_building.tscn" id="1_6ttmh"]
 [ext_resource type="PackedScene" uid="uid://cywrvye8u30lu" path="res://materials/tree.glb" id="2_gofy3"]
@@ -7,24 +7,25 @@
 [ext_resource type="BoxMesh" uid="uid://bkura3tkxegpw" path="res://materials/fence_stick.tres" id="4_6ttmh"]
 [ext_resource type="PackedScene" uid="uid://d2cb3pdiossfq" path="res://scenes/bakery_building.tscn" id="5_4kw0k"]
 [ext_resource type="PackedScene" uid="uid://4xirkwkugr7o" path="res://models/buildings/lamp_post.tscn" id="5_8sspb"]
+[ext_resource type="Material" uid="uid://ehnnjjaafg6l" path="res://materials/metal.tres" id="6_kbpjj"]
+[ext_resource type="Material" uid="uid://4uw24kt55sun" path="res://materials/window.tres" id="7_0srsr"]
 [ext_resource type="PackedScene" uid="uid://cu8g5atyfceby" path="res://models/truck.tscn" id="10_4bv6t"]
 [ext_resource type="PackedScene" uid="uid://d1xgtpypppfq6" path="res://models/buildings/bakery_building.tscn" id="10_5yycj"]
 [ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="10_8yq4j"]
 [ext_resource type="AudioStream" uid="uid://dnjumsbo0vem8" path="res://assets/sfx/birds.mp3" id="11_a55h4"]
 [ext_resource type="AudioStream" uid="uid://nv78ciitph6o" path="res://assets/sfx/leaves1.mp3" id="12_h0tbc"]
 [ext_resource type="AudioStream" uid="uid://b6yhrol2yi0dr" path="res://assets/sfx/outskirts.mp3" id="13_if3wq"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dq3cptu80mx11" path="res://assets/ground.occ" id="14_h0tbc"]
+[ext_resource type="LightmapGIData" uid="uid://x85yyutb8yx4" path="res://assets/ground.lmbake" id="14_if3wq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0o4cl"]
+lightmap_size_hint = Vector2i(127, 127)
 material = SubResource("StandardMaterial3D_usrg0")
+add_uv2 = true
 size = Vector2(25, 25)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_srsxv"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gofy3"]
-size = Vector3(25, 0.01, 25)
 
 [sub_resource type="Gradient" id="Gradient_utnsy"]
 offsets = PackedFloat32Array(0, 0.969)
@@ -65,34 +66,58 @@ adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_gofy3")
 
 [sub_resource type="SphereMesh" id="SphereMesh_7766f"]
+lightmap_size_hint = Vector2i(204, 110)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 6.441
 height = 13.871
+radial_segments = 16
+rings = 8
 
 [sub_resource type="SphereMesh" id="SphereMesh_utnsy"]
+lightmap_size_hint = Vector2i(266, 126)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 8.421
 height = 15.851
+radial_segments = 8
+rings = 16
 
 [sub_resource type="SphereMesh" id="SphereMesh_6ttmh"]
+lightmap_size_hint = Vector2i(297, 95)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 9.411
 height = 11.891
+radial_segments = 8
+rings = 16
 
 [sub_resource type="SphereMesh" id="SphereMesh_4kw0k"]
+lightmap_size_hint = Vector2i(142, 64)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 4.461
 height = 7.931
+radial_segments = 8
+rings = 16
 
 [sub_resource type="SphereMesh" id="SphereMesh_el2dr"]
+lightmap_size_hint = Vector2i(142, 64)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 4.461
 height = 7.931
+radial_segments = 8
+rings = 16
 
 [sub_resource type="SphereMesh" id="SphereMesh_8sspb"]
+lightmap_size_hint = Vector2i(235, 79)
 material = ExtResource("3_utnsy")
+add_uv2 = true
 radius = 7.431
 height = 9.911
+radial_segments = 8
+rings = 16
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8yq4j"]
 size = Vector2(0.045, 1.305)
@@ -118,6 +143,41 @@ center_offset = Vector3(0, 0.001, 0)
 size = Vector2(0.185, 2)
 center_offset = Vector3(0, 0.002, 0)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_tv2r3"]
+lightmap_size_hint = Vector2i(17, 14)
+material = ExtResource("6_kbpjj")
+add_uv2 = true
+top_radius = 0.3
+height = 1.0
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_urgg0"]
+material = ExtResource("6_kbpjj")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 6.0
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tii3r"]
+material = ExtResource("6_kbpjj")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 5.0
+radial_segments = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_vbkbp"]
+lightmap_size_hint = Vector2i(12, 14)
+material = ExtResource("6_kbpjj")
+add_uv2 = true
+size = Vector3(1, 0.315, 0.745)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2yf03"]
+material = ExtResource("7_0srsr")
+size = Vector2(0.605, 0.9)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tii3r"]
+height = 2.3911133
+
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2lx38"]
 stream_count = 3
 stream_0/stream = ExtResource("11_a55h4")
@@ -132,22 +192,16 @@ size = Vector3(65.17212, 1.9207764, 0.0146484375)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="terrain" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.2925332, 0, 0, 0, 1, 0, 0, 0, 2.214426, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0o4cl")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_srsxv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_gofy3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6ttmh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.9151163, -0.40019453, 0.04905715, 0.39692983, -0.87285525, 0.28384972, -0.070775285, 0.27922776, 0.95761305, 43.102997, 8.98167, -43.43419)
+visible = false
 light_color = Color(0.99456114, 0.80488914, 0.42612022, 1)
 light_energy = 2.455
 light_bake_mode = 1
@@ -156,64 +210,108 @@ shadow_bias = 0.05
 shadow_opacity = 0.97
 
 [node name="background" type="Node3D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0, 26.717503)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_7766f")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 16.545885)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_utnsy")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 1.8955841)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_6ttmh")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -8.655327)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_4kw0k")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -25.990705)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_el2dr")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="background"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4390182, -16.190718)
+lod_bias = 0.1
+visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_8sspb")
 
 [node name="background2" type="Node3D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0, 26.717503)
 mesh = SubResource("SphereMesh_7766f")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 16.545885)
 mesh = SubResource("SphereMesh_utnsy")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4701843, 1.8955841)
 mesh = SubResource("SphereMesh_6ttmh")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -8.655327)
 mesh = SubResource("SphereMesh_4kw0k")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 0.2054615, -25.990705)
 mesh = SubResource("SphereMesh_el2dr")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="background2"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.824377, 1.4390182, -16.190718)
 mesh = SubResource("SphereMesh_8sspb")
 
 [node name="sidewalk" type="MeshInstance3D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(51.931335, 0, 0, 0, 1, 0, 0, 0, 47.190872, 11.709139, 0, -2.6757088)
 mesh = SubResource("PlaneMesh_8yq4j")
 skeleton = NodePath("../MeshInstance3D2")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(7.20634, 0, 0, 0, 1, 0, 0, 0, 6.869561, -2.5440464, 0, 2.5501592)
 mesh = SubResource("PlaneMesh_utnsy")
 
@@ -481,64 +579,96 @@ transform = Transform3D(-4.11296e-08, 0.15460506, 0, -0.94093555, -6.7580026e-09
 mesh = ExtResource("4_6ttmh")
 
 [node name="road" type="Node3D" parent="."]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5764785, 0, 0)
 
 [node name="road" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 mesh = SubResource("PlaneMesh_4kw0k")
 skeleton = NodePath("../..")
 
 [node name="marking" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking2" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9469807)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking3" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.667613)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking4" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.831627)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking5" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.778607)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking6" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.49924)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking7" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.82135)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking8" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26.76833)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking10" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.700775)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking11" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.7537956)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking12" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.033161)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking13" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.429712)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking14" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.482733)
 mesh = SubResource("PlaneMesh_8sspb")
 
 [node name="marking15" type="MeshInstance3D" parent="road"]
+process_mode = 4
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.762098)
 mesh = SubResource("PlaneMesh_8sspb")
 
@@ -563,11 +693,123 @@ transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.43093
 [node name="lamp_post2" parent="." instance=ExtResource("5_8sspb")]
 transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.924971, 0, 11.093778)
 
-[node name="lamp_post3" parent="." instance=ExtResource("5_8sspb")]
+[node name="lamp_post3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.924973, 0, -5.077809)
 
-[node name="lamp_post4" parent="." instance=ExtResource("5_8sspb")]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="lamp_post3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_tv2r3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lamp_post3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_urgg0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="lamp_post3"]
+transform = Transform3D(0.53691685, 0.46554774, 0, -0.84363514, 0.29628974, 0, 0, 0, 1, 1.2474582, 6.6963124, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_tii3r")
+
+[node name="lamp" type="Node3D" parent="lamp_post3"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lamp_post3/lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="lamp_post3/lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="lamp_post3/lamp"]
+transform = Transform3D(3.7855177e-08, 0.4999999, -0.8660253, 2.185569e-08, -0.8660253, -0.4999999, -1, 1.7763565e-15, -4.371139e-08, 2.8509457, 7.521074, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("PlaneMesh_2yf03")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="lamp_post3"]
+transform = Transform3D(1.0205841, 2.558111e-08, -0.5852275, 0.5852275, -4.4611152e-08, 1.0205841, 5.946647e-16, -1.1764706, -5.1425165e-08, 2.7465835, 7.4820623, 0)
+visible = false
+light_color = Color(0.9262658, 0.7032017, 0.3118382, 1)
+light_energy = 8.434
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.939
+shadow_normal_bias = 5.848
+spot_range = 10.698992
+spot_angle = 38.907333
+
+[node name="StaticBody3D" type="StaticBody3D" parent="lamp_post3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lamp_post3/StaticBody3D"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 1.1933595, 0)
+shape = SubResource("CylinderShape3D_tii3r")
+
+[node name="lamp_post4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.85000014, 0, 7.430937e-08, 0, 0.85000014, 0, -7.430937e-08, 0, -0.85000014, 13.9249735, 0, -21.048092)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="lamp_post4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_tv2r3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lamp_post4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_urgg0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="lamp_post4"]
+transform = Transform3D(0.53691685, 0.46554774, 0, -0.84363514, 0.29628974, 0, 0, 0, 1, 1.2474582, 6.6963124, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("CylinderMesh_tii3r")
+
+[node name="lamp" type="Node3D" parent="lamp_post4"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="lamp_post4/lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="lamp_post4/lamp"]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 2.771797, 7.6578183, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("BoxMesh_vbkbp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="lamp_post4/lamp"]
+transform = Transform3D(3.7855177e-08, 0.4999999, -0.8660253, 2.185569e-08, -0.8660253, -0.4999999, -1, 1.7763565e-15, -4.371139e-08, 2.8509457, 7.521074, 0)
+lod_bias = 0.1
+visibility_range_end = 30.0
+mesh = SubResource("PlaneMesh_2yf03")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="lamp_post4"]
+transform = Transform3D(1.0205841, 2.558111e-08, -0.5852275, 0.5852275, -4.4611152e-08, 1.0205841, 5.946647e-16, -1.1764706, -5.1425165e-08, 2.7465835, 7.4820623, 0)
+visible = false
+light_color = Color(0.9262658, 0.7032017, 0.3118382, 1)
+light_energy = 8.434
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.939
+shadow_normal_bias = 5.848
+spot_range = 10.698992
+spot_angle = 38.907333
+
+[node name="StaticBody3D" type="StaticBody3D" parent="lamp_post4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lamp_post4/StaticBody3D"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, 1.1933595, 0)
+shape = SubResource("CylinderShape3D_tii3r")
 
 [node name="bakery_building" parent="." instance=ExtResource("10_5yycj")]
 transform = Transform3D(1.4488888, 0, 0.38822857, 0, 1.5, 0, -0.38822857, 0, 1.4488888, -5.124953, 1.5050001, 5.38699)
@@ -580,6 +822,7 @@ transform = Transform3D(0.070822075, 0, 0.49495882, 0, 0.5, 0, -0.49495882, 0, 0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="."]
 transform = Transform3D(0.984282, 0.0003617226, 0.17660339, 0, 0.9999979, -0.0020482158, -0.17660375, 0.002016022, 0.98428, -4.8779964, 5.015661, 5.0083675)
+visible = false
 size = Vector3(78.243286, 31.527044, 77.8291)
 
 [node name="truck" parent="." instance=ExtResource("10_4bv6t")]
@@ -610,9 +853,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6004343, 0.460392, -48.000
 shape = SubResource("BoxShape3D_h0tbc")
 
 [node name="trees" type="Node3D" parent="."]
-
-[node name="Brush_1758873212_379" parent="trees" instance=ExtResource("2_gofy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.370762, 0.0050001144, -25.763063)
+visible = false
 
 [node name="Brush_1758873212_380" parent="trees" instance=ExtResource("2_gofy3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.557475, 0.0050001144, -18.116182)
@@ -811,3 +1052,144 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.434984, 0.0050001144, 4.00
 
 [node name="Brush_1758873326_195" parent="trees" instance=ExtResource("2_gofy3")]
 transform = Transform3D(0.8012225, 0, 0.59836656, 0, 1.4854563, 0, -0.59836656, 0, 0.8012225, 30.75192, 0.005001068, 10.453954)
+
+[node name="trees_mobile" type="Node3D" parent="."]
+
+[node name="Brush_1758873212_381" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.682081, 0.0050001144, -22.180742)
+
+[node name="Brush_1758873212_382" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.139292, 4.8276744, -19.612349)
+
+[node name="Brush_1758873212_383" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.621721, 5.005, -14.7696905)
+
+[node name="Brush_1758873213_325" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.9936212, 0, -0.11276968, 0, 1, 0, 0.11276968, 0, 0.9936212, -13.509802, 0.0050001144, 4.9144163)
+
+[node name="Brush_1758873213_326" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.504824, 0.0050001144, -13.783202)
+
+[node name="Brush_1758873213_327" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, -24.088598, 5.005, -4.864496)
+
+[node name="Brush_1758873213_328" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.387748, 0.0050001144, 5.716908)
+
+[node name="Brush_1758873213_329" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.584169, 0.0050001144, -16.914532)
+
+[node name="Brush_1758873213_899" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2012367, 0.0050001144, -6.5792713)
+
+[node name="Brush_1758873213_900" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.98718464, -0.12975216, 0.092903756, 0.13083757, 0.9913876, -0.0056632194, -0.09136881, 0.017745921, 0.9956591, 3.1973085, 0.0050001144, -9.178867)
+
+[node name="Brush_1758873214_486" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1304331, 0.0050001144, -15.118565)
+
+[node name="Brush_1758873214_490" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8275137, 0.0050001144, -21.716524)
+
+[node name="Brush_1758873216_113" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.335828, 0.0050001144, -13.488312)
+
+[node name="Brush_1758873216_114" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7912383, 0.0050001144, -18.556454)
+
+[node name="Brush_1758873216_115" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6586742, 0.0050001144, -19.95076)
+
+[node name="Brush_1758873216_117" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.6899414, 0.01472212, -0.6969405, -0.07079671, 1.2932862, -0.055131573, 0.68994147, 0.11798539, 0.69128335, 2.7724361, 6.138399, -23.565767)
+
+[node name="Brush_1758873217_795" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.9512512, -0.26047227, -0.25488698, 0.16773124, 1.4772115, -0.044943452, 0.25881904, 0, 0.9659258, 0.96907234, 0.0050001144, 21.526537)
+
+[node name="Brush_1758873217_796" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.012812, 0.0050001144, -0.52687055)
+
+[node name="Brush_1758873217_797" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.169566, 0.0050001144, -10.66654)
+
+[node name="Brush_1758873218_994" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1.8, 0, 0, 0, 1, -24.92723, 8.142635, 14.345927)
+
+[node name="Brush_1758873218_995" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.9917295, 0, -0.12834558, 0, 1, 0, 0.12834558, 0, 0.9917295, -14.469893, 0.0050001144, 22.587633)
+
+[node name="Brush_1758873218_996" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -22.793245, 5.005, 23.180073)
+
+[node name="Brush_1758873218_997" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.997485, 0.0050001144, 23.763098)
+
+[node name="Brush_1758873221_489" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.753412, 8.005, 18.886616)
+
+[node name="Brush_1758873221_492" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.993133, 0.0050001144, 11.095653)
+
+[node name="Brush_1758873222_049" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5452995, 0.0050001144, 12.845094)
+
+[node name="Brush_1758873223_235" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3672366, 0.0050001144, 14.240664)
+
+[node name="Brush_1758873224_594" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.919134, 0.0050001144, 4.6730666)
+
+[node name="Brush_1758873224_596" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.97372216, 0, 0.22773911, 0, 1, 0, -0.22773911, 0, 0.97372216, -6.24428, 0.0050001144, 19.25497)
+
+[node name="Brush_1758873224_597" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.99177647, 0, 0.12798208, 0, 1, 0, -0.12798208, 0, 0.99177647, -10.664972, 0.0050001144, -6.636854)
+
+[node name="Brush_1758873224_598" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.8619921, 0, 0.50692165, 0, 1, 0, -0.50692165, 0, 0.8619921, -2.5307744, 0.0050001144, 10.458595)
+
+[node name="Brush_1758873225_586" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.218176, 0.0050001144, -0.8086903)
+
+[node name="Brush_1758873301_559" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.040241, 0.0050001144, 20.256344)
+
+[node name="Brush_1758873309_054" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.660395, 0.0050001144, -20.09108)
+
+[node name="Brush_1758873309_055" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(-0.78905195, 0, 0.6143265, 0.035116903, 0.99836487, 0.045104783, -0.61332196, 0.05716326, -0.78776175, 10.983183, 5.6629133, -32.076668)
+
+[node name="Brush_1758873314_643" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.06172, 0.0050001144, -9.478918)
+
+[node name="Brush_1758873314_644" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.839285, 0.0050001144, -3.1341019)
+
+[node name="Brush_1758873314_645" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.652441, 0.0050001144, -2.6329079)
+
+[node name="Brush_1758873321_578" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.434984, 0.0050001144, 4.007935)
+
+[node name="Brush_1758873326_195" parent="trees_mobile" instance=ExtResource("2_gofy3")]
+transform = Transform3D(0.8012225, 0, 0.59836656, 0, 1.4854563, 0, -0.59836656, 0, 0.8012225, 30.75192, 0.005001068, 10.453954)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+directional = true
+light_data = ExtResource("14_if3wq")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+visible = false
+occluder = ExtResource("14_h0tbc")
+
+[node name="occluder_mobile" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("14_h0tbc")
+
+[editable path="BakeryBuilding"]
+[editable path="BakeryBuilding2"]
+[editable path="BakeryBuilding3"]
+[editable path="BakeryBuilding4"]
+[editable path="BakeryBuilding5"]
+[editable path="lamp_post"]
+[editable path="lamp_post2"]

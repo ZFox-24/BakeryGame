@@ -11,7 +11,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			%InteractText.hide()
 			%crosshair.hide()
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	%InteractText.hide()
 	%interact_button.hide()
 	%crosshair.change_crosshair("default")

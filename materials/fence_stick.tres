@@ -4,4 +4,6 @@
 albedo_color = Color(0.88036907, 0.4716472, 0.32907933, 1)
 
 [resource]
+lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_m2erv")
+add_uv2 = true

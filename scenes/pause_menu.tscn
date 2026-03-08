@@ -479,7 +479,8 @@ text = "SETTING_LIGHTING"
 [node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+[node name="lighting_slider" type="HSlider" parent="settings_win/Panel/VBoxContainer/lighting_settings/Slider"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 4.0
 offset_right = 360.0
@@ -533,7 +534,8 @@ vertical_alignment = 1
 [node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/shadows_settings"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+[node name="shadows_slider" type="HSlider" parent="settings_win/Panel/VBoxContainer/shadows_settings/Slider"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 4.0
 offset_right = 360.0
@@ -581,7 +583,8 @@ text = "SETTING_TEXTURES"
 [node name="Slider" type="Panel" parent="settings_win/Panel/VBoxContainer/texture_settings"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+[node name="textures_slider" type="HSlider" parent="settings_win/Panel/VBoxContainer/texture_settings/Slider"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 4.0
 offset_right = 360.0
@@ -660,7 +663,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "SETTING_SENSITIVITY"
 
-[node name="title" type="Label" parent="settings_win/sensitivity_settings/title"]
+[node name="sens_num" type="Label" parent="settings_win/sensitivity_settings/title"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 372.0
 offset_top = 26.0
@@ -672,14 +676,14 @@ text = "0.0"
 [node name="Slider" type="Panel" parent="settings_win/sensitivity_settings"]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="settings_win/sensitivity_settings/Slider"]
+[node name="sensitivity_slider" type="HSlider" parent="settings_win/sensitivity_settings/Slider"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 4.0
 offset_right = 360.0
 offset_bottom = 20.0
-max_value = 2.0
-value = 1.0
-rounded = true
+step = 0.1
+value = 50.0
 ticks_on_borders = true
 
 [node name="Panel" type="Panel" parent="settings_win/sensitivity_settings/Slider"]

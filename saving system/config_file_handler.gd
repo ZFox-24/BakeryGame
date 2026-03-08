@@ -10,7 +10,7 @@ func _ready() -> void:
 		config.set_value("misc", "languageID", 0)
 		config.set_value("misc", "sensitivity", 0.0)
 		config.set_value("video", "fullscreen", false)
-		config.set_value("video", "anti-aliasing", false)
+		config.set_value("video", "anti_aliasing", false)
 		config.set_value("video", "lighting", 0)
 		config.set_value("video", "shadows", 0)
 		config.set_value("video", "textures", 0)
@@ -23,9 +23,7 @@ func save_video_setting(key: String, value):
 	config.set_value("video", key, value)
 	config.save(SETTINGS_FILE_PATH)
 
-# TODO: переделать сохранение/загрузку language снизу под "misc"  
-
-func save_language_setting(key: String, value):
+func save_misc_setting(key: String, value):
 	config.set_value("misc", key, value)
 	config.save(SETTINGS_FILE_PATH)
 
@@ -35,8 +33,8 @@ func load_video_settings():
 		video_settings[key] = config.get_value("video", key)
 	return video_settings
 
-func load_language_setting():
-	var language_settings = {}
-	for key in config.get_section_keys("language"):
-		language_settings[key] = config.get_value("language", key)
-	return language_settings
+func load_misc_setting():
+	var misc_settings = {}
+	for key in config.get_section_keys("misc"):
+		misc_settings[key] = config.get_value("misc", key)
+	return misc_settings
