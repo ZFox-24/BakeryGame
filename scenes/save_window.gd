@@ -23,23 +23,23 @@ func _ready() -> void:
 	%shadows_slider.value = video_sett.shadows
 	%textures_slider.value = video_sett.textures
 	%sensitivity_slider.value = misc_sett.sensitivity
-	%sens_num.text = str(misc_sett.sensitivity)
+	%sens_num.text = str(misc_sett.sensitivity * 100)
 	
 	# Число для слайдеров
 		
-	%sensitivity_slider.value_changed.connect(func(value: float): %sens_num.text = str(value))
+	%sensitivity_slider.value_changed.connect(func(value: float): %sens_num.text = str(value * 100))
 	
-	%sensitivity_slider.drag_ended.connect(func(value: bool): save_slider_value(1, "sensitivity", %sensitivity_slider.value))
+	%sensitivity_slider.drag_ended.connect(func(value: bool):
+		GameSettings.change_sensitivity(%sensitivity_slider.value)
+		GameSettings.sensitivity_slider_changed.emit()
+		save_slider_value(1, "sensitivity", %sensitivity_slider.value))
 	#%lighting_slider.drag_ended.connect(func(value: bool): save_slider_value(0, "lighting", %lighting_slider.value))
 	%shadows_slider.drag_ended.connect(func(value: bool):
-		save_slider_value(0, "shadows", %shadows_slider.value)
-		GameSettings.change_shadows_setting(%shadows_slider.value))
-	%textures_slider.drag_ended.connect(func(value: bool): save_slider_value(0, "textures", %textures_slider.value))
+		GameSettings.change_shadows_setting(%shadows_slider.value)
+		save_slider_value(0, "shadows", %shadows_slider.value))
+	#%textures_slider.drag_ended.connect(func(value: bool): save_slider_value(0, "textures", %textures_slider.value))
 	
 	select_language_on_start()
-	
-	#%lng_select_butt.select(func() -> int:
-		#%lng_select_butt.items)
 
 func exit_window():
 	%AnimationPlayer.play("close_save_menu")

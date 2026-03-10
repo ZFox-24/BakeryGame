@@ -47,7 +47,7 @@ project/assembly_name="Игра - пекарня -Булочка с маком-"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/project-time-tracker/plugin.cfg")
+enabled=PackedStringArray("res://addons/meshcombiner/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg")
 
 [filesystem]
 
@@ -55,7 +55,7 @@ import/blender/enabled=false
 
 [global]
 
-Build_number="56"
+Build_number="57"
 
 [input]
 

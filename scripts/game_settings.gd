@@ -6,6 +6,8 @@ signal change_language
 signal show_mobile_buttons
 signal hide_mobile_buttons
 
+signal sensitivity_slider_changed
+
 @onready var language := {
 	"Русский": "ru",
 	"English": "en"
@@ -29,6 +31,7 @@ func _ready() -> void:
 	lighting = video_setting.lighting
 	shadows = video_setting.shadows
 	textures = video_setting.textures
+	sensitivity = misc_setting.sensitivity
 
 	check_fullscreen()
 	check_antialiasing()
@@ -45,25 +48,13 @@ func check_antialiasing():
 		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
 
-func check_lighting():
+func check_lighting(): # TODO: переделать под "запеченное" и "реальное"
 	match lighting:
 		0:
 			pass
 		1:
 			pass
 		2:
-			pass
-
-
-func check_shadows():
-	match shadows:
-		0:
-			pass
-		1:
-			pass
-		2:
-			pass
-		3:
 			pass
 
 
@@ -87,7 +78,7 @@ func check_fullscreen():
 	var language_setting = ConfigFileHandler.load_misc_setting()
 	current_language = language_setting.language
 	TranslationServer.set_locale(current_language)
-	
+
 
 func change_shadows_setting(level: int):
 	match level:
@@ -124,3 +115,6 @@ func change_shadows_setting(level: int):
 				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
 				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
 				RenderingServer.directional_shadow_atlas_set_size(4096, true)
+
+func change_sensitivity(value: float) -> void:
+	sensitivity = value

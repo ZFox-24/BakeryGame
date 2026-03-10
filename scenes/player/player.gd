@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
-var sensitivity := 0.4
+var sensitivity := GameSettings.sensitivity
 
 func _ready() -> void:
+	GameSettings.sensitivity_slider_changed.connect(func() -> void: sensitivity = GameSettings.sensitivity)
 	VisitorManager.bakery_opened_no_exit.connect(play_anim)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # убирает курсор
 
