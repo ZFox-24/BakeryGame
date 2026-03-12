@@ -19,7 +19,6 @@ visibility_range_end = 30.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" index="0"]
 script = ExtResource("2_yrebx")
-name_to_display = "WAREHOUSE_BUILDING_NAME"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_cq7vq")

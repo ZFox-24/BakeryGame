@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu8g5atyfceby"]
+
+[ext_resource type="PackedScene" uid="uid://cs3tc3oeihpcm" path="res://models/buildings/truck.glb" id="1_6edi7"]
+[ext_resource type="Script" uid="uid://32c7ne2f0plt" path="res://models/buildings/static_objects_interactions.gd" id="2_i2mgk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hd4i"]
+size = Vector3(2.6638212, 0.8657837, 0.72332764)
+
+[node name="(deprecated)truck" instance=ExtResource("1_6edi7")]
+
+[node name="Cube_004" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.29054856, 0, 0, 0, 0.3045081, 0.13203979, 0.57527775, 0.023395061)
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="Cube_005" parent="." index="1"]
+transform = Transform3D(0.25570804, 0, 0, 0, 0.29054856, 0, 0, 0, 0.30450806, -1.2459254, 0.57527775, 0.023395061)
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="Cube_006" parent="." index="2"]
+transform = Transform3D(1.1198347, 0, 0, 0, 0.07067394, 0, 0, 0, 0.17814264, -0.3569932, 0.2737776, 0.023395061)
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="Cylinder_061" parent="." index="3"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, -1.2443746, 0.15889591, -0.18559957)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="Cylinder_062" parent="." index="4"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, -1.2443746, 0.15889591, 0.24234295)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="Cylinder_064" parent="." index="5"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.7912226, 0.15889591, 0.24234295)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="Cylinder_065" parent="." index="6"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.37816334, 0.15889591, 0.24234295)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="Cylinder_066" parent="." index="7"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.37816334, 0.15889591, -0.19097733)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="Cylinder_067" parent="." index="8"]
+transform = Transform3D(0.1593802, 0, 0, 0, 0, -0.1593802, 0, 0.13753347, 0, 0.7912226, 0.15889591, -0.19097733)
+lod_bias = 0.5
+visibility_range_end = 30.0
+
+[node name="ПЕКАРНЯ _Булочка с маком__001" parent="." index="9"]
+transform = Transform3D(0.18741328, 0, 0, 0, 0, -0.18741328, 0, 1, 0, -0.72885656, 0.65943205, 0.33123422)
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="ПЕКАРНЯ _Булочка с маком__002" parent="." index="10"]
+transform = Transform3D(-0.18741328, -7.549791e-08, -1.414931e-08, 1.414931e-08, 0, -0.18741328, 1.414931e-08, -1, 1.0682433e-15, 0.8828492, 0.65943205, -0.27312398)
+lod_bias = 0.1
+visibility_range_end = 30.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
+script = ExtResource("2_i2mgk")
+name_to_display = "BAKERY_BUILDING_NAME"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17715597, 0.4432068, 0.02810669)
+shape = SubResource("BoxShape3D_1hd4i")

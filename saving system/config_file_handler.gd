@@ -8,7 +8,7 @@ func _ready() -> void:
 		config.set_value("DON'T TOUCH IT, IT'S FRAGILE!", ">:", "(")
 		config.set_value("misc", "language", TranslationServer.get_locale())
 		config.set_value("misc", "languageID", 0)
-		config.set_value("misc", "sensitivity", 0.0)
+		config.set_value("misc", "sensitivity", 0.4)
 		config.set_value("video", "fullscreen", false)
 		config.set_value("video", "anti_aliasing", false)
 		config.set_value("video", "lighting", 0)
