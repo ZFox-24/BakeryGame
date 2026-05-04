@@ -20,7 +20,7 @@ func _ready() -> void:
 	%credits_exit_button.pressed.connect(%credits_win.hide)
 	%credits_button.pressed.connect(%credits_win.show)
 	%ConfirmationDialog.confirmed.connect(delete_game)
-	
+
 func continue_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GameSettings.show_mobile_buttons.emit()

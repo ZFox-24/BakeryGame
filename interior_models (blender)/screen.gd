@@ -1,4 +1,3 @@
-#extends Area3D
 extends StaticBody3D
 
 func interact():

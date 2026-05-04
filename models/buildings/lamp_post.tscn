@@ -66,7 +66,7 @@ _surfaces = [{
 
 [node name="lamp_post" type="MeshInstance3D"]
 
-[node name="StaticBody3D" type="Area3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 3.75, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
@@ -77,14 +77,4 @@ shape = SubResource("CylinderShape3D_tii3r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 3.75, 0)
 lod_bias = 0.5
 visibility_range_end = 70.0
-visibility_range_end_margin = 60.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_tii3r")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-1.8911146e-08, 0.9015684, -0.4326366, 3.9408807e-08, 0.4326366, 0.9015684, 1, 0, -4.371139e-08, 1.5, 3.256672, 0)
-visible = false
-light_energy = 6.98
-shadow_enabled = true
-spot_range = 13.743832
-spot_angle = 22.356735

@@ -176,7 +176,7 @@ _surfaces = [{
 [node name="house" type="MeshInstance3D"]
 lod_bias = 0.5
 
-[node name="StaticBody3D" type="Area3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

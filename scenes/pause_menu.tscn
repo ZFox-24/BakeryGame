@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_7l7mv"]
 [ext_resource type="Script" uid="uid://byw4p46m8ygu7" path="res://scenes/save_window.gd" id="2_myx47"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_v4r4p"]
+[ext_resource type="ButtonGroup" uid="uid://3bj6aj0ytnxq" path="res://assets/lighting_button_group.tres" id="6_v4r4p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
 
@@ -38,8 +39,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_7l7mv"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5d2l8"]
 color = Color(1, 1, 1, 0.5)
@@ -368,9 +367,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -338.0
-offset_top = -382.0
+offset_top = -296.0
 offset_right = 338.0
-offset_bottom = 382.0
+offset_bottom = 296.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myx47")
@@ -439,7 +438,7 @@ anchor_right = 0.5
 offset_left = -215.0
 offset_top = 68.0
 offset_right = 215.0
-offset_bottom = 426.0
+offset_bottom = 322.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7l7mv")
 
@@ -448,12 +447,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -119.5
+offset_top = 7.0
+offset_right = 119.5
+offset_bottom = 30.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TITLE_SETTINGS_GRAPHICS"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="settings_win/Panel"]
 layout_mode = 1
@@ -465,12 +466,14 @@ anchor_bottom = 0.5
 offset_left = -180.0
 offset_top = -123.0
 offset_right = 180.0
-offset_bottom = 43.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 39
+alignment = 1
 
 [node name="lighting_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
@@ -481,17 +484,19 @@ text = "SETTING_LIGHTING"
 [node name="HBoxContainer" type="HBoxContainer" parent="settings_win/Panel/VBoxContainer/lighting_settings"]
 layout_mode = 2
 
-[node name="setting_graphics_baked" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+[node name="setting_graphics_lighting_baked" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
-button_group = SubResource("ButtonGroup_7l7mv")
+button_group = ExtResource("6_v4r4p")
 text = "SETTING_LIGHTING_BACKED"
 
-[node name="setting_graphics_real" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+[node name="setting_graphics_lighting_real" type="CheckBox" parent="settings_win/Panel/VBoxContainer/lighting_settings/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5d2l8")
 button_pressed = true
-button_group = SubResource("ButtonGroup_7l7mv")
+button_group = ExtResource("6_v4r4p")
 text = "SETTING_LIGHTING_REAL"
 
 [node name="shadows_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
@@ -558,6 +563,7 @@ offset_bottom = 22.0
 theme_override_styles/panel = SubResource("StyleBoxLine_5d2l8")
 
 [node name="texture_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/texture_settings"]
@@ -631,17 +637,17 @@ alignment = 1
 [node name="sensitivity_settings" type="VBoxContainer" parent="settings_win"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -180.0
-offset_top = 57.0
+offset_top = -228.0
 offset_right = 180.0
-offset_bottom = 84.0
+offset_bottom = -201.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="title" type="Label" parent="settings_win/sensitivity_settings"]
 layout_mode = 2

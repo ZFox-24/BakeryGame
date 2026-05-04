@@ -164,7 +164,7 @@ transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -2.9
 transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -3.034907, -1.4753383, 1.682721)
 
 [node name="to_warehouse" parent="." instance=ExtResource("5_p7p2x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2629129, -1.016608, -6.1732144)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2629129, -1.016608, -1.6179023)
 location_path = "res://scenes/warehouse_interior.tscn"
 
 [node name="window1" parent="." instance=ExtResource("10_iyh8a")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dwdjmravkbp7d"]
+[gd_scene load_steps=54 format=4 uid="uid://cci6bpu50xh"]
 
 [ext_resource type="Material" uid="uid://dirgsa7uuqw83" path="res://materials/sky_original.tres" id="1"]
 [ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="2"]
@@ -8,13 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://nv78ciitph6o" path="res://assets/sfx/leaves1.mp3" id="11"]
 [ext_resource type="AudioStream" uid="uid://b6yhrol2yi0dr" path="res://assets/sfx/outskirts.mp3" id="12"]
 [ext_resource type="PackedScene" uid="uid://cywrvye8u30lu" path="res://materials/tree.glb" id="13"]
+[ext_resource type="PackedScene" uid="uid://c2aydrvy6ad74" path="res://scripts/static_objects_interactions.tscn" id="14_2lx38"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dq3cptu80mx11" path="res://assets/ground.occ" id="14_h0tbc"]
 [ext_resource type="PackedScene" uid="uid://2j66oi4o6pfn" path="res://scenes/teleporter.tscn" id="15_0srsr"]
 [ext_resource type="PackedScene" uid="uid://bwaupk67h8duk" path="res://models/buildings/lamp_post.tscn" id="15_2lx38"]
 [ext_resource type="PackedScene" uid="uid://bd10ljb0abvm0" path="res://models/buildings/house.tscn" id="15_if3wq"]
 [ext_resource type="PackedScene" uid="uid://cp31vjleor668" path="res://models/buildings/bakery.tscn" id="15_kbpjj"]
 [ext_resource type="PackedScene" uid="uid://dvuqqqkdrva40" path="res://models/buildings/warehouse.tscn" id="16_2lx38"]
-[ext_resource type="PackedScene" uid="uid://d1opecw3t8875" path="res://scenes/3d_scene_lighting_manager.tscn" id="16_kbpjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -2841,9 +2841,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray("+K8Rwbw0bj+hHoDA+K8RweAaK7xb3oLA+K8RweAaK7yhHoDA+K8Rwbw0bj9b3oLAPCkUwbw0bj+hHoDAPCkUweAaK7xb3oLAPCkUweAaK7yhHoDAPCkUwbw0bj9b3oLA+K8RweAaK7yhHoDA+K8Rwbw0bj9b3oLA+K8RweAaK7xb3oLA+K8Rwbw0bj+hHoDAPCkUweAaK7yhHoDAPCkUwbw0bj9b3oLAPCkUweAaK7xb3oLAPCkUwbw0bj+hHoDA+K8RweAaK7yhHoDAPCkUwbw0bj+hHoDA+K8Rwbw0bj+hHoDAPCkUweAaK7yhHoDA+K8RweAaK7xb3oLAPCkUwbw0bj9b3oLA+K8Rwbw0bj9b3oLAPCkUweAaK7xb3oLA/n8EgP///7//////AAD/v/5/BID///+//////wAA/7/+fwSA////v/////8AAP+//n8EgP///7//////AAD/v/9/AAD//////3////9//7//fwAA//////9/////f/+//38AAP//////f////3//v/9/AAD//////3////9//7////9/AAD/vwAA/3////+/////fwAA/78AAP9/////v////38AAP+/AAD/f////7////9/AAD/vwAA/3////+/")
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2lx38"]
-size = Vector3(11.800812, 0.5199585, 0.07543945)
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_kbpjj"]
 _surfaces = [{
 "aabb": AABB(-9.824917, 0.602026, -4.089643, 10.40461, 0.15460515, 0.08590412),
@@ -2978,9 +2975,6 @@ _surfaces = [{
 "vertex_count": 24,
 "vertex_data": PackedByteArray("gaYawbw0bj+hHoDAgaYaweAaK7xb3oLAgaYaweAaK7yhHoDAgaYawbw0bj9b3oLAxR8dwbw0bj+hHoDAxR8dweAaK7xb3oLAxR8dweAaK7yhHoDAxR8dwbw0bj9b3oLAgaYaweAaK7yhHoDAgaYawbw0bj9b3oLAgaYaweAaK7xb3oLAgaYawbw0bj+hHoDAxR8dweAaK7yhHoDAxR8dwbw0bj9b3oLAxR8dweAaK7xb3oLAxR8dwbw0bj+hHoDAgaYaweAaK7yhHoDAxR8dwbw0bj+hHoDAgaYawbw0bj+hHoDAxR8dweAaK7yhHoDAgaYaweAaK7xb3oLAxR8dwbw0bj9b3oLAgaYawbw0bj9b3oLAxR8dweAaK7xb3oLA/n8EgP///7//////AAD/v/5/BID///+//////wAA/7/+fwSA////v/////8AAP+//n8EgP///7//////AAD/v/9/AAD//////3////9//7//fwAA//////9/////f/+//38AAP//////f////3//v/9/AAD//////3////9//7////9/AAD/vwAA/3////+/////fwAA/78AAP9/////v////38AAP+/AAD/f////7////9/AAD/vwAA/3////+/")
 }]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kbpjj"]
-size = Vector3(10.414078, 0.5199585, 0.110839844)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0srsr"]
 _surfaces = [{
@@ -3273,9 +3267,6 @@ _surfaces = [{
 "vertex_count": 24,
 "vertex_data": PackedByteArray("CVD0wLw0bj+hHoDACVD0wOAaK7xb3oLACVD0wOAaK7yhHoDACVD0wLw0bj9b3oLAj0L5wLw0bj+hHoDAj0L5wOAaK7xb3oLAj0L5wOAaK7yhHoDAj0L5wLw0bj9b3oLACVD0wOAaK7yhHoDACVD0wLw0bj9b3oLACVD0wOAaK7xb3oLACVD0wLw0bj+hHoDAj0L5wOAaK7yhHoDAj0L5wLw0bj9b3oLAj0L5wOAaK7xb3oLAj0L5wLw0bj+hHoDACVD0wOAaK7yhHoDAj0L5wLw0bj+hHoDACVD0wLw0bj+hHoDAj0L5wOAaK7yhHoDACVD0wOAaK7xb3oLAj0L5wLw0bj9b3oLACVD0wLw0bj9b3oLAj0L5wOAaK7xb3oLA/n8EgP///7//////AAD/v/5/BID///+//////wAA/7/+fwSA////v/////8AAP+//n8EgP///7//////AAD/v/9/AAD//////3////9//7//fwAA//////9/////f/+//38AAP//////f////3//v/9/AAD//////3////9//7////9/AAD/vwAA/3////+/////fwAA/78AAP9/////v////38AAP+/AAD/f////7////9/AAD/vwAA/3////+/")
 }]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0srsr"]
-size = Vector3(13.360855, 0.5199585, 0.07543945)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ttmh"]
 albedo_color = Color(0.3721532, 0.39474586, 0.39627662, 1)
@@ -3720,6 +3711,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6004343, 0.460392, -48.000
 shape = SubResource("BoxShape3D_h0tbc")
 
 [node name="trees" type="Node3D" parent="."]
+visible = false
 
 [node name="Brush_1758873212_380" parent="trees" instance=ExtResource("13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.557475, 0.0050001144, -18.116182)
@@ -3749,7 +3741,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.104868, 0.0050001144, -8.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2012367, 0.0050001144, -6.5792713)
 
 [node name="Brush_1758873213_900" parent="trees" instance=ExtResource("13")]
-transform = Transform3D(0.98718464, -0.12975216, 0.092903756, 0.13083757, 0.9913876, -0.0056632194, -0.09136881, 0.017745921, 0.9956591, 2.0140536, 1.4588006, -7.2759805)
+transform = Transform3D(0.98718464, -0.12975216, 0.092903756, 0.13083757, 0.9913876, -0.0056632194, -0.09136881, 0.017745921, 0.9956591, 2.0140536, 0.0050001144, -7.2759805)
 
 [node name="Brush_1758873213_902" parent="trees" instance=ExtResource("13")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.569728, 0.0050001144, -10.424045)
@@ -3960,67 +3952,47 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.9
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.9249735, 0, 25.98689)
 
 [node name="truck" parent="." instance=ExtResource("9")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.851, 1.796, 3.242)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.851, 0, -0.758)
+
+[node name="static_objects_interactions" parent="truck" node_paths=PackedStringArray("object_collision") instance=ExtResource("14_2lx38")]
+object_collision = NodePath("../StaticBody3D")
+object_text = "BAKERY_BUILDING"
 
 [node name="bakery" parent="." instance=ExtResource("15_kbpjj")]
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -5.068781, 1.5050001, 5.3200126)
+
+[node name="static_objects_interactions" parent="bakery" node_paths=PackedStringArray("object_collision") instance=ExtResource("14_2lx38")]
+object_collision = NodePath("../sign")
+object_text = "BAKERY_BUILDING"
 
 [node name="teleporter" parent="bakery" instance=ExtResource("15_0srsr")]
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, 1.4755669, -1.5000001, 0.014938831)
 location_path = "res://scenes/bakery_interior.tscn"
 
 [node name="trees_mobile" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("ArrayMesh_2lx38")
 
 [node name="fence" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_if3wq")
 
-[node name="body" type="StaticBody3D" parent="fence"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4286041, 0.3824768, -4.0496826)
-shape = SubResource("BoxShape3D_2lx38")
-
 [node name="fence4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7940936, 0, 6.1165814)
 mesh = SubResource("ArrayMesh_kbpjj")
-
-[node name="body3" type="StaticBody3D" parent="fence4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8833842, 0, -0.01796484)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence4/body3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7352371, 0.3824768, -4.0319824)
-shape = SubResource("BoxShape3D_kbpjj")
 
 [node name="fence2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.291529)
 mesh = SubResource("ArrayMesh_0srsr")
 
-[node name="body2" type="StaticBody3D" parent="fence2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.018257141)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence2/body2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4286041, 0.3824768, -4.0496826)
-shape = SubResource("BoxShape3D_2lx38")
-
 [node name="fence3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.121311, 9.536743e-07, 0.1978323)
 mesh = SubResource("ArrayMesh_v47qs")
-
-[node name="body3" type="StaticBody3D" parent="fence3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22580834, -9.536743e-07, -0.018784523)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fence3/body3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6485825, 0.3824768, -4.0496826)
-shape = SubResource("BoxShape3D_0srsr")
 
 [node name="road" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5764785, 0, 0)
 mesh = SubResource("ArrayMesh_riqv0")
 
 [node name="warehouse" parent="." instance=ExtResource("16_2lx38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57805, 1.4815032, 3.2352538)
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, -7.0639997, 0, -1.0509999)
 
 [node name="background" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_1elj8")
@@ -4030,10 +4002,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 mesh = SubResource("ArrayMesh_jvtdd")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-visible = false
 
-[node name="3d_scene_lighting_manager" parent="." node_paths=PackedStringArray("dynamic_lights", "baked_lights") instance=ExtResource("16_kbpjj")]
-dynamic_lights = [NodePath("../DirectionalLight3D")]
-baked_lights = NodePath("../LightmapGI")
-
+[editable path="truck"]
 [editable path="bakery"]

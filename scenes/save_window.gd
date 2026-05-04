@@ -1,5 +1,7 @@
 extends Panel
 
+const LIGHTING_BUTTON_GROUP: Resource = preload("uid://3bj6aj0ytnxq")
+
 func _ready() -> void:
 	if OS.get_name() == "Android":
 		%fullscreen_mode_chkbox.queue_free()
@@ -8,6 +10,10 @@ func _ready() -> void:
 	%lng_select_butt.item_selected.connect(_on_lang_selected)
 	%fullscreen_mode_chkbox.toggled.connect(window_mode)
 	%antialiasing_chkbox.toggled.connect(antialiasing_mode)
+	%setting_graphics_lighting_baked.pressed.connect(func() -> void:
+		GameSettings.handle_lighting(0))
+	%setting_graphics_lighting_real.pressed.connect(func() -> void:
+		GameSettings.handle_lighting(1))
 	
 	if ConfigFileHandler.load_video_settings().fullscreen:
 		%fullscreen_mode_chkbox.set_pressed_no_signal(true)
@@ -80,6 +86,8 @@ func antialiasing_mode(toggled_on: bool):
 		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
 		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
+func lighting_mode() -> void:
+	ConfigFileHandler.save_video_setting("lighting", LIGHTING_BUTTON_GROUP.get_pressed_button())
 
 func save_slider_value(category: int, key_word: String, value: float):
 	match category:

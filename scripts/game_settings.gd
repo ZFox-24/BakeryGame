@@ -2,6 +2,7 @@ extends Node
 
 signal change_window_mode
 signal change_language
+signal change_light_mode
 
 signal show_mobile_buttons
 signal hide_mobile_buttons
@@ -33,13 +34,12 @@ func _ready() -> void:
 	textures = video_setting.textures
 	sensitivity = misc_setting.sensitivity
 
-	check_fullscreen()
-	check_antialiasing()
-	check_lighting()
+	handle_fullscreen()
+	handle_antialiasing()
+	handle_lighting(lighting)
 	change_shadows_setting(shadows)
-	check_textures()
 
-func check_antialiasing():
+func handle_antialiasing():
 	if antialiasing == true:
 		get_viewport().screen_space_aa = Viewport.SCREEN_SPACE_AA_SMAA
 		get_viewport().msaa_3d = Viewport.MSAA_4X
@@ -48,27 +48,17 @@ func check_antialiasing():
 		get_viewport().msaa_3d = Viewport.MSAA_DISABLED
 
 
-func check_lighting(): # TODO: переделать под "запеченное" и "реальное"
-	match lighting:
-		0:
-			pass
-		1:
-			pass
-		2:
-			pass
+func handle_lighting(mode: int) -> bool:
+	match mode:
+		0: #baked
+			return false
+		1: #dynamic
+			return true
+	change_light_mode.emit()
+	return mode
 
 
-func check_textures():
-	match textures:
-		0:
-			pass
-		1:
-			pass
-		2:
-			pass
-
-
-func check_fullscreen():
+func handle_fullscreen():
 	if fullscreen == true:
 		get_window().set_mode(Window.MODE_FULLSCREEN)
 	else:
@@ -110,7 +100,7 @@ func change_shadows_setting(level: int):
 			if OS.get_name() == "Android":
 				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
 				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_MEDIUM)
-				RenderingServer.directional_shadow_atlas_set_size(4096, false)
+				RenderingServer.directional_shadow_atlas_set_size(2048, false)
 			else:
 				RenderingServer.positional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)
 				RenderingServer.directional_soft_shadow_filter_set_quality(RenderingServer.SHADOW_QUALITY_SOFT_ULTRA)

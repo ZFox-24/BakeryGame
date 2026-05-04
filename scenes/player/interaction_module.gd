@@ -23,7 +23,8 @@ func _physics_process(_delta: float) -> void:
 				%interact_button.show()
 			%crosshair.change_crosshair("hand")
 			is_colliding = true
-		if target.has_method("show_obj_name"):
+		elif target.has_method("show_obj_name"):
+			print("is interacting: showing tewxt")
 			%InteractText.show()
 			%InteractText.text = target.show_obj_name()
 			is_colliding = true

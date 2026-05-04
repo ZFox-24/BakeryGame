@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1opecw3t8875"]
+
+[ext_resource type="Script" uid="uid://b2ljw3mdhvmpq" path="res://scripts/3d_scene_lighting_manager.gd" id="1_ri5rh"]
+
+[node name="3d_scene_lighting_manager" type="Node"]
+script = ExtResource("1_ri5rh")
