@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dlpqssxrsnci3" path="res://interior_models (blender)/cash_register.glb" id="1_rmaeb"]
 [ext_resource type="Material" uid="uid://dxkdrvylickrh" path="res://interior_models (blender)/wood_desk/wood_desk.tres" id="2_2m1l8"]
 [ext_resource type="Script" uid="uid://c27sv08edbl21" path="res://interior_models (blender)/screen.gd" id="2_ilcao"]
-[ext_resource type="Script" uid="uid://21j0jchd83c" path="res://interior_models (blender)/cash_registerr.gd" id="2_tu2hx"]
+[ext_resource type="Script" uid="uid://21j0jchd83c" path="res://interior_models (blender)/cash_register.gd" id="2_tu2hx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tu2hx"]
 material = ExtResource("2_2m1l8")
@@ -31,13 +31,13 @@ size = Vector3(0.4189453, 0.2084961, 0.18206787)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bl5ec"]
 
-[sub_resource type="Sky" id="Sky_4jy8a"]
+[sub_resource type="Sky" id="Sky_tu2hx"]
 sky_material = SubResource("ProceduralSkyMaterial_bl5ec")
 
 [sub_resource type="Environment" id="Environment_w2g01"]
 background_mode = 2
 background_energy_multiplier = 2.5
-sky = SubResource("Sky_4jy8a")
+sky = SubResource("Sky_tu2hx")
 glow_enabled = true
 
 [node name="cash_register" instance=ExtResource("1_rmaeb")]

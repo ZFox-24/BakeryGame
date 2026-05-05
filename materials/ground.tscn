@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dirgsa7uuqw83" path="res://materials/sky_original.tres" id="1"]
 [ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="2"]
 [ext_resource type="PackedScene" uid="uid://b8m3d4qeu8g4r" path="res://scenes/player/player.tscn" id="8"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dim5ixw3tyisi" path="res://assets/occluder_mobile.occ" id="8_if3wq"]
 [ext_resource type="PackedScene" uid="uid://cyadqcy6k211i" path="res://models/truck.tscn" id="9"]
 [ext_resource type="AudioStream" uid="uid://dnjumsbo0vem8" path="res://assets/sfx/birds.mp3" id="10"]
 [ext_resource type="AudioStream" uid="uid://nv78ciitph6o" path="res://assets/sfx/leaves1.mp3" id="11"]
@@ -14,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bd10ljb0abvm0" path="res://models/buildings/house.tscn" id="15_if3wq"]
 [ext_resource type="PackedScene" uid="uid://cp31vjleor668" path="res://models/buildings/bakery.tscn" id="15_kbpjj"]
 [ext_resource type="PackedScene" uid="uid://dvuqqqkdrva40" path="res://models/buildings/warehouse.tscn" id="16_2lx38"]
-[ext_resource type="PackedScene" uid="uid://d1opecw3t8875" path="res://scenes/3d_scene_lighting_manager.tscn" id="16_kbpjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usrg0"]
 albedo_color = Color(0.33002746, 0.5696063, 0.3149071, 1)
@@ -3920,6 +3920,10 @@ transform = Transform3D(0.8012225, 0, 0.59836656, 0, 1.4854563, 0, -0.59836656, 
 visible = false
 occluder = ExtResource("14_h0tbc")
 
+[node name="occluder_mobile" type="OccluderInstance3D" parent="."]
+visible = false
+occluder = ExtResource("8_if3wq")
+
 [node name="house" parent="." instance=ExtResource("15_if3wq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40678748, 0.0050001144, -17.904999)
 
@@ -4031,9 +4035,3 @@ mesh = SubResource("ArrayMesh_jvtdd")
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
 visible = false
-
-[node name="3d_scene_lighting_manager" parent="." node_paths=PackedStringArray("dynamic_lights", "baked_lights") instance=ExtResource("16_kbpjj")]
-dynamic_lights = [NodePath("../DirectionalLight3D")]
-baked_lights = NodePath("../LightmapGI")
-
-[editable path="bakery"]

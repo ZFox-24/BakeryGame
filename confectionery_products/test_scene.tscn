@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckgqbix55cyfm" path="res://scenes/human_spawner.tscn" id="1_6c6wg"]
 [ext_resource type="Material" uid="uid://ckxu7wlx0ki34" path="res://materials/grass.tres" id="1_52wa1"]
-[ext_resource type="PackedScene" uid="uid://c5l8ga4ua8gg3" path="res://interior_models (blender)/cash_register.tscn" id="3_lchu2"]
+[ext_resource type="PackedScene" uid="uid://c5l8ga4ua8gg3" path="res://interior_models (blender)/(deprecated)cash_register.tscn" id="3_lchu2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ympw5"]
 material = ExtResource("1_52wa1")
