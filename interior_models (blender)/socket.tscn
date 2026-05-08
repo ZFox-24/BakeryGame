@@ -58,7 +58,7 @@ material = SubResource("StandardMaterial3D_tnd10")
 left_to_right = 0.0
 size = Vector3(0.105, 0.125, 0.25)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D"]
+[node name="socket" type="CSGCombiner3D"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
@@ -76,8 +76,8 @@ mesh = SubResource("PrismMesh_5ct0j")
 light_color = Color(1, 0.023529412, 0.03137255, 1)
 light_energy = 0.091
 light_specular = 0.0
-omni_range = 0.103
-omni_attenuation = 0.773
+omni_range = 0.094
+omni_attenuation = 0.368
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.19555801, 0, 0.02293086)

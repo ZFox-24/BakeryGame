@@ -2,8 +2,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wasf"]
 resource_name = "Material.010"
-transparency = 4
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 albedo_color = Color(0.7408679, 0.7510436, 0.9063355, 0.33070868)
 metallic = 0.88976383
 roughness = 0.0
