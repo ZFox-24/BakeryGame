@@ -164,7 +164,6 @@ transform = Transform3D(4.3711395e-08, 1.0000001, -8.742278e-08, 1.0000001, -4.3
 [node name="SpotLight3D" parent="window2" index="0"]
 transform = Transform3D(0.8660254, 5.856215e-09, 0.50000006, 0.50000006, -2.1855696e-08, -0.8660254, 5.856215e-09, 1, -2.1855696e-08, 0.1691346, 0, 0)
 light_bake_mode = 0
-shadow_bias = 0.005
 
 [node name="window3" parent="." instance=ExtResource("10_iyh8a")]
 transform = Transform3D(4.3711395e-08, 1.0000001, -8.742278e-08, 1.0000001, -4.3711395e-08, 0, -3.8213718e-15, -8.7422784e-08, -1, -3.4811518, 0, -0.92643523)
@@ -233,7 +232,7 @@ transform = Transform3D(-6.120855e-08, 0, 1, 0, 1, 0, -1.4002887, 0, -4.371138e-
 physics_material_override = SubResource("PhysicsMaterial_oj335")
 
 [node name="wall2" type="MeshInstance3D" parent="wall7"]
-transform = Transform3D(-2.524217, -8.742278e-08, 1.1464112e-14, 0, 1.3113416e-07, 1, -2.2067405e-07, 1, -1.3113416e-07, -1, 0, -2.493281)
+transform = Transform3D(-2.524217, -8.742278e-08, 1.1464113e-14, 0, 1.3113416e-07, 1, -2.2067405e-07, 1, -1.3113416e-07, -0.9999986, 2.5749207e-05, -2.4932942)
 mesh = SubResource("PlaneMesh_djn2f")
 skeleton = NodePath("../..")
 
