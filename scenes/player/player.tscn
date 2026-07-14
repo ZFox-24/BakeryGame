@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b8m3d4qeu8g4r"]
+[gd_scene load_steps=23 format=3 uid="uid://b8m3d4qeu8g4r"]
 
 [ext_resource type="Script" uid="uid://bkf8e4atqh6c3" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="PackedScene" uid="uid://buec6qjgctrkb" path="res://scenes/money_screen.tscn" id="2_dovo2"]
@@ -17,16 +17,12 @@ device = -1
 keycode = 80
 unicode = 112
 
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_je7p5"]
+button_index = 6
+pressed = true
+
 [sub_resource type="Shortcut" id="Shortcut_gx1jg"]
-events = [SubResource("InputEventKey_fm80t")]
-
-[sub_resource type="InputEventKey" id="InputEventKey_je7p5"]
-device = -1
-keycode = 73
-unicode = 105
-
-[sub_resource type="Shortcut" id="Shortcut_fm80t"]
-events = [SubResource("InputEventKey_je7p5")]
+events = [SubResource("InputEventKey_fm80t"), SubResource("InputEventJoypadButton_je7p5")]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -176,6 +172,12 @@ fov = 90.0
 [node name="SeeCast" type="RayCast3D" parent="Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(0.5, -4.307743e-08, 2.185569e-08, 2.1855694e-08, -4.307743e-08, -0.4999999, 2.1855694e-08, 0.98549676, -2.1855689e-08, 0, 0.01770091, 0)
+collision_mask = 3
+
+[node name="mobile_buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("6_je7p5")
 
 [node name="ui" type="CanvasLayer" parent="."]
 process_priority = 1
@@ -183,6 +185,7 @@ process_physics_priority = 1
 physics_interpolation_mode = 2
 
 [node name="fps" parent="ui" instance=ExtResource("2_gmlin")]
+unique_name_in_owner = true
 offset_left = 36.0
 offset_top = 113.0
 offset_right = 116.0
@@ -227,6 +230,22 @@ joystick_preset_texture = 0
 stick_use_textures = false
 stick_preset_texture = 0
 
+[node name="interact_button" type="Button" parent="ui"]
+unique_name_in_owner = true
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -56.5
+offset_right = -76.0
+offset_bottom = 56.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 41
+text = "E"
+
 [node name="pause_button" type="Button" parent="ui"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
@@ -237,23 +256,6 @@ offset_bottom = 113.0
 theme_override_font_sizes/font_size = 32
 shortcut = SubResource("Shortcut_gx1jg")
 text = "||"
-
-[node name="interact_button" type="Button" parent="ui"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(130, 130)
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -130.0
-offset_right = -62.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-shortcut = SubResource("Shortcut_fm80t")
-text = "E"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0277908, 0)
@@ -324,11 +326,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_je7p5")
 }
 autoplay = "idle"
-
-[node name="mobile_buttons" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("6_je7p5")
 
 [node name="footstep_audio" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true

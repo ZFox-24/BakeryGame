@@ -14,3 +14,9 @@ func teleport(_body: Node3D) -> void:
 		get_tree().call_deferred("change_scene_to_file", location_path)
 		SceneManager.current_scene = location_path
 	
+	if location_path == "res://scenes/bakery_interior.tscn" and OS.get_name() == "Android":
+		location_path = "res://scenes/bakery_interior_mobile.tscn"
+		get_tree().call_deferred("change_scene_to_file", location_path)
+	if location_path == "res://materials/ground.tscn" and OS.get_name() == "Android":
+		location_path = "res://materials/ground_mobile.tscn"
+		get_tree().call_deferred("change_scene_to_file", location_path)

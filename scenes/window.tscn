@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cshex65r5vbjn"]
+[gd_scene load_steps=4 format=3 uid="uid://cshex65r5vbjn"]
+
+[ext_resource type="Script" uid="uid://by8w7hn2jxyan" path="res://scenes/window.gd" id="1_oya5r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnvhp"]
 albedo_color = Color(0.71034795, 0.8635632, 1, 1)
@@ -16,14 +18,13 @@ size = Vector2(1.5, 1)
 [node name="window" type="MeshInstance3D"]
 transform = Transform3D(0, -1.0000001, 0, 1.0000001, 0, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_iie45")
+script = ExtResource("1_oya5r")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.86602527, 5.8562186e-09, 0.5, 0.5, -2.1855694e-08, -0.86602527, 5.856214e-09, 1, -2.1855698e-08, 0.689935, -1.157773, 0)
 transform = Transform3D(0.86602527, 5.8562186e-09, 0.5, 0.5, -2.1855694e-08, -0.86602527, 5.856214e-09, 1, -2.1855698e-08, 0.689935, -1.157773, 0)
 light_color = Color(0.98039216, 0.7411765, 0.18431373, 1)
 light_cull_mask = 4294967293
 shadow_enabled = true
 shadow_bias = 0.01
 spot_range = 11.188
-spot_angle = 22.299458
 spot_angle = 22.299458

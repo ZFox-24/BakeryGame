@@ -207,6 +207,8 @@ grow_vertical = 2
 [node name="continue_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../exit_game_button")
+focus_neighbor_bottom = NodePath("../settings_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
 shortcut = ExtResource("2_v4r4p")
 text = "KEY_CONTINUE"
@@ -215,6 +217,8 @@ text = "KEY_CONTINUE"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+focus_neighbor_top = NodePath("../continue_button")
+focus_neighbor_bottom = NodePath("../credits_button")
 theme_override_fonts/font = ExtResource("2_5d2l8")
 text = "KEY_SAVE"
 
@@ -228,24 +232,32 @@ text = "KEY_LOAD"
 [node name="settings_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../continue_button")
+focus_neighbor_bottom = NodePath("../credits_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_SETTINGS"
 
 [node name="credits_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../settings_button")
+focus_neighbor_bottom = NodePath("../new_game_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TITLE_CREDITS"
 
 [node name="new_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../credits_button")
+focus_neighbor_bottom = NodePath("../exit_game_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_STARTOVER"
 
 [node name="exit_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../new_game_button")
+focus_neighbor_bottom = NodePath("../continue_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "KEY_EXIT"
 
@@ -286,6 +298,11 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "VERSION"
+
+[node name="engine_version" type="Label" parent="version_vbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Godot Engine v4.5.2"
 
 [node name="credits_win" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -500,7 +517,6 @@ button_group = ExtResource("6_v4r4p")
 text = "SETTING_LIGHTING_REAL"
 
 [node name="shadows_settings" type="VBoxContainer" parent="settings_win/Panel/VBoxContainer"]
-modulate = Color(1, 1, 1, 0.19607843)
 layout_mode = 2
 
 [node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/shadows_settings"]
@@ -509,6 +525,7 @@ theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "SETTING_SHADOWS"
 
 [node name="title" type="Label" parent="settings_win/Panel/VBoxContainer/shadows_settings/title"]
+visible = false
 layout_mode = 0
 offset_left = -41.0
 offset_top = 27.0

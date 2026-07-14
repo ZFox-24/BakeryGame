@@ -14,6 +14,8 @@ signal sensitivity_slider_changed
 	"English": "en"
 }
 
+var _os_name = "Windows"
+
 var current_language : String = ""# en / ru - 2 буквы
 
 var fullscreen: bool
@@ -24,6 +26,7 @@ var textures: int
 var sensitivity: float
 
 func _ready() -> void:
+	# добавить проверку на наличие конфигурационного файла
 	# загрузка настроек видео
 	var video_setting = ConfigFileHandler.load_video_settings()
 	var misc_setting = ConfigFileHandler.load_misc_setting()
@@ -108,3 +111,23 @@ func change_shadows_setting(level: int):
 
 func change_sensitivity(value: float) -> void:
 	sensitivity = value
+
+# отключение некоторых свойств для мобильных устройств для повышения производительности
+func disable_shadows(scene: Node) -> void:
+	for n: Node in scene.get_children():
+		if n is OmniLight3D or n is DirectionalLight3D or n is SpotLight3D:
+			n.shadow_enabled = false
+			n.light_bake_mode = Light3D.BAKE_DISABLED
+			print("SHADOWS_DISABLED")
+
+func disable_lights(scene: Node) -> void:
+	for n: Node in scene.get_children():
+		if n is OmniLight3D or n is DirectionalLight3D or n is SpotLight3D:
+			n.queue_free()
+			print("LIGHTS_DISABLED")
+
+func disable_reflections(scene: Node) -> void:
+	for n: Node in scene.get_children():
+		if n is ReflectionProbe:
+			n.queue_free()
+			print("REFLECTIONS DISABLED")

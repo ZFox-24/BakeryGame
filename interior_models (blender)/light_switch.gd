@@ -5,6 +5,10 @@ extends StaticBody3D
 @export var is_off_material : StandardMaterial3D
 @export var is_on_material : StandardMaterial3D
 
+func _ready() -> void:
+	if OS.get_name() == "Windows":
+			GameSettings.disable_lights(get_tree().current_scene)
+
 func interact():
 	if !is_on:
 		%OmniLight3D.hide()

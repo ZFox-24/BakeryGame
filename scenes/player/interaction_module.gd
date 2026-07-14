@@ -12,14 +12,15 @@ func _unhandled_input(_event: InputEvent) -> void:
 			%crosshair.hide()
 
 func _physics_process(_delta: float) -> void:
-	%InteractText.hide()
-	%interact_button.hide()
+	if %InteractText != null and %interact_button != null:
+		%InteractText.hide()
+		%interact_button.hide()
 	%crosshair.change_crosshair("default")
 	if SeeCast.is_colliding():
 		target = SeeCast.get_collider()
 		if target.has_method("interact"):
 			%crosshair.show()
-			if OS.get_name() == "Android" or OS.get_name() == "iOS" or OS.get_name() == "Windows": # изменить перед релизом
+			if OS.get_name() == "Android":
 				%interact_button.show()
 			%crosshair.change_crosshair("hand")
 			is_colliding = true
