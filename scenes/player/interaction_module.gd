@@ -12,9 +12,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			%crosshair.hide()
 
 func _physics_process(_delta: float) -> void:
-	if %InteractText != null and %interact_button != null:
-		%InteractText.hide()
-		%interact_button.hide()
+	%InteractText.hide()
 	%crosshair.change_crosshair("default")
 	if SeeCast.is_colliding():
 		target = SeeCast.get_collider()

@@ -68,7 +68,10 @@ func add_languages():
 
 func select_language_on_start():
 	var lang_sett = ConfigFileHandler.load_misc_setting()
-	%lng_select_butt.select(int(lang_sett.languageID))
+	%lng_select_butt.select(int(lang_sett.languageID)) # 2026.07.15 - на будущее
+		# select_language_on_start() и логика выбора языка методом выше перекрывают
+		# друг друга. Проблема в отсутствии принципа единой ответственности в системе
+		# настроек.
 
 func window_mode(toggled_on: bool):
 	ConfigFileHandler.save_video_setting("fullscreen", toggled_on)
