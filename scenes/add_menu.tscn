@@ -15,6 +15,8 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 45
 
 [sub_resource type="InputEventAction" id="InputEventAction_8o024"]
 action = &"ui_accept"
@@ -83,10 +85,20 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_8o024")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03529412, 0.07450981, 0.22745098, 0.33333334)
 
 [node name="add_menu" type="Panel" parent="."]
 unique_name_in_owner = true
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -212,7 +224,7 @@ horizontal_alignment = 2
 [node name="total_price_lbl" type="Label" parent="add_menu/total_price_hbox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "0"
+text = "0🟡"
 
 [node name="not_enough_money" type="Label" parent="add_menu"]
 visible = false

@@ -5,6 +5,11 @@ func _ready() -> void:
 	VisitorManager.spawn_visitor.connect(bakery_opened)
 	VisitorManager.close_bakery.connect(%Timer.stop)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_O and OS.is_debug_build():
+			spawn_human()
+
 func spawn_human():
 	if VisitorManager.current_visitors < VisitorManager.max_visitors and VisitorManager.is_bakery_open:
 		var human = load("res://scenes/human.tscn").instantiate()

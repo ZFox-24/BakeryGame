@@ -41,6 +41,7 @@ func _ready() -> void:
 	handle_antialiasing()
 	handle_lighting(lighting)
 	change_shadows_setting(shadows)
+	_set_ui_scaling()
 
 func handle_antialiasing():
 	if antialiasing == true:
@@ -66,6 +67,9 @@ func handle_fullscreen():
 		get_window().set_mode(Window.MODE_FULLSCREEN)
 	else:
 		get_window().set_mode(Window.MODE_WINDOWED)
+		
+	if OS.get_name() == "Android":
+		get_window().set_mode(Window.MODE_FULLSCREEN)
 
 	# загрузка настроек языка
 	var language_setting = ConfigFileHandler.load_misc_setting()
@@ -131,3 +135,11 @@ func disable_reflections(scene: Node) -> void:
 		if n is ReflectionProbe:
 			n.queue_free()
 			print("REFLECTIONS DISABLED")
+			
+
+func _set_ui_scaling() -> void:
+	if OS.get_name() == "Android":
+		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+		get_window().content_scale_factor = 1.25
+	else:
+		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED

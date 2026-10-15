@@ -1,107 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpsrf278yjlwf"]
+[gd_scene load_steps=6 format=3 uid="uid://cpsrf278yjlwf"]
 
 [ext_resource type="Script" uid="uid://b1uyga62sv3ya" path="res://scenes/sell_item_panel.gd" id="1_8ygei"]
 [ext_resource type="FontFile" uid="uid://ckhdnlkpclkoo" path="res://assets/fonts/COMIC.TTF" id="2_8ygei"]
+[ext_resource type="FontFile" uid="uid://d31av2ce5owjs" path="res://assets/fonts/COMICI.TTF" id="2_clb8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ygei"]
+bg_color = Color(0.11774104, 0.17558163, 0.27395758, 0.845)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25580212, 0.41496605, 0.6881131, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ygei"]
+size = Vector2(96, 96)
 
 [node name="sell_item_panel" type="Panel"]
-custom_minimum_size = Vector2(789, 136)
+custom_minimum_size = Vector2(400, 136)
 offset_left = 83.77777
 offset_top = 50.0
-offset_right = 872.7778
+offset_right = 483.77777
 offset_bottom = 186.0
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ygei")
 script = ExtResource("1_8ygei")
 
 [node name="item_icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 9.222229
-offset_top = -68.0
-offset_right = 152.44446
-offset_bottom = 68.0
+offset_left = 20.222229
+offset_top = -48.0
+offset_right = 116.22223
+offset_bottom = 48.0
 grow_vertical = 2
-
-[node name="item_name" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -49.0
-offset_right = 365.72223
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_8ygei")
-theme_override_font_sizes/font_size = 32
-text = "ITEM_NAME"
-
-[node name="item_quantity" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 7.5
-offset_top = 1.0
-offset_right = 88.5
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_8ygei")
-text = "QUANTITY"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 174.22223
-offset_top = 68.0
-offset_right = 394.22223
-offset_bottom = 91.0
-theme_override_fonts/font = ExtResource("2_8ygei")
-text = "TEXT_QUANTITY"
-horizontal_alignment = 2
-
-[node name="item_price" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 10.722229
-offset_top = -38.0
-offset_right = 87.72223
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_8ygei")
-text = "PRICE"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -240.27777
-offset_top = 30.0
-offset_right = -0.277771
-offset_bottom = 53.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_8ygei")
-text = "TEXT_ONEITEM"
-horizontal_alignment = 2
+texture = SubResource("PlaceholderTexture2D_8ygei")
+expand_mode = 1
 
 [node name="nei" type="Label" parent="."]
 visible = false
@@ -111,3 +52,56 @@ offset_top = 433.0
 offset_right = 935.2222
 offset_bottom = 456.0
 text = "Недостаточно товаров. Закажите еще."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 136.22223
+offset_top = -50.0
+offset_right = 436.22223
+offset_bottom = 50.0
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_clb8b")
+theme_override_font_sizes/font_size = 32
+text = "ITEM_NAME"
+vertical_alignment = 1
+
+[node name="HBoxQuantity" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer/HBoxQuantity"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "TEXT_QUANTITY"
+vertical_alignment = 1
+
+[node name="item_quantity" type="Label" parent="HBoxContainer/VBoxContainer/HBoxQuantity"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "QUANTITY"
+
+[node name="HBoxOneItemPrice" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer/HBoxOneItemPrice"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "TEXT_ONEITEM"
+vertical_alignment = 1
+
+[node name="item_price" type="Label" parent="HBoxContainer/VBoxContainer/HBoxOneItemPrice"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8ygei")
+text = "PRICE"

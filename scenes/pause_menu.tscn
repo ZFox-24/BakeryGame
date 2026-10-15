@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbglsp3wlye20"]
+[gd_scene load_steps=26 format=3 uid="uid://cbglsp3wlye20"]
 
 [ext_resource type="Script" uid="uid://bygfcri0btgk" path="res://scenes/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="SystemFont" uid="uid://y2xixbgdafpp" path="res://fonts/comic_font.tres" id="2_5d2l8"]
@@ -8,6 +8,22 @@
 [ext_resource type="ButtonGroup" uid="uid://3bj6aj0ytnxq" path="res://assets/lighting_button_group.tres" id="6_v4r4p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myx47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71k7c"]
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmnsq"]
+bg_color = Color(0.09803922, 0.09411765, 0.2, 0.9882353)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.3372549, 0.4509804, 0.6431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofnjo"]
+bg_color = Color(0.16790411, 0.21251479, 0.4097077, 0.9882353)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rgno"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
 bg_color = Color(0.09985284, 0.07846785, 0.106126174, 0.99000007)
@@ -206,10 +222,15 @@ grow_vertical = 2
 
 [node name="continue_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_neighbor_top = NodePath("../exit_game_button")
 focus_neighbor_bottom = NodePath("../settings_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71k7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmnsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofnjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rgno")
 shortcut = ExtResource("2_v4r4p")
 text = "KEY_CONTINUE"
 
@@ -231,34 +252,54 @@ text = "KEY_LOAD"
 
 [node name="settings_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_neighbor_top = NodePath("../continue_button")
 focus_neighbor_bottom = NodePath("../credits_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71k7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmnsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofnjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rgno")
 text = "KEY_SETTINGS"
 
 [node name="credits_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_neighbor_top = NodePath("../settings_button")
 focus_neighbor_bottom = NodePath("../new_game_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71k7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmnsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofnjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rgno")
 text = "TITLE_CREDITS"
 
 [node name="new_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_neighbor_top = NodePath("../credits_button")
 focus_neighbor_bottom = NodePath("../exit_game_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71k7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmnsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofnjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rgno")
 text = "KEY_STARTOVER"
 
 [node name="exit_game_button" type="Button" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 focus_neighbor_top = NodePath("../new_game_button")
 focus_neighbor_bottom = NodePath("../continue_button")
 theme_override_fonts/font = ExtResource("2_7l7mv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_71k7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cmnsq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ofnjo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1rgno")
 text = "KEY_EXIT"
 
 [node name="game_saved_lbl" type="Label" parent="Panel"]
@@ -642,14 +683,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TEXT_FULLSCREENMODE"
-alignment = 1
 
 [node name="antialiasing_chkbox" type="CheckBox" parent="settings_win/Panel/toggles"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7l7mv")
 text = "TEXT_ANTIALIASING"
-alignment = 1
 
 [node name="sensitivity_settings" type="VBoxContainer" parent="settings_win"]
 unique_name_in_owner = true

@@ -21,7 +21,7 @@ func _on_num_field_changed(new_text : String):
 	%num_field.set_text(text)
 	%num_field.caret_column = len(text)
 	total_items = int(new_text)
-	%total_price_lbl.text = str(slot.item.item_price * total_items)
+	%total_price_lbl.text = str(slot.item.item_price * total_items) + "🟡"
 
 func buy_item():
 	if Money.money_resource.money < slot.item.item_price * total_items:

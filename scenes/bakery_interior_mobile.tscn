@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bbqia5xlwk15e"]
+[gd_scene load_steps=43 format=4 uid="uid://bbqia5xlwk15e"]
 
 [ext_resource type="Script" uid="uid://dugdllji4axry" path="res://scenes/bakery_interior.gd" id="1_nny3t"]
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="2_i74by"]
@@ -87,6 +87,17 @@ size = Vector3(0.015, 0.09, 0.84)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7d6md"]
 size = Vector3(1, 0.29523927, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nny3t"]
+
+[sub_resource type="Sky" id="Sky_i74by"]
+sky_material = SubResource("ProceduralSkyMaterial_nny3t")
+
+[sub_resource type="Environment" id="Environment_phmvm"]
+background_mode = 2
+background_energy_multiplier = 2.5
+sky = SubResource("Sky_i74by")
+glow_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nny3t"]
 _surfaces = [{
@@ -426,6 +437,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1014471, -1.480416, 2.4508
 
 [node name="cash_register" parent="." instance=ExtResource("23_bb8p4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.8443649, -1.48, 2.54003)
+
+[node name="WorldEnvironment" parent="cash_register" index="0"]
+environment = SubResource("Environment_phmvm")
 
 [node name="SpotLight3D" parent="cash_register" index="3"]
 visible = false

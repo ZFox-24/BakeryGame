@@ -32,7 +32,7 @@ func update_slot():
 	%upgrade_icon.texture = slot.item.upg_icon
 	%upgrade_name.text = "[i]" + tr(slot.item.upg_name) + "[/i]"
 	%upgrade_description.text = slot.item.upg_desc
-	%buy_button.text = str(slot.item.upg_price)
+	%buy_button.text = str(slot.item.upg_price) + "🟡"
 
 func invoke_upgrade():
 	if slot.item.upg_price <= Money.money_resource.money:

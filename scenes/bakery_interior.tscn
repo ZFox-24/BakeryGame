@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dagmdnqnlnr73"]
+[gd_scene load_steps=45 format=3 uid="uid://dagmdnqnlnr73"]
 
 [ext_resource type="PackedScene" uid="uid://cv84ssob33i55" path="res://models/light.tscn" id="1_djn2f"]
 [ext_resource type="Script" uid="uid://dugdllji4axry" path="res://scenes/bakery_interior.gd" id="1_xl57x"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://c3s4atjgmt7c1" path="res://assets/sfx/door.mp3" id="24_2811x"]
 [ext_resource type="PackedScene" uid="uid://dffyefqgfdpf7" path="res://models/interior/show_cabinet_oneside_glass.tscn" id="24_kb83y"]
 [ext_resource type="PackedScene" uid="uid://boor81xyidq6v" path="res://models/interior/chair.tscn" id="24_kt30t"]
+[ext_resource type="PackedScene" uid="uid://htc3kpphji2l" path="res://models/interior/microwave.glb" id="25_2mx1q"]
 [ext_resource type="PackedScene" uid="uid://dhjf6i56ajiwq" path="res://models/interior/show_cabinet_oneside.tscn" id="25_2811x"]
 [ext_resource type="PackedScene" uid="uid://5c8fgyrmaxjr" path="res://models/interior/cash_register.tscn" id="25_gti05"]
 [ext_resource type="PackedScene" uid="uid://bvcyl6u7da0pw" path="res://models/interior/table.tscn" id="25_kt30t"]
@@ -49,7 +50,8 @@ sdfgi_read_sky_light = false
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 1.64
-glow_bloom = 0.15
+glow_bloom = 0.16
+glow_blend_mode = 1
 fog_enabled = true
 fog_light_color = Color(0.89810693, 0.33752263, 0.31646398, 1)
 adjustment_enabled = true
@@ -368,7 +370,7 @@ bus = &"SFX"
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.9998543, -1.4, 5.646225)
 
 [node name="show_cabinet_oneside_glass2" parent="." instance=ExtResource("24_kb83y")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.9998543, -1.4, 3.3197758)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.70175254, -1.4000002, 5.0891275)
 
 [node name="show_cabinet_oneside1" parent="." instance=ExtResource("25_2811x")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.643244, -1.3853306, 4.8012714)
@@ -395,7 +397,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19923782, -1.480416, -0.197
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19923782, -1.480416, 1.6418542)
 
 [node name="table3" parent="." instance=ExtResource("25_kt30t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1014471, -1.480416, -1.1076835)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042338252, -1.480416, 0.6832503)
 
 [node name="table4" parent="." instance=ExtResource("25_kt30t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1014471, -1.480416, 0.80581856)
@@ -408,6 +410,21 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.8
 
 [node name="chair" parent="." instance=ExtResource("24_kt30t")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.034907, -1.4753383, 1.682721)
+
+[node name="microwave" parent="." instance=ExtResource("25_2mx1q")]
+transform = Transform3D(-0.18161778, 0, 0.98336923, 0, 1, 0, -0.98336923, 0, -0.18161778, -2.5275292, -0.3701113, 1.2448779)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="microwave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06584954, 0.044425964, 0.04341507)
+light_color = Color(0.9633216, 0.7619842, 0.38228387, 1)
+light_energy = 3.695
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+omni_range = 0.47
+omni_attenuation = 1.632
+
+[node name="microwave_room" type="Node3D" parent="."]
 
 [editable path="window2"]
 [editable path="human_spawner"]

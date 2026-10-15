@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c21kiilpipoiu"]
+[gd_scene load_steps=23 format=3 uid="uid://c21kiilpipoiu"]
 
 [ext_resource type="Script" uid="uid://c88b535lkngkr" path="res://scenes/monitor_screen.gd" id="1_qb77y"]
 [ext_resource type="Shortcut" uid="uid://85jhjeg7wns2" path="res://cancel_action.tres" id="2_gynbd"]
@@ -11,16 +11,73 @@
 [ext_resource type="AudioStream" uid="uid://dgw1vt7ninns8" path="res://income.mp3" id="12_enmgh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnrhv"]
-bg_color = Color(0.25030932, 0.20285092, 0.26711738, 0.845)
+bg_color = Color(0.27058825, 0.18039216, 0.31764707, 0.9019608)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.6199763, 0.37980857, 0.5324359, 1)
+border_color = Color(0.6147415, 0.25333962, 0.8674481, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oania"]
+bg_color = Color(0.15294118, 0.003921569, 0.02745098, 0.9019608)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gocw3"]
+bg_color = Color(0.097596996, 0.0011186429, 0.022617184, 0.9019608)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4edn"]
+bg_color = Color(0.15294118, 0.003921569, 0.02745098, 0.9019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7923191, 0.20927775, 0.40797642, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oania"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ruak"]
+bg_color = Color(0.12063614, 0.08687853, 0.20049283, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51iji"]
+bg_color = Color(0.12063614, 0.08687853, 0.20049283, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x18yp"]
+bg_color = Color(0.59607846, 0.5058824, 0.8509804, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqfax"]
+bg_color = Color(0.12063614, 0.08687853, 0.20049283, 1)
+border_width_top = 2
+border_color = Color(0.5960893, 0.50527745, 0.852097, 1)
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4edn"]
 
 [sub_resource type="Animation" id="Animation_enmgh"]
 length = 0.001
@@ -96,8 +153,12 @@ _data = {
 &"nei": SubResource("Animation_q6bim")
 }
 
-[node name="Control" type="Panel"]
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="Control" type="Panel" parent="."]
 process_mode = 2
+z_index = 1
 custom_minimum_size = Vector2(1145, 664)
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,7 +172,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_cnrhv")
 script = ExtResource("1_qb77y")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -125,20 +186,28 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.38200003)
 
-[node name="exit_button" type="Button" parent="."]
+[node name="exit_button" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -69.04663
-offset_bottom = 64.0
+offset_left = -70.04663
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 65.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0.7451408, 0.16614863, 0.2905226, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxFlat_oania")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gocw3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r4edn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oania")
 shortcut = ExtResource("2_gynbd")
 text = "X"
 
-[node name="open_close_bakery_button" type="Button" parent="."]
+[node name="open_close_bakery_button" type="Button" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -152,30 +221,36 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_oania")
 text = "KEY_BAKERYOPEN"
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -540.0
-offset_top = -265.0
-offset_right = 496.0
-offset_bottom = 289.0
+offset_left = -518.0
+offset_top = -277.0
+offset_right = 518.0
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/tab_separation = 8
 theme_override_fonts/font = ExtResource("3_oania")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ruak")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_51iji")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_x18yp")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_dqfax")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_r4edn")
 current_tab = 0
 
-[node name="TAB_SELLING" type="TabBar" parent="TabContainer"]
+[node name="TAB_SELLING" type="TabBar" parent="Control/TabContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cnrhv")
 script = ExtResource("3_gynbd")
 metadata/_tab_index = 0
 
-[node name="nothin_to_sell_label" type="Label" parent="TabContainer/TAB_SELLING"]
+[node name="nothin_to_sell_label" type="Label" parent="Control/TabContainer/TAB_SELLING"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -193,17 +268,17 @@ theme_override_fonts/font = ExtResource("3_oania")
 theme_override_font_sizes/font_size = 32
 text = "TEXT_NOTHINGTOSELL"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/TAB_SELLING"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/TabContainer/TAB_SELLING"]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_bydw3")
 }
 
-[node name="income_sound" type="AudioStreamPlayer" parent="TabContainer/TAB_SELLING"]
+[node name="income_sound" type="AudioStreamPlayer" parent="Control/TabContainer/TAB_SELLING"]
 stream = ExtResource("12_enmgh")
 bus = &"SFX"
 
-[node name="panel" type="Control" parent="TabContainer/TAB_SELLING"]
+[node name="panel" type="Control" parent="Control/TabContainer/TAB_SELLING"]
 layout_mode = 1
 anchor_top = 0.78400004
 anchor_right = 1.0
@@ -213,7 +288,7 @@ offset_bottom = 0.17694092
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TabContainer/TAB_SELLING/panel"]
+[node name="Label" type="Label" parent="Control/TabContainer/TAB_SELLING/panel"]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 57.0
@@ -223,7 +298,7 @@ theme_override_fonts/font = ExtResource("3_oania")
 text = "TEXT_TOTAL"
 horizontal_alignment = 2
 
-[node name="final_price" type="Label" parent="TabContainer/TAB_SELLING/panel"]
+[node name="final_price" type="Label" parent="Control/TabContainer/TAB_SELLING/panel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 316.0
@@ -234,7 +309,7 @@ theme_override_fonts/font = ExtResource("3_oania")
 theme_override_font_sizes/font_size = 81
 text = "final_price"
 
-[node name="sell_button" type="Button" parent="TabContainer/TAB_SELLING/panel"]
+[node name="sell_button" type="Button" parent="Control/TabContainer/TAB_SELLING/panel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -251,7 +326,7 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_oania")
 text = "KEY_SELL"
 
-[node name="nei" type="Control" parent="TabContainer/TAB_SELLING/panel"]
+[node name="nei" type="Control" parent="Control/TabContainer/TAB_SELLING/panel"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -267,7 +342,7 @@ offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="not_enough_money_lbl" type="Label" parent="TabContainer/TAB_SELLING/panel/nei"]
+[node name="not_enough_money_lbl" type="Label" parent="Control/TabContainer/TAB_SELLING/panel/nei"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -280,7 +355,7 @@ theme_override_fonts/font = ExtResource("3_oania")
 text = "TEXT_NOTENOUGH"
 horizontal_alignment = 1
 
-[node name="nei_vbox" type="VBoxContainer" parent="TabContainer/TAB_SELLING/panel/nei"]
+[node name="nei_vbox" type="VBoxContainer" parent="Control/TabContainer/TAB_SELLING/panel/nei"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -293,7 +368,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/TAB_SELLING"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/TAB_SELLING"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,55 +380,55 @@ offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/TAB_SELLING/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/TAB_SELLING/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
-[node name="TAB_BUYING" type="TabBar" parent="TabContainer"]
+[node name="TAB_BUYING" type="TabBar" parent="Control/TabContainer"]
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cnrhv")
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/TAB_BUYING"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/TAB_BUYING"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 61.0
 offset_top = 16.0
-offset_right = 21.0
+offset_right = -11.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/TAB_BUYING/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/TAB_BUYING/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/TAB_BUYING/ScrollContainer/GridContainer"]
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/TAB_BUYING/ScrollContainer/GridContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 320
 theme_override_constants/v_separation = 384
 columns = 3
 script = ExtResource("3_pukmn")
 
-[node name="warehouse_management" type="Node" parent="TabContainer/TAB_BUYING"]
+[node name="warehouse_management" type="Node" parent="Control/TabContainer/TAB_BUYING"]
 script = ExtResource("4_2lnht")
 
-[node name="TAB_UPGRADES" type="TabBar" parent="TabContainer"]
+[node name="TAB_UPGRADES" type="TabBar" parent="Control/TabContainer"]
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cnrhv")
 metadata/_tab_index = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/TAB_UPGRADES"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/TAB_UPGRADES"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -365,14 +440,14 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/TAB_UPGRADES/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/TAB_UPGRADES/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 14
 script = ExtResource("6_pukmn")
 
-[node name="Label" type="Label" parent="TabContainer/TAB_UPGRADES"]
+[node name="Label" type="Label" parent="Control/TabContainer/TAB_UPGRADES"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

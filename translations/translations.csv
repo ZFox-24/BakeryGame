@@ -13,7 +13,7 @@ SETTING_LIGHTING_BACKED,Запеченное,Baked
 SETTING_LIGHTING_REAL,Динамическое,Dynamic
 SETTING_SHADOWS,Тени,Shadows
 SETTING_TEXTURES,Разрешение текстур,Textures resolution
-SETTING_SENSITIVITY,Чувствительность,Sensitivity
+SETTING_SENSITIVITY,Чувствительность камеры,Camera sensitivity
 TEXT_CONFIRMDELETE,Вы действительно хотите удалить текущее сохранение и начать заново?,Do you really wish to delete the save and start over?
 KEY_YES,Да,Yes
 KEY_NO,Нет,No
